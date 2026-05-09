@@ -67,16 +67,6 @@ h1 {
   font-weight: 400;
 }
 
-.section-title {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-bottom: 24px;
-}
-
 .report-list {
   list-style: none;
   display: grid;
@@ -157,6 +147,52 @@ footer a {
   text-decoration-color: var(--rule);
 }
 
+.tabs {
+  display: flex;
+  margin-bottom: 32px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.tab {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+  padding: 10px 24px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.tab:hover {
+  color: var(--ink-secondary);
+}
+
+.tab.active {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
 @media (max-width: 600px) {
   .container { padding: 48px 24px 80px; }
   .report-item a {
@@ -177,33 +213,44 @@ footer a {
   <header>
     <div class="eyebrow">Equity Research</div>
     <h1>個股深度研究報告</h1>
-    <p class="subtitle">Taiwan Stock Market — Independent Research Notes</p>
+    <p class="subtitle">Independent Research Notes</p>
   </header>
 
   <section>
-    <div class="section-title">Reports</div>
-    <ul class="report-list">
-      <li class="report-item">
-        <a href="Atlassian_TEAM_Report_20260508.html">
-          <div class="ticker">TEAM</div>
-          <div class="report-meta">
-            <div class="report-name">Atlassian</div>
-            <div class="report-desc">Atlassian Corporation — 深度研究報告</div>
-          </div>
-          <div class="report-date">2026.05.08</div>
-        </a>
-      </li>
-      <li class="report-item">
-        <a href="2645_Report_20260423.html">
-          <div class="ticker">2645</div>
-          <div class="report-meta">
-            <div class="report-name">長榮航太</div>
-            <div class="report-desc">Evergreen Aviation Technologies — 深度研究報告</div>
-          </div>
-          <div class="report-date">2026.04.23</div>
-        </a>
-      </li>
-    </ul>
+    <nav class="tabs">
+      <button class="tab active" data-market="tw">台股</button>
+      <button class="tab" data-market="us">美股</button>
+    </nav>
+
+    <div class="tab-panel active" id="panel-tw">
+      <ul class="report-list">
+        <li class="report-item">
+          <a href="2645_Report_20260423.html">
+            <div class="ticker">2645</div>
+            <div class="report-meta">
+              <div class="report-name">長榮航太</div>
+              <div class="report-desc">Evergreen Aviation Technologies — 深度研究報告</div>
+            </div>
+            <div class="report-date">2026.04.23</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-panel" id="panel-us">
+      <ul class="report-list">
+        <li class="report-item">
+          <a href="Atlassian_TEAM_Report_20260508.html">
+            <div class="ticker">TEAM</div>
+            <div class="report-meta">
+              <div class="report-name">Atlassian</div>
+              <div class="report-desc">Atlassian Corporation — 深度研究報告</div>
+            </div>
+            <div class="report-date">2026.05.08</div>
+          </a>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <footer>
@@ -211,5 +258,15 @@ footer a {
     Source on <a href="https://github.com/R0ywu/stock-research">GitHub</a>.
   </footer>
 </div>
+<script>
+document.querySelectorAll('.tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelector('.tab.active').classList.remove('active');
+    document.querySelector('.tab-panel.active').classList.remove('active');
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.market).classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
