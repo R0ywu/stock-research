@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unicycive Therapeutics (UNCY) 深度研究報告 | 2026.05.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+/* === HEADER === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #e8a87c; }
+.rating-value.bear { color: #e8a87c; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "執行摘要";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 44px;
+}
+
+.thesis-card {
+  padding: 22px 24px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.thesis-desc {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.section { margin-bottom: 44px; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.body-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.body-text strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lead-para {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.lead-para::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--accent);
+}
+
+.price-chart-container {
+  margin: 24px 0 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.chart-caption {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.chart-sub {
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 14px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 13px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td { border-bottom: 2px solid var(--ink); }
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label { font-weight: 700; }
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.pullquote {
+  background: var(--pullquote-bg);
+  color: white;
+  padding: 36px 40px;
+  margin: 36px -20px;
+  position: relative;
+}
+
+.pullquote::before {
+  content: "\"";
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+}
+
+.pullquote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pullquote-author {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 14px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scenario-desc {
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.action-matrix {
+  background: var(--bg);
+  padding: 24px 28px;
+  margin: 20px 0;
+  border: 2px solid var(--ink);
+}
+
+.action-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 13px;
+}
+
+.action-row:last-child { border-bottom: none; }
+
+.action-key {
+  font-weight: 600;
+  color: var(--accent-dark);
+  font-family: 'Noto Serif TC', serif;
+}
+
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--negative);
+}
+
+.risks-list { list-style: none; font-size: 13px; }
+
+.risks-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.catalyst-list { margin: 20px 0; }
+
+.catalyst-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+}
+
+.catalyst-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.catalyst-desc { font-size: 13px; }
+
+.catalyst-desc strong {
+  display: block;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.catalyst-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-align: right;
+  color: var(--ink-secondary);
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell { background: var(--bg-card); padding: 16px 18px; }
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .catalyst-item { grid-template-columns: 1fr; gap: 4px; }
+  .catalyst-impact { text-align: left; }
+  .action-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · US Biotech</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">UNCY-US · INITIATION</div>
+      <div>2026.05.09</div>
+      <div>15 pages · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">生技醫療 · 腎病 / 高磷血症 / Phosphate Binder</div>
+      <h1 class="company-title">Unicycive Therapeutics<span class="ticker">UNCY.US</span></h1>
+      <div class="report-subtitle">Sell-side narrative 與 informed money 動向的結構性背離</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value bear">UNDERWEIGHT</div>
+      <div class="rating-sub">(避免追價)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">7.77<span class="unit">USD</span></div>
+      <div class="rating-sub">As of 2026.05.08</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value (E[P])</div>
+      <div class="rating-value">6.08<span class="unit">USD</span></div>
+      <div class="rating-sub">Overvalued ~22%</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">PDUFA Date</div>
+      <div class="rating-value">06.29<span class="unit">2026</span></div>
+      <div class="rating-sub">51 days away</div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">SEC EDGAR 一手資料推翻所有市場 narrative：5 家 healthcare specialist 在 CRL 之前同步砍倉 90%，CRL 之後沒有實質回補。</p>
+    <p>Unicycive 是腎病 micro-cap 公司，主資產 OLC（oxylanthanum carbonate）將於 2026/6/29 PDUFA。Sell-side 共識目標價 $25.67 暗示 +230% 上漲空間，但拆解 13F 與 Form 4 後發現：5 家生技專業基金（Vivo / Nantahala / Logos / Octagon / Great Point）在 2025/Q2 同步減持 89.3%，自 Q3 起完全持平不動；自 2025/8/26 起所有公司內部人 0 筆 open market 買進；Vivo 派駐董事 Aggarwal 在 PDUFA 前 12 週辭職。本研究機率加權後的 fair value 為 $6.08，現價 $7.77 已 overvalued ~22%。Bear case 不只是 PDUFA 失利，更是商業化結構不利（透析中心採購邏輯偏好 generic）+ warrant 結構強迫核准後立即稀釋的雙重問題。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">Informed Money 持續退場</div>
+      <div class="thesis-desc">5 家 healthcare specialist 在 CRL 前砍倉 -89.3%，CRL 後 9 個月內 0 加倉；Form 4 顯示內部人 0 筆現金買進。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">商業化結構不利</div>
+      <div class="thesis-desc">OLC 是 lanthanum 改良配方，非 first-in-class；TDAPA 機制下透析中心採購偏好 generic；ARDX Xphozah 季銷售已下滑驗證市場結構困難。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">Warrant 強迫稀釋</div>
+      <div class="thesis-desc">2023 年 $130M 融資中 Tranche A/B/C warrants 在 PDUFA 後依次觸發；過去 14 個月流通股已稀釋 +137%，PDUFA 後仍將立即啟動下一輪。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: PRICE ACTION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">股價軌跡校正</div>
+      <div class="section-kicker">Price Action</div>
+    </div>
+
+    <p class="lead-para">
+      UNCY 自 2025/6/30 收到 CRL 後股價暴跌至 52 週低點 $3.71，2026/1/29 FDA 受理 NDA 重新提交後啟動 PDUFA-driven rally，於 4 月寫下 52 週高點 $11.00 後回檔，目前在 $7.77 整理。50 日 SMA $6.91 高於 200 日 SMA $6.22，呈 golden cross 結構，但 5/8 量縮回吐 -4.4% 顯示 $8 上方有獲利賣壓。
+    </p>
+
+    <p class="body-text">
+      技術面結構是「PDUFA 前事件驅動 rally」的標準型態，但<strong>量能訊號值得警惕</strong>：5/8 成交量 267K 僅日均 568K 的 47%，意味機構買盤未進場、追價多為 retail FOMO。在 informed money 不買進的背景下，$8 之上缺乏結構性支撐。
+    </p>
+
+    <!-- SVG CHART -->
+    <div class="price-chart-container">
+      <div class="chart-caption">圖 1 · 過去 12 個月股價軌跡（調整後）</div>
+      <div class="chart-sub">Source: NASDAQ. Data: 2025.05–2026.05.08.</div>
+      <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <rect width="720" height="280" fill="transparent"/>
+
+        <!-- Grid lines -->
+        <g stroke="#d8d4cd" stroke-width="0.5" stroke-dasharray="2,3">
+          <line x1="60" y1="40" x2="690" y2="40"/>
+          <line x1="60" y1="80" x2="690" y2="80"/>
+          <line x1="60" y1="120" x2="690" y2="120"/>
+          <line x1="60" y1="160" x2="690" y2="160"/>
+          <line x1="60" y1="200" x2="690" y2="200"/>
+        </g>
+
+        <!-- Y-axis labels -->
+        <g font-family="IBM Plex Mono" font-size="10" fill="#8a8f94">
+          <text x="50" y="43" text-anchor="end">$12</text>
+          <text x="50" y="83" text-anchor="end">$10</text>
+          <text x="50" y="123" text-anchor="end">$8</text>
+          <text x="50" y="163" text-anchor="end">$6</text>
+          <text x="50" y="203" text-anchor="end">$4</text>
+        </g>
+
+        <!-- 52w high reference -->
+        <line x1="60" y1="60" x2="690" y2="60" stroke="#b8351a" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <text x="695" y="63" font-family="IBM Plex Mono" font-size="9" fill="#b8351a" font-weight="600">$11.00 高</text>
+
+        <!-- 52w low reference -->
+        <line x1="60" y1="206" x2="690" y2="206" stroke="#2d5a3f" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <text x="695" y="209" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f" font-weight="600">$3.71 低</text>
+
+        <!-- Fair value reference -->
+        <line x1="60" y1="158" x2="690" y2="158" stroke="#8a6d2e" stroke-width="1" stroke-dasharray="2,2" opacity="0.7"/>
+        <text x="695" y="161" font-family="IBM Plex Mono" font-size="9" fill="#8a6d2e" font-weight="600">$6.08 FV</text>
+
+        <!-- Price line: May 2025 to May 2026 -->
+        <!-- x: 60-690 spans 12 months; key dates: 6/30 CRL, 12/29 resubmit, 1/29 accept, 4/1 high -->
+        <path d="M 60,140 L 90,135 L 120,128 L 150,165 L 165,205
+                 L 200,195 L 230,190 L 260,180 L 290,178 L 320,182
+                 L 350,165 L 380,155 L 410,140 L 440,130 L 470,115
+                 L 500,98 L 530,75 L 560,90 L 590,110 L 620,125 L 650,138 L 680,128"
+              fill="none" stroke="#0f1419" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Key events -->
+        <g>
+          <!-- 6/30 CRL -->
+          <circle cx="165" cy="205" r="5" fill="#b8351a"/>
+          <text x="165" y="225" text-anchor="middle" font-family="Noto Serif TC" font-size="10" font-weight="700" fill="#b8351a">6/30 CRL</text>
+          <text x="165" y="237" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#b8351a">$3.71 ↓</text>
+
+          <!-- 1/29 NDA accepted -->
+          <circle cx="410" cy="140" r="4" fill="#2d5a3f"/>
+          <text x="410" y="125" text-anchor="middle" font-family="Noto Serif TC" font-size="9" font-weight="700" fill="#0f1419">1/29 NDA 受理</text>
+
+          <!-- 4 月高點 -->
+          <circle cx="530" cy="75" r="5" fill="#b8351a"/>
+          <text x="530" y="62" text-anchor="middle" font-family="Noto Serif TC" font-size="10" font-weight="900" fill="#b8351a">4 月 52w 高</text>
+          <text x="530" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="600" fill="#0f1419">$11.00</text>
+
+          <!-- 4/6 Aggarwal 辭 -->
+          <circle cx="555" cy="89" r="4" fill="#8a6d2e"/>
+          <text x="555" y="105" text-anchor="middle" font-family="IBM Plex Mono" font-size="8" fill="#8a6d2e">4/6 Aggarwal 辭職</text>
+
+          <!-- 5/8 現價 -->
+          <circle cx="680" cy="128" r="5" fill="#8a6d2e" stroke="#0f1419" stroke-width="1.5"/>
+          <text x="680" y="115" text-anchor="end" font-family="Noto Serif TC" font-size="10" font-weight="700" fill="#0f1419">5/8 現價</text>
+          <text x="680" y="103" text-anchor="end" font-family="IBM Plex Mono" font-size="10" font-weight="600" fill="#8a6d2e">$7.77</text>
+        </g>
+
+        <!-- X axis -->
+        <line x1="60" y1="248" x2="690" y2="248" stroke="#0f1419" stroke-width="1"/>
+        <g font-family="IBM Plex Mono" font-size="10" fill="#4a5056">
+          <text x="90" y="265" text-anchor="middle">MAY</text>
+          <text x="180" y="265" text-anchor="middle">JUL</text>
+          <text x="270" y="265" text-anchor="middle">SEP</text>
+          <text x="360" y="265" text-anchor="middle">NOV</text>
+          <text x="450" y="265" text-anchor="middle">JAN</text>
+          <text x="540" y="265" text-anchor="middle">MAR</text>
+          <text x="630" y="265" text-anchor="middle">MAY</text>
+        </g>
+
+        <!-- Stage annotations -->
+        <g font-family="IBM Plex Mono" font-size="8" fill="#8a8f94" letter-spacing="1">
+          <text x="180" y="278" text-anchor="middle">CRL CRASH</text>
+          <text x="360" y="278" text-anchor="middle">RESUBMIT WAIT</text>
+          <text x="540" y="278" text-anchor="middle">PDUFA RALLY</text>
+          <text x="650" y="278" text-anchor="middle">DECAY</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">52w 高 / 低</div>
+        <div class="stat-value">11.00</div>
+        <div class="stat-sub">/ $3.71</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">市值</div>
+        <div class="stat-value">196<span style="font-size:14px">M</span></div>
+        <div class="stat-sub">25.24M shares</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">50/200 SMA</div>
+        <div class="stat-value">6.91</div>
+        <div class="stat-sub">/ $6.22 (golden cross)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">5/8 量能</div>
+        <div class="stat-value">47<span style="font-size:14px">%</span></div>
+        <div class="stat-sub">vs 日均 568K</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: COMPANY & ASSET -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">公司基本面</div>
+      <div class="section-kicker">Company & Asset</div>
+    </div>
+
+    <p class="body-text">
+      Unicycive 是位於加州 Los Altos 的腎病臨床期 biotech，<strong>目前 0 個已核准產品、0 元產品營收</strong>。資產組合單一，估值 95% 集中在 OLC：
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>資產</th>
+          <th>適應症</th>
+          <th>機制</th>
+          <th>階段</th>
+          <th class="right">關鍵時點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">OLC</td>
+          <td>慢性腎病透析患者高磷血症</td>
+          <td>口服 phosphate binder（lanthanum 改良配方）</td>
+          <td>505(b)(2) NDA</td>
+          <td class="right">PDUFA 6/29</td>
+        </tr>
+        <tr>
+          <td class="label">UNI-494</td>
+          <td>急性腎損傷</td>
+          <td>nicorandil prodrug · mitoKATP 通道</td>
+          <td>Phase 2 暫停</td>
+          <td class="right">無近期催化</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>OLC 的真實 differentiation 只有一件事：pill burden 降低</strong>。它本質是 lanthanum carbonate（Fosrenol）的奈米顆粒改良配方，活性成分相同。ASN Kidney Week 2025 數據顯示 OLC 相較 prior phosphate binders 減少 7x pill volume 與 2x pill count。
+    </p>
+
+    <p class="body-text">
+      <strong>OLC NDA 監管時序</strong>：原始 NDA 於 2024 年中提交；2025/6/30 收到 CRL，單一缺陷源於第三方製造商合規問題，無 clinical/safety 疑慮；2025/9 Type A meeting；2025/12/29 NDA 重新提交；2026/1/29 FDA 受理為 Class II complete response，PDUFA 訂為 2026/6/29。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">第二層思考 · CRL Risk</div>
+      <div class="callout-body">
+        市場認為 CRL 已 de-risked，但<strong>原始第三方製造商的合規問題沒有被「修好」，是被「繞過」</strong>。公司聲明原廠已大幅改善，但從 CRL（2025/6）到 resubmission（2025/12）僅 6 個月，遠短於 FDA 級別 cGMP remediation 的典型 6–18 個月週期。FDA 仍可能在 PDUFA 前做 Pre-Approval Inspection 並再次發現問題。Class II 重新提交意味 major review，而非輕量複審。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: INFORMED MONEY -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">籌碼面深度分析（SEC EDGAR 一手資料）</div>
+      <div class="section-kicker">Informed Money</div>
+    </div>
+
+    <p class="lead-para">
+      本研究最關鍵的發現：直接從 SEC EDGAR 拉取 8 家機構過去 5 季的 13F-HR 與 UNCY 全部 9 筆 Form 4，<strong>實際資料完全推翻所有市場新聞 narrative</strong>——所謂「Vivo Q4 加倉 123%」「Nantahala Q4 加倉 268%」「BVF/RA Capital 各持 9.99%」皆為錯誤。
+    </p>
+
+    <div class="chart-caption" style="margin-top:24px;">表 1 · 5 家 Healthcare Specialist 過去 5 季 UNCY 持股（股數）</div>
+    <div class="chart-sub">Source: SEC EDGAR Form 13F-HR. Pulled 2026.05.09.</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>機構</th>
+          <th class="right">2024Q4</th>
+          <th class="right">2025Q1</th>
+          <th class="right">2025Q2</th>
+          <th class="right">2025Q3</th>
+          <th class="right">2025Q4</th>
+          <th class="right">高峰變化</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Vivo Capital</td>
+          <td class="right">9,970,152</td>
+          <td class="right">11,370,152</td>
+          <td class="right neg">1,137,015</td>
+          <td class="right">1,789,916</td>
+          <td class="right">1,789,916</td>
+          <td class="right neg">-84.3%</td>
+        </tr>
+        <tr>
+          <td class="label">Nantahala</td>
+          <td class="right">10,391,994</td>
+          <td class="right">9,391,994</td>
+          <td class="right neg">939,202</td>
+          <td class="right">939,202</td>
+          <td class="right">939,202</td>
+          <td class="right neg">-90.0%</td>
+        </tr>
+        <tr>
+          <td class="label">Logos Global</td>
+          <td class="right">5,078,927</td>
+          <td class="right">5,078,927</td>
+          <td class="right neg">473,562</td>
+          <td class="right">473,563</td>
+          <td class="right">473,563</td>
+          <td class="right neg">-90.7%</td>
+        </tr>
+        <tr>
+          <td class="label">Octagon Capital</td>
+          <td class="right">10,000,000</td>
+          <td class="right">10,000,000</td>
+          <td class="right neg">1,000,000</td>
+          <td class="right">1,000,000</td>
+          <td class="right">1,000,000</td>
+          <td class="right neg">-90.0%</td>
+        </tr>
+        <tr>
+          <td class="label">Great Point</td>
+          <td class="right">10,980,000</td>
+          <td class="right">10,980,000</td>
+          <td class="right neg">796,558</td>
+          <td class="right">796,558</td>
+          <td class="right">796,558</td>
+          <td class="right neg">-92.7%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">合計</td>
+          <td class="right">46,421,073</td>
+          <td class="right">46,821,073</td>
+          <td class="right neg">4,346,337</td>
+          <td class="right">4,999,239</td>
+          <td class="right">4,999,239</td>
+          <td class="right neg">-89.3%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>5 家 specialist 在 Q1→Q2 同步砍倉 ~90%，這在 small-cap biotech 籌碼結構中是極為罕見的同步行動</strong>，必然有共同的非公開資訊驅動。CRL 在 2025/6/30 公告，但這 5 家在 6/30 之前的某個時點已將持股減持至原來的 10%。可能的解釋：(a) 透過 NDA review 後期的 informal feedback 取得 manufacturing 風險訊號；(b) 透過 Vivo 董事席位間接傳導；(c) specialist network 中的一致情報。<strong>無論原因，所有 informed money 在 CRL 落地前已預先 de-risk</strong>。
+    </p>
+
+    <p class="body-text">
+      更關鍵的是 CRL 之後的「無動作」：從 Q2 到 Q4（6 個月），5 家機構合計只增加 65 萬股，且這 65 萬股全部來自 Vivo 一家——而 Vivo 的「加倉」其實是<strong>董事 Aggarwal 個人將 Series A-2 Preferred 強制轉換成普通股</strong>（2025/8/25 Form 4 揭露），不是 Vivo 在公開市場買進。<strong>Q3→Q4 期間（包括 12/29 NDA 重新提交、1/29 FDA 受理 PDUFA）5 家全部 0 加倉</strong>。
+    </p>
+
+    <div class="pullquote">
+      <div class="pullquote-text">
+        如果 informed money 對 6/29 PDUFA 的 outlook 是 80% 過關，CRL 後股價跌至 $4-6 區間是極佳的加碼點。5 家 specialist 全部選擇不加碼。市場 implied 機率與 informed money implied 機率之間的鴻溝，就是 alpha。
+      </div>
+      <div class="pullquote-author">— KEY INSIGHT · INFORMED MONEY</div>
+    </div>
+
+    <div class="chart-caption" style="margin-top:24px;">表 2 · UNCY 內部人 Form 4 完整紀錄（2025/2 ~ 2026/5）</div>
+    <div class="chart-sub">Source: SEC EDGAR Form 4. 9 筆全部解析。</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>日期</th>
+          <th>申報人</th>
+          <th>角色</th>
+          <th>類型</th>
+          <th class="right">數量</th>
+          <th>解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025/2/18</td>
+          <td class="label">Aggarwal</td>
+          <td>Vivo 董事</td>
+          <td>Conversion</td>
+          <td class="right">+1,400,000 股</td>
+          <td>Preferred 轉普通股</td>
+        </tr>
+        <tr>
+          <td>2025/7/28</td>
+          <td class="label">Gupta</td>
+          <td>CEO</td>
+          <td>Award</td>
+          <td class="right">+325,000 options</td>
+          <td>$4.71 行使價</td>
+        </tr>
+        <tr>
+          <td>2025/7/28</td>
+          <td class="label">其他 6 名管理層</td>
+          <td>CFO/EVP/董事</td>
+          <td>Award</td>
+          <td class="right">+173,600 options</td>
+          <td>同批授予</td>
+        </tr>
+        <tr>
+          <td>2025/8/25</td>
+          <td class="label">Aggarwal</td>
+          <td>Vivo 董事</td>
+          <td>Conversion</td>
+          <td class="right">+652,900 股</td>
+          <td>Preferred 轉普通股</td>
+        </tr>
+        <tr class="highlight">
+          <td>2025/8/26 起</td>
+          <td class="label">所有內部人</td>
+          <td>—</td>
+          <td>Open Market Buy</td>
+          <td class="right neg">0 筆</td>
+          <td>無 cash conviction</td>
+        </tr>
+        <tr class="highlight">
+          <td>2026/4/6</td>
+          <td class="label">Aggarwal</td>
+          <td>離任</td>
+          <td>董事辭職</td>
+          <td class="right">—</td>
+          <td>移除 Vivo 賣股法律障礙</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層思考 · Aggarwal 辭職</div>
+      <div class="callout-body">
+        Vivo 派駐董事在 PDUFA 前 12 週辭職的 implication 是<strong>移除 Section 16 reporting 限制</strong>——若 6/29 過關，Vivo 可以在 PDUFA 公告當日或之後任何時點賣出剩餘 1.79M 股，毫無 blackout 限制。<strong>Vivo 不只是「不加碼」，還主動為「賣出」鋪路</strong>。配合 Form 4 顯示 8 個月內全公司內部人 0 筆現金買進，conviction signal 是清晰的負面。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: COMMERCIAL STRUCTURE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">商業化結構分析</div>
+      <div class="section-kicker">Commercial Structure</div>
+    </div>
+
+    <p class="body-text">
+      即使 6/29 PDUFA 過關，OLC 面對的市場結構並不友善。CMS 自 2025/1/1 起把 oral phosphate binders 納入 ESRD PPS bundle，TDAPA 給付 100% ASP + $36.41 monthly add-on。<strong>關鍵在於：透析中心成為實際採購決策者，而不是病人</strong>。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>競爭品</th>
+          <th>機制</th>
+          <th>地位</th>
+          <th class="right">2025 動向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Sevelamer (generic)</td>
+          <td>非鈣 phosphate binder</td>
+          <td>市場主流</td>
+          <td class="right">學名藥價格壓力</td>
+        </tr>
+        <tr>
+          <td class="label">Lanthanum carbonate (generic)</td>
+          <td>稀土 phosphate binder</td>
+          <td>OLC 直接競爭</td>
+          <td class="right">同活性成分</td>
+        </tr>
+        <tr>
+          <td class="label">Xphozah (Ardelyx)</td>
+          <td>NHE3 抑制（first-in-class）</td>
+          <td>差異化競品</td>
+          <td class="right neg">Q3'25 -47% YoY</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">OLC (Unicycive)</td>
+          <td>奈米顆粒 lanthanum 改良</td>
+          <td>未上市</td>
+          <td class="right">主打 pill burden</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>透析中心的採購邏輯</strong>：DaVita 與 Fresenius 控制美國約 75% 透析市場。發 OLC 或 generic lanthanum，TDAPA 收入相同（100% ASP + $36.41）；但 generic lanthanum 進貨成本遠低於 branded OLC，中心利潤更高。<strong>OLC 缺乏經濟誘因說服中心改採用</strong>，唯一突圍路徑是與透析寡占商簽 strategic agreement 提供 rebate，但 Unicycive 未公開揭露任何此類協議。
+    </p>
+
+    <p class="body-text">
+      <strong>對照組的殘酷現實</strong>：Ardelyx 的 Xphozah 是真正的 first-in-class（NHE3 抑制機制），但 2025 年 Q3 季度營收 $27.4M vs 2024 年同期 $51.5M，YoY -47%。即使是真正創新藥也在 2025 TDAPA transition 中受重創。OLC 作為「lanthanum 改良配方」想突破 Xphozah 都打不下的市場，更為困難。
+    </p>
+  </section>
+
+  <!-- SECTION 5: CATALYSTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">催化劑地圖</div>
+      <div class="section-kicker">Catalyst Roadmap</div>
+    </div>
+
+    <div class="catalyst-list">
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026/5/13</div>
+        <div class="catalyst-desc">
+          <strong>Q1 財報（盤前）</strong>
+          共識 EPS -$0.46。上次 Q4 mean miss $0.36（-78%），執行紀律疑慮
+        </div>
+        <div class="catalyst-impact">±5~10%<br/><span style="color:var(--neutral)">已反映 30%</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026/5/15</div>
+        <div class="catalyst-desc">
+          <strong>Q1 2026 13F 申報截止</strong>
+          觀察 specialist 是否進一步減倉、Vivo 持股動向、新進場 multi-strat
+        </div>
+        <div class="catalyst-impact">±5~8%<br/><span style="color:var(--accent)">關鍵指標 ⭐</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026/5/30 ~ 6/15</div>
+        <div class="catalyst-desc">
+          <strong>FDA Pre-Approval Inspection 結果</strong>
+          通常 PDUFA 前 4-8 週執行；通過則正面，發現新缺陷則 CRL 風險升高
+        </div>
+        <div class="catalyst-impact">±15~30%<br/><span style="color:var(--accent)">最關鍵變數</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026/6/29</div>
+        <div class="catalyst-desc">
+          <strong>OLC PDUFA Target Action Date</strong>
+          核准 → spike + warrant 啟動稀釋；CRL → 跌破 $3
+        </div>
+        <div class="catalyst-impact">±30~60%<br/><span style="color:var(--accent)">Binary Event ⭐</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026/7/28</div>
+        <div class="catalyst-desc">
+          <strong>管理層第一筆 stock options vest</strong>
+          124,650 options vest（PDUFA 後 30 天）；後續是否 exercise & sell 訊號
+        </div>
+        <div class="catalyst-impact">±5~15%<br/><span style="color:var(--neutral)">conviction 驗證</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q3</div>
+        <div class="catalyst-desc">
+          <strong>商業上市（若核准）</strong>
+          Sales force 建置、payer contracting、TDAPA HCPCS code 申請
+        </div>
+        <div class="catalyst-impact">+5~20%<br/><span style="color:var(--positive)">執行驗證</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2027 Q1</div>
+        <div class="catalyst-desc">
+          <strong>TDAPA designation（若核准）+ 首四季商業銷售</strong>
+          觸發 Tranche B/C warrants 進一步稀釋
+        </div>
+        <div class="catalyst-impact">-10~20%<br/><span style="color:var(--negative)">稀釋啟動</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: FINANCIAL & DILUTION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">財務與稀釋風險</div>
+      <div class="section-kicker">Financials & Dilution</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>科目</th>
+          <th class="right">2024A</th>
+          <th class="right">2025A</th>
+          <th class="right">2026E</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">產品營收（M）</td>
+          <td class="right">0</td>
+          <td class="right">0</td>
+          <td class="right">~5–15</td>
+        </tr>
+        <tr>
+          <td class="label">R&D（M）</td>
+          <td class="right">20.0</td>
+          <td class="right">9.1</td>
+          <td class="right">8–12</td>
+        </tr>
+        <tr>
+          <td class="label">G&A（M）</td>
+          <td class="right">12.1</td>
+          <td class="right">20.4</td>
+          <td class="right">35–50</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">淨損（M）</td>
+          <td class="right neg">-37.8</td>
+          <td class="right neg">-26.6</td>
+          <td class="right neg">-40~-60</td>
+        </tr>
+        <tr>
+          <td class="label">EPS</td>
+          <td class="right">-$5.65</td>
+          <td class="right">-$1.67</td>
+          <td class="right">-$1.5~-$2.0</td>
+        </tr>
+        <tr>
+          <td class="label">流通股（M）</td>
+          <td class="right">11.4</td>
+          <td class="right">25.2</td>
+          <td class="right">35–45</td>
+        </tr>
+        <tr>
+          <td class="label">YoY 稀釋</td>
+          <td class="right">—</td>
+          <td class="right neg">+121%</td>
+          <td class="right neg">+40~80%</td>
+        </tr>
+        <tr>
+          <td class="label">現金（M, 季末）</td>
+          <td class="right">26.1</td>
+          <td class="right">41.3</td>
+          <td class="right">70–110</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>2023 年 $130M 融資的 warrant 結構</strong>是稀釋的引爆點：Tranche A（$25M @ FDA 核准後 21 天）、Tranche B（$25M @ TDAPA 後 21 天）、Tranche C（$50M @ 首四季商業銷售公告後 21 天）。也就是說，<strong>6/29 一旦核准，Tranche A 在 21 天內必然執行</strong>，公司收 $25M 現金的同時新增稀釋。這不是「會不會稀釋」的問題，而是「核准日當天就被合約綁定要稀釋」。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">勝利者陷阱 · Winner's Trap</div>
+      <div class="callout-body">
+        典型 small-cap biotech 在 PDUFA 過關後 60-90 天內幾乎必然執行 follow-on offering，理由：「launch capital needs」「乘股價反映正面催化劑時融資成本最低」。Unicycive 過去 14 個月已稀釋 +121%，是「習慣性融資」型公司。<strong>真正的 buying point 不是核准前，而是核准後融資完成、股價回穩的那一刻</strong>——但屆時已經沒有 catalyst 推升動能。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VII.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenario Analysis</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull Case</div>
+        <div class="scenario-prob">15%</div>
+        <div class="scenario-target">目標 $15~$22</div>
+        <div class="scenario-desc">6/29 核准 + Q3 launch 順利 + Tranche A 執行後股價維穩 + TDAPA Q4 啟動公告 + DaVita/Fresenius 採購協議</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base Case</div>
+        <div class="scenario-prob">45%</div>
+        <div class="scenario-target">區間 $4~$7</div>
+        <div class="scenario-desc">6/29 核准但 launch 緩慢、稀釋壓力下股價橫盤、商業執行平庸；類似 Xphozah 的 commercial transition 困境</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear Case</div>
+        <div class="scenario-prob">40%</div>
+        <div class="scenario-target">下探 $1.5~$3</div>
+        <div class="scenario-desc">6/29 又拿 CRL 或 PAI 失敗 + 被迫 dilutive financing + 訴訟和解費用 + 被 small-cap biotech generalists 拋售</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top:16px;">
+      機率加權後的<strong>期望股價為 $6.08</strong>（0.15×18 + 0.45×5.5 + 0.40×2.25），相較現價 $7.77 已 overvalued ~22%。本研究的 bear case 機率（40%）顯著高於 sell-side 共識的 bull case 機率（80%+），分歧來源即在於 sell-side 主要看 catalyst narrative，而本研究納入了 informed money 動向、商業化結構、稀釋路徑三大結構性負面因子。
+    </p>
+  </section>
+
+  <!-- SECTION 8: ACTION PLAN -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VIII.</div>
+      <div class="section-title">操作策略</div>
+      <div class="section-kicker">Actionable Framework</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">建議倉位（保守版 · 強烈建議）</div>
+      <div class="action-row">
+        <div class="action-key">當前部位</div>
+        <div>不建倉。$7.77 已 overvalued 22%，且 informed money 動向偏負面。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">已有部位者</div>
+        <div>$8 附近 trim 部分鎖定獲利。剩餘部位設停利 $5.50（200 日 SMA）作 trailing stop。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">5/15 後再評估</div>
+        <div>看 Q1 13F：specialist 進一步減倉 → 避開；持平 → 維持觀望；明顯加倉 → 重新評估。</div>
+      </div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">建議倉位（風險偏好版 · 投機者）</div>
+      <div class="action-row">
+        <div class="action-key">倉位上限</div>
+        <div>≤ 1% 總部位（可全損的金額）。binary event 投機，不是長期持有。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">進場區間</div>
+        <div>等 5/13 財報後拉回至 $6.5~$7。分批 1/3 + 1/3 + 1/3。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">出場規則</div>
+        <div>6/27（PDUFA 前 2 個交易日）出 50% 鎖定 risk premium；6/29 當天根據結果處理剩餘。<strong>不論結果，6/29 後一週內全數退出</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">替代結構</div>
+        <div>6/27 expiry options 做 long straddle，押 IV crush 後方向；風險有限、不需擇時方向。</div>
+      </div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">關鍵追蹤指標</div>
+      <div class="action-row">
+        <div class="action-key">正面訊號</div>
+        <div>Form 4 出現 CEO/CFO open market buying · Q1 13F specialist 加倉 · FDA PAI 通過 · 5/13 財報 beat</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">警戒訊號</div>
+        <div>Vivo Q1 13F 進一步減倉 · 量縮 spike 至 $9~10 · 公告 follow-on offering · AdComm 召開公告</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">退出訊號</div>
+        <div>6/29 結果（Bull → 立即賣 50%, Bear → 立即賣全部）· 跌破 $5.50 · 出現新 CRL · CMC 紅旗訊號</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: RISKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IX.</div>
+      <div class="section-title">風險因子</div>
+      <div class="section-kicker">Risk Factors</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">主要風險（Bear Case 觸發點）</div>
+      <ul class="risks-list">
+        <li><strong>監管風險：</strong>6/29 PDUFA 仍可能拿 CRL，第三方製造商 6 個月修復是否充分仍有疑慮；Class II resubmission 需 major review</li>
+        <li><strong>Pre-Approval Inspection：</strong>FDA 在 PDUFA 前 4-8 週執行 PAI，若發現新缺陷則直接觸發 CRL，無迴旋空間</li>
+        <li><strong>商業化風險：</strong>透析寡占中心採購邏輯偏好 generic lanthanum，OLC 缺乏經濟誘因；對照 Xphozah 在真正 first-in-class 機制下仍 YoY -47%</li>
+        <li><strong>稀釋風險：</strong>Tranche A warrants 在核准 21 天內執行（合約綁定）；Tranche B/C 後續觸發；過去 14 個月已稀釋 +121%</li>
+        <li><strong>訴訟尾巴：</strong>2025-2026 多家律師事務所對 Unicycive 發起股東集體訴訟調查，可能拖 1-2 年並暗示 CMC 領域脆弱性</li>
+        <li><strong>內部人 conviction：</strong>自 2025/8/26 起所有內部人 0 筆 open market 買進；Aggarwal 4/6 辭職移除 Vivo 賣股法律障礙</li>
+        <li><strong>估值風險：</strong>$7.77 已 implied 18% 核准成功率（用共識目標反推），但 sell-side 暗示 80%+ 機率，分歧本身就是訊號</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CALLOUT -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:40px;">
+    <div class="callout-label">Analyst's Note</div>
+    <div class="callout-body">
+      Howard Marks 第二層思考的本質，是<strong>觀察「informed money 怎麼做」而不是「sell-side 怎麼說」</strong>。當 8 家分析師全部 Buy、目標價隱含 +230% 上漲，但 5 家 healthcare specialist 同步砍倉 90%、所有內部人 8 個月 0 筆現金買進、核心董事在 PDUFA 前辭職——市場的 implied 機率（18% 核准成功）才是真實的 informed pricing，而非 sell-side narrative 的 80%+。<strong>這不是「便宜的 phosphate binder play」，這是 sell-side narrative 與 informed money 動向的結構性背離</strong>。對於投機者，唯一合理的玩法是嚴格控倉的 6/29 binary event；對於長期投資者，請耐心等候 PDUFA 結果與融資完成後的 reset 價格。記得 Marks 那句話：<strong>「投資的成功不來自買好東西，而是來自把東西買得好」</strong>。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有資料均來自公開來源（SEC EDGAR 13F-HR 與 Form 4 一手資料、CMS、FDA、公司新聞稿、stocktitan、yahoo finance、investing.com、tipranks、benzinga、Robinhood、Wallstreetzen 等），但本分析師不保證其準確性或完整性。
+      讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架；籌碼面分析方法論為直接從 SEC EDGAR 拉取一手 13F-HR 與 Form 4 XML 資料解析，避開市場新聞二手資料的失真風險。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: UNCY-US-20260509-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
