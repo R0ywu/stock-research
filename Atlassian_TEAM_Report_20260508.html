@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlassian (TEAM) 深度研究報告 | 2026.05.08</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #1e4d8c;
+  --accent-dark: #143560;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #eaf0f7;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+/* === HEADER === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+/* === REPORT META === */
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+/* === RATING PANEL === */
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #7cb0e8; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* === EXECUTIVE SUMMARY === */
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "執行摘要";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* === KEY METRICS TABLE (thesis) === */
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 44px;
+}
+
+.thesis-card {
+  padding: 22px 24px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.thesis-desc {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+/* === SECTION === */
+.section {
+  margin-bottom: 44px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+/* === BODY TEXT === */
+.body-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.body-text strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lead-para {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.lead-para::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--accent);
+}
+
+/* === PRICE CHART (SVG) === */
+.price-chart-container {
+  margin: 24px 0 28px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.chart-caption {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.chart-sub {
+  font-size: 11px;
+  color: var(--ink-muted);
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 14px;
+}
+
+/* === TABLES === */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 13px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td {
+  border-bottom: 2px solid var(--ink);
+}
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label {
+  font-weight: 700;
+}
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+/* === CALLOUT BOX === */
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* === PULL QUOTE === */
+.pullquote {
+  background: var(--pullquote-bg);
+  color: white;
+  padding: 36px 40px;
+  margin: 36px -20px;
+  position: relative;
+}
+
+.pullquote::before {
+  content: "\"";
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+}
+
+.pullquote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pullquote-author {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+/* === SCENARIOS === */
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 14px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scenario-desc {
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+/* === ACTION MATRIX === */
+.action-matrix {
+  background: var(--bg);
+  padding: 24px 28px;
+  margin: 20px 0;
+  border: 2px solid var(--ink);
+}
+
+.action-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 13px;
+}
+
+.action-row:last-child { border-bottom: none; }
+
+.action-key {
+  font-weight: 600;
+  color: var(--accent-dark);
+  font-family: 'Noto Serif TC', serif;
+}
+
+/* === RISK BOX === */
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--negative);
+}
+
+.risks-list {
+  list-style: none;
+  font-size: 13px;
+}
+
+.risks-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+/* === FOOTER === */
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* === CATALYSTS / OBSERVABLES TIMELINE === */
+.catalyst-list {
+  margin: 20px 0;
+}
+
+.catalyst-item {
+  display: grid;
+  grid-template-columns: 130px 1fr 100px;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+}
+
+.catalyst-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.catalyst-desc {
+  font-size: 13px;
+}
+
+.catalyst-desc strong {
+  display: block;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.catalyst-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-align: right;
+  color: var(--ink-secondary);
+}
+
+/* === MINI STAT === */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  background: var(--bg-card);
+  padding: 16px 18px;
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* === COMPETITIVE MATRIX === */
+.threat-matrix {
+  margin: 20px 0;
+}
+
+.threat-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 1.5fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+  font-size: 13px;
+}
+
+.threat-row:last-child { border-bottom: none; }
+
+.threat-name {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+}
+
+.threat-level {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.threat-level.high { color: var(--negative); font-weight: 700; }
+.threat-level.med-high { color: var(--negative); }
+.threat-level.med { color: var(--neutral); font-weight: 600; }
+.threat-level.med-low { color: var(--neutral); }
+.threat-level.low { color: var(--positive); font-weight: 600; }
+
+.threat-desc {
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+/* Print-ish feel */
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .catalyst-item { grid-template-columns: 1fr; gap: 4px; }
+  .catalyst-impact { text-align: left; }
+  .action-row { grid-template-columns: 1fr; gap: 4px; }
+  .threat-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+@media print {
+  body { padding: 0; background: white; }
+  .report { box-shadow: none; padding: 30px 40px; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Global SaaS</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">TEAM-US · DEEP DIVE</div>
+      <div>2026.05.08</div>
+      <div>15 pages · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">SOFTWARE · COLLABORATION · ENTERPRISE AI</div>
+      <h1 class="company-title">Atlassian<span class="ticker">TEAM.US</span></h1>
+      <div class="report-subtitle">市場用「per-seat 衰退」定價，但脈絡基礎設施才是真實故事</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">View</div>
+      <div class="rating-value accent">CONSTRUCTIVE</div>
+      <div class="rating-sub">(風險不對稱)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">~90<span class="unit">USD</span></div>
+      <div class="rating-sub">As of 2026.05.07</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Prob-Wtd Return</div>
+      <div class="rating-value">+25~45<span class="unit">%</span></div>
+      <div class="rating-sub">18-24 月期</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">52W Range</div>
+      <div class="rating-value">56–232<span class="unit">USD</span></div>
+      <div class="rating-sub">高波動性</div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">第一層思考：Atlassian 是 SaaSpocalypse 受害者。第二層思考：Atlassian 是 AI Agent 時代的企業脈絡基礎設施。</p>
+    <p>2025/10 至 2026/4 期間，TEAM 從 $232 跌至 $56（-76%），市場將其定價為 per-seat SaaS 受害者。但 2026/4/30 公布 Q3 FY26 財報，營收加速到 +32% YoY、Cloud +29%、>$10K 客戶 YoY +10%、Non-GAAP EPS $1.75 大幅超越預期 $1.34，引發單日反彈 +29%（現 ~$90、市值 ~$23B）。本報告核心論點：當 LLM 智慧被商品化（按 token 計價），企業 20 年累積的「結構化、有權限的工作脈絡」反而成為稀缺資產。Atlassian 的 30 萬企業客戶、1,500 億 Teamwork Graph 節點、$40 億累計 Marketplace App 銷售，是 AI 巨頭買不到、做不出來的護城河。賠率不對稱（上行 +100~180% vs 下行 -10~38%），但執行風險真實存在。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">敘事轉折點已現</div>
+      <div class="thesis-desc">Q3 FY26 營收加速 +32%、Cloud +29%、客戶數仍 +10% YoY，初步打臉「per-seat 衰退」敘事，分析師 Q3 後普遍上修目標價。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">中立平台戰略</div>
+      <div class="thesis-desc">Remote MCP Server 同時整合 Claude、ChatGPT、Gemini、Copilot、Cursor、Replit。AI 巨頭越競爭，Atlassian 越受益。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">護城河被低估</div>
+      <div class="thesis-desc">Marketplace 累計 $40 億 App 銷售、3,000+ Apps；受規管產業（金融、醫療、政府）所需工具 Microsoft 無法提供。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: PRICE ACTION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">股價軌跡與市場敘事</div>
+      <div class="section-kicker">Price Action</div>
+    </div>
+
+    <p class="lead-para">
+      Atlassian 過去 12 個月經歷了 SaaS 板塊近年最劇烈的估值修正。自 2025/5/13 高點 $232 一路下殺至 2026/4/10 低點 $56，跌幅 -76%，市值由 $63B 蒸發至最低點 $14B。觸發點是 Jefferies 交易員於 2026/2 將整波 SaaS sell-off 命名為「SaaSpocalypse」——核心論點：AI Agent 將取代人類席位，per-seat 訂閱模式已死。
+    </p>
+
+    <p class="body-text">
+      然而 2026/4/30 Q3 FY26 財報公布後，TEAM 單日反彈 +29%，自此進入二次校正階段，目前約 $88-92。<strong>這不是技術反彈，而是市場敘事的轉折點</strong>。三個關鍵指標同時否定 SaaSpocalypse 對 Atlassian 的適用性：營收成長加速到 +32%（前兩季僅 +21%、+23%）、Cloud +29%、企業客戶（>$10K Cloud ARR）數字仍 YoY +10%。
+    </p>
+
+    <!-- SVG CHART -->
+    <div class="price-chart-container">
+      <div class="chart-caption">圖 1 · TEAM 股價軌跡（2025/5–2026/5）</div>
+      <div class="chart-sub">Source: Yahoo Finance, CNBC, StockAnalysis. Data through 2026.05.07.</div>
+      <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <!-- Background -->
+        <rect width="720" height="280" fill="transparent"/>
+
+        <!-- Grid lines -->
+        <g stroke="#d8d4cd" stroke-width="0.5" stroke-dasharray="2,3">
+          <line x1="60" y1="40" x2="690" y2="40"/>
+          <line x1="60" y1="80" x2="690" y2="80"/>
+          <line x1="60" y1="120" x2="690" y2="120"/>
+          <line x1="60" y1="160" x2="690" y2="160"/>
+          <line x1="60" y1="200" x2="690" y2="200"/>
+        </g>
+
+        <!-- Y-axis labels -->
+        <g font-family="IBM Plex Mono" font-size="10" fill="#8a8f94">
+          <text x="50" y="43" text-anchor="end">240</text>
+          <text x="50" y="83" text-anchor="end">190</text>
+          <text x="50" y="123" text-anchor="end">140</text>
+          <text x="50" y="163" text-anchor="end">90</text>
+          <text x="50" y="203" text-anchor="end">40</text>
+        </g>
+
+        <!-- 52W high line -->
+        <line x1="60" y1="46" x2="690" y2="46" stroke="#1e4d8c" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <text x="695" y="49" font-family="IBM Plex Mono" font-size="9" fill="#1e4d8c" font-weight="600">232 高點</text>
+
+        <!-- 52W low line -->
+        <line x1="60" y1="174" x2="690" y2="174" stroke="#b8351a" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+        <text x="695" y="177" font-family="IBM Plex Mono" font-size="9" fill="#b8351a" font-weight="600">56 低點</text>
+
+        <!-- Price line trajectory: May'25 (high) → 4/10 (low) → 4/30 (rebound) → 5/7 -->
+        <!-- x mapping: May25=60, Jul=130, Sep=210, Nov=290, Jan26=370, Mar=450, Apr=530, May=620 -->
+        <path d="M 60,46 L 90,55 L 120,68 L 150,80 L 180,95 L 210,105 L 240,115 L 270,128 L 300,140 L 330,148 L 360,150 L 390,155 L 420,160 L 450,166 L 480,170 L 510,174 L 525,174 L 540,158 L 560,144 L 580,140 L 600,138 L 620,140 L 650,140"
+              fill="none" stroke="#0f1419" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Key points -->
+        <g>
+          <!-- 5/13/25 high -->
+          <circle cx="60" cy="46" r="5" fill="#1e4d8c"/>
+          <text x="60" y="32" text-anchor="start" font-family="Noto Serif TC" font-size="10" font-weight="700" fill="#0f1419">5/25 高點</text>
+          <text x="60" y="22" text-anchor="start" font-family="IBM Plex Mono" font-size="9" font-weight="600" fill="#1e4d8c">$232</text>
+
+          <!-- SaaSpocalypse -->
+          <circle cx="390" cy="155" r="3" fill="#b8351a" opacity="0.7"/>
+          <text x="390" y="142" text-anchor="middle" font-family="Noto Serif TC" font-size="9" fill="#b8351a">2/26 SaaSpocalypse</text>
+
+          <!-- 4/10 low -->
+          <circle cx="510" cy="174" r="5" fill="#b8351a"/>
+          <text x="510" y="195" text-anchor="middle" font-family="Noto Serif TC" font-size="10" font-weight="700" fill="#0f1419">4/10 低點</text>
+          <text x="510" y="207" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#b8351a">$56 (-76%)</text>
+
+          <!-- 4/30 earnings beat -->
+          <circle cx="540" cy="158" r="5" fill="#2d5a3f"/>
+          <text x="540" y="138" text-anchor="middle" font-family="Noto Serif TC" font-size="10" font-weight="700" fill="#2d5a3f">4/30 Q3 +29%</text>
+
+          <!-- Current 5/7 -->
+          <circle cx="650" cy="140" r="5" fill="#8a6d2e" stroke="#0f1419" stroke-width="1.5"/>
+          <text x="650" y="125" text-anchor="end" font-family="Noto Serif TC" font-size="10" font-weight="700" fill="#0f1419">5/7 現價</text>
+          <text x="650" y="115" text-anchor="end" font-family="IBM Plex Mono" font-size="10" font-weight="600" fill="#8a6d2e">~$90</text>
+        </g>
+
+        <!-- X axis -->
+        <line x1="60" y1="240" x2="690" y2="240" stroke="#0f1419" stroke-width="1"/>
+        <g font-family="IBM Plex Mono" font-size="10" fill="#4a5056">
+          <text x="60" y="258" text-anchor="middle">May'25</text>
+          <text x="180" y="258" text-anchor="middle">Aug</text>
+          <text x="300" y="258" text-anchor="middle">Nov</text>
+          <text x="420" y="258" text-anchor="middle">Feb'26</text>
+          <text x="540" y="258" text-anchor="middle">Apr</text>
+          <text x="650" y="258" text-anchor="middle">May'26</text>
+        </g>
+
+        <!-- Annotations for stages -->
+        <g font-family="IBM Plex Mono" font-size="8" fill="#8a8f94" letter-spacing="1">
+          <text x="180" y="220" text-anchor="middle">SLOW BLEED</text>
+          <text x="420" y="220" text-anchor="middle">SAASPOCALYPSE</text>
+          <text x="600" y="220" text-anchor="middle">REBOUND</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">52W 高點</div>
+        <div class="stat-value">232</div>
+        <div class="stat-sub">2025.05.13</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">52W 低點</div>
+        <div class="stat-value">56</div>
+        <div class="stat-sub">2026.04.10</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q3 後反彈</div>
+        <div class="stat-value">+29<span style="font-size:14px">%</span></div>
+        <div class="stat-sub">單日 4/30</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">市值</div>
+        <div class="stat-value">~23<span style="font-size:14px">B</span></div>
+        <div class="stat-sub">USD</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FINANCIAL TREND -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">FY2026 季度趨勢</div>
+      <div class="section-kicker">Quarterly Trajectory</div>
+    </div>
+
+    <p class="body-text">
+      檢視 FY2026 三個季度的核心指標，趨勢非常清楚：營收成長明顯加速、企業客戶數持續擴張、RPO 仍維持高檔成長、FCF 大幅改善。<strong>這不是衰退中的公司</strong>。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>指標</th>
+          <th class="right">Q1 FY26</th>
+          <th class="right">Q2 FY26</th>
+          <th class="right">Q3 FY26</th>
+          <th>趨勢</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">總營收（$M）</td>
+          <td class="right">1,432</td>
+          <td class="right">1,586</td>
+          <td class="right">1,787</td>
+          <td class="pos">加速</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">營收 YoY</td>
+          <td class="right">+21.0%</td>
+          <td class="right">+23.3%</td>
+          <td class="right pos">+31.7%</td>
+          <td class="pos">顯著加速</td>
+        </tr>
+        <tr>
+          <td class="label">Cloud 營收（$M）</td>
+          <td class="right">998</td>
+          <td class="right">1,067</td>
+          <td class="right">1,132</td>
+          <td class="pos">加速</td>
+        </tr>
+        <tr>
+          <td class="label">Cloud YoY</td>
+          <td class="right">+26%</td>
+          <td class="right">+26%</td>
+          <td class="right pos">+29%</td>
+          <td class="pos">加速</td>
+        </tr>
+        <tr>
+          <td class="label">RPO（$B）</td>
+          <td class="right">3.30</td>
+          <td class="right">3.81</td>
+          <td class="right">4.00</td>
+          <td class="pos">+37% YoY</td>
+        </tr>
+        <tr>
+          <td class="label">>$10K Cloud 客戶</td>
+          <td class="right">53,017</td>
+          <td class="right">55,369</td>
+          <td class="right">55,913</td>
+          <td class="pos">+10% YoY</td>
+        </tr>
+        <tr>
+          <td class="label">Non-GAAP EPS</td>
+          <td class="right">$1.04</td>
+          <td class="right">—</td>
+          <td class="right pos">$1.75</td>
+          <td class="pos">超預期 $1.34</td>
+        </tr>
+        <tr>
+          <td class="label">Free Cash Flow</td>
+          <td class="right">$115M</td>
+          <td class="right">$169M</td>
+          <td class="right">$561M</td>
+          <td class="pos">FCF margin 31%</td>
+        </tr>
+        <tr>
+          <td class="label">GAAP Op Margin</td>
+          <td class="right neg">負</td>
+          <td class="right neg">-3%</td>
+          <td class="right neg">-3%</td>
+          <td class="neu">仍虧損</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      管理層 Q3 後上修 FY26 全年指引：總營收成長 +24%（原 +20.8%）、Cloud +26.5%、Data Center +21.5%、Non-GAAP Op Margin ~29%。<strong>SBC 佔營收比例仍在 30%+ 是主要包袱</strong>，這也是 GAAP 仍虧損的核心原因。市場若看到 SBC/營收比降至 25% 以下，估值倍數修復空間將顯著擴大。
+    </p>
+  </section>
+
+  <!-- SECTION 3: SECOND-LEVEL THESIS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">第二層思考：Token 經濟學的反向邏輯</div>
+      <div class="section-kicker">Second-Level Insight</div>
+    </div>
+
+    <p class="body-text">
+      市場共識假設 AI Agent 會減少 seat 需求 → Atlassian 收入下滑。但這個推論有兩個被忽略的反向邏輯。
+    </p>
+
+    <p class="body-text">
+      <strong>反向一：Atlassian 已轉向 consumption + bundle 模式</strong>。Cloud 營收中 60-70% 已是「Standard/Premium/Enterprise tier 訂閱 + Rovo credits + Teamwork Collection bundle」混合模式。每筆 ACV >$1M 合約 Q2 翻倍。AI 用得越多反而消耗越多 Rovo credits，可比較對象應是 Snowflake（消耗計價）或 Salesforce + Agentforce（混合計價）。
+    </p>
+
+    <p class="body-text">
+      <strong>反向二：智慧商品化、脈絡稀缺化</strong>。當 Anthropic、OpenAI、Google 互相壓價（按 token 計價）後，瓶頸從「智慧」轉移到「結構化、有權限、有歷史的工作脈絡」。20 年累積的權限、audit log、工作流不可能用 AI 重建；遷移成本本身就是護城河。
+    </p>
+
+    <div class="pullquote">
+      <div class="pullquote-text">
+        In 2026, anyone can buy smarts by the token. The real moat is your institutional memory — every plan, document, and decision your teams have ever made.
+      </div>
+      <div class="pullquote-author">— MIKE CANNON-BROOKES · CEO, ATLASSIAN · TEAM '26 (2026.05.05)</div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">第二層思考 · Edge</div>
+      <div class="callout-body">
+        市場把 Atlassian 看成「per-seat 受害者」（dead end 視角），我們看成「企業 AI Agent 的脈絡基礎設施」（platform 視角）。差別在於：前者市場已 priced in、敘事熟悉、估值倍數壓低；後者尚未進入主流共識、若成立估值倍數有 2-3x 修復空間。<strong>Q3 加速與 CEO Team '26 的明確戰略宣言，是這個敘事轉折的初期訊號</strong>，但仍需 Q4 與 FY27 H1 連續驗證。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: COMPETITIVE LANDSCAPE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">競爭格局：誰是真威脅？</div>
+      <div class="section-kicker">Threat Matrix</div>
+    </div>
+
+    <p class="body-text">
+      市場將 Microsoft 視為 Atlassian 的最大威脅（M365 4.5 億訂閱、Copilot 2,000 萬付費 seats）。我們認為這個評估需要修正：<strong>分發力強不等於產品力強</strong>，企業 SaaS 的真實護城河仍然存在。
+    </p>
+
+    <div class="threat-matrix">
+      <div class="threat-row">
+        <div class="threat-name">AI Agent 直接整合（Workspace Agents 類）</div>
+        <div class="threat-level high">⚠⚠⚠⚠ 高</div>
+        <div class="threat-desc">結構性威脅，讓 SaaS UI 變得不必要。Atlassian 已用 MCP 中立平台戰略部分回應。</div>
+      </div>
+      <div class="threat-row">
+        <div class="threat-name">Microsoft（Loop + Project + Copilot）</div>
+        <div class="threat-level med">⚠⚠⚠ 中等</div>
+        <div class="threat-desc">慢性侵蝕 SMB；對軟體開發團隊威脅低（Loop 慢且結構模糊；Planner 沒有 backlog 概念）。</div>
+      </div>
+      <div class="threat-row">
+        <div class="threat-name">Linear / Monday / ClickUp</div>
+        <div class="threat-level med-low">⚠⚠ 中低</div>
+        <div class="threat-desc">細分市場切割，未撼動 55,000 大企業客戶核心地位。</div>
+      </div>
+      <div class="threat-row">
+        <div class="threat-name">ServiceNow（Action Fabric）</div>
+        <div class="threat-level med-low">⚠⚠ 中低</div>
+        <div class="threat-desc">在 ITSM 領域競爭，但更偏向治理層；OpenAI 戰略合作後可能加深。</div>
+      </div>
+      <div class="threat-row">
+        <div class="threat-name">Google Workspace</div>
+        <div class="threat-level low">⚠ 低</div>
+        <div class="threat-desc">反而是合作關係。Google 沒有 Jira / Confluence 等價物，Atlassian Cloud 部分託管於 GCP。</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>產品力 vs 分發力的關鍵實證</strong>：根據 SelectHub 整合 Capterra/G2 評論資料，Confluence 用戶滿意度 83%（4,871 條評論），Microsoft Loop 雖標示 84% 但僅基於 3 條評論——樣本不可信。多個獨立評測指出 Loop 載入慢、結構模糊、功能不全。Microsoft Planner 對軟體開發團隊更是致命缺陷：<strong>沒有 backlog 概念，根本不適合 Agile</strong>。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">關鍵實證 · 30 萬企業客戶的選擇</div>
+      <div class="callout-body">
+        Atlassian 服務 30 萬企業客戶，其中 55,913 個 Cloud ARR >$10K。這些客戶<strong>絕大多數已經在付 Microsoft 365</strong>，但仍額外付費購買 Jira / Confluence。理由：產品確實更好用。這個事實意味著「企業 SaaS 不是贏者全拿市場」——強分發力的產品也可能因產品力不足而失敗。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: MOAT -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">三層護城河結構</div>
+      <div class="section-kicker">Moat Architecture</div>
+    </div>
+
+    <p class="body-text">
+      Atlassian 的護城河並非單一維度，而是三層相互強化的結構，每一層都是 Microsoft 與 AI 巨頭難以複製的稀缺資產。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>層級</th>
+          <th>護城河資產</th>
+          <th class="right">關鍵指標</th>
+          <th>不可複製性</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label center">L1</td>
+          <td class="label">Marketplace 生態系</td>
+          <td class="right">$40+ 億累計銷售<br/>3,000+ Apps</td>
+          <td>受規管產業（金融、醫療、政府、軍工）所需的 Tempo、BigPicture、Xray 等工具，僅在 Atlassian 生態系存在。Microsoft AppSource 沒有對應深度。</td>
+        </tr>
+        <tr>
+          <td class="label center">L2</td>
+          <td class="label">Teamwork Graph</td>
+          <td class="right">1,500 億節點<br/>答案品質 +44%</td>
+          <td>跨 Jira / Confluence / Bitbucket / JSM / Loom / 第三方工具的結構化關聯。開放給所有 MCP（Claude、Cursor、Gemini、Copilot 都能連），不選邊站。</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label center">L3 ⭐</td>
+          <td class="label">企業決策因果資料</td>
+          <td class="right">30 萬企業客戶<br/>20 年累積</td>
+          <td>「為什麼這個 ticket 升級為 P0」「為什麼這個 PR 被 reject、後續如何修改」——AI Agent 時代真正需要的訓練素材。AI 巨頭買不到、做不出來。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>2026/8/17 起 Atlassian 預設啟動「資料貢獻政策」</strong>，將 30 萬企業客戶的 Jira / Confluence 資料用於訓練 Rovo。這個動作本身就是對「資料 = 戰略資產」的最強佐證——Atlassian 知道自己擁有的是什麼。
+    </p>
+  </section>
+
+  <!-- SECTION 6: AI POWER STRUCTURE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">AI 巨頭與 Atlassian 的權力結構</div>
+      <div class="section-kicker">Power Map</div>
+    </div>
+
+    <p class="body-text">
+      Atlassian 與 AI 巨頭的關係是教科書級的「frenemy」三角。每一家既是夥伴也是潛在威脅，這個複雜性反而是 Atlassian 的中立性來源。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>AI 巨頭</th>
+          <th>合作層</th>
+          <th>競爭層</th>
+          <th class="center">淨效應</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Anthropic</td>
+          <td>Remote MCP first partner、Williams F1 合作、Claude Code 內建 Atlassian Plugin</td>
+          <td>Claude Cowork（2026/1/13）讓「直接操作企業軟體」變得不需要 SaaS UI</td>
+          <td class="center neu">中性</td>
+        </tr>
+        <tr>
+          <td class="label">OpenAI</td>
+          <td>ChatGPT Atlassian Connector、Workspace Agents</td>
+          <td>2026/1/20 與 ServiceNow 戰略協議直接對抗 Anthropic-Atlassian 軸線</td>
+          <td class="center neu">中性</td>
+        </tr>
+        <tr>
+          <td class="label">Google</td>
+          <td>Cloud Next '26 深化合作、Gemini 3 Flash 進 Rovo、Atlassian Cloud 部分託管於 GCP</td>
+          <td>幾乎沒有競爭層（無 Jira / Confluence 等價物）</td>
+          <td class="center pos">正面</td>
+        </tr>
+        <tr>
+          <td class="label">Microsoft</td>
+          <td>M365 Copilot 內建 Confluence / Jira connector</td>
+          <td>Loop / Project / Planner / GitHub 全套替代品，「Embrace, Extend, Extinguish」戰術</td>
+          <td class="center neg">負面（但慢性）</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      關於坊間流傳的「Anthropic $150/股全現金收購 Atlassian」傳聞（2026/4 起於 Hacker News、Reddit、Blind 流傳）：<strong>無 SEC 文件、無媒體確認、無公司聲明</strong>。我們綜合可行性評分為 4.6/10（偏低），主要受限於財務結構（Anthropic 私募狀態無法全現金）、監管風險（美/歐/澳三方審查 18-24 個月）、以及 $38B 機會成本。最可能情境分布：70% 不發生、20% 深度合作 + 投資、10% 全面收購。
+    </p>
+  </section>
+
+  <!-- SECTION 7: SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VII.</div>
+      <div class="section-title">情境分析（FY27 展望）</div>
+      <div class="section-kicker">Scenario Analysis</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull Case</div>
+        <div class="scenario-prob">30%</div>
+        <div class="scenario-target">目標 $180~250</div>
+        <div class="scenario-desc">Q4 維持 25%+、Cloud +26%+；Rovo MAU 突破 1,000 萬；SBC/營收降至 25%；估值倍數從 ~3.5x 修復至 7-9x EV/Sales</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base Case</div>
+        <div class="scenario-prob">50%</div>
+        <div class="scenario-target">區間 $80~130</div>
+        <div class="scenario-desc">營收回到 +22~25%；Rovo 變現節奏較慢（FY27 才見明顯 ARPU 提升）；估值修復至 5-6x EV/Sales</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear Case</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-target">下探 $56~80</div>
+        <div class="scenario-desc">Q3 加速證明一次性；Q4/FY27 H1 企業 seat 首次下滑；Microsoft 完整替代方案成形；測試 $56 低點</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top:16px;">
+      機率加權後的<strong>預期股價區間為 $112~135</strong>（vs 當前 ~$90），對應 +25~50% 上行空間。賠率不對稱性明顯（上行 +100~180% vs 下行 -10~38%），但執行風險真實。<strong>分析師共識：23-33 位覆蓋、Buy 評等、目標價中位數 $144-158</strong>（區間 $80-$315 反映分歧）。Q3 後分析師普遍上修：BTIG $130、TD Cowen $105、Truist $100、Cantor $107、Barclays $106。
+    </p>
+  </section>
+
+  <!-- SECTION 8: KEY OBSERVABLES -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VIII.</div>
+      <div class="section-title">關鍵觀察點</div>
+      <div class="section-kicker">Observables Roadmap</div>
+    </div>
+
+    <div class="catalyst-list">
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.08.07</div>
+        <div class="catalyst-desc">
+          <strong>Q4 FY26 法說會</strong>
+          驗證 Q3 +32% 加速是否具持續性，Cloud 成長是基本面核心訊號
+        </div>
+        <div class="catalyst-impact">±20~30%<br/><span style="color:var(--accent)">Cloud ≥26% 多 / ≤24% 空</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.08.17</div>
+        <div class="catalyst-desc">
+          <strong>資料貢獻政策啟動</strong>
+          30 萬企業客戶資料用於訓練 Rovo，客戶 opt-out 比例是關鍵
+        </div>
+        <div class="catalyst-impact">±5~10%<br/><span style="color:var(--neutral)">opt-out ≤20% 健康</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">每季</div>
+        <div class="catalyst-desc">
+          <strong>>$10K Cloud ARR 客戶 YoY</strong>
+          企業客戶取得能力的最直接指標
+        </div>
+        <div class="catalyst-impact">±10~15%<br/><span style="color:var(--accent)">≥+10% 多 / ≤+5-7% 空</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 H2</div>
+        <div class="catalyst-desc">
+          <strong>Rovo MAU 與變現指標揭露</strong>
+          AI 戰略執行力的直接驗證；MAU 突破 800-1000 萬是關鍵閥值
+        </div>
+        <div class="catalyst-impact">+10~20%<br/><span style="color:var(--positive)">敘事重定錨點</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">每季</div>
+        <div class="catalyst-desc">
+          <strong>SBC 佔營收比例</strong>
+          GAAP 轉盈關鍵；30%+ 是當前最大估值壓抑因素
+        </div>
+        <div class="catalyst-impact">+15~25%<br/><span style="color:var(--positive)">降至 25% 以下顯著正面</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">隨時</div>
+        <div class="catalyst-desc">
+          <strong>Anthropic 動向</strong>
+          收購傳聞或深度合作公告；任何官方關係深化都會重塑估值
+        </div>
+        <div class="catalyst-impact">±20~50%<br/><span style="color:var(--accent)">重大事件型催化劑</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: ACTION FRAMEWORK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IX.</div>
+      <div class="section-title">投資人決策框架</div>
+      <div class="section-kicker">Decision Framework</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">適合納入考慮的條件</div>
+      <div class="action-row">
+        <div class="action-key">投資時間軸</div>
+        <div>≥ 18-24 個月。短期交易者不適合（Beta 0.93-1.66、52 週區間 $56-$232 顯示極高波動性）。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">drawdown 承受度</div>
+        <div>能承受 30-40% drawdown 而不被迫停損。基準情境股價區間 $80-130 意味會經歷震盪。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">投資組合配置</div>
+        <div>AI / SaaS 配置不過重；不應已重押 Microsoft、ServiceNow、Salesforce 等同類股。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">追蹤頻率</div>
+        <div>能持續追蹤 Q4 FY26 法說會、Rovo MAU 揭露、Cloud 成長率、企業客戶數變化。</div>
+      </div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">不適合的情境</div>
+      <div class="action-row">
+        <div class="action-key">短期動能交易者</div>
+        <div>< 6 個月時間軸。題材敘事波動大，容易被市場情緒主導。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">已重押 SaaS 板塊</div>
+        <div>整體 SaaS 板塊系統性風險（SaaSpocalypse 敘事）尚未完全消除。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">需要穩定股息</div>
+        <div>Atlassian 不發股息；GAAP 仍虧損，所有資本回流以股票回購為主。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: RISKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">X.</div>
+      <div class="section-title">風險因子</div>
+      <div class="section-kicker">Risk Factors</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">主要風險</div>
+      <ul class="risks-list">
+        <li><strong>SBC 結構性壓力：</strong>SBC 佔營收 30%+（Q1 達 $452M），是 GAAP 仍虧損的核心原因，也是估值倍數壓抑的最大因子</li>
+        <li><strong>Q3 加速可能含一次性因素：</strong>Data Center pull-forward（EOL 推動）、重組干擾的 Q3 比較基期，需 Q4 連續驗證才能確認 +32% 是新趨勢線</li>
+        <li><strong>AI Agent 結構性威脅未消除：</strong>Workspace Agents、Claude Cowork 類產品讓「直接操作企業軟體」變得不需要 SaaS UI；這是全產業共同風險</li>
+        <li><strong>Microsoft 慢性侵蝕：</strong>4.5 億 M365 訂閱基礎、2,000 萬 Copilot 付費 seats 將持續滲透 SMB 市場；對軟體開發團隊威脅低，但對中小企業客戶結構有壓力</li>
+        <li><strong>重組執行風險：</strong>3 月裁員 1,600 人 + CTO 換人 + 新任 Chief Product and AI Officer，產品 roadmap 節奏可能受影響</li>
+        <li><strong>Data Center 過渡風險：</strong>FY27 預期下滑，Cloud 加速能否完全補上不確定；過渡期可能出現營收成長率明顯波動</li>
+        <li><strong>客戶 seat 動態：</strong>雖無官方確認下滑，但部分媒體曾傳企業 seat 動態未來不確定性，任何官方確認下滑都是嚴重看空訊號</li>
+        <li><strong>收購傳聞風險：</strong>$150/股 Anthropic 收購傳聞未經證實。若市場過度押注但事件未發生，會出現「題材出盡」式拋售</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CALLOUT -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:40px;">
+    <div class="callout-label">Analyst's Note</div>
+    <div class="callout-body">
+      Atlassian 是「市場敘事與實質基本面之間出現顯著錯位」的少數標的。當前 ~$90 的價格反映了「per-seat 衰退」的悲觀假設，但 Q3 FY26 的 +32% 與 CEO Cannon-Brookes 在 Team '26 的明確戰略宣言，提示市場敘事正在轉折。我們認為合理的觀察期是<strong>到 2026/8 Q4 法說會</strong>——若 Cloud 成長維持 26%+ 且企業客戶數續創新高，這場敘事修正才有可能完成。記住：<strong>賠率不對稱不等於風險不存在；機會與風險都需要時間來證明自己</strong>。投資紀律與明確的失效訊號，比相信任何單一論點更重要。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有資料均來自公開來源（Atlassian SEC 8-K / 10-Q、Atlassian Shareholder Letters、Microsoft / OpenAI / Anthropic 官方公告、SaaStr、Sherwood News、CNBC、StockAnalysis.com、Morningstar、TIKR、Long Angle、Yahoo Finance、Capterra、SelectHub 等），但本分析師不保證其準確性或完整性。
+      Atlassian 為高波動性個股（Beta 0.93-1.66、52 週區間 $56-$232），讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告中所有對未來的判斷均為機率性推論，並非確定性預測。報告中提及的 Anthropic 收購傳聞為未經證實情報，不應作為投資依據。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: TEAM-US-20260508-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
