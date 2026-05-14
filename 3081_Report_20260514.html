@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯亞光電 (3081) 深度研究報告 | 2026.05.14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #e8a87c; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "執行摘要";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 44px;
+}
+
+.thesis-card {
+  padding: 22px 24px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.thesis-desc {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 44px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.subsection-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: var(--accent-dark);
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.body-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.body-text strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lead-para {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.lead-para::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--accent);
+}
+
+.value-chain {
+  background: var(--bg);
+  border: 2px solid var(--ink);
+  padding: 24px;
+  margin: 20px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.value-chain .layer {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.value-chain .star {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 13px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td {
+  border-bottom: 2px solid var(--ink);
+}
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label {
+  font-weight: 700;
+}
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.pullquote {
+  background: var(--pullquote-bg);
+  color: white;
+  padding: 36px 40px;
+  margin: 36px -20px;
+  position: relative;
+}
+
+.pullquote::before {
+  content: "\"";
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+}
+
+.pullquote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pullquote-author {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 14px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scenario-desc {
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--negative);
+}
+
+.risks-list {
+  list-style: none;
+  font-size: 13px;
+}
+
+.risks-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  background: var(--bg-card);
+  padding: 16px 18px;
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.catalyst-list {
+  margin: 20px 0;
+}
+
+.catalyst-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+}
+
+.catalyst-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.catalyst-desc {
+  font-size: 13px;
+}
+
+.catalyst-desc strong {
+  display: block;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.catalyst-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-align: right;
+  color: var(--ink-secondary);
+}
+
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .catalyst-item { grid-template-columns: 1fr; gap: 4px; }
+  .catalyst-impact { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Taiwan · AI Optical / Silicon Photonics</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">3081-TW · DEEP DIVE</div>
+      <div>2026.05.14</div>
+      <div>Industry + Company · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">化合物半導體 · InP 磊晶 · 矽光子上游</div>
+      <h1 class="company-title">聯亞光電<span class="ticker">3081.TWO</span></h1>
+      <div class="report-subtitle">純度最高的 AI 矽光子上游卡位，但股價已超越多數投顧目標價</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Industry View</div>
+      <div class="rating-value accent">STRUCTURAL BULL</div>
+      <div class="rating-sub">含 China 暴險</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">中國暴險</div>
+      <div class="rating-value">79.6<span class="unit">%</span></div>
+      <div class="rating-sub">Q1 營收地區</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">客戶集中度</div>
+      <div class="rating-value">89<span class="unit">%</span></div>
+      <div class="rating-sub">3 家應收佔比</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">毛利率</div>
+      <div class="rating-value">54.76<span class="unit">%</span></div>
+      <div class="rating-sub">19 季新高</div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">聯亞是台灣 AI 矽光子供應鏈中「純度最高、技術位階最關鍵」的上游磊晶廠——InP 雷射磊晶全球少數能量產的廠商之一，2026 Q1 毛利率 54.76%、EPS YoY +648%。</p>
+    <p>2026 Q1 營收 9.04 億創史高、Q4 毛利率連 7 季成長，4 月營收年增 115%。動能來自 NVIDIA + Lumentum + Coherent 矽光子供應鏈，訂單能見度已拉到 2027~2028。公司同步上修 capex 至 13.15 億、簽訂日本住友 InP 基板長約，並預告 2026 年新增美國 CSP 客戶。<strong>但當前股價 2,955 元已超過多數投顧目標價（1,350~2,081），市場已大幅 price-in 矽光子敘事。短線 5/13 跌停顯示千金股流動性風險與籌碼結構脆弱</strong>。官方財報揭露幾個媒體未強調的關鍵事實：<strong>中國市場佔營收 79.6%（美國僅 14.5%）、客戶集中度升至 3 家佔 89%、設備合約承諾跳升 +243% 驗證擴產真實性、股票股利將稀釋股本 +10%</strong>。本報告以 Howard Marks 第二層思考框架，拆解產業位置、技術護城河、與當前估值合理性。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">擴產真實性已驗證</div>
+      <div class="thesis-desc">Q1 設備合約承諾 9.67 億，QoQ +243%；預付設備款跳 533 倍。基本面爆發：EPS YoY +648%、毛利率 54.76%。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">中國市場 79.6% 被忽略</div>
+      <div class="thesis-desc">官方財報揭露主要營收來自中國，美國僅 14.5%。「純美國光通訊鏈」敘事與實際結構有落差。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">估值已大幅反映</div>
+      <div class="thesis-desc">股價超越多數投顧目標價（1,350-2,081）。Forward 2026E PER 約 213x（含稀釋）。客戶集中度 89%、千金股流動性風險。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: WHAT IS LANDMARK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">聯亞是什麼？</div>
+      <div class="section-kicker">Company Overview</div>
+    </div>
+
+    <p class="lead-para">
+      聯亞光電（LandMark Optoelectronics，LMOC）成立於 1997 年，總部位於台南科學園區。公司專注於三五族化合物半導體磊晶片製造——具體來說，就是用 MOCVD（有機金屬化學氣相磊晶）技術，在 InP（磷化銦）和 GaAs（砷化鎵）基板上長出「雷射可以發光的多層結構」。這個磊晶片，是所有光通訊雷射、光感測元件最關鍵的核心材料。
+    </p>
+
+    <p class="body-text">
+      簡單比喻：如果把光通訊雷射比喻成「光的引擎」，那聯亞做的就是「引擎裡面那個會燃燒的活塞與燃料噴嘴」——客戶（如 Lumentum、Coherent）拿到磊晶片後，再做後段封測與模組整合，最終賣給 NVIDIA、Google、Meta 等 AI 資料中心。聯亞站在矽光子產業鏈中<strong>價值密度最高、技術門檻最硬</strong>的一層。
+    </p>
+
+    <h3 class="subsection-title">1.1 基本資料</h3>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">成立年份</div>
+        <div class="stat-value">1997</div>
+        <div class="stat-sub">29 年歷史</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">員工數</div>
+        <div class="stat-value">~320</div>
+        <div class="stat-sub">人</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">股本</div>
+        <div class="stat-value">9.25<span style="font-size:14px">億</span></div>
+        <div class="stat-sub">9,251 萬股</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">市值（@2,955）</div>
+        <div class="stat-value">~2,734<span style="font-size:14px">億</span></div>
+        <div class="stat-sub">2026.05.14</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">1.2 產品組合</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>產品分類</th>
+          <th class="right">營收佔比</th>
+          <th>應用</th>
+          <th>動能</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">Datacom（資料中心）</td>
+          <td class="right">75~80%</td>
+          <td>AI 雲端 / 矽光子 / CPO</td>
+          <td>1.6T 升級主驅動</td>
+        </tr>
+        <tr>
+          <td class="label">Telecom（電信）</td>
+          <td class="right">10~15%</td>
+          <td>5G / 長途網路</td>
+          <td>穩定</td>
+        </tr>
+        <tr>
+          <td class="label">Others</td>
+          <td class="right">5~10%</td>
+          <td>消費電子 / LiDAR / 工業 / 醫療</td>
+          <td>卡位</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>2025 年矽光產品出貨量較 2024 年成長超過 3 倍</strong>。Datacom 比重持續攀升，公司預期 2027 年矽光子相關營收佔比將突破 90%。
+    </p>
+  </section>
+
+  <!-- SECTION 2: VALUE CHAIN POSITION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">矽光子供應鏈中的位置</div>
+      <div class="section-kicker">Value Chain</div>
+    </div>
+
+    <p class="body-text">
+      要理解聯亞的價值，必須先理解整個 AI 矽光子 / CPO 供應鏈的層級結構。從原料、磊晶、雷射晶片、封測、模組、終端，每一層的技術門檻與議價力都不同。聯亞站在<strong>第二層（磊晶）</strong>——也是技術門檻僅次於上游基板、但比中下游模組廠高很多的位置。
+    </p>
+
+    <div class="value-chain"><span class="layer">【Layer 0 — 基板 (Substrate)】</span>
+   AXT (中國北京)        → InP 基板全球龍頭（穩定性 & 地緣風險）
+   Sumitomo (日本)       → InP 基板第二大（聯亞長約來源 ⭐）
+   JX Nippon (日本)      → InP 基板
+
+<span class="layer">【Layer 1 — 磊晶 (Epitaxy)】  ⬅ 聯亞站在這層</span>
+   <span class="star">★ 聯亞 (3081)</span>           → InP 雷射磊晶（MOCVD），EML / CW Laser / PD
+   全新 (2455)            → GaAs / InP 磊晶（MOCVD）
+   IET-KY (4971)          → InP 磊晶（MBE，超高頻寬）
+   環宇-KY (4991)         → AOC 自有產品 + 磊晶
+
+<span class="layer">【Layer 2 — 晶圓代工 (Foundry)】</span>
+   穩懋 (3105)            → GaAs / GaN / InP 代工龍頭
+   宏捷科 (8086)          → GaAs 代工
+
+<span class="layer">【Layer 3 — 雷射 / 模組 (Module)】</span>
+   Lumentum (LITE)        → 雷射模組，Google TPU 鏈
+   Coherent (COHR)        → 光通訊 + 工業雷射
+   光聖、華星光、聯鈞      → 台廠模組
+
+<span class="layer">【Layer 4 — 終端 (End Market)】</span>
+   NVIDIA (Rubin Ultra) → CPO 採用、40 億美元投資
+   Google (TPU)         → 矽光子 OCS
+   Meta / Oracle / AWS  → AI 資料中心建設</div>
+
+    <div class="callout">
+      <div class="callout-label">為什麼聯亞的位置很特殊</div>
+      <div class="callout-body">
+        在矽光子產業鏈裡，「**Substrate → Epi → Laser Chip**」三層是**真正的技術瓶頸**。下游的模組與終端產品（NVIDIA 的 CPO、Google 的 OCS）再怎麼設計，最終都需要「能發出純淨單色光的雷射」，而這個雷射的物理性能是<strong>在磊晶這一層決定的</strong>。聯亞做的 EML（Electro-absorption Modulated Laser）和 CW（Continuous Wave）Laser 磊晶，是 800G/1.6T 光模組的核心。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: FINANCIAL DEEP DIVE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">財務深度分析</div>
+      <div class="section-kicker">Financial Deep Dive</div>
+    </div>
+
+    <h3 class="subsection-title">3.1 季度財務軌跡</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>期別</th>
+          <th class="right">營收（億）</th>
+          <th class="right">QoQ</th>
+          <th class="right">YoY</th>
+          <th class="right">毛利率</th>
+          <th class="right">EPS（元）</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">2024 全年</td>
+          <td class="right">~12</td>
+          <td class="right">—</td>
+          <td class="right neg">衰退</td>
+          <td class="right">~27%</td>
+          <td class="right neg">-0.55</td>
+          <td>虧損</td>
+        </tr>
+        <tr>
+          <td class="label">2025 Q4</td>
+          <td class="right">~6.4</td>
+          <td class="right pos">+</td>
+          <td class="right pos">+</td>
+          <td class="right pos">48.67%</td>
+          <td class="right">~2.06</td>
+          <td>連 7 季成長</td>
+        </tr>
+        <tr>
+          <td class="label">2025 全年</td>
+          <td class="right">~17</td>
+          <td class="right">—</td>
+          <td class="right pos">大增</td>
+          <td class="right">~37%</td>
+          <td class="right pos">4.66</td>
+          <td>轉盈</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">2026 Q1</td>
+          <td class="right">9.04</td>
+          <td class="right pos">+41%</td>
+          <td class="right pos">+99%</td>
+          <td class="right pos">54.76%</td>
+          <td class="right pos">3.44</td>
+          <td>史高、19 季毛利率新高</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">2026 Q2(F)</td>
+          <td class="right">QoQ +16~20%</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td>800G+ 放量</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.2 月營收動能（2026）</h3>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">2026 Jan</div>
+        <div class="stat-value">2.85<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">YoY +95%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 Feb</div>
+        <div class="stat-value">2.76<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">YoY +87%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 Mar</div>
+        <div class="stat-value">3.43<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">YoY +89%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 Apr</div>
+        <div class="stat-value" style="color:var(--positive)">3.95<span style="font-size:13px">億</span></div>
+        <div class="stat-sub" style="color:var(--positive)">YoY +115%</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>4 月營收創 40 個月新高，連續 9 個月月增、連續 16 個月年增</strong>。累計 1-4 月營收 13.00 億，年增 103.7%。動能不僅未放緩，反而在加速。
+    </p>
+
+    <h3 class="subsection-title">3.3 估值多重視角</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>估值口徑</th>
+          <th class="right">EPS</th>
+          <th class="right">PER（@2,955）</th>
+          <th>解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">TTM（過去 4 季）</td>
+          <td class="right">7.61</td>
+          <td class="right neg">388x</td>
+          <td>絕對值偏高，但已落後實際 momentum</td>
+        </tr>
+        <tr>
+          <td class="label">2026E 保守（元大）</td>
+          <td class="right">10.8</td>
+          <td class="right neg">273x</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="label">2026E 中性（永豐）</td>
+          <td class="right">15.21</td>
+          <td class="right neg">194x</td>
+          <td>—</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">2026E 樂觀</td>
+          <td class="right">17.5</td>
+          <td class="right neu">169x</td>
+          <td>仍偏高</td>
+        </tr>
+        <tr>
+          <td class="label">2027E 保守（元大）</td>
+          <td class="right">22.6</td>
+          <td class="right neu">131x</td>
+          <td>—</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">2027E 中性（永豐）</td>
+          <td class="right">30.56</td>
+          <td class="right pos">97x</td>
+          <td>2 年期落到 100x 以下</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.4 PEG 對標</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th class="right">Forward 2026E PER</th>
+          <th class="right">2025→2026 EPS 成長</th>
+          <th class="right">PEG</th>
+          <th>解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">聯亞 (3081)</td>
+          <td class="right">213x</td>
+          <td class="right pos">+196%</td>
+          <td class="right pos">1.09</td>
+          <td>含 10% 股本稀釋；仍高估值</td>
+        </tr>
+        <tr>
+          <td class="label">穩懋 (3105)</td>
+          <td class="right">~80x</td>
+          <td class="right">+50%</td>
+          <td class="right neg">~1.6 (forward)</td>
+          <td>TTM PEG 4.46 偏高</td>
+        </tr>
+        <tr>
+          <td class="label">全新 (2455)</td>
+          <td class="right">~30x</td>
+          <td class="right pos">+95%</td>
+          <td class="right pos">0.32</td>
+          <td>同樣磊晶廠估值更便宜</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">3.5 地區營收結構（官方財報揭露）</h3>
+
+    <p class="body-text">
+      Q1 2026 官方財報附註六(十五)揭露的營收地區別，與媒體報導的「美國 CSP / NVIDIA / Lumentum」敘事有重大落差——<strong>中國仍是最大市場（79.6%），美國僅 14.5%</strong>。雖然美國 YoY 大增 +259%，但絕對金額仍小。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>地區</th>
+          <th class="right">Q1 2026（千元）</th>
+          <th class="right">佔比</th>
+          <th class="right">Q1 2025（千元）</th>
+          <th class="right">佔比</th>
+          <th class="right">YoY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">中國</td>
+          <td class="right">720,352</td>
+          <td class="right neg">79.6%</td>
+          <td class="right">393,619</td>
+          <td class="right">86.6%</td>
+          <td class="right pos">+83%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">美國</td>
+          <td class="right">131,135</td>
+          <td class="right">14.5%</td>
+          <td class="right">36,531</td>
+          <td class="right">8.0%</td>
+          <td class="right pos">+259%</td>
+        </tr>
+        <tr>
+          <td class="label">台灣</td>
+          <td class="right">7,096</td>
+          <td class="right">0.8%</td>
+          <td class="right">7,668</td>
+          <td class="right">1.7%</td>
+          <td class="right neg">-7%</td>
+        </tr>
+        <tr>
+          <td class="label">其他</td>
+          <td class="right">45,806</td>
+          <td class="right">5.1%</td>
+          <td class="right">16,684</td>
+          <td class="right">3.7%</td>
+          <td class="right pos">+175%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">關鍵發現 · 被忽略的中國暴險</div>
+      <div class="callout-body">
+        市場以「Lumentum / Coherent / NVIDIA」框架定價聯亞，但<strong>實際 79.6% 營收來自中國</strong>——主要客戶可能是中際旭創、新易盛、光迅等中國光模組廠。中美貿易衝突升級、出口管制擴大都是潛在風險。「2027 矽光子佔比 90%」可能成立，但「美國佔比 90%」不會成立。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">3.6 客戶集中度</h3>
+
+    <p class="body-text">
+      財報附註六(十八)揭露應收帳款集中度：
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>期別</th>
+          <th class="right">前 N 大客戶</th>
+          <th class="right">應收佔比</th>
+          <th>變化解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Q1 2025</td>
+          <td class="right">2 家</td>
+          <td class="right">75%</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="label">Q4 2025</td>
+          <td class="right">3 家</td>
+          <td class="right">74%</td>
+          <td>新增 1 家客戶</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">Q1 2026</td>
+          <td class="right">3 家</td>
+          <td class="right neg">89%</td>
+          <td>前 3 家佔比反而升高</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      雖從 2 家擴大到 3 家客戶，但<strong>前 3 家總佔比反而升高到 89%</strong>。新增客戶（很可能就是美國新 CSP）正在快速放大訂單，但整體客戶結構更脆弱——3 家客戶現在掌握聯亞 89% 的命脈。
+    </p>
+
+    <h3 class="subsection-title">3.7 擴產資本承諾驗證 ⭐</h3>
+
+    <p class="body-text">
+      財報附註九揭露的設備合約承諾，是<strong>最強烈的擴產真實性驗證</strong>。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>期別</th>
+          <th class="right">設備合約總價（千元）</th>
+          <th class="right">未認列價款（千元）</th>
+          <th class="right">預付設備款（千元）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Q1 2025</td>
+          <td class="right">160,648</td>
+          <td class="right">16,072</td>
+          <td class="right">458</td>
+        </tr>
+        <tr>
+          <td class="label">Q4 2025</td>
+          <td class="right">281,702</td>
+          <td class="right">74,846</td>
+          <td class="right">20,119</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">Q1 2026</td>
+          <td class="right pos">966,692</td>
+          <td class="right pos">374,995</td>
+          <td class="right pos">244,376</td>
+        </tr>
+        <tr>
+          <td class="label">QoQ 變化</td>
+          <td class="right pos">+243%</td>
+          <td class="right pos">+401%</td>
+          <td class="right pos">+1,115%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      設備合約總額從 2.82 億 → 9.67 億（QoQ +243%），預付設備款從 458 千跳到 244,376 千（533 倍）。加上 Q1 實際取得設備 4,255 萬，<strong>已實際投入或承諾的擴產資本支出已達 12.11 億</strong>，與法說會 capex 13.15 億的指引高度吻合。「2 年內產能 +100%」<strong>不是說說而已，真金白銀已押下去</strong>。
+    </p>
+
+    <h3 class="subsection-title">3.8 股本稀釋與財務體質</h3>
+
+    <p class="body-text">
+      財報附註六(十二)揭露 2025 年度盈餘分派案：<strong>現金股利 3.0 元 + 股票股利 1.0 元</strong>，配發率 86%。股票股利將增發 9,252 千股，股本從 9.25 億→約 10.18 億（<strong>+10%</strong>）。投顧的 2026/2027 EPS 預估需按稀釋後股本重算。
+    </p>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">淨負債部位</div>
+        <div class="stat-value" style="color:var(--positive)">-5.43<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">淨現金</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">現金+類現金</div>
+        <div class="stat-value">~21<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">財務極健康</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">負債資本比</div>
+        <div class="stat-value" style="color:var(--positive)">-12.8<span style="font-size:13px">%</span></div>
+        <div class="stat-sub">無有息負債</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">外部融資需求</div>
+        <div class="stat-value" style="color:var(--positive)">無</div>
+        <div class="stat-sub">擴產自足</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      聯亞<strong>完全不需要外部融資</strong>即可執行擴產計畫，沒有現增、發債等稀釋風險。這是少數能在不犧牲股東權益下完成倍增擴產的公司，也是 Bull Case 的關鍵支撐。
+    </p>
+
+    <h3 class="subsection-title">3.9 存貨與營業成本警訊</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th class="right">Q1 2025（千元）</th>
+          <th class="right">Q4 2025（千元）</th>
+          <th class="right">Q1 2026（千元）</th>
+          <th class="right">YoY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">原料</td>
+          <td class="right">125,031</td>
+          <td class="right">195,022</td>
+          <td class="right">163,637</td>
+          <td class="right pos">+31%</td>
+        </tr>
+        <tr>
+          <td class="label">在製品</td>
+          <td class="right">69,539</td>
+          <td class="right">150,733</td>
+          <td class="right">126,057</td>
+          <td class="right pos">+81%</td>
+        </tr>
+        <tr>
+          <td class="label">製成品</td>
+          <td class="right">171,871</td>
+          <td class="right">225,413</td>
+          <td class="right">305,777</td>
+          <td class="right pos">+78%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">存貨總額</td>
+          <td class="right">366,441</td>
+          <td class="right">571,168</td>
+          <td class="right">595,471</td>
+          <td class="right pos">+62%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">存貨跌價損失</td>
+          <td class="right">20,375</td>
+          <td class="right">—</td>
+          <td class="right neg">34,000</td>
+          <td class="right neg">+67%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      存貨成長率（+62%）低於營收成長率（+99%），週轉效率正向；但<strong>存貨跌價損失 YoY +67%</strong> 是值得追蹤的細節——已認列在 Q1 營業成本中。雖然毛利率仍創新高，但暗示部分庫存品項在 1.6T 規格快速演進中面臨過時風險。
+    </p>
+  </section>
+
+  <!-- SECTION 4: COMPETITIVE POSITION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">技術護城河與競爭定位</div>
+      <div class="section-kicker">Moat Analysis</div>
+    </div>
+
+    <h3 class="subsection-title">4.1 磊晶廠比較</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th>技術</th>
+          <th>主力產品</th>
+          <th>優勢領域</th>
+          <th class="right">毛利率</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">聯亞 (3081)</td>
+          <td>MOCVD</td>
+          <td>InP 雷射磊晶</td>
+          <td>EML / CW Laser 最完整 ⭐</td>
+          <td class="right pos">54.8%</td>
+        </tr>
+        <tr>
+          <td class="label">全新 (2455)</td>
+          <td>MOCVD</td>
+          <td>GaAs / InP 磊晶</td>
+          <td>GaAs VCSEL（蘋果 Face ID）</td>
+          <td class="right">~40%</td>
+        </tr>
+        <tr>
+          <td class="label">IET-KY (4971)</td>
+          <td>MBE</td>
+          <td>InP 磊晶</td>
+          <td>1.6T 200G PD 領先</td>
+          <td class="right">~40%</td>
+        </tr>
+        <tr>
+          <td class="label">環宇-KY (4991)</td>
+          <td>MOCVD + AOC</td>
+          <td>GaAs 磊晶 + AOC 模組</td>
+          <td>800G PD 市占 70%</td>
+          <td class="right">~30%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">為什麼聯亞毛利率明顯高於同業</div>
+      <div class="callout-body">
+        <strong>技術獨佔性</strong>：全球能量產 EML 與 CW Laser InP 磊晶的廠商不超過 5 家，聯亞是少數選項。<strong>客戶綁定深</strong>：Lumentum、Coherent 等大廠的 design-in 週期 1-2 年，切換成本極高。<strong>產品組合升級</strong>：Datacom 高階產品（800G+）佔比提升、Telecom 比重下降，自然推升毛利。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.2 護城河可持續性</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>護城河面向</th>
+          <th>評估</th>
+          <th>關鍵風險</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">技術門檻</td>
+          <td class="pos">高</td>
+          <td>MOCVD 製程 know-how 累積 29 年；EML 量產級廠商全球 &lt; 5 家</td>
+        </tr>
+        <tr>
+          <td class="label">客戶綁定</td>
+          <td class="pos">高</td>
+          <td>Lumentum / Coherent design-in 後切換成本極高</td>
+        </tr>
+        <tr>
+          <td class="label">規模與成本</td>
+          <td class="neu">中</td>
+          <td>產能擴張但仍受限於設備交期；MOCVD 設備供應全球少數</td>
+        </tr>
+        <tr>
+          <td class="label">原料供應</td>
+          <td class="neg">中低</td>
+          <td>InP 基板高度依賴 AXT（中國）；已簽住友長約緩解</td>
+        </tr>
+        <tr>
+          <td class="label">地緣政治</td>
+          <td class="neu">中</td>
+          <td>受惠「非中國」採購；但中國銦管制是潛在斷料源</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 5: CONSENSUS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">第一層思考：市場共識整理</div>
+      <div class="section-kicker">Consensus View</div>
+    </div>
+
+    <p class="body-text">
+      聯亞 4/22 法說會後，多家投顧與外資紛紛上修目標價，但**有趣的是，目標價普遍仍低於當前股價**。這是一個重要訊號：市場已經跑得比 sell-side 還快。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>機構</th>
+          <th>評等</th>
+          <th class="right">目標價</th>
+          <th class="right">2026E EPS</th>
+          <th class="right">2027E EPS</th>
+          <th>vs 現價 2,955</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">元大投顧</td>
+          <td>買進</td>
+          <td class="right">1,350</td>
+          <td class="right">10.8</td>
+          <td class="right">22.6</td>
+          <td class="right neg">-54%</td>
+        </tr>
+        <tr>
+          <td class="label">永豐投顧</td>
+          <td>買進</td>
+          <td class="right">1,375</td>
+          <td class="right">15.21</td>
+          <td class="right">30.56</td>
+          <td class="right neg">-53%</td>
+        </tr>
+        <tr>
+          <td class="label">某投顧</td>
+          <td>—</td>
+          <td class="right">2,000</td>
+          <td class="right">17.5</td>
+          <td class="right">—</td>
+          <td class="right neg">-32%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">外資（上修後）</td>
+          <td>買進</td>
+          <td class="right">2,081</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td class="right neg">-30%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>共識的隱含假設</strong>：
+    </p>
+    <ul style="margin: 8px 0 16px 24px; font-size: 13.5px; line-height: 1.85;">
+      <li>1.6T 矽光子需求按計畫起飛（NVIDIA Rubin Ultra 2026~2027 量產）</li>
+      <li>美國新 CSP 客戶 2026 開始出貨且量穩定爬升</li>
+      <li>產能擴張順利（2027 年產能 vs 2026 底 +100%+）</li>
+      <li>毛利率持續維持 50%+ 高水準</li>
+      <li>銦基板供應穩定（已透過住友長約緩解）</li>
+      <li>中國 InP 基板（AXT）出口未進一步管制</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 6: SECOND-LEVEL THINKING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">第二層思考 · 共識的盲點</div>
+      <div class="section-kicker">Second-Level Analysis</div>
+    </div>
+
+    <h3 class="subsection-title">盲點 0：「美國光通訊純 Play」與實際結構有重大落差 ⭐</h3>
+    <p class="body-text">
+      <strong>事實</strong>：官方財報揭露 Q1 2026 中國市場佔 79.6%、美國僅 14.5%。媒體報導聚焦「NVIDIA / Lumentum / Coherent」與「美國 CSP 新客戶」，給市場營造「純美國 AI 供應鏈」的印象。
+      <strong>第一層解讀</strong>：「美國 YoY +259% 動能強勁，這個故事還會繼續。」
+      <strong>第二層解讀</strong>：美國成長確實在加速，但 79.6% 的中國暴露代表聯亞的命脈仍掌握在中國光模組廠（中際旭創、新易盛、光迅等）手中。<strong>中美貿易戰升級、實體清單擴大、銦/鎵出口管制延伸到光磊晶</strong>都是直接威脅。「2027 矽光子佔比 90%」可能成立，但「美國佔比 90%」不會成立——若中國市場拉貨節奏放緩，美國成長無法在短期內填補。
+      <strong>判斷信心</strong>：高。這是官方財報數字，非推論。
+    </p>
+
+    <h3 class="subsection-title">盲點 1：「股價已大幅超越目標價」是什麼訊號？</h3>
+    <p class="body-text">
+      <strong>事實</strong>：當前股價 2,955，外資最高目標 2,081，價差 +42%。
+      <strong>第一層解讀</strong>：「外資保守、市場樂觀，故事繼續發酵。」
+      <strong>第二層解讀</strong>：在台股經驗中，「股價超越投顧目標 30-50%」常見於兩種情境：(A) sell-side 落後實質基本面、(B) 投機資金 over-react。
+      <strong>判斷信心</strong>：中。目前看不到 sell-side 大幅上修目標價的具體催化劑，5/13 跌停顯示籌碼鬆動 —— 偏向 (B) 情境的機率較高。
+    </p>
+
+    <h3 class="subsection-title">盲點 2：千金股的流動性與籌碼風險被低估</h3>
+    <p class="body-text">
+      <strong>事實</strong>：股本僅 9.25 億，市值 2,700 億+，每張交易金額近 300 萬。5/13 跌停 2,750、5/14 反彈到 2,955，單日波動 7%+。
+      <strong>第二層觀察</strong>：千金股的特性是「漲時急、跌時更急」。籌碼集中度高，**只要單一外資或大戶調節，就能造成 5-10% 跌停級波動**。對中長期持有者是雜訊，對短期持有者是實質風險。歷史案例（大立光、矽力 -KY）顯示，千金股一旦進入估值修正期，回檔常達 30-50%。
+    </p>
+
+    <h3 class="subsection-title">盲點 3：「產能 2 年內 +100%」的執行風險</h3>
+    <p class="body-text">
+      <strong>事實</strong>：公司公告 2026 年 capex 13.15 億、2027 前段產能比 2026 底再增加 100%+。
+      <strong>第二層觀察</strong>：MOCVD 設備的全球供應商屈指可數（Veeco、AIXTRON），設備交期通常 12-18 個月。「2 年內產能倍增」需要：(1) 設備如期到貨 (2) 廠房空間擴張 (3) 工程師團隊倍增 (4) 客戶端 design-in 同步擴張。任一環節落後，「擴產但量未滿」會導致折舊壓力，毛利率下滑。
+      <strong>類比警示</strong>：穩懋 2021 年宣布大擴產，緊接著 2022~2024 因產業循環錯位導致連虧。聯亞當前擴產時點是否會遇到類似挑戰？關鍵在 1.6T 需求落地節奏 vs 產能投產節奏的對齊。
+    </p>
+
+    <h3 class="subsection-title">盲點 4：客戶集中度的反向風險</h3>
+    <p class="body-text">
+      <strong>事實</strong>：Datacom 佔 75-80%，主要客戶是 Lumentum、Coherent 等不到 5 家。
+      <strong>第二層觀察</strong>：客戶集中是高毛利的來源（議價力低、design-in 深），也是斷單風險的來源。如果 Lumentum 自身需求放緩（其股價已從高點回檔超過 20%），或 NVIDIA 的 CPO 路線圖延後（從 Rubin Ultra 推到下一代），都會傳導到聯亞的訂單能見度。
+      <strong>歷史案例</strong>：2022~2023 智慧手機去庫存週期中，VCSEL 上游磊晶廠（包括聯亞）因 Apple 拉貨節奏調整而出現營收急跌。客戶集中度高的反面風險不容忽視。
+    </p>
+
+    <h3 class="subsection-title">盲點 5：「2027 年矽光子佔比 90%」的雙刃性</h3>
+    <p class="body-text">
+      <strong>共識正面看法</strong>：高比重代表高純度 play，PER 應該享有溢價。
+      <strong>第二層觀察</strong>：高比重也代表「失去 Telecom 業務的緩衝」。一旦矽光子需求遇到任何週期性放緩（即便長期方向正確），聯亞的營收波動會比多元化的公司大很多。**純 play 在多頭時是優點，在空頭時是缺點**。
+    </p>
+
+    <div class="pullquote">
+      <div class="pullquote-text">
+        聯亞是對的方向 + 對的位置 + 對的時點。但「對」不等於「便宜」——當股價已大幅超越投顧目標 30-50%，所有「對」的因素都已被市場充分認識，risk-reward 的非對稱性反而開始向下傾斜。
+      </div>
+      <div class="pullquote-author">— SECOND-LEVEL CONCLUSION</div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VII.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenario Analysis</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull Case · 12M</div>
+        <div class="scenario-prob">25%</div>
+        <div class="scenario-target">3,500~4,500 元</div>
+        <div class="scenario-desc">中美雙引擎齊發：中國 +50% / 美國 +200%、Q2/Q3 毛利率守 55%+、設備到貨如期、2027E EPS（稀釋後）30+。對應 PER 100-130x。</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base Case · 12M</div>
+        <div class="scenario-prob">45%</div>
+        <div class="scenario-target">2,500~3,200 元</div>
+        <div class="scenario-desc">部分催化劑兌現：中國穩定 / 美國放大、毛利率 50-55%、稀釋後 2026E EPS 14、2027E EPS 25-28。當前估值區間震盪。</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear Case · 6-12M</div>
+        <div class="scenario-prob">30%</div>
+        <div class="scenario-target">1,500~2,200 元</div>
+        <div class="scenario-desc">中美貿易戰升級拖累中國 79.6% 暴險 + 銦管制升級導致斷料 + Lumentum 訂單放緩 + 千金股流動性問題引發劇烈修正。</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 16px;">
+      <strong>機率加權預期值約 2,500~2,800 元</strong>，相對於當前 2,955 元，**期望值已接近持平偏下**。Bull case 上行空間 +20~50%，但 Bear case 下行空間 -25~50%，**風險報酬比約 1:1.2，不具顯著吸引力**。
+    </p>
+  </section>
+
+  <!-- SECTION 8: CATALYSTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VIII.</div>
+      <div class="section-title">關鍵催化劑與觀察點</div>
+      <div class="section-kicker">Catalyst Roadmap</div>
+    </div>
+
+    <div class="catalyst-list">
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.06.10</div>
+        <div class="catalyst-desc">
+          <strong>5 月月營收公告</strong>
+          動能持續性最即時驗證
+        </div>
+        <div class="catalyst-impact">±10~15%<br/><span style="color:var(--accent)">門檻 &gt;4 億</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q3</div>
+        <div class="catalyst-desc">
+          <strong>Q2 法說會 + 半年報地區營收</strong>
+          QoQ +16~20%、毛利率守 50%、<strong>美國佔比是否突破 20%</strong>
+        </div>
+        <div class="catalyst-impact">±15~25%<br/><span style="color:var(--accent)">關鍵驗證</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 H2</div>
+        <div class="catalyst-desc">
+          <strong>美國新 CSP 客戶出貨 + 中國市場拉貨節奏</strong>
+          雙引擎健康度檢視
+        </div>
+        <div class="catalyst-impact">±15~20%<br/><span style="color:var(--neutral)">已反映 70%</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">隨機</div>
+        <div class="catalyst-desc">
+          <strong>中美關係 / 出口管制動態</strong>
+          中國 79.6% 暴險的尾部風險觸發點
+        </div>
+        <div class="catalyst-impact">±20~40%<br/><span style="color:var(--accent)">非對稱風險</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.11.10</div>
+        <div class="catalyst-desc">
+          <strong>中國銦出口管制政策到期</strong>
+          延長/解除/收緊三種情境差異極大
+        </div>
+        <div class="catalyst-impact">±15~30%<br/><span style="color:var(--accent)">非對稱風險</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q4</div>
+        <div class="catalyst-desc">
+          <strong>NVIDIA Rubin Ultra 路線圖更新</strong>
+          CPO 採用節奏與時程
+        </div>
+        <div class="catalyst-impact">±10~15%<br/><span style="color:var(--neutral)">已反映 60%</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2027 Q1</div>
+        <div class="catalyst-desc">
+          <strong>2027 前段擴產到位</strong>
+          產能 +100% 是否如期投產、稼動率是否到位
+        </div>
+        <div class="catalyst-impact">±20~30%<br/><span style="color:var(--accent)">執行力檢驗</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: RISKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IX.</div>
+      <div class="section-title">主要風險因子</div>
+      <div class="section-kicker">Risk Factors</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">高度警覺（影響大、機率不低）</div>
+      <ul class="risks-list">
+        <li><strong>中國市場暴險 79.6%（官方財報揭露）</strong>：媒體聚焦美國 CSP 但實際中國市場才是主力。中美貿易戰升級、出口管制擴大、實體清單延伸到光磊晶設備皆是直接威脅。</li>
+        <li><strong>客戶集中度升至 89%</strong>：前 3 家客戶掌握 89% 應收（從 Q1 2025 的 75% 上升）。任一客戶調節都對營收造成顯著衝擊。</li>
+        <li><strong>估值已大幅超越投顧目標</strong>：股價 2,955 vs 多數目標 1,350~2,081，溢價 +30~50%。任一催化劑兌現不如預期都可能觸發評價回歸。</li>
+        <li><strong>千金股流動性風險</strong>：5/13 跌停顯示籌碼鬆動。歷史案例顯示千金股一旦進入修正期，回檔常達 30-50%。</li>
+        <li><strong>銦出口管制升級（2026/11）</strong>：雖已與住友簽長約，但 InP 基板全球供應集中於少數廠商，斷料情境下整個 InP 敘事反轉。</li>
+      </ul>
+      <div class="risks-title" style="margin-top: 16px;">中度警覺（影響中、機率中）</div>
+      <ul class="risks-list">
+        <li><strong>股票股利稀釋股本 +10%</strong>：1 元股票股利將增發 9,252 千股。投顧 EPS 預估須按稀釋後重算，Forward PER 從 194x 升至 213x。</li>
+        <li><strong>存貨跌價損失 +67%</strong>：Q1 已認列 3,400 萬，1.6T 規格快速演進下，舊規格在製品/成品有過時風險。</li>
+        <li><strong>擴產執行風險</strong>：MOCVD 設備交期長、人才招募壓力。已承諾 9.67 億設備合約，若需求遞延將出現折舊壓力。</li>
+        <li><strong>NVIDIA Rubin Ultra 時程延後</strong>：CPO 採用節奏若放緩，1.6T 拉貨節奏會遞延。</li>
+        <li><strong>競爭者切入高階</strong>：全新、IET-KY、環宇正積極擴 InP 磊晶產能，2027 後產業競爭可能升溫。</li>
+        <li><strong>Lumentum 股價傳導風險</strong>：作為下游客戶代表，Lumentum 股價波動會直接影響市場對聯亞的評價。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ANALYST NOTE -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:40px;">
+    <div class="callout-label">Analyst's Final Note</div>
+    <div class="callout-body">
+      聯亞是台灣 AI 矽光子供應鏈中「技術位階最關鍵」的標的——這個敘事是<strong>結構性正確</strong>的。Q1 設備合約承諾 9.67 億（QoQ +243%）+ 預付設備款跳 533 倍，<strong>擴產真實性已被官方財報強力驗證</strong>。淨現金部位 5.4 億、無外部融資需求、自由現金流穩定流入——這些都是教科書級的成長股財務體質。<br/><br/>
+      <strong>但官方財報也揭露了媒體未強調的關鍵事實</strong>：(1)中國市場佔營收 79.6%（美國僅 14.5%），「純美國 AI 供應鏈」的敘事與實際結構有重大落差；(2)客戶集中度升至 3 家佔 89%（從 75% 上升）；(3)股票股利將稀釋股本 +10%，Forward PER 實際達 213x；(4)存貨跌價損失 YoY +67% 顯示規格演進下的潛在折讓風險。<br/><br/>
+      當股價已超越多數投顧目標 30-50%，市場已將最樂觀情境提前定價，後續上行空間需要 sell-side 大幅上修目標才能支撐。對結構性多頭信徒，<strong>未來真正的進場機會可能在估值回檔 20-30% 後（如 2,200~2,500 區間）</strong>。對短線參與者，5/13 跌停的籌碼訊號 + 中國暴險的尾部風險值得高度警覺。<br/><br/>
+      若拿來與穩懋（3105）對比：聯亞的「技術純度」與「成長率」優於穩懋，但「中國暴險」與「絕對估值」也更高。同樣相信光通訊敘事，<strong>配對佈局可能是更穩健的選項</strong>：穩懋作為龍頭定價力代表（地緣中性），聯亞作為純成長代表（中國暴險高），比例配置以平衡 risk-reward。最值得追蹤的單一指標：<strong>每季營收的「美國 vs 中國占比變化」</strong>——若美國能在 2026 Q4 拉到 25%+，純 play 故事才真正成立。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有資料均來自公開來源（Goodinfo、財報狗、TechNews、永豐豐雲學堂、鉅亨網、經濟日報、工商時報、Yahoo 股市、StockFeel、優分析 UAnalyze、vocus、Win 投資、PChome 股市等），但本分析師不保證其準確性或完整性。
+      讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: 3081-TW-20260514-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
