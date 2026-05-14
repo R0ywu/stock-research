@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穩懋半導體 (3105) 產業深度研究 | 2026.05.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #e8a87c; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "執行摘要";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 44px;
+}
+
+.thesis-card {
+  padding: 22px 24px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.thesis-desc {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.section {
+  margin-bottom: 44px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.subsection-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: var(--accent-dark);
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.body-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.body-text strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.lead-para {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 500;
+}
+
+.lead-para::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--accent);
+}
+
+.industry-map {
+  background: var(--bg);
+  border: 2px solid var(--ink);
+  padding: 24px;
+  margin: 20px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.industry-map .layer {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.industry-map .star {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 13px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td {
+  border-bottom: 2px solid var(--ink);
+}
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label {
+  font-weight: 700;
+}
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.pullquote {
+  background: var(--pullquote-bg);
+  color: white;
+  padding: 36px 40px;
+  margin: 36px -20px;
+  position: relative;
+}
+
+.pullquote::before {
+  content: "\"";
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+}
+
+.pullquote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pullquote-author {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 14px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scenario-desc {
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--negative);
+}
+
+.risks-list {
+  list-style: none;
+  font-size: 13px;
+}
+
+.risks-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.catalyst-list {
+  margin: 20px 0;
+}
+
+.catalyst-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+}
+
+.catalyst-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.catalyst-desc {
+  font-size: 13px;
+}
+
+.catalyst-desc strong {
+  display: block;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.catalyst-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-align: right;
+  color: var(--ink-secondary);
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  background: var(--bg-card);
+  padding: 16px 18px;
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .catalyst-item { grid-template-columns: 1fr; gap: 4px; }
+  .catalyst-impact { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Taiwan · Compound Semiconductor</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">3105-TW · INDUSTRY DEEP DIVE</div>
+      <div>2026.05.09</div>
+      <div>Sector + Company · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">化合物半導體 · GaAs / GaN / InP 代工龍頭</div>
+      <h1 class="company-title">穩懋半導體<span class="ticker">3105.TWO</span></h1>
+      <div class="report-subtitle">敘事疊加的龍頭溢價：產業 Price-In 已達高位，財報細節揭露多重結構性矛盾</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Industry View</div>
+      <div class="rating-value accent">CAUTIOUS BULL</div>
+      <div class="rating-sub">Price-In 80~90%</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">493<span class="unit">TWD</span></div>
+      <div class="rating-sub">As of 2026.05.08</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">PER (TTM)</div>
+      <div class="rating-value">~125<span class="unit">x</span></div>
+      <div class="rating-sub">PEG 4.46（同業最高）</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">GaAs 全球市占</div>
+      <div class="rating-value">79<span class="unit">%</span></div>
+      <div class="rating-sub">代工絕對龍頭</div>
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">穩懋是台灣化合物半導體產業鏈的「集大成者」——幾乎沾上每一個熱門題材，但沒有任何一個題材是它最純的代表。這既是龍頭優勢，也是估值溢價的來源。</p>
+    <p>2026 Q1 營收年增 28%、EPS 1.26 元，4 月營收年增 48.9%，動能強勁。但同業（聯亞 +99%、宏捷科 +58%、環宇 +55%）營收成長率均超越穩懋，而本益比卻只有穩懋的 1/3。穩懋的 PEG 4.46 在族群中最高，意味市場為「龍頭地位＋多元題材疊加」付出顯著溢價。<strong>官方財報揭露幾個媒體未強調的關鍵事實：(1)農牧科技部門 Q1 虧 3.28 億，剝離後半導體本業營業利益率達 18%（而非合併 9%）；(2)設備合約承諾反向縮減（33.56 億→9.75 億），與「擴產 6 倍」敘事方向相反；(3)4/10 董事會決議辦理私募 4,000 萬股，將稀釋 +9.4%（與聯亞無融資需求形成對比）；(4)Broadcom 持股市值 74.28 億 + 聯茂電子權益法投資 128 億 = 200 億「隱藏資產」；(5)折舊 YoY -30% 是 Q1 毛利率改善的關鍵，擴產若落實將反彈。</strong>本報告以 Howard Marks 第二層思考框架，逐一拆解產業 Price-In 程度、競爭定位、與穩懋的相對價值。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">半導體本業被合併數字低估</div>
+      <div class="thesis-desc">農牧科技 Q1 虧 3.28 億，半導體本業實質營業利益率達 18%。Sum-of-the-parts 估值機會浮現。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">擴產敘事與財報數字有落差</div>
+      <div class="thesis-desc">媒體喊「擴產 6 倍」，但設備合約承諾從 33.56 億→9.75 億反向縮減。4/10 決議私募 4,000 萬股稀釋 +9.4%。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">隱藏資產 200 億支撐淨值</div>
+      <div class="thesis-desc">Broadcom 持股 74.3 億 + 聯茂電子權益法 128.2 億 = 200 億。市場未充分計入估值。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: INDUSTRY LANDSCAPE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">化合物半導體產業地圖</div>
+      <div class="section-kicker">Industry Landscape</div>
+    </div>
+
+    <p class="lead-para">
+      化合物半導體（GaAs、GaN、InP）是「非矽」半導體材料的統稱，主要用於高頻射頻（PA）、光通訊雷射 / 感測器、功率元件等矽材料無法勝任的應用。台灣在這個產業擁有全球領先地位——穩懋一家就掌握全球 GaAs 代工市占 79%，加上宏捷科、環宇 -KY、聯亞、全新等磊晶與代工廠商，台廠合計掌握全球三五族 GaAs / InP 製程約 8~9 成的關鍵產能。
+    </p>
+
+    <p class="body-text">
+      這個產業正處於結構性轉型的轉捩點：從「以智慧手機 PA 為主」的成熟市場，轉向「AI 光通訊 + 低軌衛星 + 車用 LiDAR + Wi-Fi 7」的多元成長軌道。下圖是當前產業鏈的完整地圖：
+    </p>
+
+    <div class="industry-map"><span class="layer">【上游 — 基板 / 磊晶】</span>
+   AXT (中國/北京)        → InP 基板（全球最大、台廠最大依賴源）
+   全新 (2455)            → GaAs / InP 磊晶
+   聯亞 (3081)            → InP 雷射磊晶（CW Laser, EML）
+   IET-KY (4971)          → InP 磊晶（PIN, AI 應用）
+
+<span class="layer">【中游 — 晶圓代工】</span>
+   <span class="star">★ 穩懋 (3105)</span>          → GaAs / GaN-on-SiC / InP 代工龍頭（市占 79%）
+   宏捷科 (8086)          → GaAs 代工次大（市占 8.6%）
+   環宇-KY (4991)         → GaAs / AOC（自有產品）
+   GCS (美國加州)         → GaAs（市占 4.2%）
+   三安光電 (中國)        → GaAs / GaN / SiC（市占從 5% → 15%）
+
+<span class="layer">【下游 — IC / 模組 / 終端】</span>
+   達發 (5314)            → 光通訊 IC（TIA）
+   昇達科 (3491)          → 衛星射頻
+   美廠 Lumentum / Coherent / IPGP    → 雷射模組
+   美廠 Skyworks / Qorvo / Broadcom   → 智慧手機 PA / 射頻 IC
+   終端：Apple, NVIDIA (TPU), SpaceX (Starlink), Google (TPU)</div>
+
+    <h3 class="subsection-title">1.1 產業需求驅動的四大引擎</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>需求引擎</th>
+          <th>核心應用</th>
+          <th>關鍵技術</th>
+          <th>受惠台廠</th>
+          <th class="center">成長期</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">AI 光通訊</td>
+          <td>1.6T 光模組、CPO</td>
+          <td>InP / GaAs 雷射、PD</td>
+          <td>聯亞、全新、IET-KY、穩懋、達發</td>
+          <td class="center">2026~2028</td>
+        </tr>
+        <tr>
+          <td class="label">LEO 衛星</td>
+          <td>Starlink、OneWeb 終端</td>
+          <td>GaAs / GaN PA</td>
+          <td>穩懋、昇達科、環宇</td>
+          <td class="center">2025~2030</td>
+        </tr>
+        <tr>
+          <td class="label">智慧手機 Wi-Fi 7</td>
+          <td>每機 8~10 顆 PA</td>
+          <td>GaAs PA</td>
+          <td>穩懋、宏捷科</td>
+          <td class="center">2026~2027</td>
+        </tr>
+        <tr>
+          <td class="label">車用 LiDAR</td>
+          <td>L3 / L4 自駕</td>
+          <td>VCSEL / PD</td>
+          <td>穩懋、環宇</td>
+          <td class="center">2027+</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">1.2 上游原料風險：銦 / 鎵的地緣政治</h3>
+
+    <p class="body-text">
+      整個產業鏈最脆弱的環節在上游基板與原料：
+    </p>
+
+    <ul style="margin: 12px 0 16px 24px; font-size: 13.5px; line-height: 1.85;">
+      <li><strong>銦（Indium）</strong>：InP 基板核心原料。中國 2025/2 列入出口管制，<strong>政策到期日 2026/11/10 即將屆至</strong>。全球最大 InP 基板廠 AXT 主廠在北京，台廠庫存僅約 2 個月。</li>
+      <li><strong>鎵（Gallium）</strong>：GaAs 與 GaN 核心原料。2025 年漲價 140%、2026 已漲超過 30%，直接推升 GaAs 基板成本。</li>
+      <li><strong>地緣政治雙刃劍</strong>：原料漲價短期支撐定價力（穩懋等龍頭順勢調漲代工費），但中長期斷料風險仍在。</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 2: COMPETITIVE BENCHMARK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">競爭定位與估值對標</div>
+      <div class="section-kicker">Competitive Benchmark</div>
+    </div>
+
+    <p class="body-text">
+      將台廠化合物半導體 / 光通訊族群與美股對應公司放在一起做估值比較，可清楚看到穩懋在族群中的相對位置——<strong>市占絕對龍頭、營收成長最慢、本益比最高</strong>。這個三角矛盾是評估後續 risk-reward 的關鍵。
+    </p>
+
+    <h3 class="subsection-title">2.1 台股化合物半導體族群估值表</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th>代號</th>
+          <th class="right">PER</th>
+          <th class="right">Q1 YoY 營收</th>
+          <th class="right">Q1 EPS</th>
+          <th class="right">PEG</th>
+          <th>主題</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">穩懋</td>
+          <td>3105</td>
+          <td class="right neg">~125x</td>
+          <td class="right">+28%</td>
+          <td class="right">1.26</td>
+          <td class="right neg">4.46</td>
+          <td>光通訊+LEO+PA 全包</td>
+        </tr>
+        <tr>
+          <td class="label">宏捷科</td>
+          <td>8086</td>
+          <td class="right">44.6x</td>
+          <td class="right pos">+58%</td>
+          <td class="right">—</td>
+          <td class="right pos">0.77</td>
+          <td>PA + 光通訊轉型</td>
+        </tr>
+        <tr>
+          <td class="label">全新</td>
+          <td>2455</td>
+          <td class="right">58.5x</td>
+          <td class="right">~+50%</td>
+          <td class="right">—</td>
+          <td class="right neu">1.17</td>
+          <td>InP 磊晶</td>
+        </tr>
+        <tr>
+          <td class="label">聯亞</td>
+          <td>3081</td>
+          <td class="right">43.4x</td>
+          <td class="right pos">+99%</td>
+          <td class="right">3.44</td>
+          <td class="right pos">0.44</td>
+          <td>InP 雷射磊晶</td>
+        </tr>
+        <tr>
+          <td class="label">環宇-KY</td>
+          <td>4991</td>
+          <td class="right">—</td>
+          <td class="right pos">+55%</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td>AOC + 800G PD 市占 70%</td>
+        </tr>
+        <tr>
+          <td class="label">IET-KY</td>
+          <td>4971</td>
+          <td class="right">—</td>
+          <td class="right">倍增</td>
+          <td class="right">—</td>
+          <td class="right">—</td>
+          <td>InP 磊晶</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">2.2 美股對標</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th>代號</th>
+          <th class="right">PER</th>
+          <th class="right">YoY 成長</th>
+          <th>對應角色</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Lumentum</td>
+          <td>LITE</td>
+          <td class="right neg">165x</td>
+          <td class="right pos">+90%</td>
+          <td>雷射模組龍頭、Google TPU 鏈</td>
+        </tr>
+        <tr>
+          <td class="label">Coherent</td>
+          <td>COHR</td>
+          <td class="right">~50-80x</td>
+          <td class="right pos">高</td>
+          <td>光通訊 + 工業雷射</td>
+        </tr>
+        <tr>
+          <td class="label">Skyworks</td>
+          <td>SWKS</td>
+          <td class="right pos">27.1x</td>
+          <td class="right neg">衰退</td>
+          <td>美 PA 龍頭、退出 Android</td>
+        </tr>
+        <tr>
+          <td class="label">Qorvo</td>
+          <td>QRVO</td>
+          <td class="right pos">22.9x</td>
+          <td class="right neg">衰退</td>
+          <td>美 PA 次大、合併進行中</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層思考 · PEG 矛盾</div>
+      <div class="callout-body">
+        穩懋的 PEG 4.46 在整個產業鏈中最高，意味著「為單位成長付出的價格最貴」。聯亞 PEG 0.44 是「極度便宜」，宏捷科 PEG 0.77 是「便宜」。同樣相信光通訊敘事，<strong>買成長更純的公司可能 risk-reward 更好</strong>——除非市場願意為穩懋的「龍頭地位＋多元化＋客戶結構」付出 2.5x 同業的龍頭溢價。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">2.3 龍頭溢價的歷史校準</h3>
+
+    <p class="body-text">
+      台股龍頭溢價的歷史經驗：合理區間為同業 1.5~2x，泡沫區間為 2.5~3x。
+    </p>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">穩懋 PER</div>
+        <div class="stat-value">125x</div>
+        <div class="stat-sub">TTM</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">同業平均 PER</div>
+        <div class="stat-value">~50x</div>
+        <div class="stat-sub">宏/全/聯均</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">當前龍頭溢價</div>
+        <div class="stat-value" style="color:var(--negative)">2.5x</div>
+        <div class="stat-sub">接近泡沫上緣</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">合理回歸後股價</div>
+        <div class="stat-value" style="color:var(--neutral)">300-400</div>
+        <div class="stat-sub">PER 75-100x</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: PRICE-IN MAP -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">題材 Price-In 程度評估</div>
+      <div class="section-kicker">Narrative Price-In Map</div>
+    </div>
+
+    <p class="body-text">
+      將每個熱門題材的「市場已反應程度」量化，可清楚看到穩懋為什麼會這麼貴——它是少數同時受益於所有題材的「集大成者」。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>題材</th>
+          <th>受惠最直接</th>
+          <th class="center">Price-In 程度</th>
+          <th class="center">穩懋是否受益</th>
+          <th>實質貢獻時點</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">AI 1.6T 光通訊</td>
+          <td>Lumentum, 聯亞, 全新</td>
+          <td class="center neg">80~90%</td>
+          <td class="center">✓ PD/CW</td>
+          <td>2026 H2~2027</td>
+        </tr>
+        <tr>
+          <td class="label">InP 缺料</td>
+          <td>IET-KY, 全新</td>
+          <td class="center neg">70~85%</td>
+          <td class="center">✓ 自有 InP 線</td>
+          <td>持續中</td>
+        </tr>
+        <tr>
+          <td class="label">LEO 衛星 (SpaceX)</td>
+          <td>昇達科, 穩懋</td>
+          <td class="center neu">60~70%</td>
+          <td class="center">✓ 直接</td>
+          <td>2026 持續</td>
+        </tr>
+        <tr>
+          <td class="label">NXP 退出 5G PA</td>
+          <td>穩懋, 宏捷科</td>
+          <td class="center neu">50%</td>
+          <td class="center">✓ 直接</td>
+          <td>2026~2027</td>
+        </tr>
+        <tr>
+          <td class="label">Skyworks/Qorvo 合併</td>
+          <td>穩懋, 宏捷科</td>
+          <td class="center pos">30~40%</td>
+          <td class="center">✓ 間接</td>
+          <td>2026 末~2027</td>
+        </tr>
+        <tr>
+          <td class="label">Apple 摺疊機</td>
+          <td>鴻海, 各精密件</td>
+          <td class="center pos">10~20%</td>
+          <td class="center">✓ PA/VCSEL</td>
+          <td>2026 Q4~2027</td>
+        </tr>
+        <tr>
+          <td class="label">MicroLED + Apple 眼鏡</td>
+          <td>錼創, 富采</td>
+          <td class="center pos">&lt;10%</td>
+          <td class="center neg">✗ 無布局</td>
+          <td>2028+</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">敘事疊加 · Narrative Stacking</div>
+      <div class="callout-body">
+        穩懋的特殊位置——它幾乎沾上了每一個題材，但<strong>沒有一個題材是它「最純」的代表</strong>。純光通訊雷射 → 聯亞；純 InP 磊晶 → IET-KY、全新；純 LEO 衛星 → 昇達科；純 PA 代工 → 宏捷科。穩懋的多元化是優勢（風險分散、龍頭定價力），但也意味著它承擔了所有題材的「估值溢價」。當任一題材 mismatch，整個敘事 stack 都可能修正。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: COMPANY DEEP DIVE -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">穩懋公司深度分析</div>
+      <div class="section-kicker">Company Deep Dive</div>
+    </div>
+
+    <h3 class="subsection-title">4.1 財務概覽</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>期別</th>
+          <th class="right">營收（億）</th>
+          <th class="right">YoY</th>
+          <th class="right">毛利率</th>
+          <th class="right">EPS</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">2024 全年</td>
+          <td class="right">174.6</td>
+          <td class="right neg">-</td>
+          <td class="right">-</td>
+          <td class="right">~1.8</td>
+          <td>復甦初期</td>
+        </tr>
+        <tr>
+          <td class="label">2025 Q3</td>
+          <td class="right">~44.8</td>
+          <td class="right">—</td>
+          <td class="right">26.9%</td>
+          <td class="right">—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="label">2025 Q4</td>
+          <td class="right">47.94</td>
+          <td class="right pos">+29%</td>
+          <td class="right pos">31.8%</td>
+          <td class="right">—</td>
+          <td>產品組合改善</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">2025 全年</td>
+          <td class="right">166.38</td>
+          <td class="right neg">-4.7%</td>
+          <td class="right">—</td>
+          <td class="right pos">4.00</td>
+          <td>3 年新高</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">2026 Q1</td>
+          <td class="right">45.90</td>
+          <td class="right pos">+28%</td>
+          <td class="right">26.3% (合併)</td>
+          <td class="right">1.26</td>
+          <td>2022 以來最佳 Q1</td>
+        </tr>
+        <tr>
+          <td class="label">2026 Q2(F)</td>
+          <td class="right">QoQ +14~16%</td>
+          <td class="right">—</td>
+          <td class="right">26~29%</td>
+          <td class="right">—</td>
+          <td>公司指引</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">4.2 月營收動能（2026）</h3>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">2026 Jan</div>
+        <div class="stat-value">14.68</div>
+        <div class="stat-sub">YoY +25%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 Feb</div>
+        <div class="stat-value">14.74</div>
+        <div class="stat-sub">YoY +26%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 Mar</div>
+        <div class="stat-value">16.49</div>
+        <div class="stat-sub">YoY +34%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 Apr</div>
+        <div class="stat-value" style="color:var(--positive)">17.34</div>
+        <div class="stat-sub" style="color:var(--positive)">YoY +49%</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.3 產品組合（2026 Q1）</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>產品線</th>
+          <th class="right">營收佔比</th>
+          <th>性質</th>
+          <th>動能</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Cellular（手機 PA）</td>
+          <td class="right">30~35%</td>
+          <td>現金牛、結構性低增</td>
+          <td>NXP 退出轉單；Wi-Fi 7 帶動</td>
+        </tr>
+        <tr>
+          <td class="label">Infrastructure（基建）</td>
+          <td class="right">30~35%</td>
+          <td>成長引擎</td>
+          <td>內含衛星，2026 衛星佔比上看 40%</td>
+        </tr>
+        <tr>
+          <td class="label">Wi-Fi</td>
+          <td class="right">15~20%</td>
+          <td>穩定成長</td>
+          <td>Wi-Fi 7 升級週期</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">Optical（光通訊）</td>
+          <td class="right">5~10%</td>
+          <td>新興成長引擎</td>
+          <td>本季首度單獨揭露 ⭐</td>
+        </tr>
+        <tr>
+          <td class="label">Others</td>
+          <td class="right">~6%</td>
+          <td>卡位</td>
+          <td>車用、感測長期布局</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">4.4 4/30 法說會關鍵新訊號</h3>
+
+    <ul style="margin: 12px 0 16px 24px; font-size: 13.5px; line-height: 1.85;">
+      <li><strong>擴產 6 倍（陳進財專訪）</strong>：1 年內產能擴 6 倍；資本支出 30~40 億元；華亞 C 廠旁空地加蓋新廠房。</li>
+      <li><strong>客戶鎖料</strong>：「<strong>NVIDIA 與 SpaceX 都在預先鎖料</strong>」（陳進財原話）。</li>
+      <li><strong>4 吋線</strong>：GaN-on-SiC + InP 大幅擴充（針對光通訊）。</li>
+      <li><strong>6 吋線</strong>：持續擴，主因「光收發模組需求大，產線擴充量以倍數增長」。</li>
+      <li><strong>PD 已正式量產</strong>：1.6T PD 4 月開始量產。</li>
+      <li><strong>CW Laser 70/100mW</strong>：仍在客戶驗證階段，公司明言「雷射產品驗證週期較消費電子更長，難以保證今年完成」。</li>
+      <li><strong>Q1 資本支出</strong>：8.84 億元，較去年同期 0.91 億元大幅增加。</li>
+    </ul>
+
+    <h3 class="subsection-title">4.5 地區營收結構（官方財報揭露）</h3>
+
+    <p class="body-text">
+      Q1 2026 官方合併財報附註六(二十五)揭露的地區別營收。<strong>穩懋的地區分散度比聯亞好</strong>——亞洲、美洲、台灣、歐洲均有實質貢獻，且各地區均呈雙位數成長。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>地區</th>
+          <th class="right">Q1 2026（千元）</th>
+          <th class="right">佔比</th>
+          <th class="right">Q1 2025（千元）</th>
+          <th class="right">YoY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">亞洲</td>
+          <td class="right">3,143,821</td>
+          <td class="right">68.5%</td>
+          <td class="right">2,479,780</td>
+          <td class="right pos">+26.8%</td>
+        </tr>
+        <tr>
+          <td class="label">美洲</td>
+          <td class="right">713,850</td>
+          <td class="right">15.6%</td>
+          <td class="right">505,418</td>
+          <td class="right pos">+41.2%</td>
+        </tr>
+        <tr>
+          <td class="label">台灣</td>
+          <td class="right">393,769</td>
+          <td class="right">8.6%</td>
+          <td class="right">309,949</td>
+          <td class="right pos">+27.0%</td>
+        </tr>
+        <tr>
+          <td class="label">歐洲</td>
+          <td class="right">338,620</td>
+          <td class="right">7.4%</td>
+          <td class="right">280,656</td>
+          <td class="right pos">+20.7%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · 地區暴險對比聯亞</div>
+      <div class="callout-body">
+        穩懋亞洲 68.5%（含中國，含日韓）vs <strong>聯亞中國 79.6%</strong>。穩懋透過 Broadcom / Skyworks / Qorvo 等美系客戶向全球出貨，地緣風險明顯較聯亞分散。財報附表三亦揭露穩懋持有中國 PA 廠「唯捷創芯」少量股權並列為「銷售客戶」，確認中國市場為穩懋亞洲營收貢獻來源之一。中美貿易戰升級的傳導風險，<strong>穩懋的暴險低於聯亞</strong>。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.6 部門結構 — 農牧科技嚴重拖累合併獲利 ⚠️</h3>
+
+    <p class="body-text">
+      財報附註十四「部門資訊」揭露穩懋有兩個「應報導部門」：晶圓代工 + <strong>農牧科技（中國養豬業務）</strong>。這個結構是市場討論度極低、但對估值理解極關鍵的事實。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>部門</th>
+          <th class="right">Q1 2026 營收</th>
+          <th class="right">佔比</th>
+          <th class="right">Q1 2026 損益</th>
+          <th class="right">Q1 2025 損益</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">晶圓代工</td>
+          <td class="right">4,330,991</td>
+          <td class="right">94.4%</td>
+          <td class="right pos">+790,841</td>
+          <td class="right pos">+108,879</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">農牧科技</td>
+          <td class="right">223,211</td>
+          <td class="right">4.9%</td>
+          <td class="right neg">-328,440</td>
+          <td class="right neg">-300,724</td>
+        </tr>
+        <tr>
+          <td class="label">其他（含基因晶片）</td>
+          <td class="right">35,858</td>
+          <td class="right">0.8%</td>
+          <td class="right neg">-31,401</td>
+          <td class="right neg">-24,721</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">合計</td>
+          <td class="right">4,590,060</td>
+          <td class="right">100%</td>
+          <td class="right">+431,000</td>
+          <td class="right neg">-216,566</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      生物資產（仔豬、肉豬、種豬）：<strong>8.28 萬頭、3.84 億 NT</strong>。Q1 公允價值損失 5,589 萬（豬價下跌）。集團內江蘇全穩康源農業借款 6.43 億 NT 維持營運。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Sum-of-the-Parts 估值機會 ⭐</div>
+      <div class="callout-body">
+        <strong>剝離農牧科技後，半導體本業的真實獲利能力遠優於合併數字</strong>：<br/>
+        • 合併營業利益率：4.31 億 / 45.9 億 = <strong>9.4%</strong><br/>
+        • 半導體本業營業利益率：7.91 億 / 43.31 億 = <strong>18.3%</strong>（接近 2 倍）<br/>
+        • 合併 EPS 1.26 → 半導體本業隱含 EPS 約 <strong>2.1+</strong>（若剝離農牧虧損 3.28 億稅後影響）<br/><br/>
+        若市場以「合併 EPS」評價穩懋，估值看似貴；但若公司未來能 spin-off 或關閉農牧業務，將釋放重大價值。<strong>4 月期後事項已揭露：穩懋放棄認購 Chainwin 子公司增資，間接持股從 73.67% 降至 65.09%</strong>——這是淡出農牧業務的訊號。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.7 設備合約承諾 — 與「擴產 6 倍」敘事反向 ⚠️</h3>
+
+    <p class="body-text">
+      財報附註九揭露穩懋因擴建廠房及購買機器設備之「<strong>尚未認列合約承諾</strong>」變化：
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>期別</th>
+          <th class="right">尚未執行金額（千元）</th>
+          <th class="right">QoQ 變化</th>
+          <th>解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Q1 2025</td>
+          <td class="right">3,356,426</td>
+          <td class="right">—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td class="label">Q4 2025</td>
+          <td class="right">1,377,462</td>
+          <td class="right neg">-59%</td>
+          <td>合約陸續執行</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">Q1 2026</td>
+          <td class="right neg">974,523</td>
+          <td class="right neg">-29%</td>
+          <td>承諾持續縮減</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      Q1 2026 預付設備款增加 7.20 億、取得設備 1.64 億，<strong>合計 Q1 實際投入 8.84 億</strong>（與法說會 capex 指引一致）。但<strong>未認列合約承諾持續縮減</strong>，意味著之前承諾的合約多在 Q1 大量交貨並付款，而<strong>新一輪「擴產 6 倍」的合約尚未簽訂或入帳</strong>。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · 擴產敘事 vs 財報數字</div>
+      <div class="callout-body">
+        對比聯亞：聯亞 Q1 設備合約承諾從 2.82 億跳到 9.67 億（<strong>+243%</strong>），預付設備款 533 倍跳升——擴產真實性已被官方財報強力驗證。<br/><br/>
+        穩懋的合約承諾反向縮減，可能的解釋：(A)既有合約多在 Q1 交貨；(B)新合約還在規劃階段、未簽訂；(C)擴產規模實際比媒體說的小。<strong>下一季 Q2 財報的合約承諾變化，將是驗證「擴產 6 倍」真實性的關鍵指標</strong>。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.8 4/10 私募增資 — 9.4% 稀釋將發生 ⚠️</h3>
+
+    <p class="body-text">
+      財報附註十一「重大期後事項」揭露：
+    </p>
+
+    <ul style="margin: 12px 0 16px 24px; font-size: 13.5px; line-height: 1.85;">
+      <li><strong>2026/4/10 董事會決議辦理私募普通股案</strong></li>
+      <li>發行總額不超過 <strong>4,000 萬股</strong></li>
+      <li>用途：資本支出、研發費用、營運資金</li>
+      <li>目前股本 4.24 億 → 稀釋幅度 <strong>+9.4%</strong></li>
+    </ul>
+
+    <p class="body-text">
+      <strong>對比聯亞「無外部融資需求」</strong>，穩懋雖然帳上現金 63.2 億 + 長短期借款尚未使用額度合計 88 億，仍決議私募。可能解讀：
+    </p>
+
+    <ul style="margin: 12px 0 16px 24px; font-size: 13.5px; line-height: 1.85;">
+      <li>擴產 6 倍規模超過內部現金流可支應</li>
+      <li>為策略夥伴（客戶、晶圓代工同業）保留股權彈性</li>
+      <li>農牧業務虧損吃掉部分現金流</li>
+    </ul>
+
+    <p class="body-text">
+      投顧 EPS 預估須按稀釋後股本重算。當前 PER 125x 在股本 +9.4% 後，<strong>實質 Forward PER 將上升至 137x</strong>，估值更貴。
+    </p>
+
+    <h3 class="subsection-title">4.9 隱藏資產 — Broadcom + 聯茂電子合計 200 億 ⭐</h3>
+
+    <p class="body-text">
+      財報附表三揭露穩懋資產負債表上的「<strong>隱藏資產</strong>」——這部分市場討論度極低，但對估值理解極關鍵。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>標的</th>
+          <th>關係</th>
+          <th class="right">持股</th>
+          <th class="right">公允價值 / 帳面金額（千元）</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">Broadcom Ltd.</td>
+          <td>銷售客戶 + 戰略投資</td>
+          <td class="right">75 萬股</td>
+          <td class="right pos">7,428,240</td>
+          <td>透過 Cayman 子公司持有</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">聯茂電子（1213）</td>
+          <td>關聯企業（權益法）</td>
+          <td class="right">23.76%</td>
+          <td class="right pos">12,821,673</td>
+          <td>PCB / CCL 大廠，AI 受惠股</td>
+        </tr>
+        <tr>
+          <td class="label">唯捷創芯</td>
+          <td>銷售客戶</td>
+          <td class="right">48.4 萬股</td>
+          <td class="right">73,710</td>
+          <td>中國 PA 廠（紫光展銳子公司）</td>
+        </tr>
+        <tr>
+          <td class="label">私募基金（含 NFC Fund II 等）</td>
+          <td>策略投資</td>
+          <td class="right">—</td>
+          <td class="right">1,185,913</td>
+          <td>11.86 億</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">合計</td>
+          <td>—</td>
+          <td class="right">—</td>
+          <td class="right pos">~21,500,000</td>
+          <td>約占總資產 35%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">隱藏資產的雙重意義</div>
+      <div class="callout-body">
+        <strong>正面</strong>：Broadcom (74 億) + 聯茂電子 (128 億) 是穩懋資產負債表上最大的兩個股票投資，合計 200 億 NT，佔穩懋市值約 12-15%。聯茂電子公允價值 YoY +136%（從 54 億→128 億），是 AI / PCB 紅利的「免費 beta」。<br/><br/>
+        <strong>反向風險</strong>：若 Broadcom 或聯茂股價回檔，會直接傳導至穩懋帳面淨值與「其他綜合損益」。Q1 2026 已認列 -5.79 億的「透過其他綜合損益按公允價值衡量之權益工具投資未實現評價損失」——這意味<strong>股票投資已開始貢獻波動</strong>。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.10 折舊變化 — Q1 毛利改善的「會計性紅利」⚠️</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th class="right">Q1 2026（千元）</th>
+          <th class="right">Q1 2025（千元）</th>
+          <th class="right">YoY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">折舊費用</td>
+          <td class="right pos">771,522</td>
+          <td class="right">1,105,844</td>
+          <td class="right neg">-30%</td>
+        </tr>
+        <tr>
+          <td class="label">攤銷費用</td>
+          <td class="right">20,297</td>
+          <td class="right">23,114</td>
+          <td class="right neg">-12%</td>
+        </tr>
+        <tr>
+          <td class="label">營業成本中之折舊</td>
+          <td class="right">606,899</td>
+          <td class="right">884,051</td>
+          <td class="right neg">-31%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>毛利率改善的真相</strong>：營收 YoY +28%、折舊 YoY -30%，兩者剪刀差貢獻 Q1 毛利率衝高的會計面因素。反映舊產線折舊到期 + 新產線尚未投產的「折舊低谷期」。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · 不可持續的紅利</div>
+      <div class="callout-body">
+        若「擴產 6 倍」真的執行（新產能在 2026 H2~2027 投產），<strong>折舊將大幅回升</strong>，可能侵蝕未來毛利率。Q1 的 26.3% 合併毛利率（個體 32.2%）是「折舊低谷期」的水準，2027 後新產能上線時，毛利率可能面臨折舊壓力。<strong>市場將「Q1 毛利率改善」線性外推至未來幾季，可能高估了真實獲利能力</strong>。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SECOND-LEVEL THINKING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">第二層思考 · 共識假設拆解</div>
+      <div class="section-kicker">Second-Level Analysis</div>
+    </div>
+
+    <p class="body-text">
+      Howard Marks 的第二層思考要求我們追問：市場共識是什麼？共識的隱含假設是什麼？哪些假設可能是錯的？以下逐一拆解穩懋當前估值背後的 5 個關鍵假設。
+    </p>
+
+    <h3 class="subsection-title">假設 0：合併 EPS 反映真實獲利能力 ⭐</h3>
+    <p class="body-text">
+      <strong>市場共識</strong>：用合併 EPS 1.26 元、2026E 約 5-6 元評價穩懋的獲利能力。
+      <strong>第一層解讀</strong>：「PER 125x 高，但成長率匹配，可以接受。」
+      <strong>第二層解讀</strong>：合併 EPS 被農牧科技 Q1 虧 3.28 億嚴重稀釋。剝離後半導體本業營業利益率 18.3%（vs 合併 9.4%），<strong>半導體本業隱含 EPS 約 2.1+</strong>。市場以「合併」估值看似貴，但 sum-of-the-parts 後，半導體本業實際 PER 大約是合併數字的 60%。<strong>4 月期後事項揭露穩懋已開始淡出農牧（放棄 Chainwin 增資認購，持股降至 65%）</strong>——這是未來價值釋放的線索。
+      <strong>判斷信心</strong>：高。財報附註十四部門資訊明確揭露。
+    </p>
+
+    <h3 class="subsection-title">假設 1：「AI 光通訊 2026 年就會大幅貢獻獲利」</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：Optical 僅佔 Q1 營收 5~10%。1.6T PD 4 月才量產、CW Laser 70/100mW 仍在驗證、EML 仍在開發。
+      <strong>第二層觀察</strong>：市場將「切入 Google TPU 鏈」這個質變直接外推為量變。實際營收貢獻可能要 2027 年才明顯化。
+    </p>
+
+    <h3 class="subsection-title">假設 2：「Q2 後動能持續向上、毛利率向上」</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：公司 Q2 毛利率指引 26~29%，明顯低於 Q1 的 32.2%（個體口徑）。
+      <strong>第二層觀察</strong>：「營收向上但毛利率向下」是台股慣常解讀盲點。Q2 法說會數字若市場預期過高，可能出現「不如預期」的情緒落差。
+    </p>
+
+    <h3 class="subsection-title">假設 3：「Skyworks/Qorvo 退出 Android 全面利多台廠」</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：兩家公司的 GaAs 廠都在美國本土。在美國「製造回流」政策壓力下，合併後新公司可能被迫將更多產能留在美國。
+      <strong>第二層觀察</strong>：「退出 Android」是直接利多，但「美國製造優先」是反向風險，市場目前只 price-in 前者。
+    </p>
+
+    <h3 class="subsection-title">假設 4：「中國三安僅威脅中低階」</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：三安市占從 2 年前 &lt;5% 衝到 ~15%，速度驚人。
+      <strong>第二層觀察</strong>：穩懋市占「沒有被明顯侵蝕」是因為主動往高階遷移。這是「主動退讓中低階、聚焦高階」策略，而非「中國威脅不存在」。
+    </p>
+
+    <h3 class="subsection-title">假設 5：「InP 缺料持續支撐評價」</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：中國銦出口管制政策到期日 2026/11/10 即將屆至。台廠庫存僅約 2 個月。
+      <strong>第二層觀察</strong>：當前股價將「缺料」視為對台廠有利，但這只在「台廠有庫存、客戶被迫付溢價」時成立。一旦庫存耗盡或政策升級，敘事可能瞬間反轉為「台廠也斷料」。<strong>這是非對稱風險：上行有限、下行可觀</strong>。
+    </p>
+
+    <h3 class="subsection-title">假設 6：「擴產 6 倍」的真實性</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：陳進財公開講話「1 年內擴產 6 倍 / NVIDIA + SpaceX 鎖料」，但官方財報附註九揭露<strong>未認列合約承諾從 33.56 億→9.75 億反向縮減</strong>。同時 4/10 董事會決議辦理私募 4,000 萬股（稀釋 +9.4%）。
+      <strong>第二層觀察</strong>：對比聯亞「合約承諾 +243% + 無外部融資需求」，穩懋的「擴產 6 倍」在財報數字上的支持較弱。可能解讀：(A)既有合約多在 Q1 交貨、新合約尚未簽訂；(B)擴產實際規模比媒體說的小或時程更晚；(C)私募增資就是為了支應擴產融資。
+      <strong>關鍵驗證點</strong>：Q2 2026 財報的「未認列合約承諾」是否回升至 30 億以上。如未回升，擴產敘事須打折扣。
+    </p>
+
+    <h3 class="subsection-title">假設 7：「Q1 毛利率改善可持續」</h3>
+    <p class="body-text">
+      <strong>現實檢驗</strong>：Q1 合併毛利率 26.3% 創近期新高，市場樂觀外推至 Q2~Q4。但 Q1 折舊費用 YoY -30%，是毛利率改善的會計面關鍵因素。
+      <strong>第二層觀察</strong>：「折舊低谷期 + 訂單回升」是雙引擎。<strong>但折舊下降不可持續</strong>——若「擴產 6 倍」落實，2027 後新產線投產將大幅墊高折舊基期。市場將 Q1 毛利率線性外推可能高估真實獲利能力。
+    </p>
+
+    <div class="pullquote">
+      <div class="pullquote-text">
+        穩懋的故事方向是對的，但速度可能被高估了。當前股價已經把「最樂觀的 2027 年情境」提前 2 年定價——任何驗證落後、客戶遞延、毛利率波動，都可能觸發評價回歸。
+      </div>
+      <div class="pullquote-author">— SECOND-LEVEL CONCLUSION</div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: SCENARIO ANALYSIS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenario Analysis</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull Case · 12-18M</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-target">700~900 元</div>
+        <div class="scenario-desc">完美執行：光通訊放量、毛利衝 30%+、CW/EML 驗證如期、農牧剝離釋放 SOTP 價值、無黑天鵝。對應 EPS 11~13 元（含 9.4% 稀釋），PER 維持 65~70x。</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base Case · 12M</div>
+        <div class="scenario-prob">50%</div>
+        <div class="scenario-target">400~600 元</div>
+        <div class="scenario-desc">部分敘事兌現：擴產順利但合約承諾驗證較慢、光通訊溫和放量、Q2 毛利率 27~28%、龍頭溢價部分收斂。EPS 5~6 元，PER 80-100x。</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear Case · 6-12M</div>
+        <div class="scenario-prob">30%</div>
+        <div class="scenario-target">250~400 元</div>
+        <div class="scenario-desc">驗證失靈：Q2 毛利率 &lt;26%、合約承諾持續縮減、農牧虧損擴大、私募稀釋負面消化、銦管制升級導致斷料、AI 概念股集體調整。</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 16px;">
+      機率加權後，<strong>預期值約 450~550 元區間</strong>，相對於當前 493 元，<strong>上行空間 0~15%、下行風險 20~35%</strong>。風險報酬比約 1:1.5，<strong>偏向下行</strong>。當前估值已大幅反映多重題材，欲突破至 Bull Case 上緣，需要連續 catalyst 兌現（光通訊放量 + 農牧剝離 + 合約承諾回升 + 大盤配合），任一缺席都可能觸發評價回歸。
+    </p>
+  </section>
+
+  <!-- SECTION 7: CATALYSTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VII.</div>
+      <div class="section-title">關鍵催化劑與觀察點</div>
+      <div class="section-kicker">Catalyst Roadmap</div>
+    </div>
+
+    <div class="catalyst-list">
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.06.10</div>
+        <div class="catalyst-desc">
+          <strong>5 月月營收公告</strong>
+          動能持續性最即時驗證點
+        </div>
+        <div class="catalyst-impact">±5~8%<br/><span style="color:var(--accent)">門檻 &gt;18 億</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q3</div>
+        <div class="catalyst-desc">
+          <strong>Q2 法說會 + 半年報</strong>
+          毛利率 vs 26~29%、Optical 佔比、<strong>未認列合約承諾是否回升至 30 億+</strong>
+        </div>
+        <div class="catalyst-impact">±15~20%<br/><span style="color:var(--accent)">關鍵驗證</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 H2</div>
+        <div class="catalyst-desc">
+          <strong>私募增資完成</strong>
+          4,000 萬股稀釋 +9.4%；資金用途揭露
+        </div>
+        <div class="catalyst-impact">-9~12%<br/><span style="color:var(--accent)">稀釋反映</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 H2</div>
+        <div class="catalyst-desc">
+          <strong>農牧業務剝離訊號</strong>
+          Chainwin 持股已從 73.67% 降至 65%；進一步淡出將釋放 SOTP 價值
+        </div>
+        <div class="catalyst-impact">+10~15%<br/><span style="color:var(--positive)">隱藏催化劑</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q3-Q4</div>
+        <div class="catalyst-desc">
+          <strong>CW Laser / EML 客戶驗證進度</strong>
+          光通訊敘事的關鍵驗證
+        </div>
+        <div class="catalyst-impact">±10~15%<br/><span style="color:var(--neutral)">已反映 50%</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.11.10</div>
+        <div class="catalyst-desc">
+          <strong>中國銦出口管制政策到期</strong>
+          延長 / 解除 / 收緊三種情境
+        </div>
+        <div class="catalyst-impact">±10~20%<br/><span style="color:var(--accent)">非對稱風險</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q4</div>
+        <div class="catalyst-desc">
+          <strong>SpaceX IPO 進度</strong>
+          LEO 題材的兌現/翻轉節點
+        </div>
+        <div class="catalyst-impact">±10~15%<br/><span style="color:var(--neutral)">已反映 60%</span></div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2027 Q1</div>
+        <div class="catalyst-desc">
+          <strong>Skyworks-Qorvo 合併完成</strong>
+          客戶結構重整 / 美國製造優先
+        </div>
+        <div class="catalyst-impact">±10%<br/><span style="color:var(--neutral)">已反映 35%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: RISKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VIII.</div>
+      <div class="section-title">主要風險因子</div>
+      <div class="section-kicker">Risk Factors</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">高度警覺（影響大、機率不低）</div>
+      <ul class="risks-list">
+        <li><strong>農牧科技持續虧損且擴大</strong>：Q1 虧 3.28 億（vs Q1 2025 虧 3 億）。若未及時剝離，將持續吃掉半導體本業獲利。生物資產（豬隻）公允價值損失 5,589 萬。</li>
+        <li><strong>4/10 私募增資稀釋 +9.4%</strong>：4,000 萬股私募將執行，當前 PER 125x 在稀釋後變為 137x。投顧 EPS 預估須重算。</li>
+        <li><strong>擴產敘事與財報數字落差</strong>：媒體喊「擴產 6 倍」但設備合約承諾反向縮減（33.56→9.75 億）。下一季 Q2 合約承諾若未回升，敘事破功。</li>
+        <li><strong>折舊紅利不可持續</strong>：Q1 折舊 YoY -30% 是毛利改善關鍵。若擴產落實，2027 後折舊將反彈，壓縮毛利率。</li>
+        <li><strong>估值回歸風險</strong>：當前 PEG 4.46（同業最高），龍頭溢價已達 2.5x 同業（接近泡沫上緣）。任一題材 mismatch 都可能觸發 multiple compression。</li>
+        <li><strong>Q2/Q3 毛利率不如預期</strong>：公司指引 high twenties，市場預期可能偏向 30%+。差距即股價修正動能。</li>
+        <li><strong>銦出口管制政策升級（2026/11）</strong>：台廠庫存僅 2 個月，斷料情境下整個 InP 敘事反轉。</li>
+        <li><strong>敘事疊加脆弱性</strong>：當前估值需要「擴產 + 光通訊 + LEO + NXP 轉單 + 摺疊機」5 個 catalyst 同時兌現。任一缺席都拖累整個 stack。</li>
+      </ul>
+      <div class="risks-title" style="margin-top: 16px;">中度警覺（影響中、機率中）</div>
+      <ul class="risks-list">
+        <li><strong>Broadcom / 聯茂股價傳導</strong>：穩懋持有 Broadcom 74 億 + 聯茂電子權益法 128 億。Q1 已認列 -5.79 億未實現評價損失。若其中任一股價回檔，會直接傳導至帳面淨值。</li>
+        <li><strong>中國三安國產化加速</strong>：市占從 5% → 15%，雖未明顯侵蝕穩懋，但中階產品價格戰已開始。</li>
+        <li><strong>Skyworks/Qorvo 合併後美國製造優先</strong>：合併新公司可能將更多產能留在美國，反而不利台廠。</li>
+        <li><strong>客戶集中度</strong>：Broadcom（最大 RF 客戶 + 戰略股東 74 億）任何策略調整都對穩懋有雙重衝擊。</li>
+        <li><strong>存貨跌價損失重新出現</strong>：Q1 認列 3,736 萬（vs Q1 2025 為回升利益 -1,615 萬）。方向反轉值得追蹤。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ANALYST NOTE -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:40px;">
+    <div class="callout-label">Analyst's Final Note</div>
+    <div class="callout-body">
+      穩懋是台灣化合物半導體產業的絕對龍頭，基本面方向正確、轉型策略清晰。<strong>問題不在「故事是否真」，而在「故事是否已在價格中」</strong>。當前 PEG 4.46 已經把 2027 年最樂觀情境提前定價，加上連續疊加摺疊機、Apple 眼鏡、MicroLED 等未驗證題材，多頭信念正進入「敘事接力」而非「基本面接力」階段——這是 Howard Marks 觀察到的「多頭循環中後段」典型 pattern。<br/><br/>
+      <strong>官方財報補充了幾個重要的反向訊號</strong>：(1)農牧科技 Q1 虧 3.28 億，剝離後半導體本業營業利益率達 18%（合併僅 9%）——sum-of-the-parts 估值機會浮現；(2)4/10 決議私募 4,000 萬股，將稀釋 +9.4%（與聯亞無融資需求形成強烈對比）；(3)設備合約承諾反向縮減（33.56→9.75 億），與「擴產 6 倍」敘事方向不一致；(4)Broadcom 持股 74 億 + 聯茂電子 128 億 = 200 億「隱藏資產」支撐淨值，但同時也是傳導風險；(5)折舊 YoY -30% 是 Q1 毛利率改善的會計面紅利，不可持續。<br/><br/>
+      對於相信光通訊長期敘事的投資人，<strong>聯亞（擴產真實性已驗證 + 純度高，但中國暴險 79.6%）、宏捷科（PEG 0.77）的相對價值優於穩懋</strong>。但聯亞的「中國暴險」與穩懋的「敘事-財報落差」各有風險點，配對佈局仍是相對穩健的選擇。<br/><br/>
+      對於已持有穩懋的投資人，紀律性的分批出場比追求短線目標更重要。<strong>最值得追蹤的單一指標：Q2 2026 財報「未認列合約承諾」是否回升至 30 億以上</strong>——這是驗證「擴產 6 倍」真實性的關鍵硬指標。若 Q2 合約承諾未回升、加上毛利率指引 26~29% 兌現，當前估值的支撐基礎將進一步薄弱。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有資料均來自公開來源（Goodinfo、財報狗、鉅亨網、TechNews、經濟日報、工商時報、永豐豐雲學堂、StockFeel、鏡週刊、Yahoo 股市、TradingView、Motley Fool、gurufocus 等），但本分析師不保證其準確性或完整性。
+      讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: 3105-TW-20260509-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>穩懋半導體 (3105) 投資研究報告 | 2026.05.09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #e8a87c; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 36px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "投資結論";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 36px;
+}
+
+.thesis-card {
+  padding: 18px 20px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 8px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.thesis-desc {
+  font-size: 11.5px;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.body-text {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.body-text strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 12.5px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td {
+  border-bottom: 2px solid var(--ink);
+}
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label {
+  font-weight: 700;
+}
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 18px 22px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 12px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.scenario-desc {
+  font-size: 10.5px;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+.action-matrix {
+  background: var(--bg);
+  padding: 20px 24px;
+  margin: 16px 0;
+  border: 2px solid var(--ink);
+}
+
+.action-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 18px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 12.5px;
+}
+
+.action-row:last-child { border-bottom: none; }
+
+.action-key {
+  font-weight: 600;
+  color: var(--accent-dark);
+  font-family: 'Noto Serif TC', serif;
+}
+
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: var(--negative);
+}
+
+.risks-list {
+  list-style: none;
+  font-size: 12.5px;
+}
+
+.risks-list li {
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.65;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 16px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  background: var(--bg-card);
+  padding: 14px 16px;
+}
+
+.stat-label {
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .action-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Investment Memo</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">3105-TW · INVESTMENT MEMO</div>
+      <div>2026.05.09</div>
+      <div>Concise · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">化合物半導體 · GaAs / GaN / InP 代工</div>
+      <h1 class="company-title">穩懋半導體<span class="ticker">3105.TWO</span></h1>
+      <div class="report-subtitle">紀律性持有，分批出場：當前估值已預支樂觀情境</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value accent">HOLD</div>
+      <div class="rating-sub">分批減碼為主</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">493<span class="unit">TWD</span></div>
+      <div class="rating-sub">As of 2026.05.08</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value</div>
+      <div class="rating-value">450-550<span class="unit"></span></div>
+      <div class="rating-sub">機率加權預期</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Stop-Loss</div>
+      <div class="rating-value">420<span class="unit">TWD</span></div>
+      <div class="rating-sub">-15%（趨勢轉弱）</div>
+    </div>
+  </div>
+
+  <!-- INVESTMENT CONCLUSION -->
+  <div class="exec-summary">
+    <p class="lede">穩懋是對的公司，但當前估值已大幅反映多重題材；對既有持倉者，紀律性分批出場優於追逐高估值區間。</p>
+    <p>4 月底法說會公告擴產 6 倍 + NVIDIA / SpaceX 鎖料，動能訊號正面，但當前 PEG 4.46 為同業最高，已預支 2027 年最樂觀情境。<strong>官方財報揭露幾個關鍵反向訊號：農牧科技 Q1 虧 3.28 億（半導體本業真實營業利益率達 18%）、設備合約承諾反向縮減（33.56→9.75 億）、4/10 決議私募 4,000 萬股稀釋 +9.4%、折舊 YoY -30% 是毛利改善的會計紅利、Broadcom 持股 74 億 + 聯茂電子 128 億 = 200 億隱藏資產</strong>。機率加權預期值 450~550 元，風險報酬比約 1:1.5，<strong>偏向下行</strong>。<strong>建議：持倉者在反彈至 550~650 區間分批減碼鎖定獲利；觀望者待回測 380~430 區間建立基礎部位</strong>。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">半導體本業被低估</div>
+      <div class="thesis-desc">農牧虧 3.28 億稀釋合併數字。剝離後本業營業利益率 18%（合併僅 9%）。Sum-of-the-parts 機會。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">擴產敘事 vs 財報數字落差</div>
+      <div class="thesis-desc">合約承諾反向縮減（33.56→9.75 億）；4/10 決議私募 4,000 萬股稀釋 9.4%。Q2 合約承諾是關鍵驗證。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">隱藏資產 200 億</div>
+      <div class="thesis-desc">Broadcom 持股 74 億 + 聯茂電子權益法 128 億，市場討論度低但對淨值有重大支撐。</div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: KEY METRICS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">關鍵財務速覽</div>
+      <div class="section-kicker">Key Metrics</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">Q1 半導體本業</div>
+        <div class="stat-value" style="color:var(--positive)">+7.9<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">營業利益率 18%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 農牧虧損</div>
+        <div class="stat-value" style="color:var(--negative)">-3.28<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">持續擴大</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">合約承諾 QoQ</div>
+        <div class="stat-value" style="color:var(--negative)">-29<span style="font-size:13px">%</span></div>
+        <div class="stat-sub">與擴產敘事反向</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">私募稀釋</div>
+        <div class="stat-value" style="color:var(--negative)">+9.4<span style="font-size:13px">%</span></div>
+        <div class="stat-sub">4,000 萬股</div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th class="right">2025A</th>
+          <th class="right">2026E (基準)</th>
+          <th class="right">2026E (樂觀)</th>
+          <th class="right">2027E (樂觀)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">營收（億）</td>
+          <td class="right">166.4</td>
+          <td class="right">210-230</td>
+          <td class="right">250-280</td>
+          <td class="right">300-380</td>
+        </tr>
+        <tr>
+          <td class="label">YoY</td>
+          <td class="right neg">-4.7%</td>
+          <td class="right pos">+26~38%</td>
+          <td class="right pos">+50~68%</td>
+          <td class="right pos">+30~50%</td>
+        </tr>
+        <tr>
+          <td class="label">毛利率</td>
+          <td class="right">~28%</td>
+          <td class="right">28~30%</td>
+          <td class="right">31~33%</td>
+          <td class="right">33~35%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">EPS（元）</td>
+          <td class="right">4.0</td>
+          <td class="right">4.5~5.5</td>
+          <td class="right">6.0~6.5</td>
+          <td class="right">9~16</td>
+        </tr>
+        <tr>
+          <td class="label">隱含 PER @ 493 元</td>
+          <td class="right">123x</td>
+          <td class="right">90~110x</td>
+          <td class="right">76~82x</td>
+          <td class="right">31~55x</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 2: VALUATION & PEER -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">同業估值對標</div>
+      <div class="section-kicker">Peer Valuation</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th class="right">PER</th>
+          <th class="right">YoY 營收</th>
+          <th class="right">PEG</th>
+          <th>定位</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">穩懋 (3105)</td>
+          <td class="right neg">~125x</td>
+          <td class="right">+28%</td>
+          <td class="right neg">4.46</td>
+          <td>龍頭、集大成</td>
+        </tr>
+        <tr>
+          <td class="label">宏捷科 (8086)</td>
+          <td class="right">44.6x</td>
+          <td class="right pos">+58%</td>
+          <td class="right pos">0.77</td>
+          <td>PA 次大、轉型中</td>
+        </tr>
+        <tr>
+          <td class="label">聯亞 (3081)</td>
+          <td class="right">43.4x</td>
+          <td class="right pos">+99%</td>
+          <td class="right pos">0.44</td>
+          <td>InP 雷射純題材 ⭐</td>
+        </tr>
+        <tr>
+          <td class="label">全新 (2455)</td>
+          <td class="right">58.5x</td>
+          <td class="right">~+50%</td>
+          <td class="right neu">1.17</td>
+          <td>InP 磊晶</td>
+        </tr>
+        <tr>
+          <td class="label">Lumentum (US)</td>
+          <td class="right neg">165x</td>
+          <td class="right pos">+90%</td>
+          <td class="right neu">1.83</td>
+          <td>美雷射模組龍頭</td>
+        </tr>
+        <tr>
+          <td class="label">Skyworks (US)</td>
+          <td class="right pos">27.1x</td>
+          <td class="right neg">衰退</td>
+          <td class="right">N/A</td>
+          <td>美 PA 龍頭</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層思考 · 相對價值</div>
+      <div class="callout-body">
+        穩懋 PEG 4.46 為族群最高，意味為單位成長付出的價格最貴。<strong>同樣相信光通訊敘事，買成長更純的聯亞或宏捷科可能 risk-reward 更好</strong>——除非市場願意為穩懋的「龍頭地位＋多元化＋客戶結構」付出 2.5x 同業的龍頭溢價。對「光通訊產業多頭」的純粹押注，建議考慮配對交易或 rotate 部分部位。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenarios</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull · 12-18M</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-target">700~900 元</div>
+        <div class="scenario-desc">完美執行：光通訊放量＋毛利衝 30%+＋農牧剝離釋放 SOTP 價值＋無黑天鵝。EPS 11~13 元（含 9.4% 稀釋）、PER 65~70x。</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base · 12M</div>
+        <div class="scenario-prob">50%</div>
+        <div class="scenario-target">400~600 元</div>
+        <div class="scenario-desc">部分敘事兌現、Q2 毛利率 27-28%、合約承諾驗證較慢、龍頭溢價部分收斂、EPS 5~6 元。</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear · 6-12M</div>
+        <div class="scenario-prob">30%</div>
+        <div class="scenario-target">250~400 元</div>
+        <div class="scenario-desc">Q2 毛利率 &lt;26%、合約承諾持續縮減、農牧虧損擴大、私募稀釋負面消化、銦管制升級、AI 概念股集體調整。</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 14px;">
+      <strong>機率加權預期值：450~550 元區間</strong>。相對於當前 493 元，上行空間 0~15%、下行風險 20~35%，風險報酬比約 1:1.5，<strong>偏向下行</strong>。
+    </p>
+  </section>
+
+  <!-- SECTION 4: ACTION FRAMEWORK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">操作框架</div>
+      <div class="section-kicker">Action Framework</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">既有持倉者</div>
+      <div class="action-row">
+        <div class="action-key">550~650 區間</div>
+        <div>部分減碼（特別是高成本部位回到成本線）；鎖定獲利優先於追求樂觀情境。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">650~750 區間</div>
+        <div>再減碼 1/3，剩餘部位視作「option-like 持有」搭末段。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">突破 750 後</div>
+        <div>主部位獲利了結，僅保留少量觀察部位。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">跌破 420（停損）</div>
+        <div>趨勢轉弱訊號，減碼 50% 部位；剩餘視 fundamental 訊號決定。</div>
+      </div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">新進觀望者</div>
+      <div class="action-row">
+        <div class="action-key">當前 493</div>
+        <div>不是最好進場點；估值偏高，等待回檔機會。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">回測 430~450</div>
+        <div>建立基礎部位 1/3，停損 400。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">回測 380~400</div>
+        <div>分批加碼 1/3，前提：fundamental 仍健康（月營收持續 YoY +30%+、毛利率守 26%+）。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">替代選擇</div>
+        <div>聯亞（純度高但中國暴險）、宏捷科（PEG 0.77）相對價值更佳，可考慮配對交易。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CATALYST CHECKLIST -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">關鍵追蹤指標</div>
+      <div class="section-kicker">Monitoring Checklist</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>時點</th>
+          <th>指標</th>
+          <th>多頭門檻</th>
+          <th>警訊門檻</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">6/10</td>
+          <td>5 月月營收</td>
+          <td class="pos">&gt; 18 億</td>
+          <td class="neg">&lt; 16 億</td>
+        </tr>
+        <tr>
+          <td class="label">7/10</td>
+          <td>6 月月營收</td>
+          <td class="pos">&gt; 18.5 億</td>
+          <td class="neg">&lt; 16 億</td>
+        </tr>
+        <tr>
+          <td class="label">7-8 月</td>
+          <td>Q2 法說毛利率</td>
+          <td class="pos">&gt; 28%</td>
+          <td class="neg">&lt; 26%</td>
+        </tr>
+        <tr>
+          <td class="label">7-8 月</td>
+          <td>Q2 法說 Optical 佔比</td>
+          <td class="pos">&gt; 12%</td>
+          <td class="neg">&lt; 8%</td>
+        </tr>
+        <tr>
+          <td class="label">Q3-Q4</td>
+          <td>CW Laser 100mW 驗證</td>
+          <td class="pos">完成 design-in</td>
+          <td class="neg">遞延至 2027</td>
+        </tr>
+        <tr>
+          <td class="label">11/10</td>
+          <td>中國銦出口管制</td>
+          <td class="pos">解除/維持</td>
+          <td class="neg">收緊/延長</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 6: KEY RISKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">主要風險</div>
+      <div class="section-kicker">Key Risks</div>
+    </div>
+
+    <div class="risks">
+      <ul class="risks-list">
+        <li><strong>農牧虧損吃掉本業獲利</strong>：Q1 虧 3.28 億且持續擴大；未來剝離前持續拖累合併 EPS。</li>
+        <li><strong>4/10 私募增資稀釋 9.4%</strong>：4,000 萬股將執行，稀釋後 Forward PER 從 125x → 137x。</li>
+        <li><strong>擴產敘事與財報落差</strong>：合約承諾從 33.56→9.75 億反向縮減。Q2 若未回升至 30 億+，敘事破功。</li>
+        <li><strong>折舊紅利不可持續</strong>：Q1 折舊 YoY -30% 是毛利改善關鍵。擴產若落實，2027 後折舊反彈將壓縮毛利。</li>
+        <li><strong>估值回歸風險</strong>：PEG 4.46 同業最高、龍頭溢價已達泡沫上緣。</li>
+        <li><strong>Q2 毛利率不如預期</strong>：公司指引 26~29%，市場可能預期 30%+。</li>
+        <li><strong>銦出口管制升級</strong>：2026/11 政策到期，台廠庫存僅 2 個月。</li>
+        <li><strong>Broadcom / 聯茂股價傳導</strong>：200 億隱藏資產若回檔將直接傳導至帳面淨值。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CALLOUT -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:30px;">
+    <div class="callout-label">Bottom Line</div>
+    <div class="callout-body">
+      穩懋是對的公司，但 <strong>「方向對 ≠ 速度對 ≠ 價格對」</strong>。當前估值已把 2027 年最樂觀情境提前 2 年定價。<strong>官方財報揭露幾個媒體未強調的反向訊號：農牧虧損 3.28 億、合約承諾反向縮減、4/10 私募稀釋 9.4%、折舊紅利不可持續</strong>。同時揭露兩個正面隱藏訊號：半導體本業真實營業利益率 18%（合併僅 9%）、Broadcom + 聯茂 200 億隱藏資產。<br/><br/>
+      對相信長期敘事的投資人，紀律性的分批出場（特別在 550~650 區間）比追求樂觀情境更重要。<strong>關鍵單一追蹤指標：Q2 2026 財報「未認列合約承諾」是否回升至 30 億+——這是驗證「擴產 6 倍」真實性的硬指標。當前估值已預支多重題材，「路上經歷一次 30% 回檔」的機率不低。風險管理優於目標管理。</strong>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有資料均來自公開來源（Goodinfo、財報狗、鉅亨網、TechNews、經濟日報、永豐豐雲學堂、StockFeel、鏡週刊等），但本分析師不保證其準確性或完整性。
+      讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: 3105-TW-MEMO-20260509-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
