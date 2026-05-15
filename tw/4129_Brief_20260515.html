@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯合骨科 (4129) 投資報告 | 2026.05.15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --accent: #b8351a;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 860px; margin: 0 auto; background: var(--bg-card); padding: 50px 60px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 18px; border-bottom: 3px solid var(--ink); margin-bottom: 24px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 20px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.report-meta { margin-bottom: 24px; }
+.brief-badge { display: inline-block; background: var(--accent); color: white; padding: 4px 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; margin-bottom: 12px; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 8px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 36px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 20px; color: var(--ink-muted); font-weight: 500; margin-left: 10px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 15px; font-style: italic; color: var(--ink-secondary); margin-top: 8px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; margin-bottom: 24px; overflow: hidden; }
+.rating-cell { padding: 18px 20px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 24px; font-weight: 900; line-height: 1; }
+.rating-value.neutral { color: #e6c870; }
+.rating-value.positive { color: #92cca5; }
+.rating-value .unit { font-size: 11px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 10px; color: rgba(255,255,255,0.5); margin-top: 5px; font-family: 'IBM Plex Mono',monospace; }
+.snapshot { background: var(--highlight-bg); padding: 22px 26px; margin-bottom: 26px; border-left: 4px solid var(--accent); position: relative; }
+.snapshot::before { content: "投資結論"; position: absolute; top: -10px; left: 16px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.snapshot p { font-family: 'Noto Serif TC',serif; font-size: 14.5px; line-height: 1.8; color: var(--ink); }
+.snapshot strong { color: var(--accent); }
+.snapshot .lede { font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+.section { margin-bottom: 28px; }
+.section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 24px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 18px; font-weight: 700; letter-spacing: 0.3px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; }
+.body-text { font-size: 13.5px; line-height: 1.8; margin-bottom: 12px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.three-pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 28px; }
+.pillar { padding: 18px 20px; border-right: 1px solid var(--rule); }
+.pillar:last-child { border-right: none; }
+.pillar-num { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 8px; }
+.pillar-title { font-family: 'Noto Serif TC',serif; font-size: 13.5px; font-weight: 700; margin-bottom: 6px; }
+.pillar-desc { font-size: 11.5px; color: var(--ink-secondary); line-height: 1.6; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 14px 0; }
+.stat-cell { padding: 14px 16px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 9.5px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 5px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 24px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); }
+.stat-value.neg { color: var(--negative); }
+.stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 10.5px; color: var(--ink-secondary); margin-top: 5px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); }
+.stat-sub.neg { color: var(--negative); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 12px; }
+.data-table th { background: var(--ink); color: white; padding: 8px 10px; text-align: left; font-weight: 600; font-size: 11px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 7px 10px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 18px 0; border: 1px solid var(--rule); }
+.scenario { padding: 18px 18px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 3px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 3px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 3px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 12.5px; font-weight: 700; margin-bottom: 8px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 30px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.scenario-desc { font-size: 11px; line-height: 1.6; color: var(--ink-secondary); }
+.action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.action-card { background: #faf6ef; padding: 16px 18px; border: 1px solid var(--rule); }
+.action-card-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+.action-list { list-style: none; padding: 0; font-size: 12px; line-height: 1.7; }
+.action-list li { padding: 4px 0 4px 16px; position: relative; }
+.action-list li::before { content: "▸"; position: absolute; left: 4px; color: var(--accent); font-weight: 700; }
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+.risk-card { padding: 14px 18px; border-left: 3px solid var(--accent); background: #fdf2ee; }
+.risk-card.positive { border-left-color: var(--positive); background: #f3f9f5; }
+.risk-title { font-family: 'Noto Serif TC',serif; font-size: 12.5px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+.risk-card.positive .risk-title { color: var(--positive); }
+.risk-list { list-style: none; padding: 0; font-size: 11.5px; line-height: 1.65; }
+.risk-list li { padding: 3px 0 3px 14px; position: relative; }
+.risk-list li::before { content: "▸"; position: absolute; left: 2px; color: inherit; font-weight: 700; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 12px 18px; margin: 14px 0; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 4px; }
+.callout-body { font-size: 12px; line-height: 1.7; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.footer { border-top: 2px solid var(--ink); padding-top: 16px; margin-top: 28px; font-size: 10px; color: var(--ink-secondary); line-height: 1.65; }
+.footer strong { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">Roy Capital</div>
+      <div class="dept">Investment Brief · One-Pager</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">RC-4129-BRIEF</div>
+      <div>2026 May 15 · Friday</div>
+      <div>Investment Brief</div>
+    </div>
+  </header>
+
+  <!-- META -->
+  <div class="report-meta">
+    <span class="brief-badge">INVESTMENT BRIEF</span>
+    <div class="sector-tag">生技醫療 · 骨科植入物 / 人工關節 / 機器人</div>
+    <h1 class="company-title">聯合骨科<span class="ticker">4129.TWO</span></h1>
+    <div class="report-subtitle">FY25 大豐收的事實基礎 · Q1 2026 是高基期回歸均值</div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value neutral">NEUTRAL</div>
+      <div class="rating-sub">(中段 · 偏多)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">91.8<span class="unit">TWD</span></div>
+      <div class="rating-sub">2026.05.13 close</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value</div>
+      <div class="rating-value">75–100<span class="unit">TWD</span></div>
+      <div class="rating-sub">機率加權 88 元</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Risk/Reward</div>
+      <div class="rating-value positive">1 : 1.8</div>
+      <div class="rating-sub">持有偏建設性</div>
+    </div>
+  </div>
+
+  <!-- PRICE CHART WITH TARGET BANDS -->
+  <div style="margin-bottom: 22px;">
+    <div style="font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 14px; margin-bottom: 4px;">圖 · 近 30 個交易日股價走勢與目標價三層區間</div>
+    <div style="font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); margin-bottom: 10px;">2026/04/14 ~ 2026/05/13 · 收盤價 · Bull / Base / Bear 三層目標區間 · 資料來源：鉅亨網</div>
+    <svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+      <rect width="760" height="360" fill="transparent"/>
+      <!-- 三個目標價區間 (背景) -->
+      <rect x="80" y="50" width="640" height="60" fill="#2d5a3f" opacity="0.10"/>
+      <rect x="80" y="140" width="640" height="60" fill="#8a6d2e" opacity="0.10"/>
+      <rect x="80" y="230" width="640" height="60" fill="#b8351a" opacity="0.10"/>
+      <!-- 區間邊界線 -->
+      <line x1="80" y1="50" x2="720" y2="50" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+      <line x1="80" y1="110" x2="720" y2="110" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+      <line x1="80" y1="140" x2="720" y2="140" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="80" y1="200" x2="720" y2="200" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+      <line x1="80" y1="230" x2="720" y2="230" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+      <line x1="80" y1="290" x2="720" y2="290" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+      <!-- 區間標籤 -->
+      <text x="90" y="70" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#2d5a3f">Bull · 100~115 元</text>
+      <text x="200" y="70" font-family="IBM Plex Mono" font-size="9.5" fill="#2d5a3f">prob 30%</text>
+      <text x="90" y="160" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#8a6d2e">Base · 80~95 元</text>
+      <text x="200" y="160" font-family="IBM Plex Mono" font-size="9.5" fill="#8a6d2e">prob 50%</text>
+      <text x="90" y="250" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#b8351a">Bear · 60~75 元</text>
+      <text x="200" y="250" font-family="IBM Plex Mono" font-size="9.5" fill="#b8351a">prob 20%</text>
+      <!-- Y 軸刻度 -->
+      <g font-family="IBM Plex Mono" font-size="9.5" fill="#8a8f94">
+        <text x="72" y="53" text-anchor="end">115</text>
+        <text x="72" y="113" text-anchor="end">100</text>
+        <text x="72" y="143" text-anchor="end">95</text>
+        <text x="72" y="203" text-anchor="end">80</text>
+        <text x="72" y="233" text-anchor="end">75</text>
+        <text x="72" y="293" text-anchor="end">60</text>
+      </g>
+      <!-- 機率加權目標價 88 元 -->
+      <line x1="80" y1="172" x2="720" y2="172" stroke="#8a6d2e" stroke-width="1.2" stroke-dasharray="5,3"/>
+      <text x="725" y="175" font-family="IBM Plex Mono" font-size="9.5" font-weight="700" fill="#8a6d2e">88 weighted</text>
+      <!-- 股價走勢 (21 個交易日真實資料，等比縮放至 50-290 範圍) -->
+      <!-- Bull 100-115: y 50-110; Base 80-95: y 140-200; Bear 60-75: y 230-290 -->
+      <!-- 4/14 103.50 → y=110-(3.5)*4 = 96 -->
+      <!-- 4/15 107.00 → y=110-7*4 = 82 -->
+      <!-- 4/16 105.00 → y=110-5*4 = 90 -->
+      <!-- 4/17 105.50 → y=88 -->
+      <!-- 4/20-22 103.50 → y=96 -->
+      <!-- 4/23-24 103.00 → y=98 -->
+      <!-- 4/27 99.90 → y=140-(99.9-95)*6 = 140-29.4 = 110.6 (gap 95-100) -->
+      <!-- 4/28 100.50 → y=110-0.5*4 = 108 -->
+      <!-- 4/29 99.00 → y=140-(99-95)*6 = 116 -->
+      <!-- 4/30 98.40 → y=140-(98.4-95)*6 = 119.6 -->
+      <!-- 5/04 99.30 → y=140-(99.3-95)*6 = 114.2 -->
+      <!-- 5/05 99.10 → y=140-(99.1-95)*6 = 115.4 -->
+      <!-- 5/06 99.00 → y=116 -->
+      <!-- 5/07 98.10 → y=140-(98.1-95)*6 = 121.4 -->
+      <!-- 5/08 99.70 → y=140-(99.7-95)*6 = 111.8 -->
+      <!-- 5/11 99.50 → y=140-(99.5-95)*6 = 113 -->
+      <!-- 5/12 92.80 → y=200-(92.8-80)*4 = 200-51.2 = 148.8 (Base) -->
+      <!-- 5/13 91.80 → y=200-(91.8-80)*4 = 200-47.2 = 152.8 -->
+      <path d="M 80,96 L 112,82 L 144,90 L 176,88 L 208,96 L 240,96 L 272,96 L 304,98 L 336,98 L 368,110.6 L 400,108 L 432,116 L 464,119.6 L 496,114.2 L 528,115.4 L 560,116 L 592,121.4 L 624,111.8 L 656,113 L 688,148.8 L 720,152.8"
+            fill="none" stroke="#0f1419" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <g fill="#0f1419" opacity="0.7">
+        <circle cx="80" cy="96" r="2"/>
+        <circle cx="144" cy="90" r="2"/>
+        <circle cx="176" cy="88" r="2"/>
+        <circle cx="208" cy="96" r="2"/>
+        <circle cx="240" cy="96" r="2"/>
+        <circle cx="272" cy="96" r="2"/>
+        <circle cx="304" cy="98" r="2"/>
+        <circle cx="336" cy="98" r="2"/>
+        <circle cx="368" cy="110.6" r="2"/>
+        <circle cx="400" cy="108" r="2"/>
+        <circle cx="432" cy="116" r="2"/>
+        <circle cx="464" cy="119.6" r="2"/>
+        <circle cx="496" cy="114.2" r="2"/>
+        <circle cx="528" cy="115.4" r="2"/>
+        <circle cx="560" cy="116" r="2"/>
+        <circle cx="592" cy="121.4" r="2"/>
+        <circle cx="624" cy="111.8" r="2"/>
+        <circle cx="656" cy="113" r="2"/>
+      </g>
+      <!-- 4/15 高點標註 -->
+      <circle cx="112" cy="82" r="4" fill="#2d5a3f"/>
+      <text x="112" y="74" text-anchor="middle" font-family="IBM Plex Mono" font-size="9.5" font-weight="700" fill="#2d5a3f">107.0 高點</text>
+      <!-- 5/12 跳水 -->
+      <circle cx="688" cy="148.8" r="4" fill="#b8351a"/>
+      <line x1="688" y1="32" x2="688" y2="140" stroke="#b8351a" stroke-width="0.6" stroke-dasharray="2,2"/>
+      <text x="688" y="25" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" font-weight="700" fill="#b8351a">5/12 Q1 26 公告</text>
+      <text x="688" y="36" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" font-weight="700" fill="#b8351a">−6.73% 跳水</text>
+      <!-- 當前點 91.8 -->
+      <circle cx="720" cy="152.8" r="5" fill="#b8351a"/>
+      <circle cx="720" cy="152.8" r="9" fill="none" stroke="#b8351a" stroke-width="1.2" opacity="0.6"/>
+      <text x="745" y="156" font-family="IBM Plex Mono" font-size="11" font-weight="700" fill="#b8351a">91.8</text>
+      <!-- X 軸 -->
+      <line x1="80" y1="320" x2="720" y2="320" stroke="#0f1419" stroke-width="1"/>
+      <g font-family="IBM Plex Mono" font-size="9.5" fill="#4a5056">
+        <text x="80" y="335" text-anchor="middle">04/14</text>
+        <text x="240" y="335" text-anchor="middle">04/21</text>
+        <text x="400" y="335" text-anchor="middle">04/28</text>
+        <text x="560" y="335" text-anchor="middle">05/06</text>
+        <text x="720" y="335" text-anchor="middle">05/13</text>
+      </g>
+      <text x="400" y="353" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">21 trading days · Source: Anue.cnyes.com</text>
+    </svg>
+  </div>
+
+  <!-- INVESTMENT SNAPSHOT -->
+  <div class="snapshot">
+    <p class="lede">一句話結論：聯合骨科是 FY25 高速成長的公司，Q1 2026 的「衰退」是從異常高峰回歸均值，不是結構性轉壞。</p>
+    <p>當前 91.8 元位於合理區間 75-100 中段，<strong>下行空間有限（-8% 至 Base 下緣）</strong>，<strong>上行空間需 Q2 2026 數據與 FDA 機器人決議驅動</strong>。整體風險報酬比 1:1.8，屬「持有偏建設性」位置。<strong>建議：現有部位續抱、停損點 75 元；尚未進場者分批 85→80→75 建倉</strong>。三個關鍵驗證點：（1）Q2 2026 EPS &gt;1.4 為 Bull、1.0-1.4 為 Base、&lt;1.0 為 Bear；（2）FDA 510(k) 在 2026 H2 通過則 PE 重估 20% 以上；（3）山東新華 Q1 2026 已比 Q4 2025 改善 72%，需確認此趨勢延續。</p>
+  </div>
+
+  <!-- 3 PILLARS -->
+  <div class="three-pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-title">FY25 EPS 5.83 創新高（+23%）</div>
+      <div class="pillar-desc">營業利益率穩 13.1%、毛利率 77.8%。本業真有強勁內生動能，不存在結構性壓縮跡象。</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-title">Q2 EPS 暴跌真相 = 兌換損失</div>
+      <div class="pillar-desc">Q2 2025 EPS 0.48 暴跌 100% 來自 -1.01 億兌換損失。本業營業利益基本持平 -0.4%。</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-title">Q1 2026 子公司「衰退」是趨勢延續</div>
+      <div class="pillar-desc">UOC Suisse FY25 季季下降（79K→44K→32K→20K），Q1 2026 14K 在趨勢線上，不是斷崖。</div>
+    </div>
+  </div>
+
+  <!-- KEY METRICS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">關鍵數據快照</div>
+      <div class="section-kicker">Key Metrics</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">FY25 EPS YoY</div>
+        <div class="stat-value pos">+23.0<span style="font-size:13px">%</span></div>
+        <div class="stat-sub pos">$4.74 → $5.83</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營業利益率</div>
+        <div class="stat-value pos">13.1<span style="font-size:13px">%</span></div>
+        <div class="stat-sub pos">FY24 持平</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 毛利率</div>
+        <div class="stat-value pos">77.8<span style="font-size:13px">%</span></div>
+        <div class="stat-sub pos">高水準維持</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 EPS</div>
+        <div class="stat-value neu">$0.91</div>
+        <div class="stat-sub neg">-54% vs Q1 25 異常高峰</div>
+      </div>
+    </div>
+
+    <div class="data-table">
+      <table class="data-table">
+        <thead>
+          <tr><th>2025 逐季 EPS</th><th class="right">Q1</th><th class="right">Q2</th><th class="right">Q3</th><th class="right">Q4</th><th class="right">FY25</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="label">實際 EPS</td><td class="right pos">$1.98</td><td class="right neg">$0.48</td><td class="right pos">$2.01</td><td class="right neu">$1.36</td><td class="right pos">$5.83</td></tr>
+          <tr><td class="label">兌換貢獻</td><td class="right">+$0.50</td><td class="right">-$0.78</td><td class="right">+$0.36</td><td class="right">+$0.18</td><td class="right">+$0.30</td></tr>
+          <tr class="highlight"><td class="label">乾淨 EPS（剔兌換）</td><td class="right">$1.48</td><td class="right">$1.26</td><td class="right">$1.65</td><td class="right">$1.18</td><td class="right">$5.53</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">核心論述</div>
+      <div class="section-kicker">Thesis</div>
+    </div>
+
+    <p class="body-text">
+      <strong>主論述</strong>：聯合骨科是「FY25 高速成長年、Q1 2026 從異常高峰回歸均值」的故事，不是結構性壓縮的標的。本業在四個會計期間都 +20% 以上成長，毛利率與營業利益率雙穩，子公司在 FY25 大豐收（UOC Suisse +1.76 億、UOC USA +3,953 萬、UOC Japan +4,074 萬）。
+    </p>
+
+    <p class="body-text">
+      <strong>三個關鍵發現</strong>：（1）<strong>FY25 EPS 5.83 創歷史新高</strong>（+23.0% YoY），毛利率與營業利益率雙穩；（2）<strong>Q2 2025 EPS 0.48 暴跌真相 100% 是兌換損失 -1.01 億</strong>，本業營業利益基本持平 -0.4%；（3）<strong>UOC Suisse FY25 季季下降型態</strong>（79K → 44K → 32K → 20K），Q1 2026 的 14K 是趨勢延續而非斷崖。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">市場容易看錯的地方</div>
+      <div class="callout-body">
+        市場把「Q1 2026 業外 -94% YoY」當作「業外消失」雷點，但 Q1 2025 業外 70,228 是 FY25 季均 +3,920 的 18 倍——是異常高基期。Q1 2026 業外 4,167 與 FY25 季均幾乎一致，是均值回歸。<strong>用單一季度同比推結構性走向，是最常見的方法論錯誤</strong>。
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenarios</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull · 機器人 + 子公司均值回歸</div>
+        <div class="scenario-prob">30%</div>
+        <div class="scenario-target">目標 100~115</div>
+        <div class="scenario-desc">子公司 Q2-Q3 26 回到 FY25 季均 · FDA 機器人 H2 通過 · 新產品 H2 貢獻 · FY26 EPS 5.0-5.5 · PE 19-21x</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base · 高基期消化期</div>
+        <div class="scenario-prob">50%</div>
+        <div class="scenario-target">區間 80~95</div>
+        <div class="scenario-desc">子公司逐季均值回歸 · 推銷費用率壓力延續 · 山東新華虧損穩定 · FY26 EPS 4.5-5.0 · PE 16-18x</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear · 關稅 + 中國壓力</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-target">下探 60~75</div>
+        <div class="scenario-desc">美國關稅升至 25% · 山東新華惡化 · 歐洲非 Suisse 子公司持續虧損 · FY26 EPS 3.8-4.3 · PE 14-15x</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>機率加權預期股價 85-95 元</strong>，當前 91.8 元位於合理區間中段。下行至 Base 下緣（80 元）僅 -13%，上行至 Bull 中段（107 元）+17%。<strong>風險報酬比 1:1.8</strong>，屬「持有偏建設性」位置。
+    </p>
+  </section>
+
+  <!-- ACTION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">操作框架</div>
+      <div class="section-kicker">Action Framework</div>
+    </div>
+
+    <div class="action-grid">
+      <div class="action-card">
+        <div class="action-card-title">持有部位處理</div>
+        <ul class="action-list">
+          <li>成本 &gt; 100：不攤平、停損 75 元（Base 下緣 -5 元）</li>
+          <li>成本 80~100：續抱不必減碼</li>
+          <li>尚未進場：分批 85 元 1/3 → 80 元 1/3 → 75 元 1/3</li>
+          <li>70 元以下視為深度買進區</li>
+        </ul>
+      </div>
+      <div class="action-card">
+        <div class="action-card-title">關鍵驗證指標（90 天）</div>
+        <ul class="action-list">
+          <li>Q1 2026 法說會（5/底~6/初）</li>
+          <li>5/6 月營收：&gt;16% Bull、10-16% Base、&lt;10% Bear</li>
+          <li>Q2 2026 季報（8/14 前）— 最關鍵</li>
+          <li>FDA 510(k) 機器人進度（Q3-Q4）</li>
+          <li>美國關稅政策走向</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="data-table">
+      <table class="data-table">
+        <thead>
+          <tr><th>Q2 2026 EPS</th><th>劇本</th><th>對應動作</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="label pos">&gt; $1.4</td><td>Bull 確認</td><td>Bull 機率上修 35-40% · 目標價拉至 105-115</td></tr>
+          <tr><td class="label neu">$1.0 ~ $1.4</td><td>Base 維持</td><td>區間操作 80-95 · 等下一驗證點</td></tr>
+          <tr><td class="label neg">&lt; $1.0</td><td>Bear 確認</td><td>停損啟動 · 目標下修 60-75</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- RISKS & CATALYSTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">風險 vs 催化</div>
+      <div class="section-kicker">Risks & Catalysts</div>
+    </div>
+
+    <div class="risk-grid">
+      <div class="risk-card">
+        <div class="risk-title">主要下行風險</div>
+        <ul class="risk-list">
+          <li>美國關稅升至 25% → UOC USA 毛利受壓 2-4pp</li>
+          <li>UOC France、UK 結構性虧損延續</li>
+          <li>山東新華 FY26 持續惡化</li>
+          <li>UOC Suisse 趨勢下降未止</li>
+          <li>新台幣升值週期再現</li>
+          <li>FDA 機器人卡關延至 2027</li>
+        </ul>
+      </div>
+      <div class="risk-card positive">
+        <div class="risk-title">上行催化</div>
+        <ul class="risk-list">
+          <li>FY25 大豐收驗證商業模式</li>
+          <li>UOC Japan 持續加速（京瓷貼牌效益）</li>
+          <li>歐洲 +30.6% 接棒美洲為成長引擎</li>
+          <li>FDA 機器人 H2 通過 → PE 重估</li>
+          <li>新產品 Momentum/SYSTEM ONE H2 量產</li>
+          <li>子公司均值回歸帶動季度 EPS 1.4-1.6</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY VERIFICATION CHECKPOINTS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">未來 90 天關鍵驗證</div>
+      <div class="section-kicker">Verification Roadmap</div>
+    </div>
+
+    <div class="data-table">
+      <table class="data-table">
+        <thead>
+          <tr><th>時點</th><th>事件</th><th>觀察重點</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="label">5 月底~6 月初</td><td>Q1 2026 法說會</td><td>管理層對子公司均值回歸的解釋與下半年指引</td></tr>
+          <tr><td class="label">6 月初</td><td>5 月營收公告</td><td>YoY &gt; 16% Bull / 10-16% Base / &lt; 10% Bear</td></tr>
+          <tr><td class="label">6 月</td><td>115 年股東會年報</td><td>FY25 完整年度與子公司獲利狀態詳細揭露</td></tr>
+          <tr><td class="label">7 月初</td><td>6 月營收公告</td><td>連 2 月趨勢判斷</td></tr>
+          <tr class="highlight"><td class="label">8 月 14 日前</td><td>Q2 2026 季報</td><td>最關鍵驗證點：子公司是否回到 FY25 季均</td></tr>
+          <tr><td class="label">Q3-Q4 2026</td><td>FDA 510(k) 機器人</td><td>通過則 PE 重估 20% 以上</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">本報告適用情境</div>
+      <div class="callout-body">
+        本投資簡報為快速決策參考。完整論述、子公司圖譜五時點對照、業外損益正常化解構、區域結構修正、情境分析與風險因子等細節，請參考同步發佈的深度研究報告（RC-4129）。<strong>本報告基於 2026/05/15 前公告之資料，Q2 2026 季報（8 月）將再次驗證或修正論述</strong>。
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p><strong>免責聲明：</strong>本報告為個人研究紀錄，不構成投資建議。投資人應自行判斷風險。本投資簡報為深度研究報告的摘要版本，完整論述請參考 RC-4129 深度研究報告。</p>
+    <p style="margin-top:6px;"><strong>資料來源：</strong>公開資訊觀測站 · 聯合骨科 114 年度合併財報（2026/03/13）+ 2025 Q1/Q2/Q3 完整合併財報 + 2026 Q1 完整合併財報（2026/05/15）+ 月營收公告 · 股價資料：鉅亨網（Anue.cnyes.com）</p>
+    <p style="margin-top:6px; font-family: 'IBM Plex Mono', monospace; font-size: 9px; color: var(--ink-muted);">Roy Capital · Investment Brief · RC-4129-BRIEF · 2026.05.15</p>
+  </footer>
+
+</div>
+</body>
+</html>

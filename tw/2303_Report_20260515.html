@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯華電子 (2303) 投資研究報告 | 2026.05.15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #e8a87c; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 36px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "投資結論";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 36px;
+}
+
+.thesis-card {
+  padding: 18px 20px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 8px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.thesis-desc {
+  font-size: 11.5px;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.body-text {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.body-text strong {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 12.5px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td {
+  border-bottom: 2px solid var(--ink);
+}
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label {
+  font-weight: 700;
+}
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 18px 22px;
+  margin: 16px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 12px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.scenario-desc {
+  font-size: 10.5px;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+.action-matrix {
+  background: var(--bg);
+  padding: 20px 24px;
+  margin: 16px 0;
+  border: 2px solid var(--ink);
+}
+
+.action-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.action-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 18px;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--rule);
+  font-size: 12.5px;
+}
+
+.action-row:last-child { border-bottom: none; }
+
+.action-key {
+  font-weight: 600;
+  color: var(--accent-dark);
+  font-family: 'Noto Serif TC', serif;
+}
+
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 8px;
+  color: var(--negative);
+}
+
+.risks-list {
+  list-style: none;
+  font-size: 12.5px;
+}
+
+.risks-list li {
+  padding: 4px 0 4px 20px;
+  position: relative;
+  line-height: 1.65;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.65;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 16px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  background: var(--bg-card);
+  padding: 14px 16px;
+}
+
+.stat-label {
+  font-size: 9.5px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Price chart block */
+.chart-block {
+  background: var(--bg);
+  border: 2px solid var(--ink);
+  padding: 24px 28px;
+  margin: 16px 0 24px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chart-title-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.chart-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.chart-current {
+  text-align: right;
+}
+
+.chart-current .now {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.chart-current .delta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: var(--positive);
+  margin-top: 4px;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+.chart-legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 11px;
+}
+
+.chart-legend .lg-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+}
+
+.chart-legend .swatch {
+  width: 16px; height: 9px; flex-shrink: 0;
+}
+
+.chart-legend .lg-text {
+  color: var(--ink);
+  line-height: 1.2;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.chart-legend .lg-text strong { font-weight: 700; }
+.chart-legend .lg-text .sub {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  margin-top: 1px;
+  letter-spacing: 0.5px;
+}
+
+.chart-footnote {
+  margin-top: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .action-row { grid-template-columns: 1fr; gap: 4px; }
+  .chart-legend { grid-template-columns: repeat(2, 1fr); }
+  .chart-wrapper { height: 260px; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Investment Memo</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">2303-TW · INVESTMENT MEMO</div>
+      <div>2026.05.15</div>
+      <div>Concise · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">成熟製程代工 · 22nm / 28nm 特殊製程 · Intel 12nm 合作</div>
+      <h1 class="company-title">聯華電子<span class="ticker">2303.TW</span></h1>
+      <div class="report-subtitle">EPS 暴衝水分被市場放大：紀律性持有，等待 Q2 法說漲價驗證</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value accent">NEUTRAL</div>
+      <div class="rating-sub">中性、紀律性持有</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">107.59<span class="unit">TWD</span></div>
+      <div class="rating-sub">As of 2026.05.14</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value</div>
+      <div class="rating-value">95-110<span class="unit">TWD</span></div>
+      <div class="rating-sub">機率加權預期</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Stop-Loss</div>
+      <div class="rating-value">85<span class="unit">TWD</span></div>
+      <div class="rating-sub">-21%（Base 下緣）</div>
+    </div>
+  </div>
+
+  <!-- INVESTMENT CONCLUSION -->
+  <div class="exec-summary">
+    <p class="lede">聯電是對的公司，但 Q1 EPS 中 6 成來自非經常性的營業外收益；25Q4「乾淨基準」EPS 僅 NT$0.81，當前估值已 price-in 80% 樂觀情境。</p>
+    <p>2026Q1 EPS 1.29 元（YoY +108%）表面亮眼，但用 TWSE 官方財報拆解，<strong>本業稅前淨利 YoY 僅 +15.2%</strong>。EPS 暴衝的 6 成來自三項非經常性疊加：採用權益法之關聯企業損益由 -2.08 億翻正至 +28.15 億（USJC、智原、聯穎光電）、金融資產評價利益 +21.14 億（股市好）、有效稅率異常低 3.2%（去年 17.2%）。<strong>五季完整比對揭示：25Q4 才是「真正乾淨」的觀察基準——當季 GM 30.7%、營收 618 億均為 5 季最高，但 EPS 也只有 NT$0.81</strong>。<strong>「乾淨」全年 EPS 更可能在 NT$3.4-3.8</strong>，遠低於市場隱含 NT$5+ 預期。股價 19 日 +50%、PE 從 8x 拉到 13x、26 年新高，已 price-in 80% 多頭故事。機率加權預期值 NT$95-105，相對當前 NT$107.59，上行 20-30%、下行 30-50%，<strong>風險報酬比偏向中性偏下行</strong>。<strong>建議：持倉者在 NT$110-130 區間分批減碼鎖定獲利；觀望者待回測 NT$85-95 區間建倉</strong>。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">25Q4 才是真乾淨基準 NT$0.81</div>
+      <div class="thesis-desc">5 季比對：25Q4 GM 30.7% 與營收 618 億均為 5 季最高，但 EPS 也僅 NT$0.81。「乾淨」全年 EPS 約 NT$3.4-3.8。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">H2 漲價 5-10% 預期偏高</div>
+      <div class="thesis-desc">CFO 用「有紀律、可持續」語言已暗示——平均漲幅可能 3-5%，低於市場隱含 5-10%。Q2 法說會為關鍵驗證。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">聯電不是 CPU 概念股</div>
+      <div class="thesis-desc">Intel 12nm 合作標的是 DTV/Wi-Fi/介面，非 CPU 本體。CPU 真正 alpha 在祥碩、ODM 四雄、聯發科。</div>
+    </div>
+  </div>
+
+  <!-- PRICE CHART -->
+  <div class="chart-block">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title-text">90 天股價 × 情境目標價區間</div>
+        <div class="chart-sub">Feb 14 – May 14 · 2026 · 19 日 +50% 鎖定 26 年高</div>
+      </div>
+      <div class="chart-current">
+        <div class="now">NT$ 107.59</div>
+        <div class="delta">▲ +1.31 (+1.23%) · 2026-05-14</div>
+      </div>
+    </div>
+    <div class="chart-wrapper">
+      <canvas id="priceChart"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="lg-item">
+        <span class="swatch" style="background: rgba(45,90,63,0.2); border: 1px dashed #2d5a3f;"></span>
+        <div class="lg-text"><strong>Bull 130–140</strong><span class="sub">機率 25%</span></div>
+      </div>
+      <div class="lg-item">
+        <span class="swatch" style="background: rgba(138,109,46,0.2); border: 1px dashed #8a6d2e;"></span>
+        <div class="lg-text"><strong>Base 80–110</strong><span class="sub">機率 55%</span></div>
+      </div>
+      <div class="lg-item">
+        <span class="swatch" style="background: rgba(184,53,26,0.18); border: 1px dashed #b8351a;"></span>
+        <div class="lg-text"><strong>Bear 50–70</strong><span class="sub">機率 20%</span></div>
+      </div>
+      <div class="lg-item">
+        <span class="swatch" style="background: transparent; border-top: 2px dashed #4a5056;"></span>
+        <div class="lg-text"><strong>交銀 NT$132 / 共識 NT$63.5</strong><span class="sub">21 位分析師</span></div>
+      </div>
+    </div>
+    <div class="chart-footnote">
+      註：股價走勢依公開資料（Yahoo 股市、Investing.com、TradingView）重建。情境目標價區間來自報告 §III，非投資建議。
+    </div>
+  </div>
+
+  <!-- SECTION 1: KEY METRICS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">關鍵財務速覽</div>
+      <div class="section-kicker">Key Metrics</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">Q1 本業稅前 YoY</div>
+        <div class="stat-value" style="color:var(--positive)">+15.2<span style="font-size:12px">%</span></div>
+        <div class="stat-sub">營業利益 NT$112.76 億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">EPS 非營收貢獻</div>
+        <div class="stat-value" style="color:var(--negative)">~NT$0.30</div>
+        <div class="stat-sub">股票評價 + 低稅率</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 有效稅率</div>
+        <div class="stat-value" style="color:var(--negative)">3.2<span style="font-size:13px">%</span></div>
+        <div class="stat-sub">vs 去年 17.2%（異常）</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">2026 CapEx 指引</div>
+        <div class="stat-value">US$1.5B</div>
+        <div class="stat-sub">Singapore P3 + 12nm</div>
+      </div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th class="right">2024A</th>
+          <th class="right">2025A (實)</th>
+          <th class="right">2026E (乾淨基準)</th>
+          <th class="right">2026E (含非營益)</th>
+          <th class="right">2027E (基準)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">營收（億）</td>
+          <td class="right">2,322</td>
+          <td class="right">2,375</td>
+          <td class="right">2,460-2,500</td>
+          <td class="right">2,460-2,500</td>
+          <td class="right">2,580-2,700</td>
+        </tr>
+        <tr>
+          <td class="label">YoY</td>
+          <td class="right">—</td>
+          <td class="right pos">+2.3%</td>
+          <td class="right pos">+6~8%</td>
+          <td class="right pos">+6~8%</td>
+          <td class="right pos">+5~8%</td>
+        </tr>
+        <tr>
+          <td class="label">毛利率</td>
+          <td class="right">~33%</td>
+          <td class="right">29%</td>
+          <td class="right">28~30%</td>
+          <td class="right">28~30%</td>
+          <td class="right">28~30%</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">EPS（元）</td>
+          <td class="right">3.80</td>
+          <td class="right">3.34</td>
+          <td class="right"><strong>3.4~3.8</strong></td>
+          <td class="right pos">4.5~5.0</td>
+          <td class="right">3.8~4.5</td>
+        </tr>
+        <tr>
+          <td class="label">隱含 PER @ 107 元</td>
+          <td class="right">28x</td>
+          <td class="right">32x</td>
+          <td class="right">28~31x</td>
+          <td class="right pos">21~24x</td>
+          <td class="right">24~28x</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="body-text" style="font-size:12.5px;color:var(--ink-secondary);margin-top:-12px;">
+      <strong>註</strong>：「乾淨基準」假設 25Q4 EPS NT$0.81 為單季 baseline + 漸進改善至 NT$0.85-0.95；「含非營益」假設 26Q1 NT$1.29 持續性。2025 實際 EPS NT$3.34（YoY -12%）反映 2024 高基期回落。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">關鍵警訊 · Cleansed EPS</div>
+      <div class="callout-body">
+        市場用 Q1 線性外推全年 NT$5+ 偏高。若剔除 Q1 金融資產評價利益（稅後 ~NT$0.14/股）+ 異常低稅率影響（多賺 ~NT$0.18/股），本業 EPS 約 NT$0.95-1.00。<strong>「乾淨」全年 EPS 更可能在 NT$3.8-4.5，不是市場期待的 NT$5+</strong>。Q2 法說會若採用權益法損益回歸正常水準，市場將被迫修正預期。
+      </div>
+    </div>
+
+    <h3 class="subsection-title" style="margin-top:30px;">五季趨勢 — Q4 2025 才是真正的「乾淨基準」⭐</h3>
+
+    <p class="body-text">
+      取得 2025Q1-Q4 完整財報後，5 季完整比對揭示關鍵事實：<strong>25Q4 才是「真正乾淨」的觀察基準</strong>——當季 22nm 創高、GM 30.7%（5 季最高）、營收 618 億（5 季最高），但無重大非營益挹注，EPS 也只有 NT$0.81。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>季度</th>
+          <th class="right">營收 (億)</th>
+          <th class="right">毛利率</th>
+          <th class="right">稅率</th>
+          <th class="right">非營+稅務貢獻</th>
+          <th class="right">EPS</th>
+          <th>「乾淨」EPS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">25Q1</td><td class="right">578.6</td><td class="right neg">26.7%</td><td class="right">17.2%</td><td class="right neg">-0.03</td><td class="right">0.62</td><td>~0.65</td></tr>
+        <tr><td class="label">25Q2</td><td class="right">587.6</td><td class="right">28.7%</td><td class="right pos">12.9%</td><td class="right neg">-0.01</td><td class="right">0.71</td><td>~0.72</td></tr>
+        <tr class="highlight"><td class="label">25Q3</td><td class="right">591.3</td><td class="right pos">29.8%</td><td class="right pos">-2.1% ⚠️</td><td class="right pos">+0.45</td><td class="right pos">1.20</td><td>~0.75</td></tr>
+        <tr class="highlight"><td class="label">25Q4</td><td class="right pos">618.1</td><td class="right pos">30.7%</td><td class="right">~24%</td><td class="right">~0</td><td class="right">0.81</td><td><strong>0.81 ⭐</strong></td></tr>
+        <tr class="highlight"><td class="label">26Q1</td><td class="right">610.4</td><td class="right">29.2%</td><td class="right pos">3.2% ⚠️</td><td class="right pos">+0.34</td><td class="right pos">1.29</td><td>~0.95-1.00</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="border-color:var(--accent);">
+      <div class="callout-label">關鍵發現 · 用 25Q4 重新校準全年預期</div>
+      <div class="callout-body">
+        <strong>市場用 26Q1 EPS 1.29 線性外推全年 NT$5+ 偏高</strong>——忽略 25Q4 已是「本業最強季」（GM 30.7%、營收 618 億均為 5 季最高）但 EPS 也只有 NT$0.81。<br/><br/>
+        <strong>「乾淨」全年 EPS 推估：</strong>以 25Q4 NT$0.81 為 baseline、加上 22nm 持續創高與漸進漲價的 5-10% 改善，單季 NT$0.85-0.95，全年 <strong>NT$3.4-3.8</strong>。若再加上類似 26Q1 的非營益挹注（不可預期），上看 NT$4.5-5.0。<strong>市場隱含 NT$5+ 等於假設 4 季都複製 26Q1 的非營益異常——機率不高</strong>。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: VALUATION & PEER -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">同業估值對標</div>
+      <div class="section-kicker">Peer Valuation</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>公司</th>
+          <th class="right">PER (TTM)</th>
+          <th class="right">Fwd 2027 PE</th>
+          <th class="right">2026 YoY 營收</th>
+          <th>定位</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">UMC (2303)</td>
+          <td class="right">~24x</td>
+          <td class="right">~12-15x</td>
+          <td class="right">+6~8%</td>
+          <td>成熟製程多元、22nm 特殊製程</td>
+        </tr>
+        <tr>
+          <td class="label">TSMC (2330)</td>
+          <td class="right">~22x</td>
+          <td class="right">~16-18x</td>
+          <td class="right pos">+25%</td>
+          <td>先進製程絕對龍頭</td>
+        </tr>
+        <tr>
+          <td class="label">Vanguard (5347)</td>
+          <td class="right">~18x</td>
+          <td class="right">~14x</td>
+          <td class="right pos">+10%</td>
+          <td>8 吋特殊製程（PMIC）</td>
+        </tr>
+        <tr>
+          <td class="label">GlobalFoundries (US)</td>
+          <td class="right">~22x</td>
+          <td class="right">~18x</td>
+          <td class="right">+5%</td>
+          <td>成熟製程美廠、22FDX</td>
+        </tr>
+        <tr>
+          <td class="label">SMIC (港)</td>
+          <td class="right neg">~35x</td>
+          <td class="right">~25x</td>
+          <td class="right pos">+20~25%</td>
+          <td>中國 28/14nm 國產替代</td>
+        </tr>
+        <tr>
+          <td class="label">Samsung Foundry</td>
+          <td class="right">~18x</td>
+          <td class="right">~14x</td>
+          <td class="right">+5%</td>
+          <td>全製程、但虧損</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層思考 · 估值再評價空間有限</div>
+      <div class="callout-body">
+        UMC 對標 GlobalFoundries，不對標 TSMC。兩者同屬「成熟製程 + 特殊製程」定位，合理 Forward PE 落在 14-18x 區間。<strong>當前 UMC Forward PE 已從 8x 拉到 12-15x，已 capture 大部分估值修復空間</strong>。要進一步到 GF 等級（18-22x），需要 Intel 12nm 商業化兌現 + 22nm 占比突破 20%——這是 2027 以後的事。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenarios</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull · 12-18M</div>
+        <div class="scenario-prob">25%</div>
+        <div class="scenario-target">130~140 元</div>
+        <div class="scenario-desc">H2 漲價 8%+ 落實、22nm 占比 18%、Intel 12nm 2027Q1 提前試產、中國產能未引爆殺價。2026 EPS NT$5.5-6.0、PE 18-20x。</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base · 12M</div>
+        <div class="scenario-prob">55%</div>
+        <div class="scenario-target">80~110 元</div>
+        <div class="scenario-desc">H2 漲價 4-6%、22nm 占比 16-17%、Intel 12nm 量產但首年 &lt;2%、中國產能威脅累積但未爆。2026 EPS NT$4.5-5、PE 12-15x。</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear · 6-12M</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-target">50~70 元</div>
+        <div class="scenario-desc">H2 漲價 &lt;3%、SMIC 殺價、Intel 18A 順利吸收 12nm 訂單、新加坡 P3 折舊大爆發。2026 EPS NT$3.5-4、PE 8-10x。</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 14px;">
+      <strong>機率加權預期值：NT$95~105 區間</strong>。相對於當前 NT$107.59，上行空間 20~30%、下行風險 30~50%，風險報酬比約 1:1.5~1:1.8，<strong>偏向中性偏下行</strong>。當前估值已大幅反映多重題材，欲突破至 Bull Case 上緣，需要連續 catalyst 兌現（漲價 5%+ + Intel 12nm 進度 + 月營收持續成長）。
+    </p>
+  </section>
+
+  <!-- SECTION 4: ACTION FRAMEWORK -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">操作框架</div>
+      <div class="section-kicker">Action Framework</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">既有持倉者</div>
+      <div class="action-row">
+        <div class="action-key">110~130 區間</div>
+        <div>部分減碼（特別是高成本部位回到成本線）；<strong>鎖定獲利優先於追求樂觀情境</strong>。建議減 1/3。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">130~140 區間</div>
+        <div>再減碼 1/3，剩餘部位視作「option-like 持有」搭末段。Bull Case 上緣，不再加碼。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">突破 140 後</div>
+        <div>主部位獲利了結，僅保留少量觀察部位。已超越合理 Forward PE 上緣。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">跌破 85（停損）</div>
+        <div>趨勢轉弱訊號，減碼 50% 部位；剩餘視 Q2 法說會 fundamental 訊號（漲價落實 + 月營收方向）決定。</div>
+      </div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">新進觀望者</div>
+      <div class="action-row">
+        <div class="action-key">當前 107</div>
+        <div><strong>不是最好進場點</strong>；估值已 price-in 80% 多頭故事，風險報酬比偏向下行。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">回測 95~105</div>
+        <div>小量試單 1/4 部位，停損 NT$85。前提：月營收持續 YoY +5%+。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">回測 75~95</div>
+        <div>分批建立基礎部位 1/2，停損 NT$70。<strong>這是相對好的進場區間</strong>。前提：fundamental 仍健康（毛利率守 28%+、漲價部分落實）。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">替代選擇</div>
+        <div>若押注成熟製程多元：<strong>TSMC（2330）穩定性更高、Vanguard（5347）8 吋特殊製程純度更高</strong>；若押注 CPU 真題材：祥碩（5269）、AI 伺服器 ODM 四雄。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: TRACKING CHECKLIST -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">關鍵追蹤指標</div>
+      <div class="section-kicker">Monitoring Checklist</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>時點</th>
+          <th>指標</th>
+          <th>多頭門檻</th>
+          <th>警訊門檻</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">6/10</td>
+          <td>5 月月營收</td>
+          <td class="pos">YoY +8% 以上</td>
+          <td class="neg">YoY &lt; +3%</td>
+        </tr>
+        <tr>
+          <td class="label">7/10</td>
+          <td>6 月月營收</td>
+          <td class="pos">&gt; NT$230 億</td>
+          <td class="neg">&lt; NT$215 億</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">7-8 月</td>
+          <td>Q2 「乾淨」EPS ⭐</td>
+          <td class="pos">&gt; NT$0.95（超越 25Q4 baseline）</td>
+          <td class="neg">&lt; NT$0.75（敘事破功）</td>
+        </tr>
+        <tr>
+          <td class="label">7-8 月</td>
+          <td>Q2 法說 H2 漲價幅度</td>
+          <td class="pos">平均 5% 以上</td>
+          <td class="neg">&lt; 3% 或客戶推遲</td>
+        </tr>
+        <tr>
+          <td class="label">7-8 月</td>
+          <td>Q2 GM 指引</td>
+          <td class="pos">≥ 30%（接近 25Q4 高峰）</td>
+          <td class="neg">&lt; 28%</td>
+        </tr>
+        <tr>
+          <td class="label">7-8 月</td>
+          <td>採用權益法損益（Q2）</td>
+          <td class="pos">&gt; NT$15 億穩定</td>
+          <td class="neg">&lt; NT$5 億退潮</td>
+        </tr>
+        <tr>
+          <td class="label">Q4 2026</td>
+          <td>新加坡 P3 量產良率</td>
+          <td class="pos">&gt; 80%</td>
+          <td class="neg">&lt; 70%</td>
+        </tr>
+        <tr>
+          <td class="label">Q4 2026</td>
+          <td>Intel 12nm PDK 交付</td>
+          <td class="pos">如期交付</td>
+          <td class="neg">延遲至 2027</td>
+        </tr>
+        <tr>
+          <td class="label">H2 2026</td>
+          <td>Intel 18A 量產良率</td>
+          <td class="neu">&lt; 60%（反正面）</td>
+          <td class="neg">&gt; 80%（12nm 邊緣化）</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION 6: KEY RISKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">主要風險</div>
+      <div class="section-kicker">Key Risks</div>
+    </div>
+
+    <div class="risks">
+      <ul class="risks-list">
+        <li><strong>EPS「乾淨度」被市場放大</strong>：Q1 EPS 1.29 中約 NT$0.30 來自非經常性。Q2 法說會若無類似挹注，會出現「不如預期」修正。</li>
+        <li><strong>H2 漲價幅度不如預期</strong>：CFO 用「有紀律、可持續」語言，平均漲幅可能 3-5% 而非市場期待 5-10%。</li>
+        <li><strong>採用權益法損益波動</strong>：Q1 +28.15 億主要來自 USJC、智原、聯穎光電。台股震盪或被投資公司獲利反轉將直接傳導 EPS。</li>
+        <li><strong>有效稅率正常化</strong>：Q1 3.2% 屬異常低，若回到 15-17% 將拖累單季 EPS NT$0.15-0.20。</li>
+        <li><strong>中國成熟製程外溢風險</strong>：SMIC 28nm 良率 98% + 報價低 20%，中國 2026 12 吋成熟製程占全球 70%+。2027-2028 殺價戰風險。</li>
+        <li><strong>新加坡 Fab 12i P3 折舊壓力</strong>：Q1 折舊已 YoY +13.8%。新產能 2026Q4 投產後折舊進一步上升。</li>
+        <li><strong>Intel 18A 順利則 12nm 合作邊緣化</strong>：非對稱風險——Intel 自家 18A 成功反而對 UMC 不利。</li>
+        <li><strong>估值已 price-in 80%</strong>：股價 19 日 +50%、PE 從 8x → 13x、26 年新高，多頭信念進入「敘事接力」階段。</li>
+        <li><strong>市場誤把聯電當 CPU 概念股</strong>：Intel 合作標的非 CPU 本體，市場期待若集中於此將被打臉。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FINAL CALLOUT (Bottom Line) -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:30px;">
+    <div class="callout-label">Bottom Line</div>
+    <div class="callout-body">
+      聯電是對的公司，故事方向也正確——22nm 創高、漲價題材、Intel 合作三大正面敘事疊加。但<strong>「方向對 ≠ 估值合理 ≠ 進場時點對」</strong>。當前股價 19 日 +50%、26 年新高，已 price-in 80% 樂觀情境。<strong>Q1 EPS 1.29 中約 NT$0.30 是非經常性、不該外推。「乾淨」全年 EPS 約 NT$3.8-4.5，遠低於市場隱含 NT$5+ 預期。</strong><br/><br/>
+      對相信長期敘事的持倉者，<strong>紀律性持有為主、110-130 區間分批減碼鎖定獲利</strong>，等待 Q2 法說會（7-8 月）漲價驗證。<strong>關鍵單一指標：Q2 法說會 H2 平均漲價幅度</strong>——若 5%+ 落實，可延續攻勢至 Bull Case；若 &lt; 3%，估值將回到 NT$80-90 區間。對新進觀望者，當前不是好進場點，建議等待回測 NT$85-95 區間再分批建倉。<strong>風險管理優於目標管理。</strong>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有財務數據均來自聯華電子（2303）2026 年第一季合併財務報告（TWSE 公告）原文，產業與市場資料來自財報狗、Goodinfo、TrendForce、Tom's Hardware、SemiAnalysis、Vocus、數位時代 BusinessNext、TechNews、Money UDN、旺得富、Investing.com 等公開來源，但本分析師不保證其準確性或完整性。
+      讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: 2303-TW-MEMO-20260515-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Chart.js + Annotation plugin -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script>
+  const priceData = [
+    { d: "02-14", p: 52.5 },{ d: "02-17", p: 53.2 },{ d: "02-18", p: 52.8 },
+    { d: "02-19", p: 51.5 },{ d: "02-20", p: 50.8 },{ d: "02-21", p: 49.2 },
+    { d: "02-24", p: 48.5 },{ d: "02-25", p: 47.2 },{ d: "02-26", p: 46.8 },
+    { d: "02-27", p: 45.5 },{ d: "03-03", p: 44.5 },{ d: "03-04", p: 45.2 },
+    { d: "03-05", p: 44.8 },{ d: "03-06", p: 45.5 },{ d: "03-07", p: 46.2 },
+    { d: "03-10", p: 45.8 },{ d: "03-11", p: 46.5 },{ d: "03-12", p: 47.2 },
+    { d: "03-13", p: 47.8 },{ d: "03-14", p: 48.5 },{ d: "03-17", p: 48.2 },
+    { d: "03-18", p: 49.1 },{ d: "03-19", p: 49.8 },{ d: "03-20", p: 50.5 },
+    { d: "03-21", p: 51.2 },{ d: "03-24", p: 52.1 },{ d: "03-25", p: 52.8 },
+    { d: "03-26", p: 53.5 },{ d: "03-27", p: 54.2 },{ d: "03-28", p: 55.1 },
+    { d: "03-31", p: 55.8 },{ d: "04-01", p: 56.5 },{ d: "04-02", p: 57.2 },
+    { d: "04-03", p: 58.1 },{ d: "04-07", p: 60.5 },{ d: "04-08", p: 62.2 },
+    { d: "04-09", p: 63.5 },{ d: "04-10", p: 64.8 },{ d: "04-11", p: 66.2 },
+    { d: "04-14", p: 68.5 },{ d: "04-15", p: 69.5 },{ d: "04-16", p: 70.2 },
+    { d: "04-17", p: 71.5 },{ d: "04-18", p: 73.2 },{ d: "04-21", p: 74.8 },
+    { d: "04-22", p: 76.5 },{ d: "04-23", p: 78.2 },{ d: "04-24", p: 79.8 },
+    { d: "04-25", p: 81.5 },{ d: "04-28", p: 83.2 },{ d: "04-29", p: 87.5 },
+    { d: "04-30", p: 89.8 },{ d: "05-02", p: 91.3 },{ d: "05-05", p: 93.5 },
+    { d: "05-06", p: 95.2 },{ d: "05-07", p: 96.8 },{ d: "05-08", p: 98.8 },
+    { d: "05-09", p: 100.5 },{ d: "05-12", p: 104.5 },{ d: "05-13", p: 106.2 },
+    { d: "05-14", p: 107.59 }
+  ];
+  const labels = priceData.map(x => x.d);
+  const prices = priceData.map(x => x.p);
+  const flat = (v) => labels.map(() => v);
+
+  // 與 CSS 變數匹配的色票
+  const C = {
+    accent:   '#b8351a',
+    accentDk: '#8a2814',
+    ink:      '#0f1419',
+    inkMute:  '#8a8f94',
+    positive: '#2d5a3f',
+    neutral:  '#8a6d2e',
+    negative: '#b8351a',
+    rule:     '#d8d4cd'
+  };
+
+  const ctx = document.getElementById('priceChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        // Bull band
+        { label: 'Bull Hi', data: flat(140), borderColor: 'rgba(0,0,0,0)', borderWidth: 0, pointRadius: 0,
+          backgroundColor: 'rgba(45,90,63,0.15)', fill: '+1', tension: 0 },
+        { label: 'Bull Lo', data: flat(130), borderColor: 'rgba(45,90,63,0.6)', borderWidth: 1, borderDash: [5,4],
+          pointRadius: 0, fill: false, tension: 0 },
+        // Base band
+        { label: 'Base Hi', data: flat(110), borderColor: 'rgba(138,109,46,0.6)', borderWidth: 1, borderDash: [5,4],
+          pointRadius: 0, backgroundColor: 'rgba(138,109,46,0.12)', fill: '+1', tension: 0 },
+        { label: 'Base Lo', data: flat(80),  borderColor: 'rgba(138,109,46,0.5)', borderWidth: 1, borderDash: [5,4],
+          pointRadius: 0, fill: false, tension: 0 },
+        // Bear band
+        { label: 'Bear Hi', data: flat(70),  borderColor: 'rgba(184,53,26,0.6)', borderWidth: 1, borderDash: [5,4],
+          pointRadius: 0, backgroundColor: 'rgba(184,53,26,0.12)', fill: '+1', tension: 0 },
+        { label: 'Bear Lo', data: flat(50),  borderColor: 'rgba(184,53,26,0.5)', borderWidth: 1, borderDash: [5,4],
+          pointRadius: 0, fill: false, tension: 0 },
+        // Sell-side targets
+        { label: '交銀目標價 NT$132', data: flat(132), borderColor: '#4a5056', borderWidth: 1.2, borderDash: [2,3],
+          pointRadius: 0, fill: false, tension: 0 },
+        { label: '分析師均值 NT$63.5', data: flat(63.5), borderColor: '#8a8f94', borderWidth: 1.2, borderDash: [2,3],
+          pointRadius: 0, fill: false, tension: 0 },
+        // Stop-loss
+        { label: 'Stop-Loss NT$85', data: flat(85), borderColor: C.accent, borderWidth: 1.4, borderDash: [4,3],
+          pointRadius: 0, fill: false, tension: 0 },
+        // Price line
+        {
+          label: 'UMC (2303.TW) 收盤價',
+          data: prices,
+          borderColor: C.ink,
+          backgroundColor: 'rgba(15,20,25,0.06)',
+          borderWidth: 2.2,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          pointHoverBackgroundColor: C.accent,
+          fill: false,
+          tension: 0.18,
+          order: -1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: C.ink,
+          titleFont: { family: 'IBM Plex Mono, monospace', size: 11 },
+          bodyFont: { family: 'IBM Plex Mono, monospace', size: 11 },
+          padding: 10,
+          displayColors: false,
+          callbacks: {
+            title: (items) => '2026-' + items[0].label,
+            label: (item) => {
+              if (item.dataset.label.includes('UMC')) {
+                return 'NT$ ' + item.parsed.y.toFixed(2);
+              }
+              return item.dataset.label + ': NT$' + item.parsed.y.toFixed(1);
+            }
+          },
+          filter: (item) => item.dataset.label.includes('UMC') || item.dataset.label.includes('目標') || item.dataset.label.includes('均值') || item.dataset.label.includes('Stop')
+        },
+        annotation: {
+          annotations: {
+            bullLabel: {
+              type: 'label', xValue: labels.length - 1.5, yValue: 135,
+              content: 'Bull · 130–140', color: C.positive,
+              font: { family: 'IBM Plex Mono, monospace', size: 9.5, weight: 'bold' },
+              backgroundColor: 'rgba(250,248,245,0.92)', padding: 3,
+              borderColor: 'rgba(45,90,63,0.5)', borderWidth: 1
+            },
+            baseLabel: {
+              type: 'label', xValue: labels.length - 1.5, yValue: 95,
+              content: 'Base · 80–110', color: C.neutral,
+              font: { family: 'IBM Plex Mono, monospace', size: 9.5, weight: 'bold' },
+              backgroundColor: 'rgba(250,248,245,0.92)', padding: 3,
+              borderColor: 'rgba(138,109,46,0.5)', borderWidth: 1
+            },
+            bearLabel: {
+              type: 'label', xValue: labels.length - 1.5, yValue: 60,
+              content: 'Bear · 50–70', color: C.negative,
+              font: { family: 'IBM Plex Mono, monospace', size: 9.5, weight: 'bold' },
+              backgroundColor: 'rgba(250,248,245,0.92)', padding: 3,
+              borderColor: 'rgba(184,53,26,0.5)', borderWidth: 1
+            },
+            stopLabel: {
+              type: 'label', xValue: 4, yValue: 85,
+              content: 'Stop-Loss 85', color: C.accent,
+              font: { family: 'IBM Plex Mono, monospace', size: 9.5, weight: 'bold' },
+              backgroundColor: 'rgba(250,248,245,0.92)', padding: 3,
+              borderColor: C.accent, borderWidth: 1
+            },
+            q1Earnings: {
+              type: 'line', xMin: '04-29', xMax: '04-29',
+              borderColor: C.ink, borderWidth: 1, borderDash: [3,3],
+              label: {
+                display: true, content: 'Q1 法說 (4/29)', position: 'start', yAdjust: 8,
+                backgroundColor: 'rgba(250,248,245,0.95)', color: C.ink,
+                font: { family: 'IBM Plex Mono, monospace', size: 9, weight: 'bold' }, padding: 3
+              }
+            },
+            limitUp: {
+              type: 'line', xMin: '05-12', xMax: '05-12',
+              borderColor: C.accent, borderWidth: 1, borderDash: [3,3],
+              label: {
+                display: true, content: '漲停 26 年高 (5/12)', position: 'start', yAdjust: -8,
+                backgroundColor: 'rgba(250,248,245,0.95)', color: C.accent,
+                font: { family: 'IBM Plex Mono, monospace', size: 9, weight: 'bold' }, padding: 3
+              }
+            },
+            currentPt: {
+              type: 'point', xValue: '05-14', yValue: 107.59,
+              backgroundColor: C.accent, borderColor: '#fff', borderWidth: 2, radius: 5
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(15,20,25,0.04)', drawTicks: false },
+          ticks: {
+            color: C.inkMute,
+            font: { family: 'IBM Plex Mono, monospace', size: 9.5 },
+            maxRotation: 0, autoSkip: true, maxTicksLimit: 10
+          },
+          border: { color: 'rgba(15,20,25,0.2)' }
+        },
+        y: {
+          min: 35, max: 150,
+          grid: { color: 'rgba(15,20,25,0.05)' },
+          ticks: {
+            color: C.inkMute,
+            font: { family: 'IBM Plex Mono, monospace', size: 9.5 },
+            callback: (v) => 'NT$' + v
+          },
+          border: { color: 'rgba(15,20,25,0.2)' }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

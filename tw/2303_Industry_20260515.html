@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯華電子 (2303) 產業深度研究 | 2026.05.15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+.report {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 60px 70px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06);
+  position: relative;
+}
+
+.report::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  margin-bottom: 32px;
+}
+
+.header-left .firm {
+  font-family: 'Playfair Display', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.header-left .dept {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--ink-secondary);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.header-right {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-secondary);
+}
+
+.header-right .doc-id {
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 1px;
+}
+
+.report-meta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  margin-bottom: 40px;
+  align-items: end;
+}
+
+.sector-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.company-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.company-title .ticker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 22px;
+  color: var(--ink-muted);
+  font-weight: 500;
+  margin-left: 12px;
+  vertical-align: super;
+}
+
+.report-subtitle {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-secondary);
+  margin-top: 12px;
+  font-weight: 400;
+}
+
+.rating-panel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+
+.rating-cell {
+  padding: 20px 24px;
+  border-right: 1px solid rgba(255,255,255,0.12);
+}
+
+.rating-cell:last-child { border-right: none; }
+
+.rating-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.rating-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.rating-value.accent { color: #e8a87c; }
+.rating-value .unit {
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  color: rgba(255,255,255,0.6);
+  margin-left: 4px;
+}
+
+.rating-sub {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.exec-summary {
+  background: var(--highlight-bg);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+}
+
+.exec-summary::before {
+  content: "執行摘要";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-card);
+  padding: 0 10px;
+  font-family: 'Noto Serif TC', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--accent);
+}
+
+.exec-summary p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.exec-summary .lede {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 44px;
+}
+
+.thesis-card {
+  padding: 22px 24px;
+  border-right: 1px solid var(--rule);
+}
+
+.thesis-card:last-child { border-right: none; }
+
+.thesis-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 0.9;
+  margin-bottom: 10px;
+}
+
+.thesis-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.thesis-desc {
+  font-size: 12px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.section { margin-bottom: 44px; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.section-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.section-kicker {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.subsection-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  color: var(--accent-dark);
+  padding-left: 12px;
+  border-left: 3px solid var(--accent);
+}
+
+.body-text {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.body-text strong { font-weight: 700; color: var(--ink); }
+
+.lead-para {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.lead-para::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 900;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--accent);
+}
+
+.industry-map {
+  background: var(--bg);
+  border: 2px solid var(--ink);
+  padding: 24px;
+  margin: 20px 0;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1.9;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.industry-map .layer { color: var(--accent); font-weight: 700; }
+.industry-map .star { color: var(--accent); font-weight: 700; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 13px;
+}
+
+.data-table th {
+  background: var(--ink);
+  color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+
+.data-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+}
+
+.data-table td.label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 500;
+}
+
+.data-table td.right { text-align: right; }
+.data-table td.center { text-align: center; }
+
+.data-table tr:last-child td { border-bottom: 2px solid var(--ink); }
+
+.data-table tr.highlight td {
+  background: var(--highlight-bg);
+  font-weight: 600;
+}
+
+.data-table tr.highlight td.label { font-weight: 700; }
+
+.pos { color: var(--positive); font-weight: 600; }
+.neg { color: var(--negative); font-weight: 600; }
+.neu { color: var(--neutral); font-weight: 600; }
+
+.callout {
+  background: var(--bg);
+  border: 1px solid var(--ink);
+  padding: 20px 24px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.callout-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.callout-body {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.pullquote {
+  background: var(--pullquote-bg);
+  color: white;
+  padding: 36px 40px;
+  margin: 36px -20px;
+  position: relative;
+}
+
+.pullquote::before {
+  content: "\201C";
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  color: rgba(255,255,255,0.1);
+  line-height: 1;
+}
+
+.pullquote-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.pullquote-author {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 16px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+}
+
+.scenarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.scenario {
+  border-top: 3px solid var(--rule);
+  padding-top: 14px;
+}
+
+.scenario.bull { border-top-color: var(--positive); }
+.scenario.base { border-top-color: var(--neutral); }
+.scenario.bear { border-top-color: var(--negative); }
+
+.scenario-title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--ink-muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.scenario-prob {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--negative); }
+
+.scenario-target {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.scenario-desc {
+  font-size: 11px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+}
+
+.risks {
+  background: #fdf6f3;
+  border-left: 4px solid var(--negative);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+
+.risks-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--negative);
+}
+
+.risks-list { list-style: none; font-size: 13px; }
+
+.risks-list li {
+  padding: 5px 0 5px 20px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.risks-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--negative);
+  font-weight: 700;
+}
+
+.footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 3px double var(--ink);
+  font-size: 10px;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.footer .disclaimer-title {
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.catalyst-list { margin: 20px 0; }
+
+.catalyst-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 100px;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: center;
+}
+
+.catalyst-date {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.catalyst-desc { font-size: 13px; }
+
+.catalyst-desc strong {
+  display: block;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.catalyst-impact {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-align: right;
+  color: var(--ink-secondary);
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+}
+
+.stat-cell {
+  background: var(--bg-card);
+  padding: 16px 18px;
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 10px;
+  color: var(--ink-muted);
+  margin-top: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Price chart block */
+.chart-block {
+  background: var(--bg);
+  border: 2px solid var(--ink);
+  padding: 26px 30px;
+  margin: 20px 0 28px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chart-title-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 4px;
+}
+
+.chart-sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.chart-current { text-align: right; }
+
+.chart-current .now {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.chart-current .delta {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 1px;
+  color: var(--positive);
+  margin-top: 4px;
+}
+
+.chart-wrapper {
+  position: relative;
+  height: 360px;
+  width: 100%;
+}
+
+.chart-legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 11px;
+}
+
+.chart-legend .lg-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 9px;
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+}
+
+.chart-legend .swatch {
+  width: 16px; height: 9px; flex-shrink: 0;
+}
+
+.chart-legend .lg-text {
+  color: var(--ink);
+  line-height: 1.2;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.chart-legend .lg-text strong { font-weight: 700; }
+.chart-legend .lg-text .sub {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  margin-top: 1px;
+  letter-spacing: 0.5px;
+}
+
+.chart-footnote {
+  margin-top: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width: 780px) {
+  .report { padding: 30px 24px; }
+  .rating-panel { grid-template-columns: repeat(2, 1fr); }
+  .thesis-grid { grid-template-columns: 1fr; }
+  .scenarios { grid-template-columns: 1fr; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .catalyst-item { grid-template-columns: 1fr; gap: 4px; }
+  .catalyst-impact { text-align: left; }
+  .chart-legend { grid-template-columns: repeat(2, 1fr); }
+  .chart-wrapper { height: 280px; }
+}
+</style>
+</head>
+<body>
+
+<div class="report">
+
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Taiwan · Mature-Node Foundry</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">2303-TW · INDUSTRY DEEP DIVE</div>
+      <div>2026.05.15</div>
+      <div>Sector + Company · Issue 1.0</div>
+    </div>
+  </header>
+
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">成熟製程代工 · 22nm / 28nm 特殊製程 · Intel 12nm 合作</div>
+      <h1 class="company-title">聯華電子<span class="ticker">2303.TW</span></h1>
+      <div class="report-subtitle">EPS 暴衝 108% 的真相：本業 +15%、營業外收益貢獻 6 成；估值已 price-in 多頭故事 80%</div>
+    </div>
+  </div>
+
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Industry View</div>
+      <div class="rating-value accent">NEUTRAL+</div>
+      <div class="rating-sub">Story Re-Rate 80% Priced</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">107.59<span class="unit">TWD</span></div>
+      <div class="rating-sub">As of 2026.05.14</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">PER (TTM)</div>
+      <div class="rating-value">~24<span class="unit">x</span></div>
+      <div class="rating-sub">Fwd 2027 ~12-15x</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">22nm Mix</div>
+      <div class="rating-value">14<span class="unit">%</span></div>
+      <div class="rating-sub">Q1 歷史新高</div>
+    </div>
+  </div>
+
+  <div class="exec-summary">
+    <p class="lede">聯電 2026Q1 EPS 1.29 元（YoY +108%）表面亮眼，但 5 季完整比對揭示：25Q4 才是「真乾淨基準」（EPS NT$0.81），市場用 Q1 線性外推全年 NT$5+ 顯著高估。</p>
+    <p>本報告取得 2025Q1-Q4 + 2026Q1 共 5 季完整官方財報後，發現一個被市場忽略的關鍵事實：<strong>25Q3 與 26Q1 兩季都有重大非經常性挹注（採用權益法損益、金融資產評價、異常低/負稅率），而 25Q4 才是「真正乾淨」的觀察基準</strong>——當季 22nm 創歷史新高、GM 30.7%（5 季最高）、營收 618 億（5 季最高），但無重大非營益挹注，EPS 也只有 NT$0.81。換言之，<strong>「乾淨」全年 EPS 推估 NT$3.4-3.8</strong>，遠低於市場隱含 NT$5+ 預期。<br/><br/>26Q1 的 EPS 1.29 中，6 成來自三項非經常性疊加：採用權益法損益由 -2.08 億翻正至 +28.15 億（USJC、智原、聯穎光電）、金融資產評價 +21.14 億（股市好）、有效稅率異常低 3.2%（去年 17.2%）。但市場仍將 EPS 暴衝視為本業強勢——加上 22nm 創高、H2 漲價題材、Intel 12nm 合作三大正面敘事，股價 19 個交易日 +50%、26 年新高。本報告以 Howard Marks 第二層思考框架，逐一拆解市場共識假設、競爭格局與聯電的真實獲利能力，並對照 CPU 族群動能評估——<strong>提醒讀者：聯電並非 CPU 概念股</strong>，Intel 12nm 合作標的是 DTV/Wi-Fi/介面，不是 CPU 本體。</p>
+  </div>
+
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">25Q4「乾淨基準」EPS 0.81</div>
+      <div class="thesis-desc">5 季官方財報比對：25Q4 GM 30.7% 與營收 618 億均為 5 季最高，但無非營益挹注，EPS 也僅 0.81。「乾淨」全年 EPS 約 NT$3.4-3.8。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">漲價 5-10% 預期偏高</div>
+      <div class="thesis-desc">CFO 用「有紀律、可持續」語言已暗示——平均漲幅可能 3-5%，低於市場隱含 5-10%。Q2 法說為關鍵驗證點。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">Intel 12nm 是故事，不是 CPU</div>
+      <div class="thesis-desc">合作標的是 DTV/Wi-Fi/高速介面，非 CPU 本體。2027 才量產，市場若混淆 CPU 概念是邏輯誤讀。</div>
+    </div>
+  </div>
+
+  <!-- PRICE CHART -->
+  <div class="chart-block">
+    <div class="chart-head">
+      <div>
+        <div class="chart-title-text">90 天股價走勢 × 情境目標價區間</div>
+        <div class="chart-sub">Feb 14 – May 14 · 2026 · 19 日 +50% 鎖定 26 年高</div>
+      </div>
+      <div class="chart-current">
+        <div class="now">NT$ 107.59</div>
+        <div class="delta">▲ +1.31 (+1.23%) · 2026-05-14</div>
+      </div>
+    </div>
+    <div class="chart-wrapper">
+      <canvas id="priceChart"></canvas>
+    </div>
+    <div class="chart-legend">
+      <div class="lg-item">
+        <span class="swatch" style="background: rgba(45,90,63,0.2); border: 1px dashed #2d5a3f;"></span>
+        <div class="lg-text"><strong>Bull 130–140</strong><span class="sub">機率 25%</span></div>
+      </div>
+      <div class="lg-item">
+        <span class="swatch" style="background: rgba(138,109,46,0.2); border: 1px dashed #8a6d2e;"></span>
+        <div class="lg-text"><strong>Base 80–110</strong><span class="sub">機率 55%</span></div>
+      </div>
+      <div class="lg-item">
+        <span class="swatch" style="background: rgba(184,53,26,0.18); border: 1px dashed #b8351a;"></span>
+        <div class="lg-text"><strong>Bear 50–70</strong><span class="sub">機率 20%</span></div>
+      </div>
+      <div class="lg-item">
+        <span class="swatch" style="background: transparent; border-top: 2px dashed #4a5056;"></span>
+        <div class="lg-text"><strong>交銀 132 / 共識 63.5</strong><span class="sub">21 位分析師</span></div>
+      </div>
+    </div>
+    <div class="chart-footnote">
+      註：股價走勢依公開資料（Yahoo 股市、Investing.com、TradingView）及新聞引用之關鍵價位重建。情境目標價區間為本報告 §V 推導，非投資建議。
+    </div>
+  </div>
+
+  <!-- SECTION I -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">2026Q1 官方財報拆解</div>
+      <div class="section-kicker">Q1 Earnings Anatomy</div>
+    </div>
+
+    <p class="lead-para">
+      表面 EPS 1.29 vs 去年 0.62、暴增 108%。但官方合併綜合損益表揭示——本業（營業利益）YoY 僅 +15.2%。EPS 暴衝的真正驅動力是「營業外收入由 -4.39 億翻正至 +53.67 億」——金融資產評價利益、關聯企業權益法損益、外幣兌換利益三者同步走強。
+    </p>
+
+    <h3 class="subsection-title">1.1 損益表逐項對照（NT$ 千元）</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>項目</th>
+          <th class="right">2025Q1</th>
+          <th class="right">2026Q1</th>
+          <th class="right">YoY</th>
+          <th>第二層解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入</td><td class="right">57,858,957</td><td class="right">61,037,902</td><td class="right pos">+5.5%</td><td>22/28nm 帶動</td></tr>
+        <tr><td class="label">營業毛利</td><td class="right">15,446,645</td><td class="right">17,818,490</td><td class="right pos">+15.4%</td><td>GM 26.7% → 29.2%</td></tr>
+        <tr><td class="label">研發費用</td><td class="right">(3,963,703)</td><td class="right">(4,575,300)</td><td class="right neg">+15.4%</td><td>Singapore P3 + 12nm 投資</td></tr>
+        <tr class="highlight"><td class="label">營業利益</td><td class="right">9,785,901</td><td class="right">11,276,411</td><td class="right pos">+15.2%</td><td>本業真實成長</td></tr>
+        <tr><td class="label">採用權益法損益</td><td class="right neg">(207,888)</td><td class="right pos">2,815,136</td><td class="right">由負轉正</td><td>USJC + 智原 + 聯穎</td></tr>
+        <tr><td class="label">金融資產評價</td><td class="right neg">(564,722)</td><td class="right pos">2,114,262</td><td class="right">由負轉正</td><td>未實現損益</td></tr>
+        <tr><td class="label">外幣兌換利益</td><td class="right">115,425</td><td class="right">302,685</td><td class="right pos">+162%</td><td>新台幣弱勢</td></tr>
+        <tr class="highlight"><td class="label">營業外收支合計</td><td class="right neg">(439,330)</td><td class="right pos">5,367,419</td><td class="right">差距 58 億</td><td>EPS 暴衝主因</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">9,346,571</td><td class="right">16,643,830</td><td class="right pos">+78%</td><td>仍可觀</td></tr>
+        <tr><td class="label">有效稅率</td><td class="right">17.15%</td><td class="right neg">3.17%</td><td class="right">-14pp</td><td>遞延所得稅／投資抵減</td></tr>
+        <tr class="highlight"><td class="label">歸母淨利</td><td class="right">7,776,741</td><td class="right">16,171,474</td><td class="right pos">+108%</td><td>表面數字</td></tr>
+        <tr class="highlight"><td class="label">EPS（元）</td><td class="right">0.62</td><td class="right">1.29</td><td class="right pos">+108%</td><td>表面數字</td></tr>
+        <tr><td class="label">折舊費用</td><td class="right">13,426,861</td><td class="right">15,275,185</td><td class="right neg">+13.8%</td><td>新加坡折舊已浮現</td></tr>
+        <tr><td class="label">CapEx（Q1）</td><td class="right">14,152,674</td><td class="right">12,525,923</td><td class="right">-11.5%</td><td>全年 US$1.5B 節奏</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · EPS 結構性失真</div>
+      <div class="callout-body">
+        若剔除金融資產評價利益（稅後 ~NT$0.14/股）+ 異常低稅率影響（多賺 ~NT$0.18/股），<strong>本業 EPS 約 NT$0.95-1.00</strong>，相當於 YoY +50-60%。仍亮眼，但與市場用 Q1 簡單外推全年 NT$5.2 的預期有明顯落差。<br/><br/>
+        更值得關注：<strong>採用權益法損益 +28.15 億</strong>並非帳上股票評價（那是 OCI），而是來自 USJC（日本子公司）、智原（3035）等被投資公司本身的獲利提升——這部分有可持續性，但波動度高。Q2 法說會應追蹤這項是否回升至 NT$15-20 億的「正常水準」。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">1.2 資產負債表健康度</h3>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">現金及約當現金</div>
+        <div class="stat-value">1,090<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">+ 攤銷後成本金資 200 億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">歸母權益</div>
+        <div class="stat-value">4,067<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">BVPS ≈ NT$32.34</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">負債比</div>
+        <div class="stat-value">32.2<span style="font-size:13px">%</span></div>
+        <div class="stat-sub">財務結構穩健</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 經營現金流</div>
+        <div class="stat-value">220<span style="font-size:13px">億</span></div>
+        <div class="stat-sub">CapEx 自償</div>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">1.3 五季完整趨勢（25Q1 → 26Q1）⭐ 關鍵發現</h3>
+
+    <p class="body-text">
+      新取得 2025Q1-Q4 四季完整財報後，比對 26Q1 數據可以拆解出一個<strong>市場未被廣泛討論的關鍵事實</strong>——5 季中有 2 季（25Q3、26Q1）有明顯非經常性挹注，而 <strong>25Q4 才是「真正乾淨」的觀察基準</strong>（單季 EPS NT$0.81，是 22nm 創高 + GM 30.7% 同時無一次性挹注下的「本業實力上限」）。
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>季度</th>
+          <th class="right">營收 (億)</th>
+          <th class="right">毛利率</th>
+          <th class="right">營益率</th>
+          <th class="right">採用權益法 (億)</th>
+          <th class="right">其他利益損失 (億)</th>
+          <th class="right">有效稅率</th>
+          <th class="right">歸母淨利 (億)</th>
+          <th class="right">EPS</th>
+          <th>觀察</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">25Q1</td><td class="right">578.6</td><td class="right neg">26.7%</td><td class="right">16.9%</td><td class="right neg">-2.1</td><td class="right neg">-5.6</td><td class="right">17.2%</td><td class="right">77.8</td><td class="right">0.62</td><td>庫存去化中</td></tr>
+        <tr><td class="label">25Q2</td><td class="right">587.6</td><td class="right">28.7%</td><td class="right">18.4%</td><td class="right pos">+4.5</td><td class="right neg">-5.2</td><td class="right pos">12.9%</td><td class="right">89.0</td><td class="right">0.71</td><td>FX 損 -12.8 億</td></tr>
+        <tr class="highlight"><td class="label">25Q3</td><td class="right">591.3</td><td class="right pos">29.8%</td><td class="right">18.8%</td><td class="right pos">+12.5</td><td class="right pos">+12.0</td><td class="right pos">-2.1% ⚠️</td><td class="right pos">149.8</td><td class="right pos">1.20</td><td>稅務利益+非營重大貢獻</td></tr>
+        <tr class="highlight"><td class="label">25Q4</td><td class="right pos">618.1</td><td class="right pos">30.7%</td><td class="right">~19%</td><td class="right">~+3</td><td class="right">~+1</td><td class="right">~24%</td><td class="right">100.6</td><td class="right">0.81 ⭐</td><td><strong>「乾淨基準」</strong></td></tr>
+        <tr class="highlight"><td class="label">26Q1</td><td class="right">610.4</td><td class="right">29.2%</td><td class="right">18.5%</td><td class="right pos">+28.2</td><td class="right pos">+21.1</td><td class="right pos">3.2% ⚠️</td><td class="right pos">161.7</td><td class="right pos">1.29</td><td>重大非營+異常稅率</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="border-color:var(--accent);">
+      <div class="callout-label">關鍵發現 · Q4 2025 才是真正的「Clean Baseline」</div>
+      <div class="callout-body">
+        <strong>市場用 26Q1 EPS 1.29 線性外推全年 NT$5+，犯了一個基本錯誤</strong>——忽略 25Q4 已經是 22nm 創高 + GM 30.7%（5 季最高）+ 營收 618 億（5 季最高）的「本業最強季」，但在無重大非營益挹注下，<strong>EPS 也只有 NT$0.81</strong>。<br/><br/>
+        對照：25Q3 EPS 1.20、26Q1 EPS 1.29 都受惠於「採用權益法損益大幅貢獻 + 異常低/負稅率」。25Q3 的稅率 -2.1%（稅務利益）、26Q1 稅率 3.2%——兩季都是非經常性的稅務安排。<br/><br/>
+        <strong>「乾淨」全年 EPS 推估：</strong><br/>
+        若以 25Q4 NT$0.81 為 baseline、加上 22nm 持續創高與漸進漲價的 5-10% 改善 → 單季 NT$0.85-0.95<br/>
+        全年「乾淨 EPS」估算範圍：NT$3.4-3.8<br/>
+        若再加上類似 26Q1 的非營益挹注（不可預期）→ 上看 NT$4.5-5.0<br/><br/>
+        <strong>市場隱含 NT$5+ 的預期，等於假設 4 季都複製 26Q1 的非營益異常——這個假設機率不高</strong>。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">1.4 五季 EPS 分解：本業 vs 非營</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>季度</th>
+          <th class="right">EPS</th>
+          <th class="right">本業貢獻 (估)</th>
+          <th class="right">非營+稅務貢獻 (估)</th>
+          <th>「乾淨」EPS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">25Q1</td><td class="right">0.62</td><td class="right">0.65</td><td class="right neg">-0.03</td><td>~0.65</td></tr>
+        <tr><td class="label">25Q2</td><td class="right">0.71</td><td class="right">0.72</td><td class="right neg">-0.01</td><td>~0.72</td></tr>
+        <tr class="highlight"><td class="label">25Q3</td><td class="right pos">1.20</td><td class="right">~0.75</td><td class="right pos">~+0.45</td><td>~0.75</td></tr>
+        <tr class="highlight"><td class="label">25Q4</td><td class="right">0.81</td><td class="right">~0.81</td><td class="right">~0</td><td><strong>0.81 ⭐</strong></td></tr>
+        <tr class="highlight"><td class="label">26Q1</td><td class="right pos">1.29</td><td class="right">~0.95</td><td class="right pos">~+0.34</td><td>~0.95-1.00</td></tr>
+        <tr><td class="label">5 季合計</td><td class="right">4.63</td><td class="right">~3.88</td><td class="right">~+0.75</td><td>合計 3.88</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>洞察</strong>：5 季合計 EPS 4.63 元中，本業貢獻僅 NT$3.88（83%），非經常性挹注 NT$0.75（17%）。<strong>不可持續的非營益是「逢喜逢悲、平均不為零」的現象</strong>——25Q1/25Q2 拖累，25Q3/26Q1 大幅挹注，平均下來確實是淨正貢獻，但<strong>市場若假設 2026 全年單季都有 NT$0.20-0.30 的非營益，這需要：(1) 採用權益法投資（USJC、智原、聯穎）持續高獲利；(2) 股市維持高檔；(3) 異常低稅率延續</strong>——三個條件同時成立的機率不高。
+    </p>
+
+    <h3 class="subsection-title">1.5 CapEx 與折舊週期</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>季度</th>
+          <th class="right">CapEx (億 NT$)</th>
+          <th class="right">折舊 (億 NT$)</th>
+          <th class="right">CapEx/Dep 倍數</th>
+          <th>產能週期階段</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">24Q1 (對比)</td><td class="right neg">285.0</td><td class="right">102.6</td><td class="right neg">2.78x</td><td>Singapore P3 設備密集投入</td></tr>
+        <tr><td class="label">25Q1</td><td class="right">141.5</td><td class="right">134.3</td><td class="right">1.05x</td><td>投資高峰過後</td></tr>
+        <tr><td class="label">25Q2</td><td class="right">75.4</td><td class="right">138.0</td><td class="right pos">0.55x</td><td>CapEx 大幅放緩</td></tr>
+        <tr><td class="label">25Q3</td><td class="right">112.2</td><td class="right">143.1</td><td class="right">0.78x</td><td>持續正常化</td></tr>
+        <tr><td class="label">25Q4 (估)</td><td class="right">~150</td><td class="right">~146</td><td class="right">~1.0x</td><td>—</td></tr>
+        <tr class="highlight"><td class="label">26Q1</td><td class="right">125.3</td><td class="right neg">152.8</td><td class="right pos">0.82x</td><td>新加坡折舊已浮現</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · 折舊壓力即將進入「結構性高峰」</div>
+      <div class="callout-body">
+        25Q1 → 26Q1 折舊已 +13.8%（134.3 億 → 152.8 億）。<strong>新加坡 Fab 12i P3 預計 26Q4 量產，新增折舊將進一步推高</strong>——估計 2027 年單季折舊上看 NT$170-180 億（5-季增 +27-30%）。<br/><br/>
+        若漲價只能落實 3-5%，折舊上升幅度將完全吞噬漲價貢獻——<strong>毛利率回到 2021-22 高峰（45%+）的機率極低</strong>。25Q4 GM 30.7% 可能是這一輪週期的高點。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION II -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">營收結構與製程競爭</div>
+      <div class="section-kicker">Revenue Mix &amp; Process</div>
+    </div>
+
+    <h3 class="subsection-title">2.1 2026Q1 營收結構</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>維度</th>
+          <th>細項</th>
+          <th class="right">佔比</th>
+          <th>QoQ 變化</th>
+          <th>解讀</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">製程</td><td>22nm 單一節點</td><td class="right pos">14%</td><td>創歷史新高</td><td>OLED DDI + AI 邊緣</td></tr>
+        <tr><td class="label">製程</td><td>22/28nm 合計</td><td class="right">35-40%</td><td>強勁</td><td>Tape-out 50+ 客戶</td></tr>
+        <tr><td class="label">製程</td><td>40-90nm 及以上</td><td class="right">60-65%</td><td>持平</td><td>8 吋仍低於均值</td></tr>
+        <tr><td class="label">應用</td><td>通訊 (DDI/FPGA/ISP)</td><td class="right">39%</td><td class="neg">-3pp</td><td>Q2 將反彈</td></tr>
+        <tr><td class="label">應用</td><td>消費 (Wi-Fi/STB)</td><td class="right">32%</td><td class="pos">+4pp</td><td>庫存正常化</td></tr>
+        <tr><td class="label">應用</td><td>電腦</td><td class="right">~13%</td><td>持平</td><td>—</td></tr>
+        <tr><td class="label">應用</td><td>車用/工業/AI</td><td class="right">~16%</td><td>結構性升</td><td>但 IDM 弱</td></tr>
+        <tr class="highlight"><td class="label">客戶</td><td>IDM 客戶</td><td class="right neg">14%</td><td class="neg">-6pp</td><td>車用 IDM 仍去庫存 ⚠️</td></tr>
+        <tr><td class="label">客戶</td><td>Fabless 客戶</td><td class="right">86%</td><td class="pos">+6pp</td><td>誤把警訊當佳音</td></tr>
+        <tr><td class="label">地理</td><td>亞洲</td><td class="right">~60%</td><td>持平</td><td>—</td></tr>
+        <tr><td class="label">地理</td><td>北美</td><td class="right">~25%</td><td>微升</td><td>—</td></tr>
+        <tr><td class="label">地理</td><td>歐洲</td><td class="right neg">9%</td><td class="neg">-2pp</td><td>歐洲 IDM 弱</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · IDM 客戶占比驟降</div>
+      <div class="callout-body">
+        市場只看到通訊回升，忽略 IDM 退潮。IDM 客戶占比從 20% 掉到 14%（QoQ -6pp）是強烈訊號——<strong>歐洲與日系車用／工控 IDM（STMicro、TI、Infineon、Renesas）拉貨仍未恢復</strong>。雖然法說會強調車用「需求持續增溫」，但 UMC 直接做的車用 MCU 還在去庫存。新需求是車用 SoC（智駕、座艙），這些 7nm 以下，UMC 吃不到。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">2.2 全球成熟製程競爭定位（12 吋月產能約當值）</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>廠商</th>
+          <th class="right">12 吋月產能 (萬片)</th>
+          <th>主要差異化</th>
+          <th>與 UMC 關係</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">TSMC (2330)</td><td class="right">~53</td><td>全製程通吃</td><td>產品市場互不重疊</td></tr>
+        <tr class="highlight"><td class="label">UMC (2303)</td><td class="right">~35</td><td>22/28nm OLED DDI、RF-SOI、eFlash</td><td>—</td></tr>
+        <tr><td class="label">SMIC (港)</td><td class="right neg">~36</td><td>28nm 良率 98%、價格低 20%</td><td>直接競爭對手</td></tr>
+        <tr><td class="label">GlobalFoundries</td><td class="right">~20-22</td><td>22FDX / 12FDX FD-SOI</td><td>RF/Wi-Fi 重疊</td></tr>
+        <tr><td class="label">Vanguard + PSMC</td><td class="right">~15</td><td>8 吋 PMIC / CIS</td><td>邊緣競爭</td></tr>
+        <tr><td class="label">Samsung Foundry</td><td class="right">~5-8</td><td>28nm HKMG</td><td>邊緣競爭</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">2.3 護城河可持續性評估</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>護城河來源</th>
+          <th class="center">強度</th>
+          <th class="center">可持續性</th>
+          <th>反向風險</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">22nm 高壓 OLED DDI（與聯詠共同開發）</td><td class="center pos">高</td><td class="center">2-3 年</td><td>SMIC 良率追上</td></tr>
+        <tr><td class="label">嵌入式快閃（eNVM）車用 MCU 平台</td><td class="center pos">中高</td><td class="center">3-5 年</td><td>中國 22ULP 平台</td></tr>
+        <tr><td class="label">RF-SOI / Wi-Fi 7 / 5G PA</td><td class="center neu">中</td><td class="center">2-3 年</td><td>GlobalFoundries 直接對抗</td></tr>
+        <tr><td class="label">Intel 12nm FinFET 合作（亞利桑那）</td><td class="center neu">故事性</td><td class="center">待 2027 驗證</td><td>Intel 18A 順利則邊緣化</td></tr>
+        <tr><td class="label">先進封裝 + 矽光子（PDK 1.0 in 2027）</td><td class="center">早期布局</td><td class="center">3-5 年</td><td>TSMC CoWoS / SoIC 主導</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- SECTION III: Second-Level Thinking -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">第二層思考：共識假設拆解</div>
+      <div class="section-kicker">Second-Level Analysis</div>
+    </div>
+
+    <p class="body-text">市場目前對聯電的共識可拆解為 5 個關鍵假設。任一假設動搖，當前 PE 12x → 15x 的重新評價路徑都需要修正。以下逐項壓力測試：</p>
+
+    <h3 class="subsection-title">假設 1：「2026H2 漲價 5-10% 能落實」</h3>
+    <p class="body-text"><strong>市場共識</strong>：管理層發出價格調整通知，市場隱含預期平均漲幅 5-10%。<strong>反向訊號</strong>：CFO 在 Q&amp;A 明說「以長期合作為主、有紀律且可持續的方式執行」——這是「不漲過頭」的代碼。客戶若全面抵抗，UMC 寧願犧牲短期 ASP 也要保長期客戶。<strong>第二層解讀</strong>：UMC 不會像 2021-22 全面漲，而是針對特定製程節點（22nm 高壓、RF-SOI）做選擇性調整。平均漲幅可能僅 3-5%，低於市場隱含預期。</p>
+
+    <h3 class="subsection-title">假設 2：「22nm 持續創高且毛利率超強」</h3>
+    <p class="body-text"><strong>市場共識</strong>：22nm 是結構性成長引擎，毛利率支撐。<strong>反向訊號</strong>：法說會提到「新加坡廠房投產對毛利率形成壓力」、「折舊費用仍在高峰」。Q1 折舊已 YoY +13.8%。<strong>第二層解讀</strong>：22nm 營收會上升，但<strong>毛利率貢獻會被新加坡折舊吃掉一部分</strong>。EBITDA 利潤率改善 ≠ 毛利率改善。市場若只看 GM 數字，會失望。</p>
+
+    <h3 class="subsection-title">假設 3：「Intel 12nm 故事兌現」</h3>
+    <p class="body-text"><strong>市場共識</strong>：合作落實＝聯電進階至 12nm，估值溢價。<strong>反向訊號</strong>：Intel 18A 已進入量產（2025/10），CEO Lip-Bu Tan 把 2026 定義為「執行之年」。<strong>第二層解讀</strong>：12nm 合作是「Intel 的不得不」而非「UMC 的兜售」——亞利桑那有閒置產能、不繼續做就要寫呆帳。UMC 要的是分到 Intel 的閒置產能利用率，不是要靠 12nm 成為主力營收。<strong>市場若以「UMC 取得 12nm 技術 = 拓展高階客戶」估值，可能高估。</strong></p>
+
+    <h3 class="subsection-title">假設 4：「中國產能不會引發殺價戰」</h3>
+    <p class="body-text"><strong>市場共識</strong>：中國內需消化新建 28nm 產能。<strong>反向訊號</strong>：SMIC 28nm 報價已低 UMC 20%；中國 2026 12 吋成熟製程占全球 70%+；2028 中國 28nm 產能可能超越台灣。<strong>第二層解讀</strong>：短期（2026）市場過度樂觀，<strong>中期（2027-2028）風險被低估</strong>。中國地方政府＋國有補貼讓 SMIC、華虹、合肥晶合可以承受低毛利甚至虧損繼續擴產，這是非市場邏輯。</p>
+
+    <h3 class="subsection-title">假設 5：「股市非營業收益持續貢獻」</h3>
+    <p class="body-text"><strong>市場共識</strong>：用 Q1 EPS 1.29 線性外推全年 NT$5+。<strong>反向訊號</strong>：Q1 EPS 中約 NT$0.30 來自金融資產評價（未實現損益）+ 異常低稅率（3.2% vs 正常 17%）。<strong>第二層解讀</strong>：「乾淨」全年 EPS 更可能在 NT$3.8-4.5，遠低於市場隱含的 NT$5+。</p>
+
+    <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:24px;">
+      <div class="callout-label">非共識結論 · Non-Consensus View</div>
+      <div class="callout-body">
+        UMC 不是週期股回歸，是「故事股 + 現金牛」雙重定位。市場願意把 UMC 從 PE 8-10x 拉到 12-15x，主要是 Intel 故事＋漲價題材。<strong>真正的合理估值對標應該是 GlobalFoundries（PE 18-22x），但要 2-3 年慢慢走，不是現在就一步到位。</strong><br/><br/>
+        對保守投資人，UMC 的核心吸引力是<strong>穿越週期的配息能力</strong>（殖利率 5-7%）+ 漸進式特殊製程升級——這是「現金牛 + 升級故事」，不是高 beta 成長股。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">非共識觀點對照表</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>議題</th>
+          <th>市場共識</th>
+          <th>本報告觀點</th>
+          <th class="center">信心度</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">2026 全年 EPS</td><td>NT$5-6</td><td class="pos">NT$4-5（扣非營收益）</td><td class="center">中高</td></tr>
+        <tr><td class="label">2026 全年 GM</td><td>29-31%</td><td>28-30%</td><td class="center">中</td></tr>
+        <tr><td class="label">Intel 12nm 2027 營收貢獻</td><td>5-8%</td><td class="neg">2-4%</td><td class="center">中</td></tr>
+        <tr><td class="label">中國產能威脅</td><td>低於預期</td><td class="neg">2027-2028 才真正引爆</td><td class="center">中高</td></tr>
+        <tr><td class="label">目標 Forward PE</td><td>15-20x</td><td>12-15x（無法到 GF 水準）</td><td class="center">中</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Pullquote -->
+  <div class="pullquote">
+    <div class="pullquote-text">想知道 UMC 本業真實實力？看 25Q4——當季 22nm 創高、GM 30.7%、營收 618 億都是 5 季最高，但無非營益挹注，EPS 也只有 NT$0.81。<br/>「乾淨」全年 EPS 推估 NT$3.4-3.8，市場用 26Q1 線性外推 NT$5+ 是把會計紅利當成本業實力。</div>
+    <div class="pullquote-author">— Five-Quarter Trend Insight</div>
+  </div>
+
+  <!-- SECTION IV: CPU Sector -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">CPU 族群動能評估</div>
+      <div class="section-kicker">CPU Sector Momentum</div>
+    </div>
+
+    <p class="body-text">使用者另詢「CPU 族群動能」。以下分為全球 CPU 競爭格局與台股關聯兩層分析。<strong>關鍵提醒：聯電並非真正意義上的 CPU 概念股</strong>——Intel 12nm 合作標的是 DTV/Wi-Fi/介面，不是 CPU 本體。市場若混淆，邏輯有誤。</p>
+
+    <h3 class="subsection-title">4.1 全球 CPU 格局（2026Q1 實際數據）</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>細分市場</th>
+          <th>領先者</th>
+          <th>市佔變化</th>
+          <th>2026 動能</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">伺服器 x86 CPU 營收</td><td>AMD 46.2% / Intel 53.8%</td><td class="pos">AMD QoQ +5pp</td><td>AMD 強勁、2026 末可能超越</td></tr>
+        <tr><td class="label">伺服器 ARM</td><td>Nvidia + 雲端自研</td><td class="pos">出貨 YoY +70%</td><td>結構性崛起、2028 上看 25%</td></tr>
+        <tr><td class="label">桌面 x86 CPU</td><td>AMD 35%+ / Intel 65%</td><td>AMD 緩升</td><td>Intel 仍守住</td></tr>
+        <tr><td class="label">筆電 x86 CPU</td><td>AMD 25% / Intel 75%</td><td>AMD 微升</td><td>Intel Panther Lake 反攻</td></tr>
+        <tr><td class="label">AI PC（ARM）</td><td>Qualcomm X2 Elite 18 核</td><td>新興</td><td>2026H2 開始放量</td></tr>
+        <tr><td class="label">2nm Server CPU 首批</td><td>AMD EPYC Venice</td><td>2026 末出貨</td><td>領先 Intel 18A 數月</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層觀察 · AI Agent 翻轉 CPU 角色</div>
+      <div class="callout-body">
+        CPU 不再是 GPU 配角。DeepSeek／Claude／GPT 等 LLM Agent 工作負載中，CPU:GPU 比例從 1:8 拉高到 <strong>1:1 或 1:2</strong>。資料中心 CPU 採購量會跟著 GPU 走，不再是「附屬品」。<strong>AMD CPU 交期已延長至 20 週以上</strong>（旺得富 2026/05 報導）。這是被市場低估的趨勢，2026H2 將反映在 AMD 概念股與 ARM 概念股。
+      </div>
+    </div>
+
+    <h3 class="subsection-title">4.2 三家主要 CPU 廠的 2026 策略</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>廠商</th>
+          <th>2026 主力產品</th>
+          <th>製程</th>
+          <th>關鍵變數</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">Intel</td><td>Panther Lake / Clearwater Forest / Nova Lake</td><td>18A → 14A</td><td>18A 良率（H2 達 70%+？）</td></tr>
+        <tr><td class="label">AMD</td><td>Zen 5 Turin / Zen 6 EPYC Venice</td><td>TSMC N3 → N2</td><td>跳 N3 直奔 N2、產能配額</td></tr>
+        <tr><td class="label">Qualcomm</td><td>Snapdragon X2 Elite Extreme</td><td>TSMC N3P</td><td>Win 12 + AI PC 軟體生態</td></tr>
+        <tr><td class="label">Nvidia</td><td>Grace (GB200/GB300) + ARM PC CPU (傳)</td><td>TSMC N4P / N3</td><td>聯發科 PC CPU 合作進度</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="subsection-title">4.3 台股 CPU 概念股關聯</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>標的</th>
+          <th>與 CPU 關聯</th>
+          <th>2026 動能</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">祥碩 (5269)</td><td>AMD CPU I/O 控制器獨家</td><td class="pos">正向</td><td>AMD 強勁直接受惠</td></tr>
+        <tr><td class="label">廣達 (2382)</td><td>AI 伺服器 ODM、AMD Helios</td><td class="pos">正向</td><td>CPU/GPU 雙引擎</td></tr>
+        <tr><td class="label">緯穎 (6669)</td><td>雲端 ODM、Meta/MS/Google</td><td class="pos">正向</td><td>AI 機架放量</td></tr>
+        <tr><td class="label">鴻海 (2317)</td><td>AI 伺服器整機 + GB200</td><td class="neu">已反映多</td><td>GPU 基板市佔 70%+</td></tr>
+        <tr><td class="label">緯創 (3231)</td><td>AI 伺服器 ODM</td><td class="neu">正向毛利仍低</td><td>AMD/Nvidia 雙線</td></tr>
+        <tr><td class="label">聯發科 (2454)</td><td>Nvidia ARM PC CPU 合作 (傳)</td><td class="neu">題材股</td><td>2026H2-2027 兌現</td></tr>
+        <tr class="highlight"><td class="label">聯電 (2303)</td><td>非 CPU 概念股</td><td class="neg">錯位</td><td>Intel 12nm 標的是 DTV/Wi-Fi</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);">
+      <div class="callout-label">關鍵 take-away · CPU 真正的台股 alpha</div>
+      <div class="callout-body">
+        媒體常將「聯電 + Intel 合作」與「CPU 概念」混淆，這是<strong>嚴重誤讀</strong>。UMC 的 12nm 合作明確聚焦 DTV/Wi-Fi/高速介面，Intel 自家 CPU 仍會在 18A/14A 製程，<em>不會給 UMC 做</em>。CPU 真正的台股 alpha 在 <strong>祥碩（AMD I/O）、AI 伺服器 ODM 四雄、聯發科（Nvidia ARM PC 故事）</strong>。
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION V: Scenarios -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">情境分析</div>
+      <div class="section-kicker">Scenario Analysis</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">Bull · 12-18M</div>
+        <div class="scenario-prob">25%</div>
+        <div class="scenario-target">130~140 元</div>
+        <div class="scenario-desc">H2 漲價 8%+ 落實、22nm 占比 18%、Intel 12nm 2027Q1 提前試產、中國產能未引爆殺價。2026 EPS NT$5.5-6.0、PE 18-20x。</div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">Base · 12M</div>
+        <div class="scenario-prob">55%</div>
+        <div class="scenario-target">80~110 元</div>
+        <div class="scenario-desc">H2 漲價 4-6%、22nm 占比 16-17%、Intel 12nm 量產但首年 &lt;2%、中國產能未爆。2026 EPS NT$4.5-5、PE 12-15x。</div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">Bear · 6-12M</div>
+        <div class="scenario-prob">20%</div>
+        <div class="scenario-target">50~70 元</div>
+        <div class="scenario-desc">H2 漲價 &lt;3%、SMIC 殺價、Intel 18A 順利吸收 12nm 訂單、新加坡 P3 折舊大爆發。2026 EPS NT$3.5-4、PE 8-10x。</div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top:14px;">
+      機率加權後，<strong>預期值約 NT$95-105 區間</strong>，相對於當前 NT$107.59，上行空間 20-30%、下行風險 30-50%。<strong>風險報酬比偏向中性偏下行</strong>——當前股價已 price-in 80% 的多頭故事，需連續 catalyst 兌現才能突破 Bull Case 上緣。
+    </p>
+  </section>
+
+  <!-- SECTION VI: Catalysts -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VI.</div>
+      <div class="section-title">關鍵催化劑與觀察點</div>
+      <div class="section-kicker">Catalyst Roadmap</div>
+    </div>
+
+    <div class="catalyst-list">
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026.06.10</div>
+        <div class="catalyst-desc"><strong>5 月月營收公告</strong>驗證 Q2 高個位數出貨成長指引的領先指標</div>
+        <div class="catalyst-impact">±5-8%<br/>YoY +8% 門檻</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q3</div>
+        <div class="catalyst-desc"><strong>Q2 2026 法說會 (7-8 月)</strong>H2 漲價幅度、客戶接受度、採用權益法損益是否回到正常水準</div>
+        <div class="catalyst-impact">±15-20%<br/>關鍵驗證</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q4</div>
+        <div class="catalyst-desc"><strong>新加坡 Fab 12i P3 首期量產</strong>折舊壓力與良率關鍵驗證點</div>
+        <div class="catalyst-impact">±10-15%<br/>良率 &gt;80%</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q4</div>
+        <div class="catalyst-desc"><strong>Intel 12nm PDK 完成</strong>合作落實第一個硬里程碑，PDK 與 IP 順利交付</div>
+        <div class="catalyst-impact">+5-8%<br/>題材延燒</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 H2</div>
+        <div class="catalyst-desc"><strong>SMIC 2026Q2/Q3 法說會</strong>中國產能利用率、ASP 走勢——若 28nm 利用率 &gt;95% 且 ASP 持續下殺，UMC 壓力大</div>
+        <div class="catalyst-impact">±10%<br/>反向風險</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 H2</div>
+        <div class="catalyst-desc"><strong>Intel 18A 量產良率</strong>影響 12nm 訂單分配——18A 良率 &gt;70% 反而對 UMC 邊緣化</div>
+        <div class="catalyst-impact">±8-12%<br/>非對稱</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2026 Q4</div>
+        <div class="catalyst-desc"><strong>AMD Zen 6 EPYC Venice 量產</strong>對伺服器 CPU 族群（祥碩、ODM 四雄）是領先指標</div>
+        <div class="catalyst-impact">±10%<br/>族群擴散</div>
+      </div>
+      <div class="catalyst-item">
+        <div class="catalyst-date">2027 Q1</div>
+        <div class="catalyst-desc"><strong>CES 2027 Qualcomm + Intel 新品</strong>AI PC 結構決定 2027 PC 出貨——ARM PC 拿下 15%+ = 結構性反轉</div>
+        <div class="catalyst-impact">±15%<br/>結構性</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION VII: Risks -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">VII.</div>
+      <div class="section-title">主要風險因子</div>
+      <div class="section-kicker">Risk Factors</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">高度警覺（影響大、機率不低）</div>
+      <ul class="risks-list">
+        <li><strong>EPS「乾淨度」被市場放大</strong>：Q1 EPS 1.29 中約 NT$0.30 來自非經常性，全年「乾淨 EPS」可能在 NT$3.8-4.5。Q2 法說若無類似挹注，會出現「不如預期」修正。</li>
+        <li><strong>H2 漲價幅度不如預期</strong>：CFO 用「有紀律、可持續」語言，平均漲幅可能 3-5% 而非市場期待 5-10%。</li>
+        <li><strong>中國成熟製程外溢風險</strong>：SMIC 28nm 良率 98% + 報價低 20%，中國 2026 12 吋成熟製程占全球 70%+。2027-2028 殺價戰風險被市場低估。</li>
+        <li><strong>新加坡 Fab 12i P3 折舊壓力</strong>：Q1 折舊已 YoY +13.8%，新產能 2026Q4 投產後折舊進一步上升。</li>
+        <li><strong>Intel 18A 順利則 12nm 合作邊緣化</strong>：非對稱風險——Intel 自家 18A 成功反而對 UMC 不利。</li>
+        <li><strong>估值已 price-in 80%</strong>：股價 19 日 +50%、PE 從 8x → 13x、26 年新高，多頭信念進入「敘事接力」階段。</li>
+      </ul>
+    </div>
+
+    <div class="risks" style="background:#fdf9f0;border-left-color:var(--neutral);">
+      <div class="risks-title" style="color:var(--neutral);">中度警覺（影響中、機率中）</div>
+      <ul class="risks-list">
+        <li><strong>採用權益法損益波動</strong>：Q1 +28.15 億主要來自 USJC、智原、聯穎光電。台股震盪或被投資公司獲利反轉將直接傳導 EPS。</li>
+        <li><strong>有效稅率正常化</strong>：Q1 3.2% 屬異常低，若回到 15-17% 將拖累單季 EPS NT$0.15-0.20。</li>
+        <li><strong>IDM 客戶結構性下滑</strong>：佔比從 20% 掉到 14%。歐洲、日系車用 IDM 拉貨仍未恢復是警訊。</li>
+        <li><strong>GlobalFoundries 12FDX 競爭</strong>：在 RF/Wi-Fi 領域與 UMC 22/28nm RF-SOI 直接競爭。</li>
+        <li><strong>新台幣升值風險</strong>：Q1 外幣兌換利益 +3.03 億受惠新台幣弱勢，若 2026H2 反轉將拖累 EPS。</li>
+        <li><strong>市場誤把聯電當 CPU 概念股</strong>：Intel 合作標的非 CPU 本體，市場期待若集中於此將被打臉。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Analyst's Final Note -->
+  <div class="callout" style="border-color:var(--accent);background:var(--highlight-bg);margin-top:36px;">
+    <div class="callout-label">Analyst's Final Note</div>
+    <div class="callout-body">
+      聯電 2026Q1 業績表面 EPS 1.29 元（YoY +108%）十分亮眼，但取得 2025Q1-Q4 + 26Q1 共 5 季完整官方財報拆解後，揭示一個被市場忽略的關鍵事實：<strong>25Q3 與 26Q1 兩季都有重大非經常性挹注，而 25Q4 才是「真乾淨基準」</strong>——當季 22nm 創歷史新高、GM 30.7%（5 季最高）、營收 618 億（5 季最高），但無非營益挹注，<strong>EPS 也只有 NT$0.81</strong>。<br/><br/>
+      <strong>「乾淨」全年 EPS 估算 NT$3.4-3.8</strong>——以 25Q4 NT$0.81 為單季 baseline，加上 22nm 漸進創高 + 漲價 3-5% 的合理改善至 NT$0.85-0.95。<strong>市場隱含全年 NT$5+ 等於假設 4 季都複製 26Q1 的非營益異常——但 25 全年 5 季中只有 2 季（Q3、Q1）有重大非營益挹注，其他 3 季都是「正常」水準</strong>。<br/><br/>
+      26Q1 EPS 中 6 成來自「採用權益法損益翻正 +30 億」+「金融資產評價 +21 億」+「異常低稅率 3.2%」三項非經常性的疊加。市場第一層共識（22nm 創高 + Intel 合作 + H2 漲價）已被股價反映（PE 從 8x 拉到 13x、19 日 +50%、26 年新高）。<br/><br/>
+      <strong>折舊壓力即將進入結構性高峰</strong>：25Q1 → 26Q1 折舊已 +13.8%（134.3 億 → 152.8 億），新加坡 Fab 12i P3 預計 26Q4 量產，2027 單季折舊上看 NT$170-180 億。若漲價只能落實 3-5%，折舊上升將完全吞噬漲價貢獻——<strong>毛利率回到 2021-22 高峰（45%+）的機率極低，25Q4 GM 30.7% 可能是本輪週期高點</strong>。<br/><br/>
+      對短中期投資人：盯 Q2 月營收 + 7-8 月法說會的<strong>「乾淨」EPS 是否超過 25Q4 baseline NT$0.81</strong>（這比看 H2 漲價幅度更重要）。對長期投資人：聯電的價值是「<strong>穿越週期的現金牛 + 漸進式特殊製程升級</strong>」，合理 forward PE 12-15x，不應對標 GF 18-22x。對關心 CPU 族群動能的投資人，<em>聯電並非 CPU 概念股</em>——CPU 真正的台股 alpha 在 <strong>祥碩（AMD I/O）、AI 伺服器 ODM 四雄、聯發科（Nvidia ARM PC 故事）</strong>。<br/><br/>
+      <strong>「故事方向對 ≠ 估值合理」——這是 Howard Marks 提醒的關鍵分野</strong>。聯電的故事是對的，但 26Q1 EPS 的水分被市場線性外推，是當前最需要警惕的失真點。<strong>5 季完整比對給出的乾淨基準（NT$0.81），是本報告最重要的差異化洞見</strong>。
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="disclaimer-title">重要聲明</div>
+    <p>
+      本報告僅供研究參考，不構成任何投資建議或買賣要約。所有財務數據均來自聯華電子（2303）2026 年第一季合併財務報告（TWSE 公告）原文，產業與市場資料來自財報狗、Goodinfo、TrendForce、Tom's Hardware、SemiAnalysis、Vocus、數位時代 BusinessNext、TechNews、Money UDN、旺得富、SemiWiki、StockFeel、CMoney、永豐豐雲學堂、Investing.com 等公開來源，但本分析師不保證其準確性或完整性。
+      讀者應自行評估風險並在做出任何投資決策前諮詢合格之財務顧問。本報告之架構基於 Howard Marks《The Most Important Thing》所述之第二層思考框架。
+    </p>
+    <div class="footer-meta">
+      <div>© SECOND-LEVEL RESEARCH · 2026</div>
+      <div>Doc: 2303-TW-20260515-V1</div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Chart.js + Annotation plugin -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<script>
+  const priceData = [
+    { d: "02-14", p: 52.5 },{ d: "02-17", p: 53.2 },{ d: "02-18", p: 52.8 },
+    { d: "02-19", p: 51.5 },{ d: "02-20", p: 50.8 },{ d: "02-21", p: 49.2 },
+    { d: "02-24", p: 48.5 },{ d: "02-25", p: 47.2 },{ d: "02-26", p: 46.8 },
+    { d: "02-27", p: 45.5 },{ d: "03-03", p: 44.5 },{ d: "03-04", p: 45.2 },
+    { d: "03-05", p: 44.8 },{ d: "03-06", p: 45.5 },{ d: "03-07", p: 46.2 },
+    { d: "03-10", p: 45.8 },{ d: "03-11", p: 46.5 },{ d: "03-12", p: 47.2 },
+    { d: "03-13", p: 47.8 },{ d: "03-14", p: 48.5 },{ d: "03-17", p: 48.2 },
+    { d: "03-18", p: 49.1 },{ d: "03-19", p: 49.8 },{ d: "03-20", p: 50.5 },
+    { d: "03-21", p: 51.2 },{ d: "03-24", p: 52.1 },{ d: "03-25", p: 52.8 },
+    { d: "03-26", p: 53.5 },{ d: "03-27", p: 54.2 },{ d: "03-28", p: 55.1 },
+    { d: "03-31", p: 55.8 },{ d: "04-01", p: 56.5 },{ d: "04-02", p: 57.2 },
+    { d: "04-03", p: 58.1 },{ d: "04-07", p: 60.5 },{ d: "04-08", p: 62.2 },
+    { d: "04-09", p: 63.5 },{ d: "04-10", p: 64.8 },{ d: "04-11", p: 66.2 },
+    { d: "04-14", p: 68.5 },{ d: "04-15", p: 69.5 },{ d: "04-16", p: 70.2 },
+    { d: "04-17", p: 71.5 },{ d: "04-18", p: 73.2 },{ d: "04-21", p: 74.8 },
+    { d: "04-22", p: 76.5 },{ d: "04-23", p: 78.2 },{ d: "04-24", p: 79.8 },
+    { d: "04-25", p: 81.5 },{ d: "04-28", p: 83.2 },{ d: "04-29", p: 87.5 },
+    { d: "04-30", p: 89.8 },{ d: "05-02", p: 91.3 },{ d: "05-05", p: 93.5 },
+    { d: "05-06", p: 95.2 },{ d: "05-07", p: 96.8 },{ d: "05-08", p: 98.8 },
+    { d: "05-09", p: 100.5 },{ d: "05-12", p: 104.5 },{ d: "05-13", p: 106.2 },
+    { d: "05-14", p: 107.59 }
+  ];
+  const labels = priceData.map(x => x.d);
+  const prices = priceData.map(x => x.p);
+  const flat = (v) => labels.map(() => v);
+
+  const C = {
+    accent:'#b8351a', ink:'#0f1419', inkMute:'#8a8f94',
+    positive:'#2d5a3f', neutral:'#8a6d2e', negative:'#b8351a'
+  };
+
+  const ctx = document.getElementById('priceChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        { label:'Bull Hi', data:flat(140), borderColor:'rgba(0,0,0,0)', borderWidth:0, pointRadius:0,
+          backgroundColor:'rgba(45,90,63,0.15)', fill:'+1', tension:0 },
+        { label:'Bull Lo', data:flat(130), borderColor:'rgba(45,90,63,0.6)', borderWidth:1, borderDash:[5,4],
+          pointRadius:0, fill:false, tension:0 },
+        { label:'Base Hi', data:flat(110), borderColor:'rgba(138,109,46,0.6)', borderWidth:1, borderDash:[5,4],
+          pointRadius:0, backgroundColor:'rgba(138,109,46,0.12)', fill:'+1', tension:0 },
+        { label:'Base Lo', data:flat(80), borderColor:'rgba(138,109,46,0.5)', borderWidth:1, borderDash:[5,4],
+          pointRadius:0, fill:false, tension:0 },
+        { label:'Bear Hi', data:flat(70), borderColor:'rgba(184,53,26,0.6)', borderWidth:1, borderDash:[5,4],
+          pointRadius:0, backgroundColor:'rgba(184,53,26,0.12)', fill:'+1', tension:0 },
+        { label:'Bear Lo', data:flat(50), borderColor:'rgba(184,53,26,0.5)', borderWidth:1, borderDash:[5,4],
+          pointRadius:0, fill:false, tension:0 },
+        { label:'交銀目標價 NT$132', data:flat(132), borderColor:'#4a5056', borderWidth:1.2, borderDash:[2,3],
+          pointRadius:0, fill:false, tension:0 },
+        { label:'分析師均值 NT$63.5', data:flat(63.5), borderColor:'#8a8f94', borderWidth:1.2, borderDash:[2,3],
+          pointRadius:0, fill:false, tension:0 },
+        {
+          label:'UMC (2303.TW) 收盤價', data:prices,
+          borderColor:C.ink, backgroundColor:'rgba(15,20,25,0.06)',
+          borderWidth:2.2, pointRadius:0, pointHoverRadius:4, pointHoverBackgroundColor:C.accent,
+          fill:false, tension:0.18, order:-1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: { mode:'index', intersect:false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: C.ink,
+          titleFont: { family:'IBM Plex Mono, monospace', size:11 },
+          bodyFont:  { family:'IBM Plex Mono, monospace', size:11 },
+          padding: 10, displayColors: false,
+          callbacks: {
+            title: (items) => '2026-' + items[0].label,
+            label: (item) => item.dataset.label.includes('UMC')
+              ? 'NT$ ' + item.parsed.y.toFixed(2)
+              : item.dataset.label + ': NT$' + item.parsed.y.toFixed(1)
+          },
+          filter: (it) => it.dataset.label.includes('UMC') || it.dataset.label.includes('目標') || it.dataset.label.includes('均值')
+        },
+        annotation: {
+          annotations: {
+            bullLabel:{ type:'label', xValue:labels.length-1.5, yValue:135,
+              content:'Bull · 130–140', color:C.positive,
+              font:{ family:'IBM Plex Mono, monospace', size:9.5, weight:'bold' },
+              backgroundColor:'rgba(250,248,245,0.92)', padding:3,
+              borderColor:'rgba(45,90,63,0.5)', borderWidth:1 },
+            baseLabel:{ type:'label', xValue:labels.length-1.5, yValue:95,
+              content:'Base · 80–110', color:C.neutral,
+              font:{ family:'IBM Plex Mono, monospace', size:9.5, weight:'bold' },
+              backgroundColor:'rgba(250,248,245,0.92)', padding:3,
+              borderColor:'rgba(138,109,46,0.5)', borderWidth:1 },
+            bearLabel:{ type:'label', xValue:labels.length-1.5, yValue:60,
+              content:'Bear · 50–70', color:C.negative,
+              font:{ family:'IBM Plex Mono, monospace', size:9.5, weight:'bold' },
+              backgroundColor:'rgba(250,248,245,0.92)', padding:3,
+              borderColor:'rgba(184,53,26,0.5)', borderWidth:1 },
+            q1Earnings:{ type:'line', xMin:'04-29', xMax:'04-29',
+              borderColor:C.ink, borderWidth:1, borderDash:[3,3],
+              label:{ display:true, content:'Q1 法說 (4/29)', position:'start', yAdjust:8,
+                backgroundColor:'rgba(250,248,245,0.95)', color:C.ink,
+                font:{ family:'IBM Plex Mono, monospace', size:9, weight:'bold' }, padding:3 } },
+            limitUp:{ type:'line', xMin:'05-12', xMax:'05-12',
+              borderColor:C.accent, borderWidth:1, borderDash:[3,3],
+              label:{ display:true, content:'漲停 26 年高 (5/12)', position:'start', yAdjust:-8,
+                backgroundColor:'rgba(250,248,245,0.95)', color:C.accent,
+                font:{ family:'IBM Plex Mono, monospace', size:9, weight:'bold' }, padding:3 } },
+            currentPt:{ type:'point', xValue:'05-14', yValue:107.59,
+              backgroundColor:C.accent, borderColor:'#fff', borderWidth:2, radius:5 }
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color:'rgba(15,20,25,0.04)', drawTicks:false },
+          ticks: { color:C.inkMute, font:{ family:'IBM Plex Mono, monospace', size:9.5 },
+            maxRotation:0, autoSkip:true, maxTicksLimit:10 },
+          border: { color:'rgba(15,20,25,0.2)' }
+        },
+        y: {
+          min:35, max:150,
+          grid: { color:'rgba(15,20,25,0.05)' },
+          ticks: { color:C.inkMute, font:{ family:'IBM Plex Mono, monospace', size:9.5 },
+            callback:(v) => 'NT$' + v },
+          border: { color:'rgba(15,20,25,0.2)' }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
