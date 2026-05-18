@@ -5,3 +5,6 @@
 .vscode/
 .idea/
 *.swp
+
+# Local agent workspaces
+.claude/

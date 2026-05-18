@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立隆電 (2472) 深度研究報告 | 2026.05.18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 880px; margin: 0 auto; background: var(--bg-card); padding: 60px 70px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.report-meta { display: grid; grid-template-columns: 1fr auto; gap: 40px; margin-bottom: 40px; align-items: end; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 22px; color: var(--ink-muted); font-weight: 500; margin-left: 12px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 18px; font-style: italic; color: var(--ink-secondary); margin-top: 12px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; padding: 0; margin-bottom: 36px; overflow: hidden; }
+.rating-cell { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.rating-value.accent { color: #e8a87c; }
+.rating-value.negative { color: #ff8a6e; }
+.rating-value.neutral { color: #e6c870; }
+.rating-value.positive { color: #92cca5; }
+.rating-value .unit { font-size: 12px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.revision-note { background: #fff4e6; border-left: 4px solid var(--accent); padding: 18px 24px; margin-bottom: 30px; font-size: 13px; line-height: 1.75; color: var(--ink); }
+.revision-note strong { color: var(--accent); }
+.exec-summary { background: var(--highlight-bg); padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid var(--accent); position: relative; }
+.exec-summary::before { content: "執行摘要"; position: absolute; top: -10px; left: 20px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.exec-summary p { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+.exec-summary .lede { font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+.thesis-card { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.thesis-card:last-child { border-right: none; }
+.thesis-num { font-family: 'Playfair Display',serif; font-size: 48px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 10px; }
+.thesis-title { font-family: 'Noto Serif TC',serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.thesis-desc { font-size: 12px; color: var(--ink-secondary); line-height: 1.6; }
+.section { margin-bottom: 44px; }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 32px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink-muted); text-transform: uppercase; }
+.subsection { margin-top: 28px; margin-bottom: 18px; }
+.subsection-title { font-family: 'Noto Serif TC',serif; font-size: 16px; font-weight: 700; color: var(--ink); padding-bottom: 6px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.lead-para { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 18px; font-weight: 500; }
+.body-text { font-size: 14px; line-height: 1.85; margin-bottom: 16px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 22px 0; }
+.stat-cell { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); }
+.stat-value.neg { color: var(--negative); }
+.stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 11px; color: var(--ink-secondary); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); }
+.stat-sub.neg { color: var(--negative); }
+.chart-caption { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 16px; margin-bottom: 4px; letter-spacing: 0.5px; }
+.chart-sub { font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted); margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+.data-table th { background: var(--ink); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 16px 22px; margin: 18px 0; position: relative; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.callout-body { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.callout.bear { background: #fdf2ee; border-left-color: var(--accent); }
+.callout.bear .callout-label { color: var(--accent); }
+.callout.bull { background: #f3f9f5; border-left-color: var(--positive); }
+.callout.bull .callout-label { color: var(--positive); }
+.pullquote { background: var(--pullquote-bg); color: white; padding: 28px 36px; margin: 24px 0; position: relative; }
+.pullquote::before { content: """; position: absolute; top: -10px; left: 24px; font-family: 'Playfair Display',serif; font-size: 100px; color: var(--accent); line-height: 1; }
+.pullquote-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.75; font-style: italic; padding-left: 28px; }
+.pullquote-author { font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 12px; padding-left: 28px; letter-spacing: 1px; }
+.dual-think { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.dual-think-card { padding: 18px 22px; border: 1px solid var(--rule); }
+.dual-think-card.first { background: #f9f7f2; }
+.dual-think-card.second { background: #f0ede4; border-left: 3px solid var(--accent); }
+.dual-think-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.first .dual-think-label { color: var(--ink-muted); }
+.second .dual-think-label { color: var(--accent); }
+.dual-think-body { font-size: 12.5px; line-height: 1.7; color: var(--ink); }
+.dual-think-body strong { color: var(--accent); }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 24px 0; border: 1px solid var(--rule); }
+.scenario { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 4px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 4px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 4px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.scenario-desc { font-size: 12px; line-height: 1.7; color: var(--ink-secondary); }
+.action-matrix { background: #faf6ef; padding: 18px 24px; margin: 20px 0; border: 1px solid var(--rule); }
+.action-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.action-row { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 8px 0; font-size: 12.5px; line-height: 1.7; border-bottom: 1px solid rgba(216,212,205,0.5); }
+.action-row:last-child { border-bottom: none; }
+.action-key { font-weight: 600; color: var(--accent); }
+.risks { background: #fdf2ee; border-left: 4px solid var(--accent); padding: 18px 22px; margin: 20px 0; }
+.risks-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.5px; }
+.risks-list { list-style: none; padding: 0; }
+.risks-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.risks-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--accent); font-weight: 700; }
+.bulls { background: #f3f9f5; border-left: 4px solid var(--positive); padding: 18px 22px; margin: 20px 0; }
+.bulls-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--positive); margin-bottom: 10px; letter-spacing: 0.5px; }
+.bulls-list { list-style: none; padding: 0; }
+.bulls-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.bulls-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--positive); font-weight: 700; }
+.price-chart-container { margin: 24px 0; }
+.final-callout { background: var(--pullquote-bg); color: white; padding: 36px 40px; margin: 44px 0 20px; position: relative; }
+.final-callout::before { content: "FINAL TAKE"; position: absolute; top: -10px; left: 24px; background: var(--accent); color: white; padding: 4px 14px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.final-callout-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.85; }
+.final-callout-text strong { color: #e8a87c; }
+.footer { border-top: 2px solid var(--ink); padding-top: 24px; margin-top: 40px; font-size: 10.5px; color: var(--ink-secondary); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+.source-tag { display: inline-block; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); background: #f0ede4; padding: 1px 6px; border-radius: 2px; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Passive Components</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">2472-TW · DEEP DIVE</div>
+      <div>2026.05.18</div>
+      <div>Deep-Dive · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">電子零組件 · 鋁電解電容 / 超級電容 / AI BBU / 車用</div>
+      <h1 class="company-title">立隆電<span class="ticker">2472.TW</span></h1>
+      <div class="report-subtitle">FY25 EPS 含一次性處分 1.29 元 · Q1 2026 是「乾淨季」 的真實基準</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value neutral">NEUTRAL</div>
+      <div class="rating-sub">(中段 · 偏空)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">235<span class="unit">TWD</span></div>
+      <div class="rating-sub">▲ +18.0 (+8.29%) · 2026.05.18 漲停</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value Range</div>
+      <div class="rating-value">160–245<span class="unit">TWD</span></div>
+      <div class="rating-sub">機率加權 196 元</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Risk / Reward</div>
+      <div class="rating-value negative">1 : 0.1</div>
+      <div class="rating-sub">下行較深 · 上行已反映</div>
+    </div>
+  </div>
+
+  <!-- REVISION NOTE -->
+    <!-- 90-DAY DAILY PRICE TREND CHART (REAL DATA) -->
+  <div class="price-chart-container" style="margin: 0 0 30px 0;">
+    <div class="chart-caption">圖 0 · 近 42 個交易日每日股價 × 三層情境目標價區間</div>
+    <div class="chart-sub">2026/03/04 – 2026/05/18 · 今日收 235 元 (+8.29%) · 漲停 · 5/8 + 5/13 + 5/18 三次大漲 · 已突破 Base 進入 Bull 區間 · 機率加權目標 196 元 · 資料來源：聚財網 stock.wearn.com/cdata + 鉅亨網歷史行情</div>
+    <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+      <rect width="800" height="380" fill="transparent"/>
+      <rect x="80" y="71.8" width="640" height="45.0" fill="#2d5a3f" opacity="0.10"/>
+      <rect x="80" y="146.9" width="640" height="60.0" fill="#8a6d2e" opacity="0.10"/>
+      <rect x="80" y="221.9" width="640" height="45.0" fill="#b8351a" opacity="0.10"/>
+      <line x1="80" y1="71.8" x2="720" y2="71.8" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="116.8" x2="720" y2="116.8" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="146.9" x2="720" y2="146.9" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="206.9" x2="720" y2="206.9" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="221.9" x2="720" y2="221.9" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="266.9" x2="720" y2="266.9" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <text x="90" y="86.8" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#2d5a3f">Bull · 230-260 元</text>
+      <text x="230" y="86.8" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 25%</text>
+      <text x="90" y="161.9" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#8a6d2e">Base · 170-210 元</text>
+      <text x="230" y="161.9" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 50%</text>
+      <text x="90" y="236.9" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#b8351a">Bear · 130-160 元</text>
+      <text x="230" y="236.9" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 25%</text>
+      <text x="74" y="74.8" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">260</text>
+      <text x="74" y="119.8" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">230</text>
+      <text x="74" y="149.9" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">210</text>
+      <text x="74" y="209.9" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">170</text>
+      <text x="74" y="224.9" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">160</text>
+      <text x="74" y="269.9" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">130</text>
+      <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+      <line x1="80" y1="167.9" x2="720" y2="167.9" stroke="#8a6d2e" stroke-width="1.2" stroke-dasharray="5,3"/>
+      <text x="725" y="170.9" font-family="IBM Plex Mono" font-size="10" font-weight="700" fill="#8a6d2e">196 加權</text>
+      <path d="M 80.0,300.7 L 95.6,294.7 L 111.2,292.4 L 126.8,308.2 L 142.4,303.7 L 158.0,300.7 L 173.7,302.9 L 189.3,297.7 L 204.9,282.7 L 220.5,274.4 L 236.1,274.4 L 251.7,269.9 L 267.3,268.4 L 282.9,273.7 L 298.5,278.2 L 314.1,271.4 L 329.8,272.2 L 345.4,267.7 L 361.0,263.9 L 376.6,272.9 L 392.2,262.4 L 407.8,264.7 L 423.4,187.4 L 439.0,179.9 L 454.6,185.9 L 470.2,203.9 L 485.9,203.1 L 501.5,208.4 L 517.1,199.4 L 532.7,195.6 L 548.3,197.1 L 563.9,185.9 L 579.5,179.1 L 595.1,182.1 L 610.7,159.6 L 626.3,129.6 L 642.0,124.3 L 657.6,127.3 L 673.2,111.6 L 688.8,114.6 L 704.4,136.3 L 720.0,109.3" fill="none" stroke="#0f1419" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <g fill="#0f1419" opacity="0.65">
+        <circle cx="80.0" cy="300.7" r="1.6"/>
+        <circle cx="95.6" cy="294.7" r="1.6"/>
+        <circle cx="111.2" cy="292.4" r="1.6"/>
+        <circle cx="126.8" cy="308.2" r="1.6"/>
+        <circle cx="142.4" cy="303.7" r="1.6"/>
+        <circle cx="158.0" cy="300.7" r="1.6"/>
+        <circle cx="173.7" cy="302.9" r="1.6"/>
+        <circle cx="189.3" cy="297.7" r="1.6"/>
+        <circle cx="204.9" cy="282.7" r="1.6"/>
+        <circle cx="220.5" cy="274.4" r="1.6"/>
+        <circle cx="236.1" cy="274.4" r="1.6"/>
+        <circle cx="251.7" cy="269.9" r="1.6"/>
+        <circle cx="267.3" cy="268.4" r="1.6"/>
+        <circle cx="282.9" cy="273.7" r="1.6"/>
+        <circle cx="298.5" cy="278.2" r="1.6"/>
+        <circle cx="314.1" cy="271.4" r="1.6"/>
+        <circle cx="329.8" cy="272.2" r="1.6"/>
+        <circle cx="345.4" cy="267.7" r="1.6"/>
+        <circle cx="361.0" cy="263.9" r="1.6"/>
+        <circle cx="376.6" cy="272.9" r="1.6"/>
+        <circle cx="392.2" cy="262.4" r="1.6"/>
+        <circle cx="407.8" cy="264.7" r="1.6"/>
+        <circle cx="423.4" cy="187.4" r="1.6"/>
+        <circle cx="439.0" cy="179.9" r="1.6"/>
+        <circle cx="454.6" cy="185.9" r="1.6"/>
+        <circle cx="470.2" cy="203.9" r="1.6"/>
+        <circle cx="485.9" cy="203.1" r="1.6"/>
+        <circle cx="501.5" cy="208.4" r="1.6"/>
+        <circle cx="517.1" cy="199.4" r="1.6"/>
+        <circle cx="532.7" cy="195.6" r="1.6"/>
+        <circle cx="548.3" cy="197.1" r="1.6"/>
+        <circle cx="563.9" cy="185.9" r="1.6"/>
+        <circle cx="579.5" cy="179.1" r="1.6"/>
+        <circle cx="595.1" cy="182.1" r="1.6"/>
+        <circle cx="610.7" cy="159.6" r="1.6"/>
+        <circle cx="626.3" cy="129.6" r="1.6"/>
+        <circle cx="642.0" cy="124.3" r="1.6"/>
+        <circle cx="657.6" cy="127.3" r="1.6"/>
+        <circle cx="673.2" cy="111.6" r="1.6"/>
+        <circle cx="688.8" cy="114.6" r="1.6"/>
+        <circle cx="704.4" cy="136.3" r="1.6"/>
+      </g>
+      <circle cx="720.0" cy="109.3" r="5" fill="#2d5a3f"/>
+      <circle cx="720.0" cy="109.3" r="10" fill="none" stroke="#2d5a3f" stroke-width="1.2" opacity="0.6"/>
+      <text x="620.0" y="113.3" text-anchor="end" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#2d5a3f">235.0</text>
+      <text x="620.0" y="127.3" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f">▲ +18.0 (+8.29%)</text>
+      <line x1="80" y1="320" x2="720" y2="320" stroke="#0f1419" stroke-width="1"/>
+      <text x="80.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/04</text>
+      <text x="204.9" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/16</text>
+      <text x="329.8" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/26</text>
+      <text x="470.2" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/23</text>
+      <text x="595.1" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/06</text>
+      <text x="720.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/18</text>
+      <text x="400.0" y="354" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">42 trading days · Source: stock.wearn.com/cdata?kind=2472 + cnyes.com 歷史行情</text>
+    </svg>
+  </div>
+
+  <div class="revision-note">
+    <strong>研究重點：</strong>立隆電是 <strong>AI 伺服器 BBU 超級電容 + 車用電容</strong> 雙引擎敘事的核心標的之一。本報告主要結論：<strong>(1) FY25 公告 EPS 8.73 含「處分待出售非流動資產利益 4.12 億」之一次性貢獻，剔除後乾淨 EPS 約 7.44 元、YoY 僅 +6.2%</strong>（市場敘事的 +24.5% 失真）；<strong>(2) Q1 2026 EPS 1.60 雖低於 Q1 2025 的 1.67、季減 54.8%，但實為剔除一次性後的「乾淨基準」</strong>；(3) 市場已給予 27.2× TTM 本益比並透支了 AI BBU + 車用認證的成果，<strong>需 FY26 EPS 達到 10 元以上才能撐起當前股價</strong>。
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">立隆電是「中段 - 中性偏空」的標的：本業強韌、產品結構升級確實在發生，但 <strong>FY25 EPS 含一次性 1.29 元、市場以 27.2× TTM 本益比定價過熱</strong>，且 AI BBU 超級電容真正貢獻仍有限（<strong>2026 預估僅佔營收 6%</strong>），距離真正能對沖估值的條件還有一段路。</p>
+    <p>五個關鍵發現：第一，<strong>FY25 EPS 8.73 表面 YoY +24.5%，剔除 4.12 億處分待出售非流動資產的一次性後，乾淨成長僅 +6.2%</strong>；第二，<strong>Q1 2026 EPS 1.60 不是衰退，而是「沒有一次性灌水的真實水準」</strong>，與 Q1 2025 的 1.67 接近（-4.2%）；第三，<strong>2026 年 1-4 月累計營收 41.39 億、年增 10.7%</strong> 顯示營運基本面健康，但成長速度與市場期待的「AI 爆發」有落差；第四，<strong>泰國春武里廠 2026/3 啟用、預計 2026Q4 才量產、車用認證需 2027 後才能貢獻 EPS</strong>，泰國概念股的時間差被低估；第五，<strong>立敦科技（29.13% 持股）貢獻 EPS 約 0.71 元 / 年（直接認列）+ 透過 NCI 機制吃掉 28.3% 的合併淨利</strong>，垂直整合是兩面刃。Fair Value 區間 160–245 元，機率加權 196 元。<strong>當前 235 元（5/18 漲停）已較加權合理價溢價 20%、距空頭下緣 160 有 32% 下行空間、距多頭上緣 245 僅 4% 上漲空間，風險報酬比 1:0.1 不利做多</strong>。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">FY25 EPS 含一次性 1.29 元</div>
+      <div class="thesis-desc">處分待出售非流動資產利益 4.12 億（稅後扣除 NCI 後約 2.11 億，貢獻 EPS 1.28 元）。剔除後乾淨 FY25 EPS 約 7.44 元，YoY +6.2%，與市場熟悉的「+24.5%」是兩個故事。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">AI BBU 故事仍在前菜階段</div>
+      <div class="thesis-desc">超級電容 + Hybrid 電容預估 2026 貢獻 6% 營收（約 7-8 億）。2025/2 郭明錤指出輝達 GB300 可能不採用超級電容、後雖澄清 CSP 客製仍可用，但反設計變數仍存。立隆是 Tier 2 而非 Tier 1。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">泰國新廠 EPS 貢獻在 2027 後</div>
+      <div class="thesis-desc">2026/3 開幕、2026Q4 量產、車用 IATF 16949 / VDA 認證需 18-24 個月。Q1 2026 泰國子公司虧損 8,746 仟元，Tier-1 車廠認列時點落在 2027H2 後。市場給「2026 即享紅利」過於樂觀。</div>
+    </div>
+  </div>
+
+  <!-- SECTION I: COMPANY BASICS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">公司基本面盤點</div>
+      <div class="section-kicker">Business · Capacity · Financials</div>
+    </div>
+    <p class="lead-para">
+      立隆電（2472.TW）成立於 1976 年、2001 年於台灣上市，主業為鋁質電解電容器之製造與銷售，旗下子公司立敦科技（持股 29.13%）負責鋁質化成箔之上游製造。集團採垂直整合策略，於台灣、中國蘇州 / 吳江 / 惠州、泰國春武里、印尼設有產能。FY25 合併營收 112.93 億、母公司業主淨利 14.38 億、EPS 8.73 元（公告值）。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.1 業務組成：兩個應報導部門 + 應用結構</div>
+    </div>
+
+    <div class="chart-caption">表 1 · FY24-FY25 部門收入與獲利結構（單位：千元）</div>
+    <div class="chart-sub">Source: 立隆電 FY25 合併財報附註十四「部門資訊」 · 2026/03/13 上傳公開資訊觀測站</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">FY25 立隆部門</th><th class="right">FY25 立敦部門</th><th class="right">FY25 合計</th><th class="right">FY24 合計</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">來自外部客戶收入</td><td class="right">7,541,861</td><td class="right">3,750,677</td><td class="right">11,292,538</td><td class="right">10,486,953</td><td class="right pos">+7.7%</td></tr>
+        <tr><td class="label">外部營收佔比</td><td class="right">66.8%</td><td class="right">33.2%</td><td class="right">100.0%</td><td class="right">100.0%</td><td class="right">—</td></tr>
+        <tr><td class="label">部門間收入（內部）</td><td class="right">—</td><td class="right">416,524</td><td class="right">416,524</td><td class="right">368,586</td><td class="right">+13.0%</td></tr>
+        <tr class="highlight"><td class="label">部門稅前損益</td><td class="right">2,216,259</td><td class="right">683,938</td><td class="right">2,900,197</td><td class="right">2,327,692</td><td class="right pos">+24.6%</td></tr>
+        <tr><td class="label">稅前利潤率</td><td class="right">29.4%</td><td class="right">16.4%</td><td class="right">25.7%</td><td class="right">22.2%</td><td class="right pos">+3.5pp</td></tr>
+        <tr><td class="label">資本支出</td><td class="right">746,473</td><td class="right">268,148</td><td class="right">1,014,621</td><td class="right">587,963</td><td class="right neg">+72.6%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：立隆部門（鋁電容）貢獻 67% 營收、76% 部門稅前損益；立敦部門（鋁箔）貢獻 33% 營收但只佔 24% 損益、毛利率較低。FY25 兩個部門合計部門稅前 +24.6% 看似亮眼，但若參考集團合計稅前淨利 28.01 億，<strong>其中 4.12 億來自處分待出售非流動資產（一次性，後續詳述），扣除後實質部門稅前成長 +6.7%</strong>，與營收 +7.7% 相符。
+    </p>
+
+    <p class="body-text">
+      <strong>應用結構（推論）</strong>：依據 2026Q1 法說會與市場報導，2026 年應用比重為車用電子 36%、資訊/雲端（含 AI 伺服器）26%、工業設備/綠能 18%、通訊/網通 8%、消費性 8%、其他 4%；對照 FY24 約為車用 33%、工業 17%、消費 11%、通訊 9%、雲端 3%。<strong>2024→2026 兩年內，AI/雲端應用從 3% 跳升到 26%</strong>，反映出產品結構正在快速升級；但車用比重從 33% 升至 36%（+3pp）才是真正的「現金流主力」。
+      <span class="source-tag">SRC: 經濟日報、CMoney、豐雲學堂法說重點整理</span>
+    </p>
+
+    <div class="callout bear">
+      <div class="callout-label">第二層觀察 · AI 26% 的真相</div>
+      <div class="callout-body">
+        「資訊/雲端 26%」這個數字包含<strong>所有資訊類應用</strong>（PC、伺服器、雲端通用機房等），<strong>不是純 AI 伺服器</strong>。市場文章引述「AI BBU 預估 2026 貢獻 6% 營收」（約 7-8 億），這才是真正的 AI 增量。換句話說，2026 年 26% 中約有 20pp 是傳統資訊應用、6pp 才是新興 AI/BBU；後者才有結構性溢價空間。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.2 客戶集中度與地區分布</div>
+    </div>
+
+    <p class="body-text">
+      <strong>客戶集中度低</strong>：FY25 及 FY24 皆無單一客戶營收佔比超過 10%（依 FY25 合併財報附註十四第 4 項揭露）。低集中度是優勢，降低單一客戶風險。
+    </p>
+
+    <div class="chart-caption">表 2 · FY25 客戶所在地區營收分布</div>
+    <div class="chart-sub">Source: 立隆電 FY25 合併財報附註十四 3「地區別資訊」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>客戶所在地</th><th class="right">FY25 金額</th><th class="right">佔比</th><th class="right">FY24 金額</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">中國大陸</td><td class="right">7,758,334</td><td class="right">68.7%</td><td class="right">7,215,229</td><td class="right pos">+7.5%</td></tr>
+        <tr><td class="label">香港</td><td class="right">792,130</td><td class="right">7.0%</td><td class="right">820,255</td><td class="right neg">-3.4%</td></tr>
+        <tr><td class="label">美國</td><td class="right">460,918</td><td class="right">4.1%</td><td class="right">356,712</td><td class="right pos">+29.2%</td></tr>
+        <tr><td class="label">印尼</td><td class="right">341,577</td><td class="right">3.0%</td><td class="right">366,236</td><td class="right neg">-6.7%</td></tr>
+        <tr><td class="label">日本</td><td class="right">271,877</td><td class="right">2.4%</td><td class="right">245,112</td><td class="right pos">+10.9%</td></tr>
+        <tr><td class="label">台灣</td><td class="right">228,200</td><td class="right">2.0%</td><td class="right">173,239</td><td class="right pos">+31.7%</td></tr>
+        <tr><td class="label">其他</td><td class="right">1,439,502</td><td class="right">12.7%</td><td class="right">1,310,170</td><td class="right pos">+9.9%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">11,292,538</td><td class="right">100.0%</td><td class="right">10,486,953</td><td class="right pos">+7.7%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：客戶 75.7% 集中在中國大陸 + 香港。<strong>推論</strong>：表面看是「中國集中度高、地緣政治風險」，但實際上中國客戶包括台、美、日系品牌在中國的組裝廠（如台達電中國廠、富士康），所以「中國客戶」不全等於「中國地緣政治曝險」。<strong>但這也意味著立隆電對中國產能與物流的依賴度更高</strong>，泰國新廠 + 印尼/越南配套可以視為地緣分散，但短期內不會改變 70% 的中國客戶結構。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.3 產能與地理布局</div>
+    </div>
+
+    <div class="chart-caption">表 3 · 非流動資產地區分布（單位：千元，反映固定資產 + 廠房規模）</div>
+    <div class="chart-sub">Source: 立隆電 FY25 合併財報附註十四 3「地區別資訊」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>地區</th><th class="right">FY25.12.31</th><th class="right">FY24.12.31</th><th class="right">變動</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">中國大陸（蘇州/惠州/吳江/阿壩州/乳源等）</td><td class="right">5,504,374</td><td class="right">5,522,244</td><td class="right neg">-0.3%</td></tr>
+        <tr><td class="label">台灣（大里總部 + 立敦銅鑼廠）</td><td class="right">546,581</td><td class="right">536,702</td><td class="right pos">+1.8%</td></tr>
+        <tr><td class="label">泰國（春武里 Amata City）</td><td class="right">717,195</td><td class="right">309,232</td><td class="right pos">+131.9%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">6,768,150</td><td class="right">6,368,178</td><td class="right pos">+6.3%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：泰國廠帳上資產從 3.09 億暴增至 7.17 億（+131.9%）<strong>正反映泰國春武里新廠的資本支出進行中</strong>。Lelon Electronics (Thailand) 為立隆電 100% 子公司、實收資本額 THB 502.125 百萬（約 4.88 億 NTD）。法說資料顯示 2026/3 開幕、2026Q4 量產、初期導入鋁電容產線、第二階段才申請車用認證。<strong>2026 月產能目標 6.39 億顆（vs FY25 約 6.08 億顆，+5%）</strong>，與營收成長 +10% 同方向，沒有過度擴張的疑慮。
+      <span class="source-tag">SRC: vocus、豐雲學堂、CMoney 法說整理</span>
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.4 財務體質：營收/獲利/EPS 趨勢</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營收</div>
+        <div class="stat-value pos">+7.7<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">104.87 → 112.93 億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 毛利率</div>
+        <div class="stat-value pos">32.0<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">FY24: 30.8% (+1.2pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營業利益率</div>
+        <div class="stat-value pos">20.3<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">FY24: 17.9% (+2.4pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 公告 EPS</div>
+        <div class="stat-value neu">$8.73</div>
+        <div class="stat-sub neu">含一次性 +1.29 / 乾淨 7.44</div>
+      </div>
+    </div>
+
+    <div class="chart-caption">表 4 · FY25 合併損益表 vs FY24（單位：千元）</div>
+    <div class="chart-sub">Source: 立隆電 FY25 合併綜合損益表（公開資訊觀測站 2026/03/13）</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>科目</th><th class="right">FY25</th><th class="right">FY24</th><th class="right">YoY</th><th class="center">FY25 佔比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入淨額</td><td class="right">11,292,538</td><td class="right">10,486,953</td><td class="right pos">+7.7%</td><td class="center">100.0%</td></tr>
+        <tr><td class="label">營業成本</td><td class="right">(7,674,326)</td><td class="right">(7,252,189)</td><td class="right">+5.8%</td><td class="center">68.0%</td></tr>
+        <tr class="highlight"><td class="label">營業毛利</td><td class="right">3,618,212</td><td class="right">3,234,764</td><td class="right pos">+11.9%</td><td class="center">32.0%</td></tr>
+        <tr><td class="label">營業費用</td><td class="right">(1,327,554)</td><td class="right">(1,360,700)</td><td class="right pos">-2.4%</td><td class="center">11.8%</td></tr>
+        <tr class="highlight"><td class="label">營業利益</td><td class="right">2,290,658</td><td class="right">1,874,064</td><td class="right pos">+22.2%</td><td class="center">20.3%</td></tr>
+        <tr><td class="label">業外利息收入</td><td class="right">113,632</td><td class="right">121,465</td><td class="right neg">-6.4%</td><td class="center">1.0%</td></tr>
+        <tr><td class="label">其他收入</td><td class="right">177,018</td><td class="right">124,723</td><td class="right pos">+41.9%</td><td class="center">1.6%</td></tr>
+        <tr><td class="label neg">其他利益及損失（含一次性 4.12 億）</td><td class="right neg">263,335</td><td class="right">170,447</td><td class="right pos">+54.5%</td><td class="center">2.3%</td></tr>
+        <tr><td class="label">財務成本</td><td class="right">(43,867)</td><td class="right">(52,535)</td><td class="right pos">-16.5%</td><td class="center">-0.4%</td></tr>
+        <tr class="highlight"><td class="label">業外損益合計</td><td class="right">510,118</td><td class="right">364,100</td><td class="right pos">+40.1%</td><td class="center">4.5%</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">2,800,776</td><td class="right">2,238,164</td><td class="right pos">+25.1%</td><td class="center">24.8%</td></tr>
+        <tr><td class="label">所得稅費用</td><td class="right">(794,113)</td><td class="right">(528,594)</td><td class="right neg">+50.2%</td><td class="center">-7.0%</td></tr>
+        <tr class="total"><td class="label">本期淨利</td><td class="right">2,006,663</td><td class="right">1,709,570</td><td class="right pos">+17.4%</td><td class="center">17.8%</td></tr>
+        <tr><td class="label">歸屬母公司業主</td><td class="right">1,437,717</td><td class="right">1,155,486</td><td class="right pos">+24.4%</td><td class="center">12.7%</td></tr>
+        <tr><td class="label">歸屬非控制權益（立敦 NCI 等）</td><td class="right">568,946</td><td class="right">554,084</td><td class="right pos">+2.7%</td><td class="center">5.0%</td></tr>
+        <tr class="total"><td class="label">基本 EPS（元）</td><td class="right">$8.73</td><td class="right">$7.01</td><td class="right pos">+24.5%</td><td class="center">—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout bear">
+      <div class="callout-label">資料核對 · FY25 EPS 8.73 的拆解</div>
+      <div class="callout-body">
+        從 FY25 合併現金流量表「處分及報廢不動產、廠房及設備（利益）損失」-474 與「處分待出售非流動資產利益 411,925」可知，<strong>FY25 認列了 4.12 億的非經常性處分利益</strong>（FY24 此科目為 0，因為待出售非流動資產 91,042 千元的存量被處分）。此 4.12 億稅後（用 FY25 平均稅率 28.4%）後約 2.95 億，再扣除歸屬非控制權益（28.4% 比率）後，<strong>對母公司業主淨利貢獻約 2.11 億，等於 EPS 1.28 元</strong>。<strong>剔除後乾淨 FY25 EPS 約 7.44 元、YoY 僅 +6.2%</strong>（相對於 +24.5% 報告值）。市場若以 8.73 算 PE 是 26.9×、若以 7.44 算則是 31.6×。
+      </div>
+    </div>
+
+    <div class="chart-caption">表 5 · 季度損益進化（單位：千元；單季）</div>
+    <div class="chart-sub">Source: 公開資訊觀測站 Q1-Q3 季報 + FY25 年報 + 2026 Q1 季報（Q4 25 為 FY25 - 9M 推算）</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">Q1 2025</th><th class="right">Q2 2025</th><th class="right">Q3 2025</th><th class="right">Q4 2025</th><th class="right">FY25</th><th class="right">Q1 2026</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入</td><td class="right">2,693,859</td><td class="right">2,912,344</td><td class="right">2,800,915</td><td class="right">2,885,420</td><td class="right">11,292,538</td><td class="right">2,943,086</td></tr>
+        <tr><td class="label">YoY%</td><td class="right pos">+23.0%</td><td class="right pos">+6.4%</td><td class="right pos">+0.3%</td><td class="right pos">+0.7%</td><td class="right pos">+7.7%</td><td class="right pos">+9.3%</td></tr>
+        <tr><td class="label">毛利率</td><td class="right">30.3%</td><td class="right">31.9%</td><td class="right">33.3%</td><td class="right">32.6%</td><td class="right">32.0%</td><td class="right">30.0%</td></tr>
+        <tr><td class="label">營業利益</td><td class="right">494,605</td><td class="right">621,734</td><td class="right">552,512</td><td class="right">621,807</td><td class="right">2,290,658</td><td class="right">549,622</td></tr>
+        <tr><td class="label">營業利益率</td><td class="right">18.4%</td><td class="right">21.3%</td><td class="right">19.7%</td><td class="right">21.5%</td><td class="right">20.3%</td><td class="right">18.7%</td></tr>
+        <tr><td class="label neg">業外（其他利益及損失）</td><td class="right pos">+4,352</td><td class="right neg">-214,156</td><td class="right pos">+79,118</td><td class="right pos">+394,021</td><td class="right pos">+263,335</td><td class="right neg">-57,103</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">545,140</td><td class="right">458,976</td><td class="right">672,699</td><td class="right">1,123,961</td><td class="right">2,800,776</td><td class="right">520,427</td></tr>
+        <tr><td class="label">淨利</td><td class="right">408,312</td><td class="right">323,733</td><td class="right">507,364</td><td class="right">767,254</td><td class="right">2,006,663</td><td class="right">398,183</td></tr>
+        <tr class="total"><td class="label">EPS（元）</td><td class="right">$1.67</td><td class="right neg">$1.22</td><td class="right pos">$2.29</td><td class="right pos">$3.55*</td><td class="right pos">$8.73</td><td class="right neg">$1.60</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-sub" style="margin-bottom:18px;">* Q4 2025 EPS $3.55 中估約 1.28 元來自「處分待出售非流動資產利益 411,925」之一次性貢獻；扣除後 Q4 25 乾淨 EPS 約 2.27 元，與 Q3 25 的 2.29 元相近。</p>
+
+    <div class="callout">
+      <div class="callout-label">Q1 2026 EPS 1.60 的真相還原</div>
+      <div class="callout-body">
+        市場普遍把 Q1 2026 EPS 1.60（vs Q1 25 的 1.67，-4.2%、vs Q4 25 的 3.55，-54.8%）解讀為「衰退」，但這是錯誤對標。<strong>Q1 26 是「乾淨季」、沒有一次性</strong>，而 Q4 25 含一次性 1.28 元；對 Q4 25「乾淨 EPS 2.27」應為合適基準，<strong>Q1 26 的 1.60 是季減 29.5%（仍是淡季效應，但沒有市場以為的崩跌）</strong>。同樣，Q1 26 vs Q1 25 的「-4.2%」要拆：營業利益 +11.1%（本業強）、業外其他利益由 +0.4 億轉為 -0.6 億（NT$ Q1 升值 0.42→兌換損失），<strong>本業還是非常強勁、業外是匯率拖累</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.5 ROE / ROA / 現金流 / 負債比</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">FY25 ROE（推算）</div>
+        <div class="stat-value pos">16.8%</div>
+        <div class="stat-sub pos">母公司淨利 14.38億 / 平均權益 85.7億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營運 CF</div>
+        <div class="stat-value pos">22.03億</div>
+        <div class="stat-sub pos">FY24: 21.76億 (+1.2%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 資本支出</div>
+        <div class="stat-value neg">9.71億</div>
+        <div class="stat-sub neg">FY24: 5.82億 (+66.7%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 自由現金流</div>
+        <div class="stat-value neu">12.32億</div>
+        <div class="stat-sub neu">FCF 殖利率 3.2% (vs 市值 387億)</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>事實</strong>：營運現金流相對淨利的轉換率良好（OCF 22.03 億 vs 合併 NI 20.07 億，比率 110%），<strong>說明獲利不是會計遊戲、是真實現金</strong>。資本支出 FY25 跳升至 9.71 億主要為泰國新廠（+4.08 億非流動資產增加）。負債方面，FY25 短期借款 16.17 億 + 長期借款 4.11 億，總有息負債約 20.28 億，相對總資產 182.08 億的負債比僅 24%，<strong>財務結構非常健康</strong>，利息保障倍數 = 營業利益 22.91 億 / 利息費用 0.44 億 = <strong>52 倍</strong>，幾乎無利息壓力。
+    </p>
+
+    <div class="chart-caption">表 6 · 近 6 年 EPS 與股利政策</div>
+    <div class="chart-sub">Source: 立隆電歷年合併財報 + 財報狗 / 玩股網股利公告</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>年度</th><th class="right">EPS（元）</th><th class="right">現金股利（元）</th><th class="right">配息率</th><th class="right">當年除息殖利率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">FY20（109年）</td><td class="right">~6.14</td><td class="right">3.00</td><td class="right">48.9%</td><td class="right">~4.5%</td></tr>
+        <tr><td class="label">FY21（110年）</td><td class="right">~6.14</td><td class="right">3.20</td><td class="right">52.1%</td><td class="right">~3.8%</td></tr>
+        <tr><td class="label">FY22（111年）</td><td class="right">~7.53</td><td class="right">3.50</td><td class="right">46.5%</td><td class="right">~4.9%</td></tr>
+        <tr><td class="label">FY23（112年）</td><td class="right">5.60</td><td class="right">2.80</td><td class="right">50.0%</td><td class="right">~5.0%</td></tr>
+        <tr><td class="label">FY24（113年）</td><td class="right">7.01</td><td class="right">3.10</td><td class="right">44.2%</td><td class="right">3.81%</td></tr>
+        <tr class="highlight"><td class="label">FY25（114年）公告</td><td class="right pos">8.73</td><td class="right pos">3.50</td><td class="right">40.1%</td><td class="right">~1.5% (現價 235)</td></tr>
+        <tr><td class="label">FY25 剔除一次性 EPS</td><td class="right neu">7.44</td><td class="right">3.50</td><td class="right">47.0%</td><td class="right">—</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：股利政策一致維持 40-52% 配息率，FY25 公告 3.50 元維持與 FY22 持平。<strong>推論</strong>：公司並未把一次性 EPS 1.29 元全配出去（否則應發 4.50+），<strong>等於管理層也認知到那是非經常性</strong>。在當前股價 235 元（5/18 漲停）下，殖利率僅 1.5%，<strong>從股利角度立隆電已不再是「高殖利率定存股」</strong>；它的估值邏輯被市場 reframe 為「成長股」，但成長品質需嚴格檢視。
+    </p>
+
+  </section>
+
+  <!-- SECTION II: INDUSTRY POSITIONING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">產業定位與競爭格局（第一層思考）</div>
+      <div class="section-kicker">Industry · Competition</div>
+    </div>
+
+    <p class="lead-para">
+      被動元件產業在 2025-2026 進入「結構性升級」期，主要驅動有三：<strong>(1) AI 伺服器電源密度提升（GB200/GB300 機櫃功耗破 100kW）</strong>，要求更高耐溫、低 ESR、長壽命的鋁電容與超級電容；<strong>(2) 車用電子 800V 平台、CCS2 充電樁、ADAS</strong> 對高階電容需求倍增；<strong>(3) 日系 Panasonic SP-CAP 漲價 + 缺貨</strong>，部分訂單外溢至台廠。立隆電同時站在這三個賽道上。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">2.1 三個結構性需求驅動</div>
+    </div>
+
+    <div class="chart-caption">表 7 · 三大需求驅動的市場敘事與量化</div>
+    <div class="chart-sub">Source: 鉅亨、TechNews、UAnalyze、CMoney、商業周刊、聯合新聞網等公開報導彙整</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>議題</th><th class="right">市場敘事</th><th class="right">量化（公開資料）</th><th class="right">立隆電位置</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">AI BBU 超級電容</td><td class="right">GB300 / NVL72 標配化、SC + BBU</td><td class="right">2026 預估佔立隆營收 6% (~7.5億)</td><td class="right">Tier 2 認證、與凱美/鈺邦/日電貿/國巨同列</td></tr>
+        <tr><td class="label">AI 高階 Hybrid 電容</td><td class="right">GPU 顯卡 / OAM 模組需求暴增</td><td class="right">合計 AI 相關約 6% 高毛利營收</td><td class="right">產品涵蓋完整、但量未起飛</td></tr>
+        <tr><td class="label">車用 800V / 充電樁</td><td class="right">EV 持續滲透 + 高壓平台</td><td class="right">FY25 車用佔 33-36%</td><td class="right">已有現有客戶基礎</td></tr>
+        <tr><td class="label">日系 Panasonic 漲價</td><td class="right">SP-CAP 2026/6 起漲 30%</td><td class="right">外溢轉單仍待驗證</td><td class="right">受惠端但無議價主導權</td></tr>
+        <tr><td class="label">非中非台 (NCNT)</td><td class="right">泰國廠取得歐美客戶</td><td class="right">2026/3 開幕、Q4 量產</td><td class="right">時程明確、認證 18-24 個月</td></tr>
+      </tbody>
+    </table>
+
+    <div class="subsection">
+      <div class="subsection-title">2.2 競爭定位：vs 日系大廠 vs 台廠同業</div>
+    </div>
+
+    <div class="chart-caption">表 8 · 鋁電解電容與超級電容主要玩家定位</div>
+    <div class="chart-sub">Source: vocus 七仔財經、TechNews、UAnalyze、IAOC 代理商網站公開資料</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>類別</th><th class="right">日系一線</th><th class="right">台廠</th><th class="right">中系</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">鋁電解電容</td><td class="right">Nichicon、Nippon Chemi-Con、Rubycon、Panasonic</td><td class="right">立隆電 (2472)、凱美 (2375)、智寶 (2375 集團)、華新科 (2492)</td><td class="right">艾華、江海、南通海四達</td></tr>
+        <tr><td class="label">高分子固態 / SP-CAP</td><td class="right">Panasonic (技術領先)、Nichicon</td><td class="right">立隆電、鈺邦 (6449)、凱美</td><td class="right">中系廠商產品穩定度仍待提升</td></tr>
+        <tr><td class="label">超級電容 (EDLC)</td><td class="right">Nichicon、Panasonic（小幅）</td><td class="right">立隆電、凱美、鈺邦、日電貿 (3090)、九豪、華容 (5328)</td><td class="right">中系廠商仍佔低階主流</td></tr>
+        <tr><td class="label">技術領先程度</td><td class="right">10+ 年領先（高溫、高頻、長壽命）</td><td class="right">中階以上有競爭力、超級電容 follow</td><td class="right">低中階成本領導</td></tr>
+        <tr><td class="label">2025 Q4 EPS（單季）</td><td class="right">—</td><td class="right">立隆 3.55、鈺邦 2.57、華新科 1.69、國巨* 3.90、台達電 7.91</td><td class="right">—</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實 1</strong>：日系大廠（Nichicon、Chemi-Con、Rubycon、Panasonic）依然是高階鋁電解電容與超級電容的技術領導者，在汽車、醫療、工控、AI 高壓伺服器等嚴苛應用場域有 10+ 年領先優勢。<strong>立隆電的策略是「快速跟隨 + 量產規模 + 垂直整合鋁箔成本」</strong>，毛利率 32% 已超越部分日系（Nichicon 因消費電子比重高、毛利率僅約 25-28%）。
+      <span class="source-tag">SRC: vocus 七仔財經、UAnalyze 鈺邦/Nichicon 文章</span>
+    </p>
+
+    <p class="body-text">
+      <strong>事實 2</strong>：在台廠同業 EDLC 賽道中，立隆電 Q4 25 EPS 3.55 高於同業（鈺邦 2.57、華新科 1.69），但<strong>其 EPS 含 1.28 一次性後，乾淨 EPS 2.27 即與鈺邦相近</strong>。立隆電的優勢在於 <strong>(a) 立敦垂直整合節省鋁箔成本</strong>、<strong>(b) 中國 + 泰國產能完整、規模較大</strong>；劣勢在於 <strong>(c) 客戶集中在中國組裝鏈、純歐美 Tier-1 認證仍少於日系</strong>、<strong>(d) 超級電容雖已量產但 NVIDIA 認證等級仍未明朗</strong>。
+    </p>
+
+    <div class="callout bear">
+      <div class="callout-label">第二層 · 「China + 1 / NCNT」訂單轉移的真相</div>
+      <div class="callout-body">
+        市場常把「泰國新廠 = 拿到非中非台訂單」當作論述。但<strong>事實</strong>：(a) 立隆電的「中國以外產能」一直存在（泰國老廠 + 印尼），新廠只是擴張；(b) Tier-1 車廠的 IATF 16949 + VDA 6.3 認證需 18-24 個月，2026/3 開幕、Q4 量產，加上認證週期，<strong>實際歐美 Tier-1 訂單貢獻 EPS 的時點落在 2027H2 至 2028</strong>；(c) Q1 2026 Lelon Thailand 子公司認列損失 -8,746 千元（折舊與啟動成本）。<strong>泰國概念不是 2026 的故事，是 2027-2028 的故事</strong>。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION III: SECOND LAYER THINKING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">第二層思考：四個關鍵議題</div>
+      <div class="section-kicker">Second-Level Thinking</div>
+    </div>
+
+    <p class="lead-para">
+      Howard Marks 的第二層思考強調：不要把「市場共識」當成自己的判斷，而要問「如果共識是錯的，我會怎麼想」。以下針對立隆電四個熱門議題進行對照分析。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">議題一：漲價是「結構性需求」還是「成本轉嫁 + 短期缺貨」？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">AI 需求結構性 + Panasonic SP-CAP 2026/6 漲價 30% + 缺貨 6-8 個月 = 立隆電進入長期上行循環、可享受多年的價量齊揚。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) Panasonic 漲價的原始驅動是<strong>銀、鈀、銅等貴金屬價格暴漲</strong>，本質是「成本轉嫁」、不是「結構性需求拉動」；
+          (2) 中國艾華、江海、南通海四達等中系廠商 2024-2025 已啟動擴產，<strong>2026H2-2027 中低階產能可望解封</strong>；
+          (3) 立隆電 FY25 毛利率 32.0% 雖較 FY24 的 30.8% 上升 +1.2pp，但<strong>Q1 26 毛利率回落至 30.0%</strong>，未見漲價傳導的明顯紅利；
+          (4) 立隆電對日系大廠是「被動接受定價」的二線玩家，<strong>議價權不在自己手上</strong>。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        漲價對立隆電有中性偏正面的影響，但<strong>「結構性需求拉動」不能套用於整體被動元件，只在 AI 高階產品（佔立隆 6%）才適用</strong>。其他 94% 業務仍是傳統消費 / 工業 / 車用，受中國產能擴張壓力。<strong>毛利率最佳預估區間 31-33%，難以再大幅提升</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題二：BBU 超級電容的真實滲透率與立隆電的市佔</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">NVIDIA GB300 標配 BBU + 超級電容 = 立隆電大噴發。單一機櫃可用數百顆 BBU 模組、每模組數十顆超級電容、立隆是核心供應商之一。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 2025/2/13 郭明錤指出「<strong>NVIDIA 因技術與量產問題、把超級電容從 GB300 NVL72 參考設計中移除</strong>」，雖隨後澄清 CSP 客製機櫃仍可使用，但「反設計」的不確定性確實存在；
+          (2) NVIDIA 認證的超級電容供應商實際有<strong>多家（凱美、鈺邦、日電貿、九豪、華容、國巨基美、立隆電）</strong>，立隆電是 Tier 2 而非獨家；
+          (3) 立隆電法說公告 AI BBU + Hybrid 合計 2026 預估貢獻營收 6%（約 6.8-7.5 億），淨利貢獻按毛利率 35%、營業利益率 25% 估算約 1.7-1.9 億，<strong>佔母公司淨利 ~14 億的 12-14%</strong>，是亮點但不是全壘打；
+          (4) 同期凱美、鈺邦在同一賽道亦有類似量級的成長空間，<strong>競爭強度高</strong>。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        AI BBU 是「<strong>真的、但可能被高估</strong>」的故事。<strong>2026 EPS 增量約 1.0-1.2 元、相當於 FY25 乾淨 EPS 7.44 的 13-16% 提升</strong>。即使一切順利，FY26 EPS 也只能落在 8.5-9.5 區間（vs 市場期待 10+ 元）。若 GB300 量產比預期再延後一季、或 GB300 客戶採非超級電容方案，則打回原形。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題三：泰國新廠的 ROI 與時點</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">泰國廠 2026/3 啟用，「非中非台」訂單湧入、立刻拿到歐美 Tier-1 車廠訂單，2026 EPS 即享紅利。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 泰國新廠資本支出已認列至非流動資產 7.17 億（vs FY24 3.09 億，+131%），<strong>仍未量產、純資產暴增</strong>；
+          (2) Tier-1 車廠 IATF 16949 + VDA 6.3 認證週期通常 <strong>18-24 個月</strong>，2026/3 開幕、Q4 量產、認證在 2027 中後，<strong>實際歐美 Tier-1 訂單貢獻 EPS 的時點落在 2027H2 至 2028</strong>；
+          (3) 泰國缺工問題已自 2024 年起逐漸浮現，<strong>勞動成本年增 5-8%</strong>；土地與電費成本不再有過去印尼/越南級別的優勢；
+          (4) Q1 2026 Lelon Thailand 子公司認列損失 -8,746 千元（折舊 + 啟動成本），<strong>未來 2-4 季都將是「拖累期」</strong>。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        泰國廠是「<strong>正確的戰略、但時間表被市場壓縮</strong>」。<strong>2026 全年將是「啟動虧損期」（預估虧損 NT$ 3,000-5,000 萬），2027 損益兩平，2028 開始貢獻 EPS</strong>。預估 2028 泰國廠單獨可貢獻 EPS 1-1.5 元（前提是車用認證順利）。市場若把 2026 給太多 premium 是搶跑。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題四：垂直整合（立敦）是優勢還是包袱？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">立隆電 + 立敦垂直整合 = 鋁箔成本可控、毛利率高於日系、ROE 結構性高。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 立敦的鋁箔自製率沒有公開揭露，但從 FY25 立敦部門營收 41.67 億（含內銷 4.17 億）vs 立隆營業成本 76.74 億，<strong>立敦對立隆 COGS 的覆蓋率僅 5.4%</strong>，垂直整合的「成本護城河」程度有限；
+          (2) 立敦的鋁箔銷售更多依賴外部客戶（含中系廠商和關係人交易），<strong>立敦本身的營收成長與立隆並非完全同步</strong>；
+          (3) 立敦部門 FY25 稅前利潤率 16.4% 低於立隆部門的 29.4%、<strong>整體稀釋了集團 ROE</strong>；
+          (4) 立隆對立敦持股僅 29.13%，但合併報表全額納入並認列大量非控制權益（FY25 NCI 占淨利 28.3% = 5.69 億）；<strong>市值市場給予的 EPS 評價基礎本來就只算「歸屬母公司業主」部分</strong>，所以結構上沒有「被吃」的問題，但這也說明合併報表淨利的數字會「看起來大但實際歸屬母公司比例只有 71.7%」。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        垂直整合是「<strong>輕度優勢、不是強護城河</strong>」。立敦提供：(a) 部分鋁箔來源穩定、(b) 鋁價波動的對沖、(c) 在中國市場的議價權。但<strong>立敦的營收成長性（FY25 +0.0% 約持平）落後集團</strong>、實際對 EPS 貢獻有限。若把立敦剝離單看，立隆電（純電容廠）會更輕資產、ROE 更高，但缺乏鋁箔自給率的緩衝。<strong>結論：中性、略偏優勢</strong>。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION IV: VALUATION & SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">估值與情境分析</div>
+      <div class="section-kicker">Valuation · Scenarios</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.1 歷史估值區間</div>
+    </div>
+
+    <p class="body-text">
+      立隆電過去 10 年的本益比區間經歷三個階段：<strong>(1) 2017-2019 漲價潮 / 缺料行情，PE 在 8-15× 之間</strong>（被動元件大多頭，鈺邦/國巨等同列）；<strong>(2) 2020-2023 景氣下行 + 庫存調整，PE 壓縮至 6-10×</strong>；<strong>(3) 2024-2026 AI BBU + 車用敘事，PE 從 12× 拉升至目前 27.2×（過去 12 月 TTM EPS 8.65、5/18 收 235 計算）</strong>。
+    </p>
+
+    <p class="body-text">
+      <strong>第二層觀察</strong>：<strong>若用「乾淨 EPS 7.44」計算當前 PE 是 31.6×，這已是被動元件產業的 high-end</strong>。對比：國巨* PE 約 30.6× FY26（但平台型與高殖利屬性更穩定）、華新科 ~15×、鈺邦 22.3× FY26（但鈺邦無一次性、本益比真實）。<strong>立隆電的估值已 priced-in 完美執行</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">4.2 三情境模型</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">多頭情境 · BULL</div>
+        <div class="scenario-prob">25<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 10.5 元 / PE 23× / 目標 240-260</div>
+        <div class="scenario-desc">
+          AI BBU 大爆發、GB300 量產順利、超級電容貢獻營收 8-10%；Panasonic 漲價持續、台廠接到外溢訂單；泰國廠車用認證提前在 2027H1 完成；FY26 EPS 10.5 元（含 BBU/超級電容 +1.5 元、本業穩 +0.5 元）。
+        </div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">基本情境 · BASE</div>
+        <div class="scenario-prob">50<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 8.5 元 / PE 22× / 目標 180-210</div>
+        <div class="scenario-desc">
+          AI BBU 漸進貢獻、超級電容佔營收 6%、車用持續穩健；Panasonic 漲價部分傳導；FY26 營收成長 10-12%；泰國廠 2026 仍虧損、2027 開始貢獻；FY26 EPS 約 8.5 元（乾淨 7.44 → +1.0 元成長）；給予 PE 21-23× 反映成長性減速。
+        </div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">空頭情境 · BEAR</div>
+        <div class="scenario-prob">25<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 7.0 元 / PE 18× / 目標 120-160</div>
+        <div class="scenario-desc">
+          NVIDIA GB300 確認不採用超級電容（或延後至 GB400）；中國艾華 / 江海擴產解封衝擊；車用需求受高利率 / 電動車滲透放緩拖累；TWD 持續升值，業外損失擴大；泰國廠虧損超預期；FY26 EPS 倒退至 7.0；PE 修正至 18× 對應產業 mean。
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.3 加權合理價計算</div>
+    </div>
+
+    <div class="chart-caption">表 9 · 三情境機率加權目標價</div>
+    <div class="chart-sub">Source: 自行情境建模 · 以情境中位點為計算基礎</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>情境</th><th class="right">機率</th><th class="right">FY26 EPS</th><th class="right">合理 PE</th><th class="right">目標價中位</th><th class="right">機率 × 目標</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">多頭</td><td class="right">25%</td><td class="right">$10.5</td><td class="right">23.0×</td><td class="right">$245</td><td class="right">$61</td></tr>
+        <tr class="highlight"><td class="label">基本</td><td class="right">50%</td><td class="right">$8.5</td><td class="right">22.0×</td><td class="right">$190</td><td class="right">$95</td></tr>
+        <tr><td class="label">空頭</td><td class="right">25%</td><td class="right">$7.0</td><td class="right">18.0×</td><td class="right">$160</td><td class="right">$40</td></tr>
+        <tr class="total"><td class="label">加權合理價</td><td class="right">100%</td><td class="right">$8.6</td><td class="right">~21.7×</td><td class="right">—</td><td class="right">$196</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>機率加權目標價 = NT$ 196</strong>。當前股價 NT$ 235（5/18 漲停），<strong>較加權合理價溢價 20%</strong>。下行至空頭情境 160 元有 32% 跌幅、上行至多頭 245 元僅 4% 漲幅，<strong>風險報酬比約 1 : 0.1、嚴重不利做多</strong>。
+    </p>
+
+    <div class="callout bear">
+      <div class="callout-label">壓力測試 · 「重定價」風險</div>
+      <div class="callout-body">
+        立隆電的 PE 從 2024 年的 12-14× 拉升到 2026 年的 26.9×（公告 EPS）/ 31.6×（乾淨 EPS），<strong>本益比擴張 2 倍以上</strong>。若市場開始重新關注 EPS 品質 + 一次性，且 Q2 2026 沒有看到 BBU 顯著貢獻，<strong>PE 修正至 20×（仍高於歷史均值 12-14×）即會帶來 25% 的下行</strong>。當前位置適合<strong>持有觀望、不適合追高</strong>。
+      </div>
+    </div>
+
+    <!-- Price Chart -->
+    <div class="price-chart-container" style="margin-top: 30px;">
+      <div class="chart-caption">圖 1 · 目標價區間與當前位置（機率加權 196 元）</div>
+      <div class="chart-sub">三層目標區間視覺化 · 基於上表 FY26 EPS 與 PE 情境</div>
+      <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+        <rect width="760" height="380" fill="transparent"/>
+        <!-- 三個目標價區間 -->
+        <rect x="80" y="60" width="640" height="64" fill="#2d5a3f" opacity="0.10"/>
+        <rect x="80" y="156" width="640" height="64" fill="#8a6d2e" opacity="0.10"/>
+        <rect x="80" y="252" width="640" height="64" fill="#b8351a" opacity="0.10"/>
+
+        <line x1="80" y1="60" x2="720" y2="60" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="124" x2="720" y2="124" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="156" x2="720" y2="156" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="220" x2="720" y2="220" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="252" x2="720" y2="252" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="316" x2="720" y2="316" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+
+        <!-- 區間標籤 -->
+        <text x="90" y="80" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#2d5a3f">Bull · 230~260 元</text>
+        <text x="220" y="80" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 25%</text>
+        <text x="90" y="176" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#8a6d2e">Base · 170~210 元</text>
+        <text x="220" y="176" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 50%</text>
+        <text x="90" y="272" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#b8351a">Bear · 130~160 元</text>
+        <text x="220" y="272" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 25%</text>
+
+        <!-- Y 軸刻度 -->
+        <g font-family="IBM Plex Mono" font-size="10" fill="#8a8f94">
+          <text x="72" y="63" text-anchor="end">260</text>
+          <text x="72" y="127" text-anchor="end">230</text>
+          <text x="72" y="159" text-anchor="end">210</text>
+          <text x="72" y="223" text-anchor="end">170</text>
+          <text x="72" y="255" text-anchor="end">160</text>
+          <text x="72" y="319" text-anchor="end">130</text>
+        </g>
+        <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+
+        <!-- 機率加權目標價 196 元 -->
+        <line x1="80" y1="184" x2="720" y2="184" stroke="#8a6d2e" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="725" y="187" font-family="IBM Plex Mono" font-size="11" font-weight="700" fill="#8a6d2e">196 weighted</text>
+
+        <!-- 當前股價 235 元（5/18 漲停） -->
+        <circle cx="720" cy="105" r="6" fill="#b8351a"/>
+        <circle cx="720" cy="105" r="11" fill="none" stroke="#b8351a" stroke-width="1.5" opacity="0.6"/>
+        <text x="545" y="100" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#b8351a">235 (current, 5/18)</text>
+        <line x1="510" y1="105" x2="710" y2="105" stroke="#b8351a" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- 標註：股價已高於加權合理價 -->
+        <line x1="640" y1="105" x2="640" y2="184" stroke="#b8351a" stroke-width="1" opacity="0.5"/>
+        <text x="648" y="148" font-family="IBM Plex Mono" font-size="10" fill="#b8351a" font-weight="700">+20% 高於加權</text>
+
+        <!-- X 軸 -->
+        <line x1="80" y1="340" x2="720" y2="340" stroke="#0f1419" stroke-width="1"/>
+        <text x="400" y="358" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">機率加權目標價計算結果 · As of 2026.05.18</text>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- SECTION V: INVESTMENT CONCLUSION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">投資結論</div>
+      <div class="section-kicker">Investment Thesis</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.1 核心多頭論點</div>
+    </div>
+
+    <div class="bulls">
+      <div class="bulls-title">三個最強的多頭點</div>
+      <ul class="bulls-list">
+        <li><strong>本業營業利益 FY25 +22.2% 是真實的</strong>：營業利益從 18.74 億 → 22.91 億，OPM 從 17.9% → 20.3% 雙位數提升，毛利率 30.8% → 32.0% 同步擴張，<strong>產品結構升級是事實</strong>，不是會計遊戲。FY24-FY25 累計 ROE 約 17%、營運 CF / NI = 110% 顯示獲利品質高。</li>
+        <li><strong>AI BBU + 車用雙引擎正在發生</strong>：2024-2026 應用結構中，AI/雲端從 3% 跳升至 26%（含一般資訊但 AI 部分佔 6%），<strong>產品線從消費電容轉向高階電容</strong>，毛利率體質持續改善。即使 BBU 故事不如預期，車用 36% 比重穩定支撐基本面。</li>
+        <li><strong>財務體質非常健康</strong>：利息保障倍數 52×、負債比僅 24%、自由現金流 12.32 億、現金及約當現金 43.42 億（佔總資產 24%），<strong>有充足彈藥可吸收泰國廠啟動損失與資本支出</strong>。配息率 40-50% 穩定，可成為保守投資人的「成長 + 穩定股利」標的。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.2 核心空頭風險</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">三個最該警惕的點</div>
+      <ul class="risks-list">
+        <li><strong>EPS 含 1.29 元一次性、市場可能 reframe 估值</strong>：FY25 EPS 8.73 的 +24.5% 成長主因是 4.12 億處分待出售非流動資產利益（一次性、不會重現）。<strong>剔除後乾淨 EPS 7.44 元、YoY 僅 +6.2%</strong>。若市場開始按乾淨 EPS 重新計算 PE（31.6× vs 公告 PE 26.9×），<strong>本益比修正壓力極大</strong>。Q2-Q3 2026 季報沒有一次性可灌，將顯露真實面貌。</li>
+        <li><strong>AI BBU 故事被過度搶跑 + GB300 反設計風險</strong>：2025/2 郭明錤指 NVIDIA 把超級電容從 GB300 NVL72 參考設計移除（後雖澄清 CSP 客製仍可用，但反設計信號已發出）。<strong>立隆電 BBU 預估貢獻 2026 營收僅 6%</strong>，與市場「大爆發」期待落差大。同期凱美 / 鈺邦 / 日電貿 / 華容 / 國巨基美都在搶單，<strong>競爭強度遠高於市場想像</strong>。</li>
+        <li><strong>泰國廠 EPS 貢獻時點落在 2027 後 + 2026 是「拖累期」</strong>：Tier-1 車廠 IATF / VDA 認證需 18-24 個月，2026Q4 量產 + 認證 = 真正營收貢獻在 2027H2 至 2028。<strong>Q1 2026 Lelon Thailand 已認列虧損 -8,746 仟元</strong>，預估 2026 全年泰國子公司虧損 3,000-5,000 萬。市場給「2026 即享紅利」過於樂觀。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.3 觀察指標清單（每月 / 每季追蹤）</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">關鍵指標儀表板</div>
+      <div class="action-row">
+        <div class="action-key">月營收 YoY</div>
+        <div>2026 前 4 月 +10.7% 是好的起點。<strong>若 5-9 月維持 ≥ 10% YoY 並出現加速到 15-20%，才支撐多頭情境</strong>；若回落至個位數，基本情境概率上升。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">毛利率（季 vs 季）</div>
+        <div>Q1 26 GM 30.0% 是低點。<strong>若 Q2-Q3 毛利率回升至 32-33%</strong>（與 FY25 Q2-Q4 同水準），代表漲價傳導 + 產品結構升級在發生；若持續 30% 以下，警示成本壓力。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">業外其他利益及損失</div>
+        <div>Q1 26 為 -57,103（兌換損失主導）。<strong>追蹤新台幣兌美元走勢與單季業外</strong>，避免再有像 Q2 25 -214,156 的大幅波動衝擊 EPS。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">立敦科技單獨績效</div>
+        <div>FY25 立敦科技獨立 NI 4.01 億（vs FY24 4.69 億）<strong>已下滑 -14.5%</strong>，需密切觀察 Q2 26 是否反彈。立敦衰退會拖累集團 ROE。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">中國子公司獲利</div>
+        <div>Q1 26 立隆惠州 +143M RMB 同期、立隆蘇州轉虧 -5M、蘇州科技 +63M。<strong>蘇州廠出現首次虧損是重要警訊</strong>，需確認原因。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">泰國廠進度</div>
+        <div>關注 (1) 2026/3 正式開幕新聞、(2) 是否有 Tier-1 客戶簽訂 LOI、(3) Q3 26 是否取得 IATF 16949 認證起步、(4) 2026Q4 量產時點是否如期。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">AI BBU 訂單與認證</div>
+        <div>關鍵新聞：(1) NVIDIA 是否更新參考設計、(2) 立隆電是否成為 Hyperscaler（Microsoft/Google/Meta/Amazon）的指名供應商、(3) 凱美/鈺邦的同類訂單揭露。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">同業 EPS 對標</div>
+        <div>凱美（2375）、鈺邦（6449）、華新科（2492）、國巨*（2327）的<strong>每季 EPS 與毛利率變化</strong>是觀察整體被動元件景氣的最佳代理變數。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.4 進場 / 出場條件</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">操作框架</div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--positive);">分批進場條件</div>
+        <div><strong>股價回落至 170-185 元（接近基本情境下緣）</strong>，且 Q2 26 月營收 YoY 維持 ≥ 10%、毛利率回升至 32%+，可開始建倉。<strong>若回落至 145-160 元（接近空頭情境）</strong>，則為更佳分批進場時機。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--negative);">分批出場條件</div>
+        <div><strong>股價突破 245 元且 PE 來到 30× 以上 + Q2-Q3 26 EPS 累積未達 5.0 元</strong>，建議減持。若 GB300 確認不用超級電容、或 Q2 月營收 YoY 回落至個位數，則應加速減倉。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--neutral);">持有觀望條件</div>
+        <div><strong>股價在 200-235 元區間</strong>，等待 (1) Q2 26 季報（8 月公告）揭露毛利率與業外、(2) AI BBU 訂單是否落地、(3) 泰國廠認證進度。<strong>當前 235 元（5/18 漲停）已較加權合理價溢價 20%，新進場性價比不佳</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">部位上限建議</div>
+        <div>單一個股不超過總投組 5%；考量立隆電的被動元件 beta 較高、AI 概念波動性大，<strong>建議 2-3% 為合理單持比例</strong>。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.5 與同業（鈺邦、國巨、凱美、華新科）的相對選擇邏輯</div>
+    </div>
+
+    <div class="chart-caption">表 10 · 立隆電 vs 同業相對比較</div>
+    <div class="chart-sub">Source: 各公司 Q4 25 季報 + statementdog / cnyes / vocus 公開估值</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">立隆電 2472</th><th class="right">鈺邦 6449</th><th class="right">凱美 2375</th><th class="right">華新科 2492</th><th class="right">國巨* 2327</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">FY25 EPS</td><td class="right">$8.73*</td><td class="right">$7.38</td><td class="right">N/A</td><td class="right">N/A</td><td class="right">N/A</td></tr>
+        <tr><td class="label">Q4 25 EPS</td><td class="right">$3.55*</td><td class="right">$2.57</td><td class="right">N/A</td><td class="right">$1.69</td><td class="right">$3.90</td></tr>
+        <tr><td class="label">當前 PE</td><td class="right neg">27.2× (TTM)</td><td class="right">22.3× (FY26)</td><td class="right">15-20×</td><td class="right">~15×</td><td class="right">30.6× (FY26)</td></tr>
+        <tr><td class="label">AI BBU 暴露度</td><td class="right">中（Tier 2）</td><td class="right">中（Tier 2）</td><td class="right">中（Tier 2）</td><td class="right">低</td><td class="right">中（透過 KEMET）</td></tr>
+        <tr><td class="label">車用比重</td><td class="right pos">36%</td><td class="right">~25-30%</td><td class="right">~20%</td><td class="right">~30%</td><td class="right pos">~40%</td></tr>
+        <tr><td class="label">垂直整合</td><td class="right">立敦鋁箔</td><td class="right">無</td><td class="right">無</td><td class="right">部分</td><td class="right pos">強</td></tr>
+        <tr><td class="label">財務體質</td><td class="right pos">優（負債比 24%）</td><td class="right">中</td><td class="right">中</td><td class="right">優</td><td class="right pos">優</td></tr>
+        <tr><td class="label">投資吸引力（自家評）</td><td class="right neu">中性偏空</td><td class="right pos">HOLD（等回檔）</td><td class="right">中性</td><td class="right pos">略偏多</td><td class="right pos">偏多（首選）</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-sub" style="margin-bottom:16px;">* 立隆電 FY25 EPS 含 1.29 一次性；乾淨 EPS 7.44；當前 PE 用 TTM 8.65 計算 27.2×</p>
+
+    <p class="body-text">
+      <strong>結論</strong>：在被動元件族群中，<strong>國巨*（基本面最穩、車用最強、垂直整合最深）</strong>仍是首選；<strong>鈺邦（NVLink 已驗證、固態電容純度高、估值相對合理）</strong>排名第二，但現價已接近加權目標、需等回檔；<strong>禾伸堂</strong>基本面最具 AI 純度但漲停後估值嚴重透支；<strong>立隆電目前估值已偏高、需等待回檔</strong>。<strong>華新科則為「穩定殖利率 + 車用敘事」的中性持有</strong>。
+    </p>
+
+  </section>
+
+  <!-- FINAL CALLOUT -->
+  <div class="final-callout">
+    <div class="final-callout-text">
+      立隆電是一家<strong>本業健康、產品結構升級正在發生</strong>的公司，但 <strong>FY25 EPS 8.73 含一次性 1.29 元（佔 EPS 的 14.8%）</strong>，<strong>市場以 27.2× TTM 本益比定價、隱含對 AI BBU + 車用 + 泰國廠的完美執行預期</strong>。Q1 2026 EPS 1.60 並非衰退，而是去除一次性後的「真實水準」。在 235 元（5/18 漲停）的當前股價，<strong>機率加權合理價僅 196 元、下行至 160 元有 32% 跌幅、上行至 245 元僅 4% 漲幅，風險報酬比 1 : 0.1 不利做多</strong>。<strong>評等：中性偏空（NEUTRAL，下行偏多）</strong>，建議分批減持至 2-3% 部位；等待 Q2-Q3 2026 季報揭露毛利率、業外、與 BBU 訂單落地後，<strong>若回落至 170-185 元再行加碼</strong>，可享受 17-25% 上行空間。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      <strong>主要資料來源 / Sources：</strong>
+    </p>
+    <p>
+      <strong>一手財報</strong>：立隆電 (2472) 2025 Q1-Q4 + 2026 Q1 合併財務報告 (AI1)、FY25 個體財報 (AI3)，公開資訊觀測站 https://mops.twse.com.tw 2026/03/13 & 2026/05/13 上傳<br>
+      <strong>產業與市場新聞</strong>：vocus 七仔財經、CMoney 投資網誌、豐雲學堂、TechNews 科技新報、UAnalyze、商業周刊、聯合新聞網、FTNN 新聞網、鉅亨網（cnyes）、Yahoo 股市、玩股網（wantgoo）、財報狗（statementdog）、Win 投資（winvest）、Anue 鉅亨網等公開報導<br>
+      <strong>分析師觀點</strong>：郭明錤 2025/2/13、2025/2/19 關於 NVIDIA GB300 超級電容議題之公開分析<br>
+      <strong>同業財報</strong>：鈺邦 (6449)、凱美 (2375)、華新科 (2492)、國巨* (2327) 之 Q4 2025 季報摘要與股利公告
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>分析師聲明 / Disclaimer：</strong>本報告所有數字皆來自上述公開財報與市場新聞，分析師判斷與情境設定為個人意見。報告中區分「事實」（直接引自財報或公告）與「推論」（基於事實的分析判斷）。FY25 一次性 1.29 元 EPS 是基於 FY25 合併現金流量表「處分待出售非流動資產利益 411,925」之公開揭露，運用 FY25 平均稅率 28.4% 與 NCI 比例 28.4% 推算後得出。投資人應自行判斷並承擔風險。本報告不構成具體投資建議。
+    </p>
+    <p style="margin-top: 12px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted);">
+      © SECOND-LEVEL RESEARCH · 2026 · Doc: 2472-TW-DEEPDIVE-20260518-V1 · Confidential
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國巨* (2327) 深度研究報告 | 2026.05.18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5; --bg-card: #ffffff; --ink: #0f1419; --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94; --rule: #d8d4cd; --accent: #b8351a; --accent-dark: #8a2814;
+  --positive: #2d5a3f; --negative: #b8351a; --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0; --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 880px; margin: 0 auto; background: var(--bg-card); padding: 60px 70px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.report-meta { display: grid; grid-template-columns: 1fr auto; gap: 40px; margin-bottom: 40px; align-items: end; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 22px; color: var(--ink-muted); font-weight: 500; margin-left: 12px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 18px; font-style: italic; color: var(--ink-secondary); margin-top: 12px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; padding: 0; margin-bottom: 36px; overflow: hidden; }
+.rating-cell { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.rating-value.positive { color: #92cca5; } .rating-value.neutral { color: #e6c870; } .rating-value.negative { color: #ff8a6e; }
+.rating-value .unit { font-size: 12px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.revision-note { background: #fff4e6; border-left: 4px solid var(--accent); padding: 18px 24px; margin-bottom: 30px; font-size: 13px; line-height: 1.75; color: var(--ink); }
+.revision-note strong { color: var(--accent); }
+.exec-summary { background: var(--highlight-bg); padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid var(--accent); position: relative; }
+.exec-summary::before { content: "執行摘要"; position: absolute; top: -10px; left: 20px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.exec-summary p { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+.exec-summary .lede { font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+.thesis-card { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.thesis-card:last-child { border-right: none; }
+.thesis-num { font-family: 'Playfair Display',serif; font-size: 48px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 10px; }
+.thesis-title { font-family: 'Noto Serif TC',serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.thesis-desc { font-size: 12px; color: var(--ink-secondary); line-height: 1.6; }
+.section { margin-bottom: 44px; }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 32px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink-muted); text-transform: uppercase; }
+.subsection { margin-top: 28px; margin-bottom: 18px; }
+.subsection-title { font-family: 'Noto Serif TC',serif; font-size: 16px; font-weight: 700; color: var(--ink); padding-bottom: 6px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.lead-para { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 18px; font-weight: 500; }
+.body-text { font-size: 14px; line-height: 1.85; margin-bottom: 16px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 22px 0; }
+.stat-cell { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); } .stat-value.neg { color: var(--negative); } .stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 11px; color: var(--ink-secondary); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); } .stat-sub.neg { color: var(--negative); }
+.chart-caption { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 16px; margin-bottom: 4px; letter-spacing: 0.5px; }
+.chart-sub { font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted); margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+.data-table th { background: var(--ink); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; } .data-table th.center { text-align: center; }
+.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 16px 22px; margin: 18px 0; position: relative; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.callout-body { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.callout.bear { background: #fdf2ee; border-left-color: var(--accent); }
+.callout.bear .callout-label { color: var(--accent); }
+.callout.bull { background: #f3f9f5; border-left-color: var(--positive); }
+.callout.bull .callout-label { color: var(--positive); }
+.dual-think { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.dual-think-card { padding: 18px 22px; border: 1px solid var(--rule); }
+.dual-think-card.first { background: #f9f7f2; }
+.dual-think-card.second { background: #f0ede4; border-left: 3px solid var(--accent); }
+.dual-think-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.first .dual-think-label { color: var(--ink-muted); }
+.second .dual-think-label { color: var(--accent); }
+.dual-think-body { font-size: 12.5px; line-height: 1.7; color: var(--ink); }
+.dual-think-body strong { color: var(--accent); }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 24px 0; border: 1px solid var(--rule); }
+.scenario { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 4px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 4px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 4px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.scenario-desc { font-size: 12px; line-height: 1.7; color: var(--ink-secondary); }
+.action-matrix { background: #faf6ef; padding: 18px 24px; margin: 20px 0; border: 1px solid var(--rule); }
+.action-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.action-row { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 8px 0; font-size: 12.5px; line-height: 1.7; border-bottom: 1px solid rgba(216,212,205,0.5); }
+.action-row:last-child { border-bottom: none; }
+.action-key { font-weight: 600; color: var(--accent); }
+.risks { background: #fdf2ee; border-left: 4px solid var(--accent); padding: 18px 22px; margin: 20px 0; }
+.risks-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.5px; }
+.risks-list { list-style: none; padding: 0; }
+.risks-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.risks-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--accent); font-weight: 700; }
+.bulls { background: #f3f9f5; border-left: 4px solid var(--positive); padding: 18px 22px; margin: 20px 0; }
+.bulls-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--positive); margin-bottom: 10px; letter-spacing: 0.5px; }
+.bulls-list { list-style: none; padding: 0; }
+.bulls-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.bulls-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--positive); font-weight: 700; }
+.final-callout { background: var(--pullquote-bg); color: white; padding: 36px 40px; margin: 44px 0 20px; position: relative; }
+.final-callout::before { content: "FINAL TAKE"; position: absolute; top: -10px; left: 24px; background: var(--accent); color: white; padding: 4px 14px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.final-callout-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.85; }
+.final-callout-text strong { color: #e8a87c; }
+.footer { border-top: 2px solid var(--ink); padding-top: 24px; margin-top: 40px; font-size: 10.5px; color: var(--ink-secondary); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+.source-tag { display: inline-block; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); background: #f0ede4; padding: 1px 6px; border-radius: 2px; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Passive Components</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">2327-TW · DEEP DIVE</div>
+      <div>2026.05.18</div>
+      <div>Deep-Dive · Issue 1.0</div>
+    </div>
+  </header>
+
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">電子零組件 · 全方位被動元件 / KEMET / 芝浦電子 / AI 平台</div>
+      <h1 class="company-title">國巨*<span class="ticker">2327.TW</span></h1>
+      <div class="report-subtitle">全球唯一電阻、電容、電感全面領先的被動元件平台 · 漲停後估值已反映、戰術性等回檔</div>
+    </div>
+  </div>
+
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value neutral">HOLD</div>
+      <div class="rating-sub">(漲停透支 · 等回檔)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">501<span class="unit">TWD</span></div>
+      <div class="rating-sub">▲ +45.5 (+9.99%) · 2026.05.18 漲停</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value Range</div>
+      <div class="rating-value">308–630<span class="unit">TWD</span></div>
+      <div class="rating-sub">機率加權 512 元</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Risk / Reward</div>
+      <div class="rating-value negative">1 : 0.7</div>
+      <div class="rating-sub">下行較深 · 漲停透支</div>
+    </div>
+  </div>
+
+    <!-- 90-DAY DAILY PRICE TREND CHART (REAL DATA) -->
+  <div class="price-chart-container" style="margin: 0 0 30px 0;">
+    <div class="chart-caption">圖 0 · 近 20 個交易日每日股價 × 三層情境目標價區間</div>
+    <div class="chart-sub">2026/04/20 – 2026/05/18 · 今日收 501 元 (+9.99%) · 漲停 · 突破 Base 上緣 510 在即 · 4/15 法說後連續上行 · 機率加權目標 512 元 · 資料來源：聚財網 stock.wearn.com/cdata + 鉅亨網歷史行情</div>
+    <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+      <rect width="800" height="380" fill="transparent"/>
+      <rect x="80" y="71.8" width="640" height="34.8" fill="#2d5a3f" opacity="0.10"/>
+      <rect x="80" y="155.2" width="640" height="34.8" fill="#8a6d2e" opacity="0.10"/>
+      <rect x="80" y="273.4" width="640" height="34.8" fill="#b8351a" opacity="0.10"/>
+      <line x1="80" y1="71.8" x2="720" y2="71.8" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="106.6" x2="720" y2="106.6" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="155.2" x2="720" y2="155.2" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="190.0" x2="720" y2="190.0" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="273.4" x2="720" y2="273.4" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="308.2" x2="720" y2="308.2" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <text x="90" y="86.8" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#2d5a3f">Bull · 580-630 元</text>
+      <text x="230" y="86.8" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 40%</text>
+      <text x="90" y="170.2" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#8a6d2e">Base · 460-510 元</text>
+      <text x="230" y="170.2" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 45%</text>
+      <text x="90" y="288.4" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#b8351a">Bear · 290-340 元</text>
+      <text x="230" y="288.4" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 15%</text>
+      <text x="74" y="74.8" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">630</text>
+      <text x="74" y="109.6" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">580</text>
+      <text x="74" y="158.2" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">510</text>
+      <text x="74" y="193.0" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">460</text>
+      <text x="74" y="276.4" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">340</text>
+      <text x="74" y="311.2" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">290</text>
+      <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+      <line x1="80" y1="153.9" x2="720" y2="153.9" stroke="#8a6d2e" stroke-width="1.2" stroke-dasharray="5,3"/>
+      <text x="725" y="156.9" font-family="IBM Plex Mono" font-size="10" font-weight="700" fill="#8a6d2e">512 加權</text>
+      <path d="M 80.0,287.7 L 113.7,285.2 L 147.4,290.5 L 181.1,304.7 L 214.7,303.3 L 248.4,297.8 L 282.1,282.8 L 315.8,285.9 L 349.5,289.4 L 383.2,271.7 L 416.8,267.5 L 450.5,274.8 L 484.2,251.5 L 517.9,239.4 L 551.6,237.6 L 585.3,218.2 L 618.9,217.8 L 652.6,188.6 L 686.3,193.1 L 720.0,161.5" fill="none" stroke="#0f1419" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <g fill="#0f1419" opacity="0.65">
+        <circle cx="80.0" cy="287.7" r="1.6"/>
+        <circle cx="113.7" cy="285.2" r="1.6"/>
+        <circle cx="147.4" cy="290.5" r="1.6"/>
+        <circle cx="181.1" cy="304.7" r="1.6"/>
+        <circle cx="214.7" cy="303.3" r="1.6"/>
+        <circle cx="248.4" cy="297.8" r="1.6"/>
+        <circle cx="282.1" cy="282.8" r="1.6"/>
+        <circle cx="315.8" cy="285.9" r="1.6"/>
+        <circle cx="349.5" cy="289.4" r="1.6"/>
+        <circle cx="383.2" cy="271.7" r="1.6"/>
+        <circle cx="416.8" cy="267.5" r="1.6"/>
+        <circle cx="450.5" cy="274.8" r="1.6"/>
+        <circle cx="484.2" cy="251.5" r="1.6"/>
+        <circle cx="517.9" cy="239.4" r="1.6"/>
+        <circle cx="551.6" cy="237.6" r="1.6"/>
+        <circle cx="585.3" cy="218.2" r="1.6"/>
+        <circle cx="618.9" cy="217.8" r="1.6"/>
+        <circle cx="652.6" cy="188.6" r="1.6"/>
+        <circle cx="686.3" cy="193.1" r="1.6"/>
+      </g>
+      <circle cx="720.0" cy="161.5" r="5" fill="#2d5a3f"/>
+      <circle cx="720.0" cy="161.5" r="10" fill="none" stroke="#2d5a3f" stroke-width="1.2" opacity="0.6"/>
+      <text x="620.0" y="165.5" text-anchor="end" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#2d5a3f">501.0</text>
+      <text x="620.0" y="179.5" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f">▲ +45.5 (+9.99%)</text>
+      <line x1="80" y1="320" x2="720" y2="320" stroke="#0f1419" stroke-width="1"/>
+      <text x="80.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/20</text>
+      <text x="214.7" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/24</text>
+      <text x="349.5" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/30</text>
+      <text x="484.2" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/07</text>
+      <text x="618.9" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/13</text>
+      <text x="720.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/18</text>
+      <text x="400.0" y="354" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">20 trading days · Source: stock.wearn.com/cdata?kind=2327 + cnyes.com 歷史行情</text>
+    </svg>
+  </div>
+
+  <div class="revision-note">
+    <strong>研究重點：</strong>國巨是<strong>「被動元件全球平台型領導者」</strong> — 電阻、電容、電感、感測器、電路保護、無線元件全面佈局。本報告主要結論：<strong>(1) FY25 EPS 11.51 元（post-split, +20.8% YoY）+ 營收 1,329.30 億 (+9.26%) 創歷史新高、毛利率 36.2%、OPM 22.4% 雙雙擴張</strong>；<strong>(2) Q1 2026 一手季報：營收 381.66 億 (+22.7% YoY)、毛利率 38.1% 創新高、營業利益 +48.7%、EPS 3.90 元 (+45.0% YoY) — 比 FY25 全年 EPS 增速 (+20.8%) 大幅加速</strong>；<strong>(3) Q1 26 產品線：感測器 +65.0%（芝浦電子整合效果）、鉭質電容 +34.1%（AI 機櫃需求）是亮點</strong>；<strong>(4) AI 應用 FY25Q4 已佔營收 13%、是被動元件族群中最先量化 AI 暴露的公司</strong>；<strong>(5) PE 43.5× FY25 / 30.6× FY26 共識 16.36，5/18 漲停後估值已偏高（仍介於禾伸堂 40× 與華新科 15× 之間）+ 殖利率 4.76%</strong>。
+  </div>
+
+  <div class="exec-summary">
+    <p class="lede">國巨是<strong>「全球被動元件平台型首選」</strong>—— 透過 KEMET（鉭質電容全球第一 46% 市占）+ 普思（磁性）+ 奇力新（電感）+ Nexensos/Telemecanique/芝浦電子（感測器）的整併，已成為唯一同時在電阻、電容、電感三大領域全面領先的全球平台。FY25-FY26 是「整合綜效 + AI 結構性需求」雙重利好兌現的關鍵期。</p>
+    <p>七個關鍵發現：第一，<strong>FY25 營收 1,329.30 億（+9.26% YoY）、毛利率 36.2%（FY24 34.4%, +1.8pp）、OPM 22.4%（FY24 19.2%, +3.2pp）、EPS 11.51 (+20.8%)</strong>，本業擴張領先營收增速；第二，<strong>Q1 2026 加速：營收 +22.7%、GM 38.1% 創新高、OPM 25.2%、EPS 3.90 (+45.0% YoY)</strong>，本業營業利益 +48.7%，加速度遠優於 FY25；第三，<strong>Q1 26 感測器營收 +65.0%、佔比從 9.6% 跳升至 13.0%</strong>，反映芝浦電子（2025/10 完成 TOB）整合效應；<strong>鉭質電容 +34.1%</strong>（KEMET 高階產品，AI/車用/航太/醫療）；第四，<strong>產品 Mix 多元化降低單一產品風險</strong>：磁性 25%、鉭質 24%、MLCC 17%、感測器 13%、電阻 12%、其他 8%；第五，<strong>AI 應用 FY25Q4 已佔營收 13%、是被動元件族群中量化最明確</strong>；第六，<strong>5/18 漲停後 PE 30.6× FY26 共識 16.36 已偏高</strong>（vs 禾伸堂 44.4× / 鈺邦 22.3× / 立隆電 27.2× TTM），<strong>殖利率 4.76%（配息 23.83 元估）仍是其他標的 2-3 倍</strong>；第七，<strong>商譽 789.74 億（佔權益 47%）是併購累積的潛在減值風險，需密切追蹤芝浦電子整合進度</strong>。Fair Value 區間 308-630 元，機率加權 512 元。<strong>當前 501 元（5/18 漲停）已逼近加權目標 512（僅 +2.2%）、上行至 630 元 +25.7%、下行至 308 元 -38.5%，Risk/Reward 約 1:0.7、漲停後上行已透支</strong>。</p>
+  </div>
+
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">Q1 26 毛利率 38.1% 創新高</div>
+      <div class="thesis-desc">營收 +22.7% 同時 GM 38.1%、OPM 25.2% 雙創新高（vs FY25 36.2%/22.4%）。EPS 3.90 (+45.0% YoY)、營業利益 +48.7%。本業擴張加速度大於 FY25 全年，整合綜效逐步釋放。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">感測器 +65%、鉭質 +34%</div>
+      <div class="thesis-desc">Q1 26 感測器（芝浦電子貢獻）+65%、鉭質電容（KEMET，AI / 車用 / 航太）+34%。產品 Mix 朝高階利基轉型，6 大產品線分散風險。AI 佔營收 13%，量化最明確。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">漲停後估值已偏高</div>
+      <div class="thesis-desc">5/18 漲停後 PE 30.6× FY26 共識 16.36（已偏高）+ 殖利率 4.76%（FY25 配息 23.83 估）仍是其他 AI 標的 2-3 倍。商譽 789.74 億（47%權益）是長尾風險、需追蹤芝浦整合。</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">公司基本面盤點</div>
+      <div class="section-kicker">Business · Platform · Financials</div>
+    </div>
+    <p class="lead-para">
+      國巨股份有限公司（2327.TW）為全球唯一同時在電阻、電容、電感三大被動元件領域擁有領先地位的電子零組件平台型公司。董事長為陳泰銘（國巨集團創辦人）、執行長兼總經理為王淡如。FY25 合併營收 1,329.30 億創歷史新高，員工數 31,156 人（115Q1 增至 32,007 人）。透過長達 20 年的全球併購（KEMET、普思、奇力新、Nexensos、Telemecanique、芝浦電子），已轉型為「全方位高階零組件解決方案平台」。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.1 集團平台架構：六大產品線 + 多次併購整合</div>
+    </div>
+
+    <div class="chart-caption">表 1 · 集團主要併購與產品線（含 FY25 整合進度）</div>
+    <div class="chart-sub">Source: 國巨 FY25 年報 + 公開新聞報導整理</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>事業群</th><th class="right">主要併購來源</th><th class="right">市場定位</th><th class="right">FY25 整合進度</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">鉭質電容</td><td class="right">KEMET（基美，2020 併購）</td><td class="right pos">全球第一 46% 市占</td><td class="right pos">高階 AI / 車用 / 航太 / 醫療放量</td></tr>
+        <tr><td class="label">MLCC（積層陶瓷電容）</td><td class="right">本業 + Pulse / 奇力新整合</td><td class="right">與 Murata、SEMCO、Taiyo Yuden 競爭</td><td class="right">高階 NPO / X7R 持續擴產</td></tr>
+        <tr><td class="label">晶片電阻</td><td class="right">本業</td><td class="right pos">世界最大製造廠商</td><td class="right">穩健獲利</td></tr>
+        <tr><td class="label">磁性元件 / 電感</td><td class="right">普思（Pulse，2019）+ 奇力新（2018）</td><td class="right">5G / EV / 雲端 / 網通</td><td class="right">已完成整合、5G 應用放量</td></tr>
+        <tr><td class="label pos">感測器（NEW）</td><td class="right pos">Nexensos + Telemecanique + 芝浦電子（2025/10 完成 TOB）</td><td class="right pos">芝浦 NTC 13.5% 全球市占</td><td class="right pos">Q1 26 整合初期已 +65% YoY</td></tr>
+        <tr><td class="label">電路保護 / 無線元件</td><td class="right">普思 + 部分內生</td><td class="right">利基產品</td><td class="right">穩健</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout bull">
+      <div class="callout-label">關鍵 · 國巨 vs 其他被動元件廠的核心差異</div>
+      <div class="callout-body">
+        <strong>國巨是「平台型公司」</strong>，可以為客戶提供電阻 + 電容 + 電感 + 感測器的「一站購足」服務。這在 AI 伺服器、車用、工業、航太等高階應用中是<strong>「規模優勢 + 交叉銷售」的護城河</strong>，其他被動元件廠（如禾伸堂 / 立隆電 / 鈺邦）只能提供單一產品線。<strong>客戶不需要管理多個供應商，採購效率高、信賴度高</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.2 FY25 全年財務表現</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營收</div>
+        <div class="stat-value pos">+9.26<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">1,216.67 → 1,329.30 億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 毛利率</div>
+        <div class="stat-value pos">36.2<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">FY24: 34.4% (+1.8pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營業利益率</div>
+        <div class="stat-value pos">22.4<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">FY24: 19.2% (+3.2pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 EPS</div>
+        <div class="stat-value pos">$11.51</div>
+        <div class="stat-sub pos">YoY +20.8% (post-split)</div>
+      </div>
+    </div>
+
+    <div class="chart-caption">表 2 · FY25 合併損益表 vs FY24（單位：千元，post-split EPS）</div>
+    <div class="chart-sub">Source: 國巨 FY25 年報「兩年度財務績效比較分析」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>科目</th><th class="right">FY25</th><th class="right">FY24</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入</td><td class="right">132,930,016</td><td class="right">121,667,329</td><td class="right pos">+9.26%</td></tr>
+        <tr class="highlight"><td class="label">營業毛利</td><td class="right">48,129,822</td><td class="right">41,803,489</td><td class="right pos">+15.13%</td></tr>
+        <tr class="highlight"><td class="label">營業淨利</td><td class="right">29,800,660</td><td class="right">23,385,531</td><td class="right pos">+27.43%</td></tr>
+        <tr><td class="label">業外收入及支出</td><td class="right">1,318,991</td><td class="right">3,477,819</td><td class="right neg">-62.07%</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">31,119,651</td><td class="right">26,863,350</td><td class="right pos">+15.84%</td></tr>
+        <tr><td class="label">本期淨利</td><td class="right">23,776,807</td><td class="right">19,486,631</td><td class="right pos">+22.02%</td></tr>
+        <tr><td class="label">歸屬母公司業主</td><td class="right">23,634,229</td><td class="right">19,356,484</td><td class="right pos">+22.10%</td></tr>
+        <tr class="total"><td class="label">EPS（元，post-split）</td><td class="right">$11.51</td><td class="right">~$9.53</td><td class="right pos">+20.8%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">第二層 · 業外大幅減少 -62% 的原因</div>
+      <div class="callout-body">
+        FY25 業外從 +34.78 億 (FY24) 降至 +13.19 億 (FY25)，主要因 FY25 兌換損失增加（美元貶值）。<strong>若 FY26 美元穩定或回升，業外將是 EPS 的潛在驅動力</strong>。本業營業利益 +27.4% 與 EPS +20.8% 的落差約 6.6pp 主要來自業外逆風。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.3 Q1 2026 一手季報：本業加速</div>
+    </div>
+
+    <div class="chart-caption">表 3 · Q1 2026 合併損益 vs Q1 2025（一手數據，單位：千元）</div>
+    <div class="chart-sub">Source: 國巨 Q1 2026 合併綜合損益表 · 公開資訊觀測站 2026 上傳</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">Q1 2026</th><th class="right">Q1 2025</th><th class="right">YoY</th><th class="center">Q1 26 佔比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入</td><td class="right">38,165,648</td><td class="right">31,103,695</td><td class="right pos">+22.7%</td><td class="center">100.0%</td></tr>
+        <tr><td class="label">營業成本</td><td class="right">(23,623,833)</td><td class="right">(20,017,762)</td><td class="right">+18.0%</td><td class="center">61.9%</td></tr>
+        <tr class="highlight"><td class="label">營業毛利</td><td class="right">14,541,815</td><td class="right">11,085,933</td><td class="right pos">+31.2%</td><td class="center pos">38.1%</td></tr>
+        <tr><td class="label">行銷費用</td><td class="right">(2,176,080)</td><td class="right">(1,944,144)</td><td class="right">+11.9%</td><td class="center">5.7%</td></tr>
+        <tr><td class="label">管理費用</td><td class="right">(1,908,789)</td><td class="right">(1,836,023)</td><td class="right">+4.0%</td><td class="center">5.0%</td></tr>
+        <tr><td class="label">研發費用</td><td class="right">(893,959)</td><td class="right">(864,802)</td><td class="right">+3.4%</td><td class="center">2.3%</td></tr>
+        <tr><td class="label">預期信用減損迴轉利益</td><td class="right pos">49,923</td><td class="right pos">22,131</td><td class="right pos">+125.6%</td><td class="center">0.1%</td></tr>
+        <tr class="highlight"><td class="label">營業淨利</td><td class="right">9,612,910</td><td class="right">6,463,095</td><td class="right pos">+48.7%</td><td class="center pos">25.2%</td></tr>
+        <tr><td class="label">財務成本</td><td class="right neg">(680,857)</td><td class="right neg">(672,465)</td><td class="right">+1.2%</td><td class="center">-1.8%</td></tr>
+        <tr><td class="label">採用權益法損益份額</td><td class="right">181,035</td><td class="right">117,305</td><td class="right pos">+54.3%</td><td class="center">0.5%</td></tr>
+        <tr><td class="label">利息收入</td><td class="right">983,839</td><td class="right">1,205,639</td><td class="right neg">-18.4%</td><td class="center">2.6%</td></tr>
+        <tr><td class="label">FVPL 金融商品淨利益</td><td class="right pos">323,589</td><td class="right pos">156,758</td><td class="right pos">+106.4%</td><td class="center">0.8%</td></tr>
+        <tr><td class="label">其他利益及損失</td><td class="right neg">(105,945)</td><td class="right neg">(106,884)</td><td class="right">基本持平</td><td class="center">-0.3%</td></tr>
+        <tr class="highlight"><td class="label">業外合計</td><td class="right pos">711,779</td><td class="right pos">710,097</td><td class="right">基本持平</td><td class="center">1.9%</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">10,324,689</td><td class="right">7,173,192</td><td class="right pos">+43.9%</td><td class="center">27.1%</td></tr>
+        <tr><td class="label">所得稅費用</td><td class="right">(2,287,159)</td><td class="right">(1,610,212)</td><td class="right neg">+42.0%</td><td class="center">-6.0%</td></tr>
+        <tr class="total"><td class="label">本期淨利</td><td class="right">8,037,530</td><td class="right">5,562,980</td><td class="right pos">+44.5%</td><td class="center">21.1%</td></tr>
+        <tr><td class="label">歸屬母公司業主</td><td class="right">8,000,823</td><td class="right">5,529,604</td><td class="right pos">+44.7%</td><td class="center">21.0%</td></tr>
+        <tr class="total"><td class="label">基本 EPS（元）</td><td class="right pos">$3.90</td><td class="right">$2.69</td><td class="right pos">+45.0%</td><td class="center">—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout bull">
+      <div class="callout-label">Q1 2026 四個結構性訊號</div>
+      <div class="callout-body">
+        <strong>(1) 毛利率 38.1% 創歷史新高</strong>：超越 FY25 全年 36.2% (+1.9pp)、超越 Q1 25 35.6% (+2.5pp)。
+        <strong>(2) 營業利益率 25.2%</strong>：超越 FY25 22.4% (+2.8pp)，<strong>OPM 季增表現為被動元件族群最強</strong>。
+        <strong>(3) 業外基本持平於 +7.12 億（vs FY25 全年 +13.19 億）</strong>：匯損逆風 Q1 暫時不再惡化，是好消息。
+        <strong>(4) 營業費用控管出色</strong>：管理費用 +4%、研發 +3.4%（vs 營收 +22.7%），規模經濟效應顯著釋放。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.4 產品線結構：Q1 26 vs Q1 25</div>
+    </div>
+
+    <div class="chart-caption">表 4 · Q1 2026 vs Q1 2025 產品營收（一手數據）</div>
+    <div class="chart-sub">Source: 國巨 Q1 2026 季報附註三六（部門資訊）</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>產品線</th><th class="right">Q1 26 金額</th><th class="right">Q1 26 佔比</th><th class="right">Q1 25 金額</th><th class="right">Q1 25 佔比</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">磁性元件（普思 + 奇力新）</td><td class="right">9,623,592</td><td class="right">25.2%</td><td class="right">8,317,145</td><td class="right">26.7%</td><td class="right pos">+15.7%</td></tr>
+        <tr class="highlight"><td class="label pos">鉭質電容（KEMET）</td><td class="right pos">9,272,594</td><td class="right pos">24.3%</td><td class="right">6,912,293</td><td class="right">22.2%</td><td class="right pos">+34.1%</td></tr>
+        <tr><td class="label">積層陶瓷電容 MLCC</td><td class="right">6,659,391</td><td class="right">17.4%</td><td class="right">6,081,899</td><td class="right">19.6%</td><td class="right pos">+9.5%</td></tr>
+        <tr class="highlight"><td class="label pos">感測器（芝浦+Nexensos+Telemecanique）</td><td class="right pos">4,950,290</td><td class="right pos">13.0%</td><td class="right">2,999,933</td><td class="right">9.6%</td><td class="right pos">+65.0%</td></tr>
+        <tr><td class="label">電阻器</td><td class="right">4,619,506</td><td class="right">12.1%</td><td class="right">4,439,441</td><td class="right">14.3%</td><td class="right pos">+4.1%</td></tr>
+        <tr><td class="label">其他</td><td class="right">3,040,275</td><td class="right">8.0%</td><td class="right">2,352,984</td><td class="right">7.6%</td><td class="right pos">+29.2%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">38,165,648</td><td class="right">100.0%</td><td class="right">31,103,695</td><td class="right">100.0%</td><td class="right pos">+22.7%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：感測器 +65% YoY 是<strong>芝浦電子（2025/10 完成 TOB）整合的第一個季度成果</strong>，佔比從 9.6% 跳升至 13.0%。<strong>鉭質電容 +34.1%</strong> 來自 KEMET 高階產品（AI 機櫃 / 車用 / 軍規 / 航太）需求強勁；MLCC、電阻、磁性元件相對溫和（+4-16%）但都正成長。<strong>產品結構正朝「高階感測器 + 高階鉭電容」傾斜</strong>，平均毛利率改善的原因。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.5 地區分布（FY25 全年）</div>
+    </div>
+
+    <table class="data-table">
+      <thead>
+        <tr><th>地區</th><th class="right">FY25</th><th class="right">FY24</th><th class="right">FY23</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">美洲地區</td><td class="right">29%</td><td class="right">26%</td><td class="right">24%</td></tr>
+        <tr><td class="label">大中華地區</td><td class="right">26%</td><td class="right">25%</td><td class="right">23%</td></tr>
+        <tr><td class="label">亞太其他地區</td><td class="right">24%</td><td class="right">29%</td><td class="right">29%</td></tr>
+        <tr><td class="label">歐洲地區</td><td class="right">21%</td><td class="right">20%</td><td class="right">24%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>觀察</strong>：地區分布相當均衡（每個地區 21-29%），無地區集中風險。<strong>美洲佔比從 FY23 24% 上升至 FY25 29%</strong>，反映 AI 客戶（NVIDIA / hyperscalers）拉貨增加。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.6 資產負債表與商譽風險</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 資產總額</div>
+        <div class="stat-value pos">4,016.9億</div>
+        <div class="stat-sub pos">FY25 末: 3,907.9 億 (+2.8%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 商譽</div>
+        <div class="stat-value neg">789.74億</div>
+        <div class="stat-sub neg">佔權益 47% (併購累積)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 母公司業主權益</div>
+        <div class="stat-value pos">1,668.71億</div>
+        <div class="stat-sub pos">BVPS $80.49</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 ROE</div>
+        <div class="stat-value pos">14.13<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">穩定獲利能力</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>第二層觀察 · 商譽風險</strong>：Q1 26 末商譽 789.74 億，佔母公司權益 47%，這是國巨多年來透過 KEMET、Pulse、奇力新、Nexensos、Telemecanique、芝浦電子等併購累積。商譽本身不會在資產負債表上攤銷，但<strong>若被併購事業績效不如預期，可能需要進行 impairment test 並認列損失</strong>。FY25-Q1 26 商譽僅因匯率變動微幅增加，<strong>無減值跡象，但 789.74 億的存量是長尾風險，需追蹤每年度減損測試結果</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.7 股利政策（post-split 已調整）</div>
+    </div>
+
+    <p class="body-text">
+      國巨股利政策穩定，<strong>FY24 配息（已派發）每股約 19.84 元、FY25 配息（提議）約 23.83 元（post-split）</strong>，配息率約 50-55%。當前股價 NT$ 501（5/18 漲停）計算，殖利率 4.76%。<strong>這仍是被動元件 AI 標的中殖利率最高的</strong>（vs 鈺邦 1.75%、禾伸堂 1.76%、立隆電 1.5%）。
+    </p>
+
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">產業定位與競爭格局</div>
+      <div class="section-kicker">Industry · Competition</div>
+    </div>
+
+    <p class="lead-para">
+      國巨是全球被動元件產業的「平台型 Tier 1」。在電阻（世界第一）、鉭質電容（世界第一 46% 市占）、磁性元件（全球領先）三大領域都是龍頭，MLCC 與感測器則是次階追趕者。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">2.1 與日系與台廠同業比較</div>
+    </div>
+
+    <div class="chart-caption">表 5 · 國巨 vs 主要被動元件競爭者</div>
+    <div class="chart-sub">Source: 國巨 FY25 年報「市場分析」+ 公開資料</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>產品類別</th><th class="right">國巨地位</th><th class="right">主要競爭者</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">鉭質電容</td><td class="right pos">世界第一 (46%)</td><td class="right">AVX (Kyocera), Vishay, Panasonic</td></tr>
+        <tr><td class="label">晶片電阻</td><td class="right pos">世界最大</td><td class="right">KOA, Rohm, Vishay</td></tr>
+        <tr><td class="label">磁性元件 / 電感</td><td class="right pos">前 3 大</td><td class="right">TDK, Murata, Taiyo Yuden, Bel Fuse</td></tr>
+        <tr><td class="label">MLCC</td><td class="right">前 5 大</td><td class="right">Murata, SEMCO, Taiyo Yuden, TDK</td></tr>
+        <tr><td class="label">NTC 熱敏電阻</td><td class="right pos">芝浦電子 13.5%</td><td class="right">TDK-EPCOS, Vishay</td></tr>
+        <tr><td class="label">高階感測器</td><td class="right">Nexensos / Telemecanique 利基</td><td class="right">Honeywell, Pepperl+Fuchs</td></tr>
+      </tbody>
+    </table>
+
+    <div class="subsection">
+      <div class="subsection-title">2.2 AI 暴露度（FY25 量化）</div>
+    </div>
+
+    <p class="body-text">
+      國巨 FY25 年報明確指出：<strong>「AI 於 114 年第 4 季已占國巨營收的 13%」</strong>。這是被動元件族群中<strong>唯一明確量化 AI 營收佔比的廠商</strong>（其他公司多為定性敘述）。Q1 26 鉭質電容 +34.1%、感測器 +65.0% 的增速也反映 AI 需求的結構性放量。
+      <span class="source-tag">SRC: 國巨 FY25 年報「產業之現況與發展」</span>
+    </p>
+
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">第二層思考：四個關鍵議題</div>
+      <div class="section-kicker">Second-Level Thinking</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題一：商譽 789.74 億（佔權益 47%）是否為估值地雷？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">國巨經過 KEMET / 普思 / 奇力新 / Nexensos / Telemecanique / 芝浦電子的併購，累積大量商譽。但併購效益（綜效、交叉銷售、毛利率提升）已逐步釋放，商譽不是問題。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) Q1 26 商譽 789.74 億 / 母公司權益 1,668.71 億 = <strong>47.3%</strong>，比例極高；
+          (2) FY25 全年無商譽減損認列、Q1 26 也無 — 反映目前無減損跡象；
+          (3) <strong>風險點：若任一併購事業（特別是最新的芝浦電子）未來營收 / 獲利不達 deal 時的預測，需進行減損測試</strong>；
+          (4) 芝浦電子 2025/10 才完成 TOB，整合效益剛開始，<strong>2026-2027 是測試期</strong>；
+          (5) Q1 26 感測器 +65% 是初步好訊號，但後續 Q2-Q4 是否維持需追蹤。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        商譽是「<strong>長尾風險、短期可控</strong>」。在目前 AI / 高階應用需求強勁的環境下，併購事業普遍績效良好、減損機率低。<strong>但需追蹤芝浦電子整合進度</strong>，2027 年是關鍵測試年（一般併購後 18-24 個月會評估）。若 Q1 26 感測器 +65% 的動能無法維持至 Q4 26，可能引發市場對芝浦電子減損的擔憂。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題二：FY26 共識 EPS 16.36（+42% YoY）能否實現？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">FY26 共識 EPS 16.36，相對 FY25 11.51 增長 +42%。Q1 26 EPS 3.90 (+45% YoY) 已驗證、年化 15.6 元接近共識。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) Q1 26 EPS 3.90 × 4 = 15.6（基本年化），略低於共識 16.36；
+          (2) 隱含 Q2-Q4 季均需 4.15 元（vs Q1 3.90 + 6.4%）— <strong>需要連續加速</strong>；
+          (3) 支持因素：感測器整合綜效持續釋放、AI 拉貨持續、營業槓桿（OPEX 增 +6.6% vs 營收 +22.7%）；
+          (4) 風險因素：美元再貶值（業外逆風）、Q4 25 EPS 已 3.28 但 Q4 26 預期 4.5+ 是高目標、芝浦電子整合若不順造成費用拉高。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        FY26 EPS 共識 16.36 是「<strong>樂觀情境的近似值</strong>」。我的基本情境 14.5、樂觀 16.5、保守 13.0。<strong>關鍵在 Q2-Q3 季 EPS 能否每季 4 元 +</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題三：估值 PE 30.6× FY26 共識是合理還是已透支？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">PE 30.6× FY26 共識 16.36（5/18 漲停後已偏高，vs 禾伸堂 44.4×、鈺邦 22.3×、立隆電 27.2× TTM）。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 國巨歷史 PE 區間 12-22×（過去 5 年）；
+          (2) 5/18 漲停後 PE 30.6× FY26 已明顯高於歷史均值，AI 溢價已充分反映；
+          (3) <strong>與全球被動元件龍頭比，村田（Murata）目前 PE 約 22-25×、SEMCO 約 18-20×</strong>，國巨 30.6× 明顯偏高；
+          (4) <strong>殖利率 4.76% 提供部分下檔保護</strong>，下行至 380 元殖利率將達 6.3%、屆時較具吸引力。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        當前估值「<strong>漲停後已偏貴</strong>」。<strong>建議：當前 501 元漲停過熱、不宜追高；等回測 460-480 元再分批進場 60%，回測 400-430 元加碼至 90%，跌破 380 元重押</strong>。已達 500+ 元可分批獲利了結 30%。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題四：與其他被動元件 AI 標的相比的相對價值</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">在 AI 被動元件族群中，禾伸堂的 AI 純度最高、鈺邦在 NVLink 是 Tier 1、立隆電在 BBU 是候選者。國巨是平台型、不像它們那麼「純」AI。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 「<strong>純 AI 玩家」估值已大幅 priced in</strong>（禾伸堂 PE 44.4× FY26）；
+          (2) 國巨是<strong>「分散風險的平台型 AI 受惠者」</strong>—— AI 已佔營收 13%，其他 87% 是穩定的傳統終端市場（PC、智慧手機、車用、工業）；
+          (3) 平台優勢：客戶「一站購足」、交叉銷售、規模經濟；
+          (4) 殖利率 4.76% 仍是純 AI 標的的 2-3 倍；
+          (5) <strong>從「風險調整後報酬」的角度，國巨是首選</strong>。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        國巨是「<strong>AI 被動元件族群的均衡布局</strong>」。<strong>核心持股應該是國巨（4-7% 部位），衛星部位是鈺邦（4-5%）和禾伸堂（3-4%）</strong>。立隆電風險最高、部位 2-3%。
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">估值與情境分析</div>
+      <div class="section-kicker">Valuation · Scenarios</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.1 三情境模型</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">多頭情境 · BULL</div>
+        <div class="scenario-prob">40<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 16.5 / FY27 EPS 21 / PE 30× / 目標 580-630</div>
+        <div class="scenario-desc">
+          AI 拉貨持續加速、芝浦電子整合超預期、感測器繼續 +50%+；FY26 EPS 16.5（共識上緣）；FY27 EPS 21；給予 FY27 PE 30× = 目標 630 元（與全球被動元件龍頭 PE 對齊）。
+        </div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">基本情境 · BASE</div>
+        <div class="scenario-prob">45<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 14.5 / FY27 EPS 17 / PE 28× / 目標 460-510</div>
+        <div class="scenario-desc">
+          AI 拉貨延續但 Q2-Q4 季增度減速、芝浦電子整合穩定但無驚喜；FY26 EPS 14.5（vs 共識 16.36 的 88%）；FY27 EPS 17；PE 28× = 目標 476 元（接近當前股價）。
+        </div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">空頭情境 · BEAR</div>
+        <div class="scenario-prob">15<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 13.0 / FY27 EPS 14 / PE 22× / 目標 290-340</div>
+        <div class="scenario-desc">
+          AI 拉貨放緩 + 芝浦電子整合不順引發商譽減損疑慮 + 美元再貶 5% 造成業外損失；FY26 EPS 13.0；FY27 EPS 14；PE 修正至 22×（接近歷史中位）= 目標 308 元。
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.2 加權合理價計算</div>
+    </div>
+
+    <div class="chart-caption">表 6 · 三情境機率加權目標價（以 FY27 EPS 為主基準）</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>情境</th><th class="right">機率</th><th class="right">FY27 EPS</th><th class="right">合理 PE</th><th class="right">目標價中位</th><th class="right">機率 × 目標</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">多頭</td><td class="right">40%</td><td class="right">$21.0</td><td class="right">30.0×</td><td class="right">$630</td><td class="right">$252</td></tr>
+        <tr class="highlight"><td class="label">基本</td><td class="right">45%</td><td class="right">$17.0</td><td class="right">28.0×</td><td class="right">$476</td><td class="right">$214</td></tr>
+        <tr><td class="label">空頭</td><td class="right">15%</td><td class="right">$14.0</td><td class="right">22.0×</td><td class="right">$308</td><td class="right">$46</td></tr>
+        <tr class="total"><td class="label">加權合理價</td><td class="right">100%</td><td class="right">$17.85</td><td class="right">~28.6×</td><td class="right">—</td><td class="right">$512</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>機率加權目標 = NT$ 512</strong>。當前股價 NT$ 501（5/18 漲停），<strong>已逼近加權目標、僅 +2.2% 空間</strong>。
+      上行至多頭 630 元 = +25.7%；下行至空頭 308 元 = -38.5%（機率 15%）。<strong>風險報酬比約 1 : 0.7、漲停後不宜追高</strong>。
+    </p>
+
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">投資結論</div>
+      <div class="section-kicker">Investment Thesis</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.1 核心多頭論點</div>
+    </div>
+
+    <div class="bulls">
+      <div class="bulls-title">三個最強的多頭點</div>
+      <ul class="bulls-list">
+        <li><strong>平台型 AI 受惠 + 分散風險</strong>：在電阻、電容、電感、感測器全面佈局，AI 應用 FY25Q4 已佔營收 13%（量化最明確）。其他 87% 是傳統終端市場（PC / 智慧手機 / 車用 / 工業），<strong>不像純 AI 玩家有單一題材風險</strong>。Q1 26 感測器 +65%、鉭質 +34%、整體 +22.7% 全面成長。</li>
+        <li><strong>Q1 26 本業加速、毛利率 38.1% 創歷史新高</strong>：營業利益 +48.7% 大幅優於營收 +22.7%（規模經濟），OPEX 增 +6.6% vs 營收 +22.7% 顯示營業槓桿。<strong>芝浦電子整合首季已開始貢獻（感測器 +65%）</strong>。</li>
+        <li><strong>高殖利率仍提供部分下檔保護</strong>：5/18 漲停後 PE 30.6× FY26 共識 16.36 已偏高，但<strong>殖利率 4.76%（FY25 配息 23.83 估）仍是其他 AI 標的的 2-3 倍</strong>，下行至 380 元殖利率提升至 6.3% 將吸引價值投資人接手。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.2 核心空頭風險</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">三個最該警惕的點</div>
+      <ul class="risks-list">
+        <li><strong>商譽 789.74 億（佔權益 47%）是長尾風險</strong>：累積自 KEMET、Pulse、奇力新、Nexensos、Telemecanique、芝浦電子等多次併購。雖然短期無減損跡象，但<strong>若任一被併購事業績效不達預期，可能引發 impairment 並衝擊 EPS</strong>。<strong>特別是 2025/10 才完成 TOB 的芝浦電子，2026-2027 是測試期</strong>，需追蹤每季感測器營收與整合進度。</li>
+        <li><strong>FY26 共識 EPS 16.36 隱含 Q2-Q4 季均 4.15 元（vs Q1 3.90）</strong>：需要連續季增。若任何一季 EPS 低於 4.0，市場可能下修共識至 14-15 元，導致 PE 修正。Q1 26 業外基本持平於 +7.12 億，但 FY25 全年業外從 +34.78 億降至 +13.19 億，<strong>美元若再貶值 3-5%，業外可能再縮減 1-2 億</strong>。</li>
+        <li><strong>商業環境風險：美中關稅 + 中國低階廠商擴產</strong>。美國新關稅政策若擴及被動元件，可能影響國巨美洲 29% 營收的毛利率。中國本土 MLCC 廠商（風華高科、宇陽、三環）擴產造成中低階產品價格壓力，雖然國巨高階為主、影響有限，但無法完全避免。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.3 觀察指標清單（每月 / 每季追蹤）</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">關鍵指標儀表板</div>
+      <div class="action-row">
+        <div class="action-key">月營收 YoY</div>
+        <div>追蹤 5-9 月是否維持 ≥ 20% YoY。若低於 15%，AI 動能可能減速。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">季毛利率 / 營業利益率</div>
+        <div>Q1 26 GM 38.1% / OPM 25.2% 創新高。<strong>追蹤 Q2-Q3 是否維持 36%+ / 22%+</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">感測器營收（芝浦整合）</div>
+        <div>Q1 26 感測器 +65% YoY。<strong>追蹤 Q2-Q4 是否維持 +30% 以上</strong>，是判斷商譽是否安全的關鍵。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">AI 應用營收佔比</div>
+        <div>FY25Q4 已佔 13%。<strong>追蹤是否持續上升至 15%+</strong>，反映 AI 結構性受惠加深。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">業外（匯兌損益）</div>
+        <div>FY25 業外從 +34.78 億降至 +13.19 億。<strong>追蹤季業外與新台幣/美元匯率</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">商譽減損測試</div>
+        <div>每年年底會做 impairment test。<strong>追蹤年報是否有任何商譽減損認列</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">同業 EPS 對標</div>
+        <div>禾伸堂 / 鈺邦 / 立隆電 / 華新科 Q2 EPS 動能。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.4 進場 / 出場條件</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">操作框架</div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--positive);">分批進場條件</div>
+        <div><strong>當前 501 元漲停過熱、不宜追高；等回測 460-480 元再分批進場 60% 部位</strong>。若回測 400-430 元（PE 24-26× FY26 共識）可加碼至 90%。<strong>跌破 380 元（殖利率 6.3%+）是「重押」位階</strong>，100% 部位。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--negative);">分批出場條件</div>
+        <div><strong>突破 550 元且 PE 來到 30× FY26 共識</strong>，已逼近基本情境上緣，建議減持 30%。若突破 620 元（多頭情境上緣），減持至核心 30%。<strong>若 Q2 26 EPS 低於 4.0 或感測器營收 YoY 跌至 +20% 以下，應減倉觀察</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">部位上限建議</div>
+        <div>國巨在被動元件 AI 族群中是「均衡首選」、<strong>建議 5-7% 為合理單持比例</strong>。比禾伸堂（3-5%）、鈺邦（4-6%）可略高。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.5 五檔被動元件 AI 標的綜合排序（最終總結）</div>
+    </div>
+
+    <div class="chart-caption">表 7 · 五檔被動元件 AI 標的全面比較</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>排名</th><th class="right">標的</th><th class="right">特性</th><th class="right">當前 PE / Valuation</th><th class="right">殖利率</th><th class="right">評等</th><th class="right">部位上限</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td class="label pos">#1</td><td class="right pos">國巨* (2327)</td><td class="right">平台型 + AI 13% + 高殖利</td><td class="right">30.6×</td><td class="right pos">4.76%</td><td class="right neu">HOLD</td><td class="right">5-7%</td></tr>
+        <tr><td class="label pos">#2</td><td class="right">鈺邦 (6449)</td><td class="right">NVLink Tier 1 + 估值相對合理</td><td class="right pos">22.3×</td><td class="right">1.55%</td><td class="right neu">HOLD</td><td class="right">4-6%</td></tr>
+        <tr><td class="label neu">#3</td><td class="right">禾伸堂 (3026)</td><td class="right">高壓 MLCC 純玩家 + 漲停嚴重透支</td><td class="right neg">44.4×</td><td class="right">1.61%</td><td class="right neg">REDUCE</td><td class="right">3-5%</td></tr>
+        <tr><td class="label neu">#4</td><td class="right">華新科 (2492)</td><td class="right">穩定 AI 轉單 + 估值合理</td><td class="right">~15×</td><td class="right">~3%</td><td class="right">略偏多</td><td class="right">3-5%</td></tr>
+        <tr><td class="label neg">#5</td><td class="right">立隆電 (2472)</td><td class="right">BBU Tier 2 + EPS 含一次性</td><td class="right">27.2× TTM</td><td class="right">1.50%</td><td class="right neg">NEUTRAL</td><td class="right">2-3%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>結論</strong>：國巨是被動元件 AI 族群「<strong>均衡組合的核心持股</strong>」。
+      <strong>(a) 平台分散風險</strong>：6 大產品線 + 全球均衡地區 + AI 13% 佔比但其他 87% 也有業績；
+      <strong>(b) 漲停後估值已不便宜</strong>：PE 30.6× FY26（5/18 漲停後偏高，仍低於禾伸堂 44.4×）；
+      <strong>(c) 殖利率 4.76% 提供部分下檔保護</strong>。
+    </p>
+
+  </section>
+
+  <div class="final-callout">
+    <div class="final-callout-text">
+      國巨是<strong>「全球被動元件平台型領導者 + AI 結構性受惠 + 高殖利率」</strong>的核心持股，但 5/18 漲停後<strong>估值已反映、戰術性等回檔</strong>。<strong>FY25 EPS 11.51 (+20.8% YoY) + Q1 26 EPS 3.90 (+45.0% YoY、毛利率 38.1% 創新高、營業利益 +48.7%)</strong> 全面驗證本業擴張加速。<strong>感測器 Q1 26 +65%（芝浦電子整合首季）+ 鉭質電容 +34%（KEMET AI 機櫃需求）</strong> 顯示產品 Mix 正朝高階高毛利傾斜。<strong>5/18 漲停後 PE 30.6× FY26 共識 16.36 已偏高、殖利率 4.76% 仍是其他 AI 純玩家的 2-3 倍</strong>。<strong>機率加權合理價 512 元、當前 501 元（5/18 漲停）已逼近加權目標（僅 +2.2%）、上行至 630 元 +25.7%、下行至 308 元 -38.5%（機率 15%），Risk/Reward 約 1:0.7、漲停後上行已透支</strong>。<strong>評等：HOLD（漲停透支 · 等回檔）</strong>，建議：(a) 當前 501 元不宜追、等回測 460-480 元進場 60%、(b) 回測 400-430 元加碼至 90%、(c) 跌破 380 元（殖利率 6.3%+）重押 100%。<strong>5 檔被動元件 AI 標的中綜合排序：國巨 > 鈺邦 > 禾伸堂 > 華新科 > 立隆電</strong>。
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>
+      <strong>主要資料來源 / Sources：</strong>
+    </p>
+    <p>
+      <strong>一手財報</strong>：國巨股份有限公司 (2327) FY25（民國 114 年度）年報 F04（KPMG 會計師核閱、2026/03/31 刊印）+ Q1 2026 合併財務報告（KPMG 核閱）<br>
+      <strong>產業與市場新聞</strong>：國巨法說會 2026/04/15 簡報；豐雲學堂 2026/05 法說整理；Yahoo 股市；TVBS 新聞網「國巨股價攻 332 元分割後新高」；經濟日報；理財周刊；CMoney 投資網誌；財報狗（statementdog）；Win 投資；Anue 鉅亨網等公開報導<br>
+      <strong>分析師共識</strong>：豐雲學堂引用法人預估 FY26 EPS 16.36、FY26 營收 1,583.34 億；FY26 EPS YoY +42%
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>分析師聲明 / Disclaimer：</strong>本報告所有 FY25 全年與 Q1 2026 一手數據皆來自國巨年報 F04 與 Q1 季報。EPS 計算採用 post-split 基礎（國巨於 2025 年完成 1:4 股票分割，每股面額由 NT$10 調整為 NT$2.5；股本由 51.88 億股 → 207.3 億股，post-split EPS 為 pre-split 的 1/4）。FY26 EPS 16.36 為法人共識引用，非分析師獨立估算。情境設定（多頭 40% / 基本 45% / 空頭 15%）與目標價計算為分析師個人意見。報告中區分「事實」（直接引自財報或公告）與「推論」（基於事實的分析判斷）。商譽 789.74 億（佔權益 47%）為併購累積結果，需追蹤每年度減損測試。投資人應自行判斷並承擔風險。本報告不構成具體投資建議。
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>所有 Q1 2026 一手數據</strong>：營收 38,165,648 千元、營業成本 23,623,833、營業毛利 14,541,815、營業淨利 9,612,910、稅前淨利 10,324,689、淨利 8,037,530（歸屬母公司 8,000,823）、EPS 3.90 元、加權股本 2,051,493 千股；產品線：磁性元件 9,623,592 / 鉭質電容 9,272,594 / MLCC 6,659,391 / 感測器 4,950,290 / 電阻器 4,619,506 / 其他 3,040,275；總資產 401,694,878、商譽 78,974,034、母公司業主權益 166,871,112；FY25 EPS 11.51（post-split）。
+    </p>
+    <p style="margin-top: 12px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted);">
+      © SECOND-LEVEL RESEARCH · 2026 · Doc: 2327-TW-DEEPDIVE-20260518-V1 · Confidential
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

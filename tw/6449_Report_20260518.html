@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鈺邦 (6449) 深度研究報告 | 2026.05.18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 880px; margin: 0 auto; background: var(--bg-card); padding: 60px 70px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.report-meta { display: grid; grid-template-columns: 1fr auto; gap: 40px; margin-bottom: 40px; align-items: end; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 22px; color: var(--ink-muted); font-weight: 500; margin-left: 12px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 18px; font-style: italic; color: var(--ink-secondary); margin-top: 12px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; padding: 0; margin-bottom: 36px; overflow: hidden; }
+.rating-cell { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.rating-value.accent { color: #e8a87c; }
+.rating-value.negative { color: #ff8a6e; }
+.rating-value.neutral { color: #e6c870; }
+.rating-value.positive { color: #92cca5; }
+.rating-value .unit { font-size: 12px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.revision-note { background: #fff4e6; border-left: 4px solid var(--accent); padding: 18px 24px; margin-bottom: 30px; font-size: 13px; line-height: 1.75; color: var(--ink); }
+.revision-note strong { color: var(--accent); }
+.exec-summary { background: var(--highlight-bg); padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid var(--accent); position: relative; }
+.exec-summary::before { content: "執行摘要"; position: absolute; top: -10px; left: 20px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.exec-summary p { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+.exec-summary .lede { font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+.thesis-card { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.thesis-card:last-child { border-right: none; }
+.thesis-num { font-family: 'Playfair Display',serif; font-size: 48px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 10px; }
+.thesis-title { font-family: 'Noto Serif TC',serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.thesis-desc { font-size: 12px; color: var(--ink-secondary); line-height: 1.6; }
+.section { margin-bottom: 44px; }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 32px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink-muted); text-transform: uppercase; }
+.subsection { margin-top: 28px; margin-bottom: 18px; }
+.subsection-title { font-family: 'Noto Serif TC',serif; font-size: 16px; font-weight: 700; color: var(--ink); padding-bottom: 6px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.lead-para { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 18px; font-weight: 500; }
+.body-text { font-size: 14px; line-height: 1.85; margin-bottom: 16px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 22px 0; }
+.stat-cell { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); }
+.stat-value.neg { color: var(--negative); }
+.stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 11px; color: var(--ink-secondary); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); }
+.stat-sub.neg { color: var(--negative); }
+.chart-caption { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 16px; margin-bottom: 4px; letter-spacing: 0.5px; }
+.chart-sub { font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted); margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+.data-table th { background: var(--ink); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 16px 22px; margin: 18px 0; position: relative; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.callout-body { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.callout.bear { background: #fdf2ee; border-left-color: var(--accent); }
+.callout.bear .callout-label { color: var(--accent); }
+.callout.bull { background: #f3f9f5; border-left-color: var(--positive); }
+.callout.bull .callout-label { color: var(--positive); }
+.pullquote { background: var(--pullquote-bg); color: white; padding: 28px 36px; margin: 24px 0; position: relative; }
+.pullquote::before { content: """; position: absolute; top: -10px; left: 24px; font-family: 'Playfair Display',serif; font-size: 100px; color: var(--accent); line-height: 1; }
+.pullquote-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.75; font-style: italic; padding-left: 28px; }
+.pullquote-author { font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 12px; padding-left: 28px; letter-spacing: 1px; }
+.dual-think { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.dual-think-card { padding: 18px 22px; border: 1px solid var(--rule); }
+.dual-think-card.first { background: #f9f7f2; }
+.dual-think-card.second { background: #f0ede4; border-left: 3px solid var(--accent); }
+.dual-think-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.first .dual-think-label { color: var(--ink-muted); }
+.second .dual-think-label { color: var(--accent); }
+.dual-think-body { font-size: 12.5px; line-height: 1.7; color: var(--ink); }
+.dual-think-body strong { color: var(--accent); }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 24px 0; border: 1px solid var(--rule); }
+.scenario { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 4px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 4px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 4px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.scenario-desc { font-size: 12px; line-height: 1.7; color: var(--ink-secondary); }
+.action-matrix { background: #faf6ef; padding: 18px 24px; margin: 20px 0; border: 1px solid var(--rule); }
+.action-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.action-row { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 8px 0; font-size: 12.5px; line-height: 1.7; border-bottom: 1px solid rgba(216,212,205,0.5); }
+.action-row:last-child { border-bottom: none; }
+.action-key { font-weight: 600; color: var(--accent); }
+.risks { background: #fdf2ee; border-left: 4px solid var(--accent); padding: 18px 22px; margin: 20px 0; }
+.risks-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.5px; }
+.risks-list { list-style: none; padding: 0; }
+.risks-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.risks-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--accent); font-weight: 700; }
+.bulls { background: #f3f9f5; border-left: 4px solid var(--positive); padding: 18px 22px; margin: 20px 0; }
+.bulls-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--positive); margin-bottom: 10px; letter-spacing: 0.5px; }
+.bulls-list { list-style: none; padding: 0; }
+.bulls-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.bulls-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--positive); font-weight: 700; }
+.price-chart-container { margin: 24px 0; }
+.final-callout { background: var(--pullquote-bg); color: white; padding: 36px 40px; margin: 44px 0 20px; position: relative; }
+.final-callout::before { content: "FINAL TAKE"; position: absolute; top: -10px; left: 24px; background: var(--accent); color: white; padding: 4px 14px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.final-callout-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.85; }
+.final-callout-text strong { color: #e8a87c; }
+.footer { border-top: 2px solid var(--ink); padding-top: 24px; margin-top: 40px; font-size: 10.5px; color: var(--ink-secondary); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+.source-tag { display: inline-block; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); background: #f0ede4; padding: 1px 6px; border-radius: 2px; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Passive Components</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">6449-TW · DEEP DIVE</div>
+      <div>2026.05.18</div>
+      <div>Deep-Dive · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">電子零組件 · 固態電容 / V-Chip / SMLC / AI 電源</div>
+      <h1 class="company-title">鈺邦<span class="ticker">6449.TW</span></h1>
+      <div class="report-subtitle">捲繞型固態電容世界第一 · NVIDIA NVLink Switch 主要供應商</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value neutral">HOLD</div>
+      <div class="rating-sub">(估值已反映 · 等回檔)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">271<span class="unit">TWD</span></div>
+      <div class="rating-sub">▲ +8.0 (+3.04%) · 2026.05.18</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value Range</div>
+      <div class="rating-value">170–320<span class="unit">TWD</span></div>
+      <div class="rating-sub">機率加權 261 元</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Risk / Reward</div>
+      <div class="rating-value negative">1 : 0.5</div>
+      <div class="rating-sub">下行較深 · 估值已反映</div>
+    </div>
+  </div>
+
+  <!-- REVISION NOTE -->
+    <!-- 90-DAY DAILY PRICE TREND CHART (REAL DATA) -->
+  <div class="price-chart-container" style="margin: 0 0 30px 0;">
+    <div class="chart-caption">圖 0 · 近 20 個交易日每日股價 × 三層情境目標價區間</div>
+    <div class="chart-sub">2026/04/20 – 2026/05/18 · 今日收 271 元 (+3.04%) · 5/12 起連 5 日大漲（+50%）已逼近 Bull 區間下緣 · 機率加權目標 261 元 · 資料來源：聚財網 stock.wearn.com/cdata + 鉅亨網歷史行情</div>
+    <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+      <rect width="800" height="380" fill="transparent"/>
+      <rect x="80" y="71.8" width="640" height="58.9" fill="#2d5a3f" opacity="0.10"/>
+      <rect x="80" y="145.5" width="640" height="58.9" fill="#8a6d2e" opacity="0.10"/>
+      <rect x="80" y="248.5" width="640" height="44.2" fill="#b8351a" opacity="0.10"/>
+      <line x1="80" y1="71.8" x2="720" y2="71.8" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="130.7" x2="720" y2="130.7" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="145.5" x2="720" y2="145.5" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="204.4" x2="720" y2="204.4" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="248.5" x2="720" y2="248.5" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="292.7" x2="720" y2="292.7" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <text x="90" y="86.8" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#2d5a3f">Bull · 280-320 元</text>
+      <text x="230" y="86.8" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 35%</text>
+      <text x="90" y="160.5" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#8a6d2e">Base · 230-270 元</text>
+      <text x="230" y="160.5" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 45%</text>
+      <text x="90" y="263.5" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#b8351a">Bear · 170-200 元</text>
+      <text x="230" y="263.5" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 20%</text>
+      <text x="74" y="74.8" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">320</text>
+      <text x="74" y="133.7" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">280</text>
+      <text x="74" y="148.5" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">270</text>
+      <text x="74" y="207.4" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">230</text>
+      <text x="74" y="251.5" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">200</text>
+      <text x="74" y="295.7" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">170</text>
+      <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+      <line x1="80" y1="158.7" x2="720" y2="158.7" stroke="#8a6d2e" stroke-width="1.2" stroke-dasharray="5,3"/>
+      <text x="725" y="161.7" font-family="IBM Plex Mono" font-size="10" font-weight="700" fill="#8a6d2e">261 加權</text>
+      <path d="M 80.0,283.9 L 113.7,283.9 L 147.4,280.9 L 181.1,301.6 L 214.7,308.2 L 248.4,307.4 L 282.1,299.3 L 315.8,303.8 L 349.5,305.2 L 383.2,298.6 L 416.8,289.8 L 450.5,291.2 L 484.2,279.5 L 517.9,273.6 L 551.6,277.3 L 585.3,250.7 L 618.9,222.0 L 652.6,190.4 L 686.3,155.8 L 720.0,144.0" fill="none" stroke="#0f1419" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <g fill="#0f1419" opacity="0.65">
+        <circle cx="80.0" cy="283.9" r="1.6"/>
+        <circle cx="113.7" cy="283.9" r="1.6"/>
+        <circle cx="147.4" cy="280.9" r="1.6"/>
+        <circle cx="181.1" cy="301.6" r="1.6"/>
+        <circle cx="214.7" cy="308.2" r="1.6"/>
+        <circle cx="248.4" cy="307.4" r="1.6"/>
+        <circle cx="282.1" cy="299.3" r="1.6"/>
+        <circle cx="315.8" cy="303.8" r="1.6"/>
+        <circle cx="349.5" cy="305.2" r="1.6"/>
+        <circle cx="383.2" cy="298.6" r="1.6"/>
+        <circle cx="416.8" cy="289.8" r="1.6"/>
+        <circle cx="450.5" cy="291.2" r="1.6"/>
+        <circle cx="484.2" cy="279.5" r="1.6"/>
+        <circle cx="517.9" cy="273.6" r="1.6"/>
+        <circle cx="551.6" cy="277.3" r="1.6"/>
+        <circle cx="585.3" cy="250.7" r="1.6"/>
+        <circle cx="618.9" cy="222.0" r="1.6"/>
+        <circle cx="652.6" cy="190.4" r="1.6"/>
+        <circle cx="686.3" cy="155.8" r="1.6"/>
+      </g>
+      <circle cx="720.0" cy="144.0" r="5" fill="#2d5a3f"/>
+      <circle cx="720.0" cy="144.0" r="10" fill="none" stroke="#2d5a3f" stroke-width="1.2" opacity="0.6"/>
+      <text x="620.0" y="148.0" text-anchor="end" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#2d5a3f">271.0</text>
+      <text x="620.0" y="162.0" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f">▲ +8.0 (+3.04%)</text>
+      <line x1="80" y1="320" x2="720" y2="320" stroke="#0f1419" stroke-width="1"/>
+      <text x="80.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/20</text>
+      <text x="214.7" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/24</text>
+      <text x="349.5" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/30</text>
+      <text x="484.2" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/07</text>
+      <text x="618.9" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/13</text>
+      <text x="720.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/18</text>
+      <text x="400.0" y="354" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">20 trading days · Source: stock.wearn.com/cdata?kind=6449 + cnyes.com 歷史行情</text>
+    </svg>
+  </div>
+
+  <div class="revision-note">
+    <strong>研究重點：</strong>鈺邦是<strong>「真實 AI 受惠 + 估值相對合理 + 戰略股東陣容堅強」</strong>的固態電容利基玩家。主要結論：<strong>(1) FY25 EPS 7.06-7.17 元（+17-19% YoY）、本業營業利益 +58.0% 是純粹擴張，業外被美元貶值逆風 -1.69 億抵消</strong>；<strong>(2) Q1 2026 一手數據：營收 11.28 億 (+24.7% YoY)、毛利率 36.8% 創新高（vs FY25 全年 34.7%、Q1 25 為 31.4%）、營業利益率 19.2%、EPS 2.11 元（YoY +37.0%、Q1 25 為 1.54）</strong>；<strong>(3) 晶片型固態電容（CAP）佔比從 30% 跳升至 39%、YoY +61.6% 是 AI Mix 升級最強證據</strong>；<strong>(4) 已切入 NVIDIA NVLink Switch 為主要供應商</strong>、V-Chip 月產能 6,000 萬 → 1.2 億顆；<strong>(5) 5/18 收 271 元、PE 38.4×（FY25）/ 22.3×（FY26 共識 12.16），相對同類仍最合理但估值已大致反映</strong>。
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">鈺邦是<strong>「捲繞型固態電容世界第一、AI NVLink 隱形冠軍」</strong>。在 AI 伺服器電源需求驅動下，FY25 營業利益 +58.0% 是真實爆發；股東結構含臺慶科（27.2%）+ 華碩集團（~15%）兩大戰略夥伴，治理與訂單能見度都優於同業。</p>
+    <p>七個關鍵發現：第一，<strong>FY25 營收 44.75 億（+28.0% YoY）、毛利率 34.7% → 上升 +4.7pp、營業利益率 18.6% → 上升 +3.6pp</strong>，是「量價齊揚 + 產品 Mix 升級」雙引擎；第二，<strong>但 FY25 業外從 +1.57 億 (FY24) 轉到 -0.12 億 (FY25)，因美元貶值 -1.69 億</strong>，這拖累了淨利率與稅前淨利 YoY 僅 +19.8%（vs 營業利益 +58.0%）；第三，<strong>Q1 2026 一手數據驗證本業強勁：營收 11.28 億 (+24.7% YoY)、毛利率 36.8% 創歷史新高（超過 FY25 全年 34.7%）、營業利益 +55.0%、EPS 2.11 vs Q1 25 的 1.54、YoY +37.0%</strong>；第四，<strong>晶片型固態電容（CAP）Q1 26 營收 4.39 億、+61.6% YoY、佔比從 30% 跳升至 39%</strong>，這是 AI 伺服器專用高階產品結構性放量的最強證據；第五，<strong>Q1 26 業外 +0.23 億是正貢獻（含匯兌利益 +1.79 億），終結 FY25 全年的匯損逆風</strong>；第六，<strong>OCI +6.61 億（其中權益工具評價利益 +5.66 億）反映策略性持股（如華碩、臺慶科）大幅增值</strong>，BVPS 從 FY25 末 52.2 元跳升至 Q1 末 64.58 元、P/B 約 4.20×；第七，<strong>5/18 收 271 元、PE 38.4× FY25 / 22.3× FY26 共識 12.16</strong>，相對禾伸堂 44-55× 仍是同類最便宜。Fair Value 區間 170-320 元，機率加權 261 元。<strong>當前 271 元已略高於加權目標 261（-3.7%）、上行至 320 元 +18.1%、下行至 170 元 -37.3%，風險報酬比約 1:0.5、估值已大致反映</strong>。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">Q1 26 毛利率 36.8% 創歷史新高</div>
+      <div class="thesis-desc">一手季報：Q1 26 GM 36.8%（超過 FY25 全年 34.7%、Q1 25 為 31.4%）、OPM 19.2%（FY25 18.6%）、EPS 2.11 (+37% YoY)。本業擴張持續加速、不是一次性。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">晶片型 CAP +61.6%、佔比 30%→39%</div>
+      <div class="thesis-desc">Q1 26 晶片型固態電容（AI 伺服器專用）4.39 億 +61.6% YoY，佔總營收從 30% 跳升至 39%。捲繞型 +8.8%。產品 Mix 結構性升級已被一手數據驗證、不是法說會口號。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">估值相對最合理的 AI 純玩家</div>
+      <div class="thesis-desc">PE 38.4× FY25 / 22.3× FY26 共識 12.16。仍低於禾伸堂 (44.4× FY26 / 54.6× FY25)；比立隆電 (27.2× TTM，含一次性) 更純粹。FY26 共識 EPS +69% 是被動元件族群最高，但 5/18 已收 271、估值大致反映。</div>
+    </div>
+  </div>
+
+  <!-- SECTION I: COMPANY BASICS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">公司基本面盤點</div>
+      <div class="section-kicker">Business · Capacity · Financials</div>
+    </div>
+    <p class="lead-para">
+      鈺邦科技（6449.TW）成立於 1994 年（民國 83 年），上市於櫃買中心。董事長為鄭敦仁（成大材料博士、前工研院材料所研究員、前乾坤科技研發資深經理），總經理林溪東。主業為導電高分子固態電容（鋁捲繞型 + 晶片型）之研發製造銷售。FY25 合併營收 44.75 億，捲繞型固態電容為<strong>世界第一大供應商</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.1 業務組成：兩條產品線</div>
+    </div>
+
+    <div class="chart-caption">表 1 · FY24 vs FY25 產品線結構（單位：千元）</div>
+    <div class="chart-sub">Source: 鈺邦 FY25 年報「業務內容」附註 · 公開資訊觀測站 F04 報表（2026/03/31 刊印）</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>產品線</th><th class="right">FY25 金額</th><th class="right">FY25 佔比</th><th class="right">FY24 金額</th><th class="right">FY24 佔比</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td class="label">捲繞型導電高分子固態電容器（V-Chip）</td><td class="right">3,044,856</td><td class="right">68.05%</td><td class="right">2,447,329</td><td class="right">70.01%</td><td class="right pos">+24.4%</td></tr>
+        <tr><td class="label">晶片型導電高分子固態電容器（CAP）</td><td class="right">1,429,812</td><td class="right">31.95%</td><td class="right">1,048,339</td><td class="right">29.99%</td><td class="right pos">+36.4%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">4,474,668</td><td class="right">100.00%</td><td class="right">3,495,668</td><td class="right">100.00%</td><td class="right pos">+28.0%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：兩條產品線都成長，但晶片型固態電容（CAP）增速 +36.4% 顯著高於捲繞型 +24.4%，比重從 30.0% 上升至 32.0%。<strong>晶片型主要用於 AI 伺服器、高階顯卡、AI PC 之 Power 穩壓</strong>，是 AI 暴露度最高的產品線。<strong>SMLC（堆疊型晶片電容）已小量生產並送樣給筆電、伺服器、電源、SSD 客戶試產，目標取代鉭電容 POSCAP</strong>。
+    </p>
+
+    <div class="callout bull">
+      <div class="callout-label">關鍵 · NVIDIA NVLink Switch 供應商</div>
+      <div class="callout-body">
+        多份公開資料（CMoney 法說整理、富果直送）指出，<strong>「輝達 NVLink switch 大量採用 V-chip，鈺邦是主要供應商，下一代也持續沿用」</strong>。NVLink Switch 是 NVIDIA AI 機櫃內 GPU 互聯的核心元件，每個 GB200 NVL72 機櫃使用 9 顆 NVLink Switch，每顆 Switch 需數十顆 V-Chip 穩壓，<strong>是直接的 AI 機櫃內元件配置（不像 BBU 超級電容是選配）</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.2 產能擴充計畫：V-Chip / CAP / SMLC 三軸並進</div>
+    </div>
+
+    <div class="chart-caption">表 2 · 主要產品月產能擴充進度</div>
+    <div class="chart-sub">Source: 鈺邦法說會公開資料整理 · CMoney 法說整理 · 富果直送</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>產品</th><th class="right">2024 年底</th><th class="right">2025 年底</th><th class="right">2026 目標</th><th class="right">2 年成長</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">V-Chip（捲繞型）</td><td class="right">6,000 萬顆/月</td><td class="right">1 億顆/月</td><td class="right pos">1.2 億顆/月</td><td class="right pos">+100%</td></tr>
+        <tr><td class="label">CAP（晶片型）</td><td class="right">4,000 萬顆/月</td><td class="right">6,000 萬顆/月</td><td class="right pos">1 億顆/月</td><td class="right pos">+150%</td></tr>
+        <tr><td class="label">SMLC（堆疊型）</td><td class="right">1,000 萬顆/月</td><td class="right">400 萬顆/月</td><td class="right pos">2,000 萬顆/月</td><td class="right pos">+100%</td></tr>
+        <tr><td class="label">Hybrid 電容（車用+Server）</td><td class="right">擴產中</td><td class="right">擴產中</td><td class="right pos">擴產中</td><td class="right pos">大幅成長</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>關鍵</strong>：<strong>V-Chip 月產能 2 年翻倍至 1.2 億顆（2026）、原本預計 2027 達標的 1 億顆已提前 2 年在 2025 年底完成</strong>，這是管理層對未來 AI 需求高度確信的訊號。<strong>SMLC 5 倍成長</strong>反映新產品（取代鉭電容 POSCAP）的快速放量。<strong>產能擴充對應的資本支出推升 FY25 不動產廠房設備帳面值 +32%（14.4 億 → 19.0 億）</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.3 客戶結構：華碩戰略持股 + 集中度可控</div>
+    </div>
+
+    <div class="chart-caption">表 3 · FY25 前三大客戶（單位：千元）</div>
+    <div class="chart-sub">Source: 鈺邦 FY25 年報「主要進銷貨客戶名單」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>客戶</th><th class="right">FY25 金額</th><th class="right">佔比</th><th class="right">FY24 金額</th><th class="right">FY24 佔比</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">華碩 ASUS</td><td class="right">538,483</td><td class="right">12.03%</td><td class="right">413,231</td><td class="right">11.82%</td><td class="right pos">+30.3%</td></tr>
+        <tr><td class="label">凱源（代理商）</td><td class="right">502,847</td><td class="right">11.24%</td><td class="right">266,276</td><td class="right">7.62%</td><td class="right pos">+88.8%</td></tr>
+        <tr><td class="label">技嘉 GIGABYTE</td><td class="right">403,064</td><td class="right">9.01%</td><td class="right">364,173</td><td class="right">10.42%</td><td class="right pos">+10.7%</td></tr>
+        <tr><td class="label">其他</td><td class="right">3,030,274</td><td class="right">67.72%</td><td class="right">2,451,988</td><td class="right">70.14%</td><td class="right pos">+23.6%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">4,474,668</td><td class="right">100.00%</td><td class="right">3,495,668</td><td class="right">100.00%</td><td class="right pos">+28.0%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>觀察</strong>：Top 3 客戶佔 32.28%，集中度中等。<strong>華碩是大客戶 (12%) + 大股東 (華誠創投 11.61% + 華敏投資 3.49% = ~15.1%)，戰略一致性極高</strong>；技嘉、凱源（代理商）皆為長期合作。<strong>凱源 FY25 +88.8% 暴增</strong>反映通路放量，可能與 AI 伺服器 OEM 訂單透過代理商出貨有關。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.4 大股東與治理結構</div>
+    </div>
+
+    <div class="chart-caption">表 4 · 前 5 大股東持股（2026/3/31）</div>
+    <div class="chart-sub">Source: 鈺邦 FY25 年報「持股比例占前十名之股東」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>股東</th><th class="right">持股</th><th class="right">比率</th><th class="right">關係/備註</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td class="label">西北臺慶科技（股）公司</td><td class="right">25,000,000</td><td class="right">27.20%</td><td class="right">臺慶科 (3357) 集團，主業亦為被動元件</td></tr>
+        <tr><td class="label">華誠創業投資（股）公司</td><td class="right">10,668,012</td><td class="right">11.61%</td><td class="right">華碩電腦子公司</td></tr>
+        <tr><td class="label">安聯台灣科技基金專戶</td><td class="right">4,789,000</td><td class="right">5.21%</td><td class="right">外資基金</td></tr>
+        <tr><td class="label">華敏投資（股）公司</td><td class="right">3,210,015</td><td class="right">3.49%</td><td class="right">華碩電腦子公司</td></tr>
+        <tr><td class="label">鄭敦仁（董事長）</td><td class="right">3,170,358</td><td class="right">3.45%</td><td class="right">創辦人 / 董事長</td></tr>
+        <tr class="total"><td class="label">前 5 大合計</td><td class="right">46,837,385</td><td class="right">50.96%</td><td class="right">含華碩集團合計約 15.1%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>關鍵</strong>：<strong>臺慶科 (3357, 自己也是被動元件廠) + 華碩集團</strong> 兩大戰略股東結構罕見。臺慶科董事長謝明諺同時擔任鈺邦董事，<strong>等於在固態電容（鈺邦）+ 電阻 / MLCC（臺慶科自身）之間建立同業聯盟</strong>。華碩透過華誠 + 華敏合計 15.1% 戰略持股 + 華碩電腦兼共同執行長許先越擔任董事，<strong>確保 ASUS 主機板 / NB / Server 等產品的訂單能見度</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.5 FY25 財務體質與獲利能力</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營收</div>
+        <div class="stat-value pos">+28.0<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">34.96 → 44.75 億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 毛利率</div>
+        <div class="stat-value pos">34.7<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">FY24: 29.9% (+4.7pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 營業利益率</div>
+        <div class="stat-value pos">18.6<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">FY24: 15.0% (+3.6pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">FY25 EPS（估計）</div>
+        <div class="stat-value pos">$7.06~7.17</div>
+        <div class="stat-sub pos">FY24: 6.01 (+17-19%)</div>
+      </div>
+    </div>
+
+    <div class="chart-caption">表 5 · FY25 合併損益表（單位：千元）</div>
+    <div class="chart-sub">Source: 鈺邦 FY25 年報「財務狀況及財務績效之檢討分析」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>科目</th><th class="right">FY25</th><th class="right">FY24</th><th class="right">YoY</th><th class="center">FY25 佔比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入淨額</td><td class="right">4,474,668</td><td class="right">3,495,668</td><td class="right pos">+28.0%</td><td class="center">100.0%</td></tr>
+        <tr><td class="label">營業成本</td><td class="right">(2,923,830)</td><td class="right">(2,450,424)</td><td class="right">+19.3%</td><td class="center">65.3%</td></tr>
+        <tr class="highlight"><td class="label">營業毛利</td><td class="right">1,550,838</td><td class="right">1,045,244</td><td class="right pos">+48.4%</td><td class="center">34.7%</td></tr>
+        <tr><td class="label">營業費用</td><td class="right">(720,283)</td><td class="right">(519,499)</td><td class="right">+38.6%</td><td class="center">16.1%</td></tr>
+        <tr class="highlight"><td class="label">營業利益</td><td class="right">830,555</td><td class="right">525,745</td><td class="right pos">+58.0%</td><td class="center">18.6%</td></tr>
+        <tr><td class="label neg">業外收入及支出淨額</td><td class="right neg">(12,203)</td><td class="right pos">157,251</td><td class="right neg">轉負 -1.69億</td><td class="center">-0.3%</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">818,352</td><td class="right">682,996</td><td class="right pos">+19.8%</td><td class="center">18.3%</td></tr>
+        <tr><td class="label">所得稅費用</td><td class="right">(196,328)</td><td class="right">(171,181)</td><td class="right">+14.7%</td><td class="center">-4.4%</td></tr>
+        <tr class="total"><td class="label">本期淨利</td><td class="right">622,024</td><td class="right">511,815</td><td class="right pos">+21.5%</td><td class="center">13.9%</td></tr>
+        <tr><td class="label">歸屬母公司業主</td><td class="right">648,680</td><td class="right">534,394</td><td class="right pos">+21.4%</td><td class="center">14.5%</td></tr>
+        <tr><td class="label neg">歸屬非控制權益（旭積虧損吸收）</td><td class="right neg">(26,656)</td><td class="right neg">(22,579)</td><td class="right neg">虧損擴大</td><td class="center">-0.6%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout bear">
+      <div class="callout-label">第二層 · 為何 OI +58% 但稅前淨利只 +20%？</div>
+      <div class="callout-body">
+        FY25 業外從 +1.57 億（FY24）轉成 -0.12 億（FY25），差額 -1.69 億抵消了營業利益增長的部分。<strong>主因：FY24 匯兌利益 +1.11 億、FY25 匯兌損失 -0.44 億</strong>（合計 -1.56 億的差額），即美元 / 新台幣匯率對主要外幣計價合約的影響。<strong>「乾淨」本業 OI +58.0% 才是真實水準，這是被動元件族群中數一數二強勁的本業擴張</strong>。Q2 25 EPS 僅 0.99 元的低點也是這個匯損所造成。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.6 Q1 2026 一手季報：本業全面加速、毛利率創新高</div>
+    </div>
+
+    <div class="chart-caption">表 5.5 · Q1 2026 合併損益 vs Q1 2025（一手數據，單位：千元）</div>
+    <div class="chart-sub">Source: 鈺邦 2026 Q1 合併綜合損益表 · 公開資訊觀測站 2026/05/05 上傳</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">Q1 2026</th><th class="right">Q1 2025</th><th class="right">YoY</th><th class="center">Q1 26 佔比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入淨額</td><td class="right">1,128,235</td><td class="right">905,019</td><td class="right pos">+24.7%</td><td class="center">100.0%</td></tr>
+        <tr><td class="label">銷貨成本</td><td class="right">(713,112)</td><td class="right">(620,734)</td><td class="right">+14.9%</td><td class="center">63.2%</td></tr>
+        <tr class="highlight"><td class="label">營業毛利</td><td class="right">415,123</td><td class="right">284,285</td><td class="right pos">+46.0%</td><td class="center pos">36.8%</td></tr>
+        <tr><td class="label">推銷費用</td><td class="right">(55,973)</td><td class="right">(43,298)</td><td class="right">+29.3%</td><td class="center">5.0%</td></tr>
+        <tr><td class="label">管理費用</td><td class="right">(98,388)</td><td class="right">(64,977)</td><td class="right">+51.4%</td><td class="center">8.7%</td></tr>
+        <tr><td class="label">研發費用</td><td class="right">(44,070)</td><td class="right">(36,230)</td><td class="right">+21.6%</td><td class="center">3.9%</td></tr>
+        <tr class="highlight"><td class="label">營業利益</td><td class="right">216,692</td><td class="right">139,780</td><td class="right pos">+55.0%</td><td class="center pos">19.2%</td></tr>
+        <tr><td class="label">其他利益及損失</td><td class="right">10,879</td><td class="right">8,110</td><td class="right pos">+34.1%</td><td class="center">1.0%</td></tr>
+        <tr><td class="label pos">外幣兌換損益淨額</td><td class="right pos">+17,925</td><td class="right pos">+23,283</td><td class="right neg">-23.0%</td><td class="center">1.6%</td></tr>
+        <tr><td class="label">利息收入</td><td class="right">6,390</td><td class="right">5,987</td><td class="right pos">+6.7%</td><td class="center">0.6%</td></tr>
+        <tr><td class="label">財務成本</td><td class="right">(12,482)</td><td class="right">(9,245)</td><td class="right neg">+35.0%</td><td class="center">-1.1%</td></tr>
+        <tr><td class="label">採用權益法損益</td><td class="right">715</td><td class="right">1,360</td><td class="right neg">-47.4%</td><td class="center">0.1%</td></tr>
+        <tr class="highlight"><td class="label">業外合計</td><td class="right pos">+23,427</td><td class="right pos">+29,495</td><td class="right neg">-20.6%</td><td class="center">2.1%</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">240,119</td><td class="right">169,275</td><td class="right pos">+41.9%</td><td class="center">21.3%</td></tr>
+        <tr><td class="label">所得稅費用</td><td class="right">(58,463)</td><td class="right">(40,622)</td><td class="right neg">+43.9%</td><td class="center">-5.2%</td></tr>
+        <tr class="total"><td class="label">本期淨利</td><td class="right">181,656</td><td class="right">128,653</td><td class="right pos">+41.2%</td><td class="center">16.1%</td></tr>
+        <tr><td class="label">歸屬母公司業主</td><td class="right">186,006</td><td class="right">135,322</td><td class="right pos">+37.5%</td><td class="center">16.5%</td></tr>
+        <tr><td class="label neg">非控制權益（旭積虧損吸收）</td><td class="right neg">(4,350)</td><td class="right neg">(6,669)</td><td class="right pos">虧損縮減</td><td class="center">-0.4%</td></tr>
+        <tr class="total"><td class="label">基本 EPS（元）</td><td class="right pos">$2.11</td><td class="right">$1.54</td><td class="right pos">+37.0%</td><td class="center">—</td></tr>
+        <tr><td class="label">加權平均流通在外股數（千股）</td><td class="right">87,999</td><td class="right">87,954</td><td class="right">基本持平</td><td class="center">—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-caption">表 5.6 · Q1 2026 vs Q1 2025 產品 Mix（一手數據）</div>
+    <div class="chart-sub">Source: 鈺邦 2026 Q1 季報附註六（十九）「客戶合約之收入」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>產品線</th><th class="right">Q1 2026</th><th class="right">Q1 26 佔比</th><th class="right">Q1 2025</th><th class="right">Q1 25 佔比</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">捲繞型導電高分子固態電容（V-Chip）</td><td class="right">689,048</td><td class="right">61.1%</td><td class="right">633,322</td><td class="right">70.0%</td><td class="right pos">+8.8%</td></tr>
+        <tr class="highlight"><td class="label pos">晶片型導電高分子固態電容（CAP）</td><td class="right pos">439,187</td><td class="right pos">38.9%</td><td class="right">271,697</td><td class="right">30.0%</td><td class="right pos">+61.6%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">1,128,235</td><td class="right">100.0%</td><td class="right">905,019</td><td class="right">100.0%</td><td class="right pos">+24.7%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-caption">表 5.7 · Q1 2026 vs Q1 2025 地區分布</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>地區</th><th class="right">Q1 26 金額</th><th class="right">Q1 26 %</th><th class="right">Q1 25 金額</th><th class="right">Q1 25 %</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">台灣</td><td class="right">304,370</td><td class="right">27.0%</td><td class="right">322,783</td><td class="right">35.7%</td><td class="right neg">-5.7%</td></tr>
+        <tr class="highlight"><td class="label pos">亞洲地區（含中國）</td><td class="right pos">703,938</td><td class="right pos">62.4%</td><td class="right">490,424</td><td class="right">54.2%</td><td class="right pos">+43.5%</td></tr>
+        <tr><td class="label">其他國家</td><td class="right">119,927</td><td class="right">10.6%</td><td class="right">91,812</td><td class="right">10.1%</td><td class="right pos">+30.6%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">1,128,235</td><td class="right">100.0%</td><td class="right">905,019</td><td class="right">100.0%</td><td class="right pos">+24.7%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout bull">
+      <div class="callout-label">Q1 2026 三個結構性訊號（一手數據）</div>
+      <div class="callout-body">
+        <strong>(1) 毛利率 36.8% 創歷史新高</strong>：超越 FY25 全年 34.7% (+2.1pp)、超越 Q1 25 31.4% (+5.4pp)。在營收 +24.7% 同時毛利率擴張、營業成本只增 +14.9%（vs 營收 +24.7%）= <strong>教科書級的營業槓桿</strong>。
+        <strong>(2) 晶片型 CAP +61.6%、佔比 30% → 39%</strong>：AI 伺服器專用高階產品結構性放量、不是法說會口號。
+        <strong>(3) 亞洲地區營收 +43.5%</strong>：含中國地區，反映 AI 機櫃在中國組裝（廣達、富士康等）出貨拉動，這是與禾伸堂、立隆電的相似結構。
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>一手季報重點</strong>：Q1 26 EPS YoY <strong>+37.0%</strong>（Q1 25 EPS 1.54）。<strong>GM 36.8% 創新高、晶片型 +61.6% 的結構性訊號比 EPS 數字更重要</strong>，本業強度紮實。<strong>2026 年 1-4 月累計營收 15.92 億（YoY +25.14%）、4 月單月 4.64 億創歷史新高（YoY +26.3%）</strong>，4 月延續 Q1 的強勁動能。
+      <span class="source-tag">SRC: 鈺邦 2026 Q1 季報 + 月營收公告</span>
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">其他綜合損益（OCI）+6.61 億 · 策略性持股大幅增值</div>
+      <div class="callout-body">
+        Q1 2026 OCI 增加 +6.61 億，其中<strong>「透過 OCI 公允價值衡量之權益工具」未實現評價利益 +5.66 億</strong>（扣稅後 +5.42 億）。<strong>透過 OCI 金融資產（非流動）從 FY25 末 15.37 億跳升至 Q1 末 20.86 億（+35.7%）</strong>，反映鈺邦持有的策略性股票（如華碩、臺慶科或其他被動元件股）大幅增值。雖然不影響當期 EPS，但<strong>母公司業主權益從 FY25 末 47.99 億跳升至 Q1 末 56.83 億（+18.4%）、BVPS 從約 52.2 元升至 64.58 元</strong>，以 5/18 收盤 271 元計 P/B 約 4.20×（仍低於 FY25 末 4.62×）。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.7 子公司架構：中國 + 印度 + 泰國</div>
+    </div>
+
+    <div class="chart-caption">表 6 · 主要子公司 FY25 認列損益（個體報表權益法）</div>
+    <div class="chart-sub">Source: 鈺邦 FY25 年報「轉投資政策」</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>子公司 / 關聯企業</th><th class="right">持股</th><th class="right">FY25 認列損益（千元）</th><th class="right">備註</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">APAQ Investments Limited（控股）</td><td class="right">100%</td><td class="right pos">+284,171</td><td class="right">持有中國子公司</td></tr>
+        <tr><td class="label">鈺邦電子（無錫）有限公司</td><td class="right">100%</td><td class="right pos">+240,758</td><td class="right">中國主要產能（江蘇）</td></tr>
+        <tr><td class="label">鈺邦電子（湖北）有限公司</td><td class="right">100%</td><td class="right pos">+63,668</td><td class="right">中國湖北十堰</td></tr>
+        <tr><td class="label">深圳凱澤鑫電子（關聯企業）</td><td class="right">35%</td><td class="right pos">+3,875</td><td class="right">關聯</td></tr>
+        <tr><td class="label neg">旭積科技（CMC）</td><td class="right">52%（合計 55.73%）</td><td class="right neg">-28,876</td><td class="right">營收未達經濟規模</td></tr>
+        <tr><td class="label neg">鈺邦電子（泰國）</td><td class="right">100%</td><td class="right neg">-1,046</td><td class="right">2025 新成立、未量產</td></tr>
+        <tr class="total"><td class="label">合計貢獻（不含旭積/泰國）</td><td class="right">—</td><td class="right pos">+592,472</td><td class="right">佔母公司認列利益 91%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：FY25 母公司獲利 8.32 億，其中約 5.9 億來自中國子公司（無錫 + 湖北 + 透過 APAQ 控股）。<strong>中國產能仍是鈺邦的核心，台灣總部主要負責研發、管理與部分高階產品線</strong>。<strong>泰國子公司 2025 年新成立，是地緣分散的初步嘗試</strong>（vs 立隆電 2026/3 開幕泰國廠的時程相近），未來 2-3 年是「啟動 / 認證 / 量產」階段。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.8 股利政策與配息率</div>
+    </div>
+
+    <div class="chart-caption">表 7 · 近 6 年 EPS 與股利政策</div>
+    <div class="chart-sub">Source: 公開資訊觀測站歷年合併財報 + 財報狗股利政策 + 鈺邦 FY25 年報</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>年度</th><th class="right">EPS（元）</th><th class="right">現金股利（元）</th><th class="right">股票股利</th><th class="right">配息率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">FY20</td><td class="right">~9.5*</td><td class="right">8.00</td><td class="right">—</td><td class="right">~84%</td></tr>
+        <tr><td class="label">FY21</td><td class="right">~10.5*</td><td class="right">9.00</td><td class="right">—</td><td class="right">~86%</td></tr>
+        <tr><td class="label">FY22</td><td class="right">~6.0*</td><td class="right">5.00</td><td class="right">0.5 股</td><td class="right">~85%</td></tr>
+        <tr><td class="label">FY23</td><td class="right">5.13</td><td class="right">5.00</td><td class="right">—</td><td class="right">97.5%</td></tr>
+        <tr><td class="label">FY24</td><td class="right">6.01</td><td class="right">3.50</td><td class="right">—</td><td class="right">58.2%</td></tr>
+        <tr class="highlight"><td class="label">FY25</td><td class="right pos">7.06–7.17</td><td class="right pos">4.20</td><td class="right">—</td><td class="right">~59%</td></tr>
+        <tr><td class="label">FY26 共識</td><td class="right pos">12.16</td><td class="right">~6.5 (推估)</td><td class="right">—</td><td class="right">~53%</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-sub" style="margin-bottom:16px;">* FY20-22 EPS 為依配息率回推估算 · 公司目前採「剩餘股利政策」，配息率從 FY23 的 97.5% 降至 FY24-25 約 58-59%（保留更多現金擴產）</p>
+
+    <p class="body-text">
+      <strong>觀察</strong>：FY25 公告 4.2 元股利相對 FY24 的 3.5 元 +20%，但配息率僅 59%，<strong>顯示公司正在「保留現金擴產」的軌道</strong>。在 5/18 收盤 271 元股價，殖利率 1.55%，不再具有「定存股」吸引力，但 EPS 高速成長提供更大上行空間。
+    </p>
+
+  </section>
+
+  <!-- SECTION II: INDUSTRY POSITIONING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">產業定位與競爭格局（第一層思考）</div>
+      <div class="section-kicker">Industry · Competition</div>
+    </div>
+
+    <p class="lead-para">
+      固態電容（Polymer Aluminum Capacitor）是 AI 伺服器電源穩定性的關鍵元件。鈺邦在這個利基領域已是<strong>「全球前三大固態電容廠 + 捲繞型世界第一」</strong>，產業地位明確、競爭格局相對清晰。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">2.1 固態電容產業結構</div>
+    </div>
+
+    <p class="body-text">
+      固態電容相對於傳統液態鋁電解電容的優勢是：<strong>(1) 耐高溫不爆漿、(2) 壽命長、(3) 適合高頻環境</strong>。下游應用包括高階主機板、NB、工業電腦、伺服器、VGA、遊戲機、充電器等。<strong>AI 伺服器對固態電容的需求是「不可替代的剛性需求」</strong>——AI 機櫃對電力穩定性的嚴苛要求使液態鋁電容無法勝任。
+    </p>
+
+    <div class="chart-caption">表 8 · 固態電容廠商定位與市場地位</div>
+    <div class="chart-sub">Source: 鈺邦年報「市場分析」 + IEK 報告 + 富果直送法說整理</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>類別</th><th class="right">主要廠商</th><th class="right">地位</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">日系傳統領導者</td><td class="right">Nichicon、Chemicon、Panasonic、Rubycon</td><td class="right">技術領先、但生產成本高、市佔下滑</td></tr>
+        <tr class="highlight"><td class="label">台廠（鈺邦自稱前 3 大）</td><td class="right pos">鈺邦 (6449) — 捲繞型世界第一</td><td class="right pos">在 V-Chip 領先、Cap 追趕</td></tr>
+        <tr><td class="label">台廠次階</td><td class="right">金山電 (8042)、立隆電 (2472)</td><td class="right">中低階為主</td></tr>
+        <tr><td class="label">韓系</td><td class="right">三星電機（少量）</td><td class="right">高階為主</td></tr>
+        <tr><td class="label">中國</td><td class="right">中國本土廠商</td><td class="right">技術追趕中、低階競爭</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>鈺邦的優勢</strong>：(1) <strong>捲繞型固態電容世界第一</strong>，這是 NVIDIA NVLink Switch / Server / VGA 主板的核心元件；(2) 鋁箔成型 + 高分子塗佈技術積累 20+ 年；(3) 與工研院、學界長期合作；(4) 戰略股東（華碩、臺慶科）提供訂單與技術協同。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">2.2 競爭定位：相對日系與其他台廠</div>
+    </div>
+
+    <div class="chart-caption">表 9 · 鈺邦 vs 主要同業（Q1 2026 + FY25 對比）</div>
+    <div class="chart-sub">Source: 各公司 Q1 2026 季報 + 財報狗 EPS 排行 + 公開估值</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">鈺邦 6449</th><th class="right">禾伸堂 3026</th><th class="right">立隆電 2472</th><th class="right">凱美 2375</th><th class="right">國巨* 2327</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">主業</td><td class="right pos">固態電容（V-Chip+CAP）</td><td class="right">高壓 MLCC + 通路</td><td class="right">鋁電容 + 鋁箔</td><td class="right">電容 + EDLC</td><td class="right">全面型 + KEMET</td></tr>
+        <tr><td class="label">FY25 EPS</td><td class="right pos">$7.06~7.17</td><td class="right">$6.58</td><td class="right">$8.73*</td><td class="right">N/A</td><td class="right">N/A</td></tr>
+        <tr><td class="label">Q1 26 EPS</td><td class="right pos">$2.11</td><td class="right pos">$2.86</td><td class="right">$1.60</td><td class="right">N/A</td><td class="right pos">$3.90</td></tr>
+        <tr><td class="label">Q1 26 EPS YoY</td><td class="right pos">+37.0%</td><td class="right pos">+70.2%</td><td class="right neg">-4.2%</td><td class="right">N/A</td><td class="right pos">~+15%</td></tr>
+        <tr><td class="label">FY26 共識 EPS</td><td class="right pos">$12.16</td><td class="right pos">$8.09</td><td class="right">~$8.5</td><td class="right">N/A</td><td class="right">N/A</td></tr>
+        <tr><td class="label">當前 PE</td><td class="right pos">22.3× (FY26)</td><td class="right neg">44.4× (FY26)</td><td class="right">27.2× (TTM)</td><td class="right">N/A</td><td class="right pos">30.6× (FY26)</td></tr>
+        <tr><td class="label">AI 暴露度</td><td class="right pos">高（NVLink Switch 主供）</td><td class="right pos">高（電源 MLCC）</td><td class="right">中（BBU Tier 2）</td><td class="right">中（BBU 候選）</td><td class="right pos">高（KEMET 整合）</td></tr>
+        <tr><td class="label">客戶</td><td class="right pos">華碩(股東)+技嘉+凱源</td><td class="right">通路 + 直銷</td><td class="right">中國組裝鏈</td><td class="right">PC + EDLC 客戶</td><td class="right">全球品牌</td></tr>
+        <tr><td class="label">投資吸引力（自評）</td><td class="right pos">HOLD（等回檔）</td><td class="right neg">REDUCE</td><td class="right">中性偏空</td><td class="right">中性</td><td class="right pos">偏多（首選）</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-sub" style="margin-bottom:16px;">* 立隆電 FY25 EPS 含一次性 1.29 元；乾淨 EPS 7.44</p>
+
+    <p class="body-text">
+      <strong>關鍵觀察</strong>：在被動元件 AI 故事中，<strong>鈺邦的「估值 + EPS 成長 + 戰略股東」組合最佳</strong>。FY26 共識 EPS 12.16（+69% YoY，最高）+ 5/18 收 271 元 PE 22.3× FY26，<strong>估值在 AI 純玩家中仍相對合理，但漲後上行空間已收斂</strong>。禾伸堂雖然 Q1 EPS 成長更高 (+70.2%)，但 PE 44-55× 已嚴重透支；立隆電本業弱、估值不便宜。
+    </p>
+
+    <div class="callout bull">
+      <div class="callout-label">第二層 · 為何 NVLink Switch 是關鍵差異化</div>
+      <div class="callout-body">
+        BBU 超級電容（立隆/凱美）是 AI 機櫃的「選配」、超級電容 cell 的 Tier-1 供應商是歐日廠（Skeleton / Musashi）、台廠是 Tier 2 候選。<strong>但 NVLink Switch 是 AI 機櫃內 GPU 互聯的「核心」</strong>，每個 GB200 NVL72 機櫃使用 9 顆 Switch ASIC，每顆周邊需大量 V-Chip 穩壓。<strong>鈺邦在 NVLink Switch 是「Tier 1 主供應商」</strong>—— 這是被市場低估的「結構性 AI 暴露」。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION III: SECOND LAYER THINKING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">第二層思考：四個關鍵議題</div>
+      <div class="section-kicker">Second-Level Thinking</div>
+    </div>
+
+    <p class="lead-para">
+      Howard Marks 強調：要問「市場共識可能哪裡錯了」。以下針對鈺邦四個熱門議題進行對照分析。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">議題一：FY25 EPS 成長 +20% 是否被低估了本業強度？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">FY25 EPS 7.06 (+20% YoY) 數字不錯但不算驚艷，相對 FY24 EPS 6.01 並未呈現「噴發」氣象，市場可能因此給予較保守的估值。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) FY25 <strong>營業利益 +58.0%</strong>（vs EPS +20%），差額是業外從 +1.57 億轉到 -0.12 億的負面影響；
+          (2) <strong>業外 -1.69 億主要是美元貶值的匯兌損失（FY24 匯兌 +1.11 億、FY25 匯兌 -0.44 億）</strong>，是非經常性、與本業無關；
+          (3) <strong>Q1 26 一手季報已驗證業外回正：+0.23 億（含匯兌 +0.18 億）</strong>，匯損逆風暫時結束；
+          (4) Q1 26 EPS 2.11 (+37.0% YoY) + 毛利率 36.8% 創歷史新高已展現本業真實的擴張力。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        <strong>FY25 EPS 被「業外匯兌逆風」壓抑</strong>，本業強度比表面更強。<strong>Q1 26 一手數據已驗證業外回正（+0.23 億 vs FY25 全年 -0.12 億）+ 毛利率創新高 36.8%</strong>，FY26 EPS 可達 9.5-12 元區間。共識 FY26 12.16 隱含季均 EPS 3.04（Q1 已 2.11，Q2-Q4 需平均 3.35），需 AI 高階產品繼續放量。我的判斷：基本情境 10.5、樂觀 12.0、保守 9.5。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題二：產能擴充 V-Chip 1.2 億顆 + SMLC 2,000 萬顆能否如期？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">公司宣布 V-Chip 月產能 2026 達 1.2 億顆、SMLC 達 2,000 萬顆、CAP 達 1 億顆 = 對 AI 需求高度確信。共識 FY26 EPS 12.16 完全建立在這個產能擴充順利的假設上。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) <strong>原本 2027 年達標的 V-Chip 1 億顆月產能、實際已提前 2 年在 2025 年底完成</strong>，這是執行力的強烈證據；
+          (2) FY25 不動產廠房設備從 14.4 億 → 19.0 億（+32%）顯示資本支出已實際投入；
+          (3) 員工數從 519（FY24）→ 855（FY25）→ 951（115Q1）— <strong>1 年內人力 +83%</strong>，與產能擴充同步；
+          (4) 風險點：<strong>旭積科技子公司 FY25 認列虧損 -28,876 千元（營收未達經濟規模）</strong>，反映產能爬坡有不確定性；
+          (5) 鋁箔負極箔主要靠中國供應，<strong>原材料集中風險</strong>需注意。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        <strong>產能擴充「中度可信」</strong>。執行力證據強（V-Chip 提前 2 年達標）、資本支出已投入、人力同步擴張。<strong>但 SMLC（+5×）和 CAP（+150%）是相對更激進的目標</strong>，2026 全面達標可能小幅落後 3-6 個月。FY26 EPS 落點預估 10-12 元（共識 12.16 是樂觀情境）。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題三：旭積科技虧損與整合風險</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">2024/2 鈺邦從 30% 增資到 52% 取得旭積科技控制權、變成子公司。財務報表中旭積虧損由 NCI 部分吸收，對 EPS 影響有限。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 旭積科技 FY25 認列虧損 -28,876 千元，<strong>對母公司 EPS 影響約 -0.18 元</strong>（小但不可忽視）；
+          (2) <strong>NCI 虧損 -22,579（FY24）→ -26,656（FY25），擴大</strong> — 旭積虧損仍在擴大；
+          (3) 鈺邦對旭積總投資（持股 + 背書 + 資金貸與）合計約 2 億；
+          (4) 改善計畫：「增加銷量及營收，降低單位成本」 — 但具體營收目標未公開；
+          (5) 若旭積 2026 年仍無法損益兩平，可能需要再注資或減值。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        旭積是「<strong>輕度負擔、可控</strong>」。年虧損規模 -0.18 至 -0.3 元 EPS、相對 FY25 EPS 7+ 不大；但需追蹤 2026Q2-Q3 是否縮減損失。<strong>若旭積轉虧為盈，是 EPS 額外加分項；若擴大虧損，是估值打折因素</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題四：當前 PE 38.4× FY25 / 22.3× FY26 共識是否合理？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">PE 38.4× FY25 EPS 7.06 算高，但用 FY26 共識 12.16 計算 PE 才 22.3×，<strong>顯著低於禾伸堂的 44-55×</strong>，相對是「較便宜的 AI 標的」。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 鈺邦歷史 PE 區間 8-22×（過去最樂觀 32×，最悲觀 22×，per vocus 2025 估值溫度計）；
+          (2) 5/18 收 271 元、PE 38.4× FY25 / 22.3× FY26 共識 = 已升至歷史中上段；
+          (3) <strong>禾伸堂 (3026) 估值已透支</strong>（PE 54.6× FY25 / 44.4× FY26），<strong>鈺邦相對是「便宜的同類股」</strong>；
+          (4) 但需注意：FY26 共識 EPS 12.16 隱含 +69% YoY 增長，<strong>已 priced-in 完美執行的擴產與 AI 需求持續</strong>；
+          (5) 若 FY26 實際 EPS 落在 10-11（vs 共識 12.16），PE 會跳升至 22-24× FY26、看起來不再那麼便宜。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        <strong>鈺邦的估值是「同類相對最便宜」、但「不是 absolute cheap」</strong>。在 AI 被動元件族群中，鈺邦的 PE 仍最具相對吸引力；但相對其歷史 PE 區間（8-22×），5/18 收 271 元 PE 38.4× FY25 已是高檔。<strong>正確的買入位置：股價回測 200-220 元（FY26 共識 PE 17-18×）是 BUY；當前 271 元是 HOLD、不宜追高</strong>。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION IV: VALUATION & SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">估值與情境分析</div>
+      <div class="section-kicker">Valuation · Scenarios</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.1 歷史估值區間 vs 現在</div>
+    </div>
+
+    <p class="body-text">
+      鈺邦過去 10 年 PE 經歷三個階段：<strong>(1) 2018-2019 漲價潮，PE 在 12-22×</strong>；<strong>(2) 2020-2023 景氣循環 + 庫存調整，PE 壓縮至 8-15×</strong>；<strong>(3) 2024-2026 AI 伺服器 + NVLink Switch 敘事，PE 從 14× 拉升至目前 38.4× FY25 / 22.3× FY26 共識（5/18 收 271）</strong>。
+    </p>
+
+    <p class="body-text">
+      <strong>同業比較</strong>：當前 PE 22.3×（FY26 共識）顯著低於禾伸堂 44.4×（FY26 共識）、高於華新科 ~15×。<strong>在 AI 被動元件族群中，鈺邦的估值仍相對最具吸引力，惟 5/18 漲後上行空間已收斂</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">4.2 三情境模型</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">多頭情境 · BULL</div>
+        <div class="scenario-prob">35<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 12.5 / FY27 EPS 16.0 / PE 20× / 目標 280-320</div>
+        <div class="scenario-desc">
+          AI NVLink Switch 持續放量 + 美元穩定（業外不再拖累）+ V-Chip / CAP / SMLC 產能全面達標；FY26 EPS 12.5（含旭積扭虧）；FY27 EPS 16+；給予 FY27 PE 20× = 目標 320 元（與禾伸堂的潛在上限相近）。
+        </div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">基本情境 · BASE</div>
+        <div class="scenario-prob">45<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 10.5 / FY27 EPS 13.5 / PE 19× / 目標 230-270</div>
+        <div class="scenario-desc">
+          產能擴充 3-6 個月延後但仍順利推進、美元穩定、AI 需求穩定增長；FY26 EPS 10.5（共識 12.16 的下緣 87%）；FY27 EPS 13.5；給予 FY27 PE 19× = 目標 257 元（與當前股價接近）。
+        </div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">空頭情境 · BEAR</div>
+        <div class="scenario-prob">20<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 8.5 / FY27 EPS 10.0 / PE 17× / 目標 170-200</div>
+        <div class="scenario-desc">
+          美元再貶值 5%（業外損失更大）+ AI 拉貨節奏放緩 + 旭積虧損擴大 + 中國競爭加劇導致毛利率下滑；FY26 EPS 8.5（vs 共識 12.16 落差大）；FY27 EPS 10；PE 修正至 17× = 目標 170 元。
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.3 加權合理價計算</div>
+    </div>
+
+    <div class="chart-caption">表 10 · 三情境機率加權目標價（以 FY27 EPS 為主基準）</div>
+    <div class="chart-sub">Source: 自行情境建模 · 以情境中位點 PE 與 FY27 EPS 為計算基礎</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>情境</th><th class="right">機率</th><th class="right">FY27 EPS</th><th class="right">合理 PE</th><th class="right">目標價中位</th><th class="right">機率 × 目標</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">多頭</td><td class="right">35%</td><td class="right">$16.0</td><td class="right">20.0×</td><td class="right">$320</td><td class="right">$112</td></tr>
+        <tr class="highlight"><td class="label">基本</td><td class="right">45%</td><td class="right">$13.5</td><td class="right">19.0×</td><td class="right">$256</td><td class="right">$115</td></tr>
+        <tr><td class="label">空頭</td><td class="right">20%</td><td class="right">$10.0</td><td class="right">17.0×</td><td class="right">$170</td><td class="right">$34</td></tr>
+        <tr class="total"><td class="label">加權合理價</td><td class="right">100%</td><td class="right">$13.6</td><td class="right">~19×</td><td class="right">—</td><td class="right">$261</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>用 FY27 EPS 為主基準的加權目標 = NT$ 261</strong>。當前股價 NT$ 271（5/18 收盤），<strong>已較加權合理價溢價 3.8%</strong>。下行至空頭 170 元有 37% 跌幅、上行至多頭 320 元有 18% 漲幅，<strong>風險報酬比約 1 : 0.5，估值已大致反映、上行空間收斂</strong>。
+    </p>
+
+    <p class="body-text">
+      <strong>另一個視角</strong>：若僅用 FY26 共識 12.16 算，5/18 收 271 元 PE 22.3× 仍是<strong>「被動元件 AI 純玩家相對最便宜的標的」</strong>。即使 FY26 EPS 落在 10.5（基本情境），PE 為 25.8× FY26、尚屬合理。<strong>下行風險部分被 EPS 高速成長 cushion</strong>。
+    </p>
+
+    <!-- Price Chart -->
+    <div class="price-chart-container" style="margin-top: 30px;">
+      <div class="chart-caption">圖 1 · 目標價區間與當前位置（FY27 EPS 為基準，加權 261 元）</div>
+      <div class="chart-sub">三層目標區間視覺化 · 基於上表 FY27 EPS 與 PE 情境</div>
+      <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+        <rect width="760" height="380" fill="transparent"/>
+        <!-- 三個目標價區間 -->
+        <rect x="80" y="60" width="640" height="64" fill="#2d5a3f" opacity="0.10"/>
+        <rect x="80" y="156" width="640" height="64" fill="#8a6d2e" opacity="0.10"/>
+        <rect x="80" y="252" width="640" height="64" fill="#b8351a" opacity="0.10"/>
+
+        <line x1="80" y1="60" x2="720" y2="60" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="124" x2="720" y2="124" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="156" x2="720" y2="156" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="220" x2="720" y2="220" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="252" x2="720" y2="252" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="316" x2="720" y2="316" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+
+        <!-- 區間標籤 -->
+        <text x="90" y="80" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#2d5a3f">Bull · 280~320 元</text>
+        <text x="220" y="80" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 35%</text>
+        <text x="90" y="176" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#8a6d2e">Base · 230~270 元</text>
+        <text x="220" y="176" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 45%</text>
+        <text x="90" y="272" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#b8351a">Bear · 170~200 元</text>
+        <text x="220" y="272" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 20%</text>
+
+        <!-- Y 軸刻度 -->
+        <g font-family="IBM Plex Mono" font-size="10" fill="#8a8f94">
+          <text x="72" y="63" text-anchor="end">320</text>
+          <text x="72" y="127" text-anchor="end">280</text>
+          <text x="72" y="159" text-anchor="end">270</text>
+          <text x="72" y="223" text-anchor="end">230</text>
+          <text x="72" y="255" text-anchor="end">200</text>
+          <text x="72" y="319" text-anchor="end">170</text>
+        </g>
+        <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+
+        <!-- 機率加權目標價 261 元 -->
+        <line x1="80" y1="194" x2="720" y2="194" stroke="#8a6d2e" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="725" y="197" font-family="IBM Plex Mono" font-size="11" font-weight="700" fill="#8a6d2e">261 weighted</text>
+
+        <!-- 當前股價 271 元（5/18 收盤） -->
+        <circle cx="720" cy="147" r="6" fill="#8a6d2e"/>
+        <circle cx="720" cy="147" r="11" fill="none" stroke="#8a6d2e" stroke-width="1.5" opacity="0.6"/>
+        <text x="560" y="142" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#8a6d2e">271 (current, 5/18)</text>
+        <line x1="520" y1="147" x2="710" y2="147" stroke="#8a6d2e" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- 標註：股價已略高於加權合理價 -->
+        <line x1="640" y1="147" x2="640" y2="194" stroke="#8a6d2e" stroke-width="1" opacity="0.5"/>
+        <text x="648" y="173" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e" font-weight="700">+3.8% 高於加權</text>
+
+        <!-- X 軸 -->
+        <line x1="80" y1="340" x2="720" y2="340" stroke="#0f1419" stroke-width="1"/>
+        <text x="400" y="358" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">機率加權目標價計算結果 · Based on FY27 EPS · As of 2026.05.18</text>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- SECTION V: INVESTMENT CONCLUSION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">投資結論</div>
+      <div class="section-kicker">Investment Thesis</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.1 核心多頭論點</div>
+    </div>
+
+    <div class="bulls">
+      <div class="bulls-title">三個最強的多頭點</div>
+      <ul class="bulls-list">
+        <li><strong>NVIDIA NVLink Switch 主要供應商 + 捲繞型固態電容世界第一</strong>：鈺邦在 AI 機櫃內元件配置中是「Tier 1 供應商」（不像 BBU 超級電容是 Tier 2 候選）。Q1 2026 EPS 2.11 (+37.0% YoY) 已驗證 AI 動能；2026 年 V-Chip 月產能 1.2 億顆（+100% 2 年累積）+ CAP 1 億顆（+150%）+ SMLC 2,000 萬顆（+100%），<strong>產能擴充明確且原本 2027 目標已提前 2 年達成，執行力強</strong>。</li>
+        <li><strong>FY25 本業營業利益 +58.0% 被業外匯損 -1.69 億稀釋，FY26 業外正常化將釋放 EPS</strong>：FY25 EPS 7.06 表面 +20% 並不耀眼，但<strong>剔除業外匯兌逆風後本業真實成長是 +58%</strong>。FY26 若美元穩定（業外回歸 0 上下），EPS 可以從 7+ 跳升至 10-12，相當於 +40-70% 成長（這就是 FY26 共識 12.16 的隱含路徑）。</li>
+        <li><strong>戰略股東陣容 + 估值相對合理</strong>：臺慶科 (27.2%) + 華碩集團 (~15%) 兩大戰略股東提供同業聯盟與訂單能見度；華碩同時是大客戶 (12%) 和大股東，<strong>戰略一致性極高</strong>。5/18 收 271 元 PE 22.3× FY26 共識，<strong>仍是 AI 被動元件族群中相對最便宜的純玩家</strong>（vs 禾伸堂 44.4×、立隆電 27.2× TTM 含一次性）。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.2 核心空頭風險</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">三個最該警惕的點</div>
+      <ul class="risks-list">
+        <li><strong>美元 / 新台幣匯率波動敏感度高</strong>：FY24 → FY25 業外因匯率變化的損益差達 -1.69 億（佔 FY25 母公司淨利 26%）。<strong>若 FY26 美元持續貶值 5%+，業外損失將擴大 1-2 億，EPS 可能被砍掉 1-1.5 元</strong>。鈺邦對主要客戶採美元計價、對主要供應商也採美金計價（部分自然避險），但美元計價的應收帳款規模仍大、淨外幣部位的匯損敏感度仍很高。</li>
+        <li><strong>共識 FY26 EPS 12.16 隱含完美執行、實際可能偏離</strong>：FY26 共識 EPS 12.16 = +69% YoY 是被動元件族群中最高的預估。實現條件：(a) V-Chip / CAP / SMLC 三軸產能擴充全部達標、(b) AI 高階伺服器出貨 +20% 如期、(c) 美元穩定、(d) 旭積扭虧。<strong>若其中 1-2 項偏離，EPS 可能落在 10-11 元（基本情境）</strong>。</li>
+        <li><strong>旭積科技子公司虧損擴大 + 中國市場競爭加劇</strong>：旭積 FY25 認列虧損 -28,876 千元（vs FY24 -22,579 增 +18%）顯示營收尚未達經濟規模。鋁箔負極箔主要靠中國供應（新宙邦佔進貨 10.7%），<strong>原材料集中風險 + 中國本土廠商技術追趕（如風華高科、宇陽）對中低階產品造成價格壓力</strong>，雖然鈺邦主力是高階 AI 利基、影響有限，但無法完全避免。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.3 觀察指標清單（每月 / 每季追蹤）</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">關鍵指標儀表板</div>
+      <div class="action-row">
+        <div class="action-key">月營收 YoY</div>
+        <div>2026 1-4 月累計營收 15.92 億 (+25.14% YoY)、4 月單月 +26.3% 創新高。<strong>追蹤 5-9 月是否維持 ≥ 25% YoY</strong>；若回落至 15% 以下，AI 動能可能減速。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">季毛利率 / 營益率</div>
+        <div>FY25 GM 34.7% / OPM 18.6%。<strong>追蹤 Q2-Q3 26 是否維持 GM 33%+ / OPM 18%+</strong>；若回落代表競爭加劇或產品 Mix 倒退。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">產品組合：晶片型 vs 捲繞型</div>
+        <div>晶片型 FY25 +36.4%（vs 捲繞型 +24.4%）增速更快、是 AI 暴露主力。<strong>追蹤晶片型佔比是否突破 35%+</strong>，反映 Mix 升級。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">業外（匯兌損益）</div>
+        <div>FY25 業外 -12,203（其中匯損 -43,544）。<strong>每季追蹤新台幣 / 美元匯率與業外損益</strong>，避免 -1 億級別的損失再現。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">產能擴充進度</div>
+        <div>V-Chip 1.2 億、CAP 1 億、SMLC 2,000 萬。<strong>追蹤法說每季更新的產能達標進度</strong>，與資本支出實際投入。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">旭積科技損益</div>
+        <div>FY24 -22,579 → FY25 -28,876 擴大。<strong>追蹤 2026 是否縮減損失或扭虧</strong>，是 EPS 額外加分項。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">大股東動向</div>
+        <div>西北臺慶科 (27.2%) + 華誠創投 (11.61%) + 華敏 (3.49%)。<strong>追蹤大股東有無申讓 / 質押變動</strong>，是觀察「內部訊號」的關鍵。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">同業 EPS 對標</div>
+        <div>禾伸堂 (3026) / 國巨 (2327) / 華新科 (2492) 的 Q2-Q3 EPS 與毛利率變化，是觀察整體 AI 被動元件景氣的代理變數。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.4 進場 / 出場條件</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">操作框架</div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--positive);">分批進場條件</div>
+        <div><strong>當前 271 元估值已大致反映、不宜追高；等回測 250 元以下再進場 50% 部位</strong>。若回測 210-225 元（PE 17-18× FY26 共識，基本情境下緣），可加碼至 80%。<strong>若回測 180-200 元（接近空頭情境），是「重押」位階</strong>，加碼至 100% 部位。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--negative);">分批出場條件</div>
+        <div><strong>股價突破 300 元且 PE 來到 24× FY26 共識</strong>，已超出基本情境上緣，建議減持 30-40%；若突破 320 元（進入多頭情境上緣），減持至核心 30%。<strong>若 Q2 26 EPS 不繼續加速（季 EPS &lt; 2.5），或美元再度貶值 3%+，應加速減倉</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--neutral);">持有觀望條件</div>
+        <div><strong>股價在 250-285 元區間</strong>，等待 (1) Q2 26 季報（8 月公告）驗證 V-Chip 1.2 億顆產能、(2) FY26 EPS 共識是否上修至 13-14 元、(3) 旭積虧損是否縮減。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">部位上限建議</div>
+        <div>鈺邦的「估值 + 成長」組合是被動元件 AI 純玩家中最佳的，<strong>建議 4-6% 為合理單持比例</strong>。比禾伸堂（3-5%）和立隆電（2-3%）可略高。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.5 與同業相對選擇邏輯（綜合 4 檔報告對比）</div>
+    </div>
+
+    <div class="chart-caption">表 11 · 4 檔被動元件 AI 受惠標的整體排序</div>
+    <div class="chart-sub">Source: 自家分析師對比研究結果 · 立隆電、禾伸堂、鈺邦、國巨各深度報告</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>排名</th><th class="right">標的</th><th class="right">投資邏輯</th><th class="right">當前評等</th><th class="right">部位上限</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td class="label pos">#1</td><td class="right">國巨* (2327)</td><td class="right">全面布局 + 車用最深 + KEMET 整合（漲停後估值已反映）</td><td class="right neu">HOLD</td><td class="right">5-7%</td></tr>
+        <tr class="highlight"><td class="label pos">#2</td><td class="right pos">鈺邦 (6449)</td><td class="right pos">AI NVLink 純玩家 + 估值相對最合理 + 戰略股東陣容</td><td class="right neu">HOLD</td><td class="right">4-6%</td></tr>
+        <tr><td class="label neu">#3</td><td class="right">禾伸堂 (3026)</td><td class="right">AI 高壓 MLCC + 漲停嚴重透支、需大幅回檔</td><td class="right neg">REDUCE</td><td class="right">3-5%</td></tr>
+        <tr><td class="label neg">#4</td><td class="right">立隆電 (2472)</td><td class="right neg">BBU Tier 2 候選 + EPS 含一次性 + 估值偏高</td><td class="right neg">NEUTRAL</td><td class="right">2-3%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>結論</strong>：在 AI 被動元件族群中，<strong>鈺邦是「估值 + 成長 + 戰略股東」三位一體相對最佳的純玩家</strong>。鈺邦純粹的 AI 暴露和相對合理的估值（PE 22.3× FY26 共識）使它在 4 檔中相對最具性價比，惟 5/18 收 271 元後上行空間已收斂、戰術上等回檔。
+    </p>
+
+  </section>
+
+  <!-- FINAL CALLOUT -->
+  <div class="final-callout">
+    <div class="final-callout-text">
+      鈺邦是<strong>「被動元件 AI 純玩家中相對最具性價比」</strong>的標的。<strong>FY25 營收 +28%、營業利益 +58%、Q1 2026 EPS 2.11 (+37.0% YoY)</strong> 已驗證本業強勁。<strong>NVIDIA NVLink Switch 主要供應商 + 捲繞型固態電容世界第一 + V-Chip 月產能 2 年翻倍至 1.2 億顆</strong>，AI 暴露是「Tier 1 結構性」、不是 BBU 超級電容那種「Tier 2 候選」。<strong>FY26 共識 EPS 12.16（+69% YoY，被動元件族群最高）、5/18 收 271 元 PE 22.3× FY26 共識仍是同類最便宜</strong>（vs 禾伸堂 44.4×、立隆電 27.2× TTM）。<strong>機率加權合理價 261 元、當前 271 元已較加權目標溢價 3.8%、上行至 320 元 +18.1%、下行至 170 元 -37.3%，風險報酬比約 1:0.5、估值已大致反映</strong>。<strong>評等：HOLD（估值已反映 · 等回檔）</strong>，建議：(a) 當前 271 元不宜追、等回測 250 元以下進場 50% 部位、(b) 回測 210-225 元加碼至 80%、(c) 進一步回測 180-200 元重押。<strong>結構性看好、執行力強，但 5/18 漲後上行收斂、戰術上等回檔</strong>。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      <strong>主要資料來源 / Sources：</strong>
+    </p>
+    <p>
+      <strong>一手財報</strong>：鈺邦科技 (6449) FY25（民國 114 年度）年報 F04，公開資訊觀測站 https://mops.twse.com.tw 2026/03/31 刊印；<strong>Q1 2026 合併財務報告（公司 2026/05/05 董事會通過、安侯建業 KPMG 核閱）</strong><br>
+      <strong>產業與市場新聞</strong>：鈺邦法說會 2025/08/27、2025/12/17 簡報整理（富果直送 fugle.tw、CMoney 法說整理）；vocus 投資分析（2025/09/17 slowbrew allin 文章引用 FY26 共識 EPS 12.16）；經濟日報；Yahoo 股市；玩股網（wantgoo）；財報狗（statementdog）；Win 投資（winvest）；Goodinfo；豐雲學堂等公開報導<br>
+      <strong>分析師共識</strong>：vocus slowbrew allin 2025/09/17 引用本土法人預估 FY26 EPS 12.16 元、FY26 EPS +61% YoY；歷史 PE 區間 22-32×<br>
+      <strong>同業財報</strong>：立隆電 (2472)、禾伸堂 (3026)、國巨* (2327)、華新科 (2492)、凱美 (2375) 之 Q1 2026 季報摘要與 FY25 年報摘要
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>分析師聲明 / Disclaimer：</strong>本報告 FY25 一手數據（營收 4,474,668 千元、營業利益 830,555 千元、母公司淨利 648,680 千元）皆來自鈺邦 FY25 年報 F04 報表。EPS 計算採用年底股本 91,898 千股（基本 EPS 7.06）；統計機構（財報狗/Win 投資）採用加權平均股本，所得 EPS 7.17。FY26/FY27 EPS（12.16 / 16+）為法人共識引用，非分析師獨立估算。情境設定（多頭 35% / 基本 45% / 空頭 20%）與目標價計算為分析師個人意見。報告中區分「事實」（直接引自財報或公告）與「推論」（基於事實的分析判斷）。投資人應自行判斷並承擔風險。本報告不構成具體投資建議。
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>所有 Q1 2026 一手數據</strong>：營收 1,128,235 千元、毛利 415,123、營業利益 216,692、稅前淨利 240,119、淨利 181,656（歸屬母公司 186,006）、EPS 2.11 元、加權股本 87,999 千股；產品線：捲繞型 689,048 / 晶片型 439,187；地區：台灣 304,370 / 亞洲 703,938 / 其他 119,927。財務狀況表：總資產 9,837,837、母公司業主權益 5,682,595、有息負債合計 2,465,276。
+    </p>
+    <p style="margin-top: 12px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted);">
+      © SECOND-LEVEL RESEARCH · 2026 · Doc: 6449-TW-DEEPDIVE-20260518-V1 · Confidential
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>

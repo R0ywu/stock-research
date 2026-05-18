@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>禾伸堂 (3026) 深度研究報告 | 2026.05.18</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 880px; margin: 0 auto; background: var(--bg-card); padding: 60px 70px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.report-meta { display: grid; grid-template-columns: 1fr auto; gap: 40px; margin-bottom: 40px; align-items: end; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 22px; color: var(--ink-muted); font-weight: 500; margin-left: 12px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 18px; font-style: italic; color: var(--ink-secondary); margin-top: 12px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; padding: 0; margin-bottom: 36px; overflow: hidden; }
+.rating-cell { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.rating-value.accent { color: #e8a87c; }
+.rating-value.negative { color: #ff8a6e; }
+.rating-value.neutral { color: #e6c870; }
+.rating-value.positive { color: #92cca5; }
+.rating-value .unit { font-size: 12px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.revision-note { background: #fff4e6; border-left: 4px solid var(--accent); padding: 18px 24px; margin-bottom: 30px; font-size: 13px; line-height: 1.75; color: var(--ink); }
+.revision-note strong { color: var(--accent); }
+.exec-summary { background: var(--highlight-bg); padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid var(--accent); position: relative; }
+.exec-summary::before { content: "執行摘要"; position: absolute; top: -10px; left: 20px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.exec-summary p { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+.exec-summary .lede { font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+.thesis-card { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.thesis-card:last-child { border-right: none; }
+.thesis-num { font-family: 'Playfair Display',serif; font-size: 48px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 10px; }
+.thesis-title { font-family: 'Noto Serif TC',serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.thesis-desc { font-size: 12px; color: var(--ink-secondary); line-height: 1.6; }
+.section { margin-bottom: 44px; }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 32px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink-muted); text-transform: uppercase; }
+.subsection { margin-top: 28px; margin-bottom: 18px; }
+.subsection-title { font-family: 'Noto Serif TC',serif; font-size: 16px; font-weight: 700; color: var(--ink); padding-bottom: 6px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.lead-para { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 18px; font-weight: 500; }
+.body-text { font-size: 14px; line-height: 1.85; margin-bottom: 16px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 22px 0; }
+.stat-cell { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); }
+.stat-value.neg { color: var(--negative); }
+.stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 11px; color: var(--ink-secondary); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); }
+.stat-sub.neg { color: var(--negative); }
+.chart-caption { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 16px; margin-bottom: 4px; letter-spacing: 0.5px; }
+.chart-sub { font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted); margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+.data-table th { background: var(--ink); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 16px 22px; margin: 18px 0; position: relative; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.callout-body { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.callout.bear { background: #fdf2ee; border-left-color: var(--accent); }
+.callout.bear .callout-label { color: var(--accent); }
+.callout.bull { background: #f3f9f5; border-left-color: var(--positive); }
+.callout.bull .callout-label { color: var(--positive); }
+.pullquote { background: var(--pullquote-bg); color: white; padding: 28px 36px; margin: 24px 0; position: relative; }
+.pullquote::before { content: """; position: absolute; top: -10px; left: 24px; font-family: 'Playfair Display',serif; font-size: 100px; color: var(--accent); line-height: 1; }
+.pullquote-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.75; font-style: italic; padding-left: 28px; }
+.pullquote-author { font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 12px; padding-left: 28px; letter-spacing: 1px; }
+.dual-think { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.dual-think-card { padding: 18px 22px; border: 1px solid var(--rule); }
+.dual-think-card.first { background: #f9f7f2; }
+.dual-think-card.second { background: #f0ede4; border-left: 3px solid var(--accent); }
+.dual-think-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.first .dual-think-label { color: var(--ink-muted); }
+.second .dual-think-label { color: var(--accent); }
+.dual-think-body { font-size: 12.5px; line-height: 1.7; color: var(--ink); }
+.dual-think-body strong { color: var(--accent); }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 24px 0; border: 1px solid var(--rule); }
+.scenario { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 4px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 4px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 4px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.scenario-desc { font-size: 12px; line-height: 1.7; color: var(--ink-secondary); }
+.action-matrix { background: #faf6ef; padding: 18px 24px; margin: 20px 0; border: 1px solid var(--rule); }
+.action-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.action-row { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 8px 0; font-size: 12.5px; line-height: 1.7; border-bottom: 1px solid rgba(216,212,205,0.5); }
+.action-row:last-child { border-bottom: none; }
+.action-key { font-weight: 600; color: var(--accent); }
+.risks { background: #fdf2ee; border-left: 4px solid var(--accent); padding: 18px 22px; margin: 20px 0; }
+.risks-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.5px; }
+.risks-list { list-style: none; padding: 0; }
+.risks-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.risks-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--accent); font-weight: 700; }
+.bulls { background: #f3f9f5; border-left: 4px solid var(--positive); padding: 18px 22px; margin: 20px 0; }
+.bulls-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--positive); margin-bottom: 10px; letter-spacing: 0.5px; }
+.bulls-list { list-style: none; padding: 0; }
+.bulls-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.bulls-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--positive); font-weight: 700; }
+.price-chart-container { margin: 24px 0; }
+.final-callout { background: var(--pullquote-bg); color: white; padding: 36px 40px; margin: 44px 0 20px; position: relative; }
+.final-callout::before { content: "FINAL TAKE"; position: absolute; top: -10px; left: 24px; background: var(--accent); color: white; padding: 4px 14px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.final-callout-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.85; }
+.final-callout-text strong { color: #e8a87c; }
+.footer { border-top: 2px solid var(--ink); padding-top: 24px; margin-top: 40px; font-size: 10.5px; color: var(--ink-secondary); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+.source-tag { display: inline-block; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); background: #f0ede4; padding: 1px 6px; border-radius: 2px; margin-left: 4px; }
+</style>
+</head>
+<body>
+<div class="report">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="firm">SECOND-LEVEL<br/>RESEARCH</div>
+      <div class="dept">Equity Research · Passive Components</div>
+    </div>
+    <div class="header-right">
+      <div class="doc-id">3026-TW · DEEP DIVE</div>
+      <div>2026.05.18</div>
+      <div>Deep-Dive · Issue 1.0</div>
+    </div>
+  </header>
+
+  <!-- REPORT META -->
+  <div class="report-meta">
+    <div>
+      <div class="sector-tag">電子零組件 · 高壓 MLCC / AI 電源 / 系統模組 / 通路</div>
+      <h1 class="company-title">禾伸堂<span class="ticker">3026.TW</span></h1>
+      <div class="report-subtitle">從「30 年配 131 元的定存股」蛻變為「AI 高壓 MLCC 成長股」</div>
+    </div>
+  </div>
+
+  <!-- RATING PANEL -->
+  <div class="rating-panel">
+    <div class="rating-cell">
+      <div class="rating-label">Rating</div>
+      <div class="rating-value negative">REDUCE</div>
+      <div class="rating-sub">(漲停嚴重透支 · 等大幅回檔)</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Current Price</div>
+      <div class="rating-value">359.5<span class="unit">TWD</span></div>
+      <div class="rating-sub">▲ +32.5 (+9.94%) · 2026.05.18 漲停</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Fair Value Range</div>
+      <div class="rating-value">187–364<span class="unit">TWD</span></div>
+      <div class="rating-sub">機率加權 285 元</div>
+    </div>
+    <div class="rating-cell">
+      <div class="rating-label">Risk / Reward</div>
+      <div class="rating-value negative">1 : 0.1</div>
+      <div class="rating-sub">上行已盡 · 下行極深</div>
+    </div>
+  </div>
+
+  <!-- REVISION NOTE -->
+    <!-- 90-DAY DAILY PRICE TREND CHART (REAL DATA) -->
+  <div class="price-chart-container" style="margin: 0 0 30px 0;">
+    <div class="chart-caption">圖 0 · 近 42 個交易日每日股價 × 三層情境目標價區間</div>
+    <div class="chart-sub">2026/03/16 – 2026/05/18 · 今日收 359.5 元 (+9.94%) · 漲停 · 4/8-4/16 + 5/5-5/8 連續漲停 · 已位於 Bull 區間中段 · 機率加權目標 285 元 · 資料來源：聚財網 stock.wearn.com/cdata + 鉅亨網歷史行情</div>
+    <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+      <rect width="800" height="380" fill="transparent"/>
+      <rect x="80" y="71.8" width="640" height="48.6" fill="#2d5a3f" opacity="0.10"/>
+      <rect x="80" y="136.6" width="640" height="48.6" fill="#8a6d2e" opacity="0.10"/>
+      <rect x="80" y="201.3" width="640" height="48.6" fill="#b8351a" opacity="0.10"/>
+      <line x1="80" y1="71.8" x2="720" y2="71.8" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="120.4" x2="720" y2="120.4" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="136.6" x2="720" y2="136.6" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="185.1" x2="720" y2="185.1" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="201.3" x2="720" y2="201.3" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <line x1="80" y1="249.9" x2="720" y2="249.9" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+      <text x="90" y="86.8" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#2d5a3f">Bull · 340-400 元</text>
+      <text x="230" y="86.8" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 30%</text>
+      <text x="90" y="151.6" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#8a6d2e">Base · 260-320 元</text>
+      <text x="230" y="151.6" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 50%</text>
+      <text x="90" y="216.3" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#b8351a">Bear · 180-240 元</text>
+      <text x="230" y="216.3" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 20%</text>
+      <text x="74" y="74.8" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">400</text>
+      <text x="74" y="123.4" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">340</text>
+      <text x="74" y="139.6" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">320</text>
+      <text x="74" y="188.1" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">260</text>
+      <text x="74" y="204.3" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">240</text>
+      <text x="74" y="252.9" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">180</text>
+      <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+      <line x1="80" y1="164.9" x2="720" y2="164.9" stroke="#8a6d2e" stroke-width="1.2" stroke-dasharray="5,3"/>
+      <text x="725" y="167.9" font-family="IBM Plex Mono" font-size="10" font-weight="700" fill="#8a6d2e">285 加權</text>
+      <path d="M 80.0,308.2 L 95.6,304.1 L 111.2,300.1 L 126.8,297.3 L 142.4,299.3 L 158.0,298.5 L 173.7,297.3 L 189.3,287.5 L 204.9,277.0 L 220.5,273.4 L 236.1,276.6 L 251.7,284.3 L 267.3,280.7 L 282.9,283.5 L 298.5,272.6 L 314.1,260.4 L 329.8,247.1 L 345.4,238.6 L 361.0,223.2 L 376.6,209.8 L 392.2,215.1 L 407.8,200.9 L 423.4,206.2 L 439.0,189.2 L 454.6,194.9 L 470.2,214.7 L 485.9,220.8 L 501.5,219.1 L 517.1,206.2 L 532.7,204.6 L 548.3,223.6 L 563.9,212.7 L 579.5,194.5 L 595.1,174.6 L 610.7,152.8 L 626.3,128.5 L 642.0,128.9 L 657.6,128.5 L 673.2,132.5 L 688.8,106.2 L 704.4,130.9 L 720.0,104.6" fill="none" stroke="#0f1419" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <g fill="#0f1419" opacity="0.65">
+        <circle cx="80.0" cy="308.2" r="1.6"/>
+        <circle cx="95.6" cy="304.1" r="1.6"/>
+        <circle cx="111.2" cy="300.1" r="1.6"/>
+        <circle cx="126.8" cy="297.3" r="1.6"/>
+        <circle cx="142.4" cy="299.3" r="1.6"/>
+        <circle cx="158.0" cy="298.5" r="1.6"/>
+        <circle cx="173.7" cy="297.3" r="1.6"/>
+        <circle cx="189.3" cy="287.5" r="1.6"/>
+        <circle cx="204.9" cy="277.0" r="1.6"/>
+        <circle cx="220.5" cy="273.4" r="1.6"/>
+        <circle cx="236.1" cy="276.6" r="1.6"/>
+        <circle cx="251.7" cy="284.3" r="1.6"/>
+        <circle cx="267.3" cy="280.7" r="1.6"/>
+        <circle cx="282.9" cy="283.5" r="1.6"/>
+        <circle cx="298.5" cy="272.6" r="1.6"/>
+        <circle cx="314.1" cy="260.4" r="1.6"/>
+        <circle cx="329.8" cy="247.1" r="1.6"/>
+        <circle cx="345.4" cy="238.6" r="1.6"/>
+        <circle cx="361.0" cy="223.2" r="1.6"/>
+        <circle cx="376.6" cy="209.8" r="1.6"/>
+        <circle cx="392.2" cy="215.1" r="1.6"/>
+        <circle cx="407.8" cy="200.9" r="1.6"/>
+        <circle cx="423.4" cy="206.2" r="1.6"/>
+        <circle cx="439.0" cy="189.2" r="1.6"/>
+        <circle cx="454.6" cy="194.9" r="1.6"/>
+        <circle cx="470.2" cy="214.7" r="1.6"/>
+        <circle cx="485.9" cy="220.8" r="1.6"/>
+        <circle cx="501.5" cy="219.1" r="1.6"/>
+        <circle cx="517.1" cy="206.2" r="1.6"/>
+        <circle cx="532.7" cy="204.6" r="1.6"/>
+        <circle cx="548.3" cy="223.6" r="1.6"/>
+        <circle cx="563.9" cy="212.7" r="1.6"/>
+        <circle cx="579.5" cy="194.5" r="1.6"/>
+        <circle cx="595.1" cy="174.6" r="1.6"/>
+        <circle cx="610.7" cy="152.8" r="1.6"/>
+        <circle cx="626.3" cy="128.5" r="1.6"/>
+        <circle cx="642.0" cy="128.9" r="1.6"/>
+        <circle cx="657.6" cy="128.5" r="1.6"/>
+        <circle cx="673.2" cy="132.5" r="1.6"/>
+        <circle cx="688.8" cy="106.2" r="1.6"/>
+        <circle cx="704.4" cy="130.9" r="1.6"/>
+      </g>
+      <circle cx="720.0" cy="104.6" r="5" fill="#2d5a3f"/>
+      <circle cx="720.0" cy="104.6" r="10" fill="none" stroke="#2d5a3f" stroke-width="1.2" opacity="0.6"/>
+      <text x="620.0" y="108.6" text-anchor="end" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#2d5a3f">359.5</text>
+      <text x="620.0" y="122.6" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f">▲ +32.5 (+9.94%)</text>
+      <line x1="80" y1="320" x2="720" y2="320" stroke="#0f1419" stroke-width="1"/>
+      <text x="80.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/16</text>
+      <text x="204.9" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/26</text>
+      <text x="329.8" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/09</text>
+      <text x="470.2" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/23</text>
+      <text x="595.1" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/06</text>
+      <text x="720.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/18</text>
+      <text x="400.0" y="354" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">42 trading days · Source: stock.wearn.com/cdata?kind=3026 + cnyes.com 歷史行情</text>
+    </svg>
+  </div>
+
+  <div class="revision-note">
+    <strong>研究重點：</strong>禾伸堂是<strong>「AI 高壓 MLCC 純玩家、現金流真實受惠者」</strong>，與 2472 立隆電（AI BBU Tier 2 候選）有本質差異。本報告主要結論：<strong>(1) Q1 2026 EPS 2.86（YoY +70.2%）含約 0.30 元金融資產評價利益、剔除後乾淨 EPS 2.56、YoY +52%</strong>，本業真實爆發；<strong>(2) 2026/3 法說宣布「第二個 4 年 30 億」AI MLCC 擴產計畫</strong>（台灣龍潭+宜蘭+日本）、4.42 億購置龍潭廠房，產業能見度高；<strong>(3) 5/18 再度漲停至 359.5 元、PE 已由 25× 拉升至 54.6× 區間（FY25 EPS 6.58），股價高出機率加權合理價 285 元逾 26%、嚴重透支</strong>。建議減碼，等股價大幅回測 270-290 元支撐再分批進場。
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <p class="lede">禾伸堂是<strong>「定存股轉型 AI 成長股」的成功案例</strong>：在 AI 伺服器電源剛性需求下，公司高壓 MLCC 已切入 NVIDIA Blackwell（GB200/GB300/Vera Rubin/Rubin Ultra）平台，交期 16-20 周、稼動率超過 100%，且管理層正以 30 億資本投入擴產，<strong>FY26 / FY27 法人共識 EPS 為 8.09 / 12.88 元</strong>，盈餘成長能見度極高。</p>
+    <p>六個關鍵發現：第一，<strong>Q1 2026 EPS 2.86 創 16 季新高、連續 3 季成長</strong>，本業營業利益年增 +50.8%、毛利率從 19.5% 跳升至 24.2%（+4.7pp）、營業利益率從 9.4% 升至 13.4%（+4.0pp），<strong>產品 Mix 升級到 AI 高壓 MLCC 是真實的</strong>；第二，<strong>EPS 含金融資產評價利益約 0.30 元，乾淨營運 EPS 約 2.56</strong>，扣除後仍是 YoY +52%，本業強勁；第三，<strong>30 年累計配息 131 元、FY25 公告 5.8 元股利</strong>，公司歷史「現金牛」屬性穩固但殖利率已從 6.5% 降至 1.61%（股價已漲逾 4 倍）；第四，<strong>淨現金 26.2 億（佔市值約 4.4%）</strong>，財務體質強勁，足以支撐 30 億擴產；第五，<strong>跨足生技醫療（禾伸堂生技 4194、禾麗陽生技）仍在虧損</strong>（Q1 26 生技拖累 -2,400 萬餘）但已縮減；第六，<strong>5/18 漲停後 PE 54.6×（FY25 EPS 6.58）/ 44.4×（FY26 共識 8.09）/ 27.9×（FY27 共識 12.88）</strong>，PE 過去 2 個月從 25× 倍增至 54.6×，<strong>樂觀情境已嚴重透支</strong>。Fair Value 區間 187-364 元，機率加權 285 元。<strong>當前 359.5 元（5/18 漲停）已高出加權合理價 26%、嚴重偏貴，建議減碼並等大幅回測 270-290 元再分批進場</strong>。</p>
+  </div>
+
+  <!-- 3 THESIS CARDS -->
+  <div class="thesis-grid">
+    <div class="thesis-card">
+      <div class="thesis-num">01</div>
+      <div class="thesis-title">AI 高壓 MLCC 真實爆發</div>
+      <div class="thesis-desc">Q1 26 被動元件營收 17.02 億（+18.5% YoY）、毛利率 +4.7pp 跳升、稼動率超過 100%。整機櫃 MLCC 用量從 2,200 顆 → 30,000 顆（+14×）、AI 占被動元件營收 2023 年 8% → 2025 年 19%。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">02</div>
+      <div class="thesis-title">第二個 4 年 30 億擴產</div>
+      <div class="thesis-desc">2026 年 3/24 法說宣布啟動 2026-2029 第二個 4 年 30 億計畫，在台灣（龍潭/宜蘭）+ 日本擴充 AI 電源 MLCC 產線。4.42 億購置桃園龍潭廠房。能見度未來 3-5 年。</div>
+    </div>
+    <div class="thesis-card">
+      <div class="thesis-num">03</div>
+      <div class="thesis-title">估值已乖離、需要回檔</div>
+      <div class="thesis-desc">5/5-5/8 連 4 漲停 + 5/18 再漲停，PE 從 25× 拉升至 54.6×。FY27 共識 EPS 12.88 對應 PE 27.9×；股價已高出機率加權合理價 285 元逾 26%，嚴重透支、應減碼等大幅回檔。</div>
+    </div>
+  </div>
+
+  <!-- SECTION I: COMPANY BASICS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">I.</div>
+      <div class="section-title">公司基本面盤點</div>
+      <div class="section-kicker">Business · Capacity · Financials</div>
+    </div>
+    <p class="lead-para">
+      禾伸堂企業（3026.TW）於 1981/6/1 成立、2002/8/26 上市，主業為積層陶瓷電容器（MLCC）之研產銷 + 電子零組件代理（被動 + 主動 + 系統模組） + 跨足生技醫療。董事長與總經理皆為唐錦榮，會計師事務所為安侯建業（KPMG）。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.1 收入結構：兩個應報導部門 + 五條產品線</div>
+    </div>
+
+    <div class="chart-caption">表 1 · Q1 2025 vs Q1 2026 產品線營收結構（單位：千元）</div>
+    <div class="chart-sub">Source: 禾伸堂 Q1 2026 合併財報附註六（二十）「客戶合約之收入細分」 · 2026/05/06 上傳公開資訊觀測站</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>產品線</th><th class="right">Q1 26 金額</th><th class="right">Q1 26 佔比</th><th class="right">Q1 25 金額</th><th class="right">Q1 25 佔比</th><th class="right">YoY</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight"><td class="label">被動元件（MLCC 主體）</td><td class="right">1,702,430</td><td class="right">47.0%</td><td class="right">1,436,222</td><td class="right">42.2%</td><td class="right pos">+18.5%</td></tr>
+        <tr><td class="label">主動元件（IC 等代理）</td><td class="right">760,300</td><td class="right">21.0%</td><td class="right">662,953</td><td class="right">19.5%</td><td class="right pos">+14.7%</td></tr>
+        <tr><td class="label">系統模組</td><td class="right">483,577</td><td class="right">13.4%</td><td class="right">482,044</td><td class="right">14.2%</td><td class="right">+0.3%</td></tr>
+        <tr><td class="label">其他電子</td><td class="right">521,385</td><td class="right">14.4%</td><td class="right">363,741</td><td class="right">10.7%</td><td class="right pos">+43.3%</td></tr>
+        <tr><td class="label">電子部門小計</td><td class="right">3,467,692</td><td class="right">95.8%</td><td class="right">2,944,960</td><td class="right">86.6%</td><td class="right pos">+17.7%</td></tr>
+        <tr><td class="label neg">其他部門（生技 + 其他）</td><td class="right">150,759</td><td class="right">4.2%</td><td class="right">457,032</td><td class="right">13.4%</td><td class="right neg">-67.0%</td></tr>
+        <tr class="total"><td class="label">合計</td><td class="right">3,618,451</td><td class="right">100.0%</td><td class="right">3,401,992</td><td class="right">100.0%</td><td class="right pos">+6.4%</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：被動元件成長 +18.5% 是主動力，主動元件 +14.7% 同步成長，<strong>其他電子 +43.3%（包含 AI 高壓 MLCC 客製件、模組配套）</strong>，系統模組持平；<strong>「其他部門」（生技醫療）營收暴跌 67%</strong>，反映 2025 年禾伸堂生技（4194）拆分至禾麗陽生技後，集團內部交易與認列基礎重組。
+    </p>
+
+    <p class="body-text">
+      <strong>推論</strong>：產品結構升級是真實的——AI 伺服器電源用 <strong>高壓 NPO MLCC 屬於高毛利、高客製化、高進入障礙</strong>產品，Q1 26 毛利率 24.2% 比 Q1 25 的 19.5% 跳升 +4.7pp，這個改善幅度幾乎不可能來自代理通路業務（通路毛利通常只有 5-10%），<strong>必然來自自製高階 MLCC 的比重提升</strong>。 <span class="source-tag">SRC: 禾伸堂法說會 2026/03/24、理財周刊 2026/05/08</span>
+    </p>
+
+    <div class="callout bull">
+      <div class="callout-label">AI 暴露度 · 真實量化</div>
+      <div class="callout-body">
+        依公司法說資料，<strong>AI 應用占被動元件營收從 2023 年的 8% 跳升至 2025 年的 19%</strong>，2026 年預期更高。<strong>整機櫃 MLCC 用量從傳統伺服器的 ~2,200 顆暴增至 AI 機櫃的 30,000+ 顆（+14×）</strong>，且高壓、高功率規格使單顆 ASP 數倍於消費電子用 MLCC。<strong>這是「量價齊揚」的結構性受惠</strong>，與 2472 立隆電在 BBU 超級電容是 Tier 2 候選的相對位置截然不同。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">1.2 季度損益進化：Q1 2026 強勢分析</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 營收</div>
+        <div class="stat-value pos">+6.4<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">34.02 → 36.18 億</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 毛利率</div>
+        <div class="stat-value pos">24.2<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">Q1 25: 19.5% (+4.7pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 營業利益率</div>
+        <div class="stat-value pos">13.4<span style="font-size:14px">%</span></div>
+        <div class="stat-sub pos">Q1 25: 9.4% (+4.0pp)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 EPS</div>
+        <div class="stat-value pos">$2.86</div>
+        <div class="stat-sub pos">+70.2% YoY / 創 16 季新高</div>
+      </div>
+    </div>
+
+    <div class="chart-caption">表 2 · Q1 2026 合併損益 vs Q1 2025（單位：千元）</div>
+    <div class="chart-sub">Source: 禾伸堂 Q1 2026 合併綜合損益表</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">Q1 2026</th><th class="right">Q1 2025</th><th class="right">YoY</th><th class="center">Q1 26 佔比</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">營業收入</td><td class="right">3,618,451</td><td class="right">3,401,992</td><td class="right pos">+6.4%</td><td class="center">100.0%</td></tr>
+        <tr><td class="label">營業成本</td><td class="right">(2,741,412)</td><td class="right">(2,739,270)</td><td class="right">+0.1%</td><td class="center">75.8%</td></tr>
+        <tr class="highlight"><td class="label">營業毛利</td><td class="right">877,039</td><td class="right">662,722</td><td class="right pos">+32.3%</td><td class="center">24.2%</td></tr>
+        <tr><td class="label">推銷及管理費用</td><td class="right">(332,384)</td><td class="right">(279,381)</td><td class="right">+19.0%</td><td class="center">9.2%</td></tr>
+        <tr><td class="label">研發費用</td><td class="right">(63,340)</td><td class="right">(62,163)</td><td class="right">+1.9%</td><td class="center">1.8%</td></tr>
+        <tr><td class="label">預期信用減損利益（損失）</td><td class="right pos">2,045</td><td class="right neg">(663)</td><td class="right">轉正</td><td class="center">0.1%</td></tr>
+        <tr class="highlight"><td class="label">營業淨利</td><td class="right">483,360</td><td class="right">320,515</td><td class="right pos">+50.8%</td><td class="center">13.4%</td></tr>
+        <tr><td class="label neu">其他利益及損失（含金融資產 +79,307）</td><td class="right pos">94,527</td><td class="right neg">(20,557)</td><td class="right pos">轉正</td><td class="center">2.6%</td></tr>
+        <tr><td class="label">採用權益法（禾瑞亞等）</td><td class="right">10,438</td><td class="right">3,819</td><td class="right pos">+173.3%</td><td class="center">0.3%</td></tr>
+        <tr><td class="label">利息收入</td><td class="right">8,640</td><td class="right">10,638</td><td class="right neg">-18.8%</td><td class="center">0.2%</td></tr>
+        <tr><td class="label">財務成本</td><td class="right">(28,320)</td><td class="right">(22,285)</td><td class="right neg">+27.1%</td><td class="center">-0.8%</td></tr>
+        <tr><td class="label">業外合計</td><td class="right pos">85,285</td><td class="right neg">(28,385)</td><td class="right pos">轉正 +113.7M</td><td class="center">2.4%</td></tr>
+        <tr><td class="label">稅前淨利</td><td class="right">568,645</td><td class="right">292,130</td><td class="right pos">+94.7%</td><td class="center">15.7%</td></tr>
+        <tr><td class="label">所得稅費用</td><td class="right">(113,236)</td><td class="right">(36,277)</td><td class="right neg">+212.1%</td><td class="center">-3.1%</td></tr>
+        <tr class="total"><td class="label">本期淨利</td><td class="right">455,409</td><td class="right">255,853</td><td class="right pos">+78.0%</td><td class="center">12.6%</td></tr>
+        <tr><td class="label">歸屬母公司業主</td><td class="right">474,578</td><td class="right">278,494</td><td class="right pos">+70.4%</td><td class="center">13.1%</td></tr>
+        <tr><td class="label neg">歸屬非控制權益（生技子公司虧損吸收）</td><td class="right neg">(19,169)</td><td class="right neg">(22,641)</td><td class="right pos">虧損縮減</td><td class="center">-0.5%</td></tr>
+        <tr class="total"><td class="label">基本 EPS（元）</td><td class="right pos">$2.86</td><td class="right">$1.68</td><td class="right pos">+70.2%</td><td class="center">—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <div class="callout-label">Q1 26 EPS 2.86 的拆解 · 「乾淨營運 EPS」分析</div>
+      <div class="callout-body">
+        Q1 26 EPS 2.86 中含<strong>金融資產評價利益 79,307 千元（透過損益按公允價值衡量金融資產之淨利益）</strong>，這是「未實現的股票/基金評價利益」，與本業無關。Q1 25 同項是負值 -53,125（虧損）。<strong>YoY 在這個項目的差額 +132,432 千元</strong>，稅後扣除 NCI 約對母公司 EPS 貢獻 0.30-0.35 元。<strong>剔除後「乾淨營運 EPS」約 2.50-2.56 元，相對 Q1 25 乾淨 EPS 約 1.78 仍是 YoY +44% 至 +52%</strong>，本業真實爆發、不是會計遊戲。
+      </div>
+    </div>
+
+    <p class="body-text">
+      <strong>第二層觀察 · 季度數據健康度</strong>：本業毛利率從 19.5% → 24.2% 跳升、營業利益率從 9.4% → 13.4% 同步擴張，且<strong>營業成本只增加 0.1%（vs 營收 +6.4%）</strong>，這是教科書級的「營業槓桿」——產品 Mix 升級到高毛利 AI 高壓 MLCC 的同時，固定成本被攤薄。<strong>這個變化在 Q1 是一次性還是持續，將是判斷全年 EPS 是 8 元 vs 12 元的關鍵</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.3 資產負債表與現金流：強勁的「金主」</div>
+    </div>
+
+    <div class="chart-caption">表 3 · 關鍵資產負債項目（Q1 2026 vs FY25 vs Q1 2025）（單位：千元）</div>
+    <div class="chart-sub">Source: 禾伸堂 Q1 2026 合併資產負債表</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">115.3.31</th><th class="right">114.12.31</th><th class="right">114.3.31</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">現金及約當現金</td><td class="right">4,380,883</td><td class="right">4,619,044</td><td class="right">4,754,492</td></tr>
+        <tr><td class="label">透過損益按公允價值衡量金融資產（流動）</td><td class="right">1,084,526</td><td class="right">965,366</td><td class="right">534,397</td></tr>
+        <tr><td class="label pos">現金 + 金融資產合計</td><td class="right pos">5,465,409</td><td class="right pos">5,584,410</td><td class="right pos">5,288,889</td></tr>
+        <tr><td class="label">應收帳款（含票據）</td><td class="right">3,936,977</td><td class="right">3,784,208</td><td class="right">3,204,385</td></tr>
+        <tr><td class="label">存貨</td><td class="right">2,254,634</td><td class="right">2,155,692</td><td class="right">2,335,035</td></tr>
+        <tr><td class="label">不動產廠房設備淨額</td><td class="right">3,717,234</td><td class="right">3,763,870</td><td class="right">4,122,249</td></tr>
+        <tr class="highlight"><td class="label">資產總計</td><td class="right">16,266,013</td><td class="right">16,188,432</td><td class="right">15,813,001</td></tr>
+        <tr><td class="label neg">短期借款</td><td class="right neg">2,093,681</td><td class="right neg">2,223,056</td><td class="right neg">1,285,221</td></tr>
+        <tr><td class="label neg">一年內到期長期借款</td><td class="right neg">352,373</td><td class="right neg">667,052</td><td class="right neg">625,000</td></tr>
+        <tr><td class="label neg">長期借款（非流動）</td><td class="right neg">400,780</td><td class="right neg">721,016</td><td class="right neg">1,323,333</td></tr>
+        <tr><td class="label neg">有息負債合計</td><td class="right neg">2,846,834</td><td class="right neg">3,611,124</td><td class="right neg">3,233,554</td></tr>
+        <tr><td class="label neg">應付股利（已宣告未付）</td><td class="right neg">962,164</td><td class="right">—</td><td class="right neg">912,397</td></tr>
+        <tr class="highlight"><td class="label pos">淨現金（現金+金融資產 - 有息負債）</td><td class="right pos">+2,618,575</td><td class="right pos">+1,973,286</td><td class="right pos">+2,055,335</td></tr>
+        <tr><td class="label">歸屬母公司業主權益</td><td class="right">9,687,374</td><td class="right">10,147,770</td><td class="right">9,375,406</td></tr>
+        <tr><td class="label">每股淨值（元）</td><td class="right">$58.39</td><td class="right">$61.17</td><td class="right">$56.51</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：淨現金 26.2 億（佔 5/18 市值 596 億的 ~4.4%），財務體質穩健。FY25 有息負債從 36.1 億下降至 28.5 億（-21%），<strong>顯示公司在還債而非舉債</strong>，與 30 億擴產計畫並不矛盾——管理層計畫用內部現金流分 4 年資本投入。<strong>應付股利 9.62 億 = 5.80 元/股 × 16.59 億股</strong>，將在 Q3 26 除息日陸續發放。每股淨值 58.39 元 → 當前 P/B = 359.5/58.39 = <strong>6.16×</strong>，是過去 10 年的歷史高檔（過去區間 1.5-3×）。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.4 現金流：營運產生 6 億、自由現金流 4.94 億</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 營運 CF</div>
+        <div class="stat-value pos">6.05億</div>
+        <div class="stat-sub pos">Q1 25: 4.69億 (+29.1%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 資本支出</div>
+        <div class="stat-value neg">1.11億</div>
+        <div class="stat-sub neg">vs Q1 25: 0.57億 (+96%)</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 自由現金流</div>
+        <div class="stat-value pos">4.94億</div>
+        <div class="stat-sub pos">FCF / 淨利 = 109%</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Q1 26 償還長借款</div>
+        <div class="stat-value neg">6.35億</div>
+        <div class="stat-sub neg">財務槓桿持續去化</div>
+      </div>
+    </div>
+
+    <p class="body-text">
+      自由現金流 4.94 億占當季淨利 4.55 億的 109%，說明<strong>獲利真實、現金品質高</strong>。資本支出已從 Q1 25 的 0.57 億上升至 1.11 億，反映 AI MLCC 擴產進入投資期。<strong>30 億 4 年計畫 = 平均每年 7.5 億資本支出</strong>，相對年營運現金流（推估 FY26 約 20-25 億）有 30-40% 用於資本投入，<strong>仍有充裕空間維持 5.8 元/股的股利</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">1.5 近 6 年 EPS 與股利政策</div>
+    </div>
+
+    <div class="chart-caption">表 4 · 近 6 年 EPS 與股利政策（含 FY26 共識預估）</div>
+    <div class="chart-sub">Source: 公開資訊觀測站歷年合併財報 + 財報狗 / 鉅亨 / 旺得富分析師估算共識</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>年度</th><th class="right">EPS（元）</th><th class="right">現金股利</th><th class="right">配息率</th><th class="right">除息時殖利率</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">FY20</td><td class="right">~9.1*</td><td class="right">8.00</td><td class="right">~88%</td><td class="right">~8.5%</td></tr>
+        <tr><td class="label">FY21</td><td class="right">~10.5*</td><td class="right">9.00</td><td class="right">~86%</td><td class="right">~8.0%</td></tr>
+        <tr><td class="label">FY22</td><td class="right">~5.7*</td><td class="right">5.00 + 0.5 股</td><td class="right">~88%</td><td class="right">~6.0%</td></tr>
+        <tr><td class="label">FY23</td><td class="right">5.13</td><td class="right">5.00</td><td class="right">97.5%</td><td class="right">~5.5%</td></tr>
+        <tr><td class="label">FY24</td><td class="right">5.87</td><td class="right">5.50</td><td class="right">93.7%</td><td class="right">6.57%</td></tr>
+        <tr class="highlight"><td class="label">FY25</td><td class="right pos">6.58</td><td class="right pos">5.80</td><td class="right">88.1%</td><td class="right">~1.61% (現價)</td></tr>
+        <tr><td class="label">FY26 共識</td><td class="right pos">8.09</td><td class="right">~6.5 (推估)</td><td class="right">~80%</td><td class="right">~2.0%</td></tr>
+        <tr><td class="label">FY27 共識</td><td class="right pos">12.88</td><td class="right">~10.0 (推估)</td><td class="right">~78%</td><td class="right">~3.0%</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-sub" style="margin-bottom:16px;">* FY20-22 EPS 為依配息率回推估算 · 公司 30 年累計配息達 131 元，長期屬「現金牛」型企業</p>
+
+    <p class="body-text">
+      <strong>事實</strong>：禾伸堂歷史是高配息率（85-97%）的<strong>「現金牛」</strong>，過去主要受被動元件景氣循環（FY21 漲價潮 EPS 高峰、FY22-23 庫存調整下滑）影響。<strong>FY25 是承上啟下的一年</strong>（基本面持平、AI 開始發酵），<strong>FY26-27 法人共識 EPS 進入結構性成長</strong>。配息率預期略降至 75-80%（公司會保留更多現金用於 AI MLCC 擴產）。
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">股利屬性的轉折 · 殖利率從 6.5% 跌到 1.61%</div>
+      <div class="callout-body">
+        <strong>2025/6/23 除息日 5.5 元、當時股價約 83.7 元，殖利率 6.57%</strong>。但 2026 5/18 股價漲停至 359.5 元、即將配 5.8 元，殖利率僅 <strong>1.61%</strong>。換句話說，<strong>禾伸堂從「殖利率定存股」轉變為「AI 成長股」</strong>，投資人結構發生根本性變化。<strong>需要警惕的是：如果 AI 故事降溫，原本的高殖利率買盤可能不會立刻回來——因為 5.8 元股利在當前股價下已不具吸引力</strong>。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION II: INDUSTRY POSITIONING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">II.</div>
+      <div class="section-title">產業定位與競爭格局（第一層思考）</div>
+      <div class="section-kicker">Industry · Competition</div>
+    </div>
+
+    <p class="lead-para">
+      MLCC 產業 2025-2026 進入「AI 拉動 + 中系產能解封 + 漲價傳導」三重變局。禾伸堂作為利基型高壓 MLCC 廠商（vs 國巨/華新科的全面型大廠），既受惠於 AI 結構性需求，也面臨高低階差異化的挑戰。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">2.1 MLCC 產業 2026 結構變化</div>
+    </div>
+
+    <div class="chart-caption">表 5 · AI 伺服器對 MLCC 規格與用量的衝擊</div>
+    <div class="chart-sub">Source: 鉅亨網、TechNews、UAnalyze、理財周刊、CMoney 法說整理（多份公開報導交叉驗證）</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">傳統伺服器</th><th class="right">AI 機櫃 (GB200/300)</th><th class="right">變化</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">單機櫃 MLCC 用量</td><td class="right">~2,200 顆</td><td class="right pos">~30,000 顆</td><td class="right pos">+14×</td></tr>
+        <tr><td class="label">耐電壓需求</td><td class="right">25-50V</td><td class="right pos">100-630V</td><td class="right pos">高壓化</td></tr>
+        <tr><td class="label">高容量需求（NPO）</td><td class="right">低</td><td class="right pos">大幅增加</td><td class="right pos">高容化</td></tr>
+        <tr><td class="label">交期</td><td class="right">8-12 周</td><td class="right neg">16-20 周</td><td class="right neg">缺料</td></tr>
+        <tr><td class="label">稼動率</td><td class="right">70-80%</td><td class="right neg">>100%</td><td class="right neg">超載</td></tr>
+        <tr><td class="label">單顆 ASP（vs 消費級）</td><td class="right">基準 1×</td><td class="right pos">3-10×</td><td class="right pos">高溢價</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：AI 對 MLCC 的需求是<strong>「量 +14×、單價 +3-10×、規格升級為高壓 NPO」</strong>，這是「結構性、非循環性」的需求拉動，與 2018 年的漲價潮（純粹缺料 + 庫存囤積）有本質不同。<strong>而禾伸堂專注的就是高壓 NPO MLCC 這個利基</strong>，所以在這波 AI 浪潮中受惠程度高於做中低階通用 MLCC 的廠商。 <span class="source-tag">SRC: 禾伸堂法說會 2026/03/24</span>
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">2.2 競爭定位：vs 日系 vs 台灣同業</div>
+    </div>
+
+    <div class="chart-caption">表 6 · MLCC 廠商定位與 Q1 2026 EPS 比較</div>
+    <div class="chart-sub">Source: 各公司 Q1 2026 季報 + 財報狗排行榜 + 鉅亨網</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>廠商</th><th class="right">類別</th><th class="right">市場定位</th><th class="right">Q1 26 EPS</th><th class="right">2026 動能</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">村田 (Murata)</td><td class="right">日系一線</td><td class="right">技術領先、全面型</td><td class="right">—</td><td class="right">穩健成長</td></tr>
+        <tr><td class="label">TDK / Taiyo Yuden</td><td class="right">日系一線</td><td class="right">高階為主</td><td class="right">—</td><td class="right">AI 直接受惠</td></tr>
+        <tr><td class="label">三星電機 (SEMCO)</td><td class="right">韓系一線</td><td class="right">大規模生產</td><td class="right">—</td><td class="right">穩健成長</td></tr>
+        <tr><td class="label">國巨* (2327)</td><td class="right">台廠龍頭</td><td class="right">全面型 + KEMET 整合</td><td class="right pos">$3.90</td><td class="right pos">AI + 車用雙引擎</td></tr>
+        <tr><td class="label">華新科 (2492)</td><td class="right">台廠 2 線</td><td class="right">中階為主</td><td class="right">$1.69</td><td class="right pos">AI 轉單受惠</td></tr>
+        <tr class="highlight"><td class="label">禾伸堂 (3026)</td><td class="right">台廠利基</td><td class="right pos">高壓 NPO MLCC 利基</td><td class="right pos">$2.86</td><td class="right pos">AI 直接受惠 (Tier 1)</td></tr>
+        <tr><td class="label">凱美 (2375)</td><td class="right">台廠</td><td class="right">電容 + EDLC</td><td class="right">N/A</td><td class="right">BBU 候選</td></tr>
+        <tr><td class="label">立隆電 (2472)</td><td class="right">台廠</td><td class="right">鋁電容主、無 MLCC</td><td class="right">$1.60</td><td class="right neu">BBU Tier 2 候選</td></tr>
+        <tr><td class="label">鈺邦 (6449)</td><td class="right">台廠</td><td class="right">固態電容、無 MLCC</td><td class="right">$2.11</td><td class="right pos">GB200 已打入</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>事實</strong>：禾伸堂 Q1 26 EPS 2.86 在<strong>「電容器類股」排第 3 名（前 16 家）</strong>，僅次於台達電 (7.91) 與國巨* (3.90)。在 MLCC 利基（高壓 NPO）領域，禾伸堂是<strong>少數台廠能切入 NVIDIA Blackwell（GB200/300/Vera Rubin/Rubin Ultra）AI 電源供應鏈</strong>的公司，這是與 2472 立隆電（BBU 超級電容 Tier 2）的根本差異。
+    </p>
+
+    <div class="callout bull">
+      <div class="callout-label">第二層 · 為何禾伸堂的 AI 暴露度高於立隆電</div>
+      <div class="callout-body">
+        <strong>禾伸堂 vs 立隆電的關鍵差異</strong>：(a) 禾伸堂做的是 <strong>NVIDIA 認證的高壓 NPO MLCC（電源端必備、量大、規格嚴）</strong>，立隆電做的是<strong>超級電容（BBU 端選配、量小、有日廠獨家）</strong>；(b) 禾伸堂已實際出貨並擴產（30 億計畫、稼動率 >100%），立隆電仍在「送樣 / Tier 2 候選」階段；(c) 禾伸堂 Q1 26 EPS YoY +70%、毛利率擴張 +4.7pp 是「看得見的 AI 紅利」，立隆電本業 +6.2%（剔除一次性）。<strong>所以禾伸堂享受高 PE（44.4× FY26）是有業績支撐的，但漲停後已嚴重透支；立隆電的 27.2× TTM PE 則更難以證明</strong>。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">2.3 客戶結構與通路業務</div>
+    </div>
+
+    <p class="body-text">
+      禾伸堂本身是<strong>「自製 MLCC + 代理通路」雙引擎</strong>業務模式。自製產品（被動元件 47%）毛利高、AI 暴露度大；代理通路（主動元件 21%、系統模組 13%、其他電子 14%）毛利低但量穩。<strong>子公司架構橫跨香港、薩摩亞、台灣、日本、印度、新加坡、英國、美國、中國（上海、禾琦商貿）</strong>，是國際化的銷售網絡。
+    </p>
+
+    <p class="body-text">
+      <strong>關係人交易揭露</strong>：與禾伸堂香港、禾伸堂上海、EPM（日本子公司）、禾瑞亞（採權益法 3.53%）等的內部往來，<strong>佔合併營收 5-10% 區間</strong>但合併報表已沖銷。EPM（日本）負責部分 AI 高壓 MLCC 生產，是<strong>「日本擴產 30 億計畫」的核心承接子公司</strong>。
+    </p>
+
+  </section>
+
+  <!-- SECTION III: SECOND LAYER THINKING -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">III.</div>
+      <div class="section-title">第二層思考：四個關鍵議題</div>
+      <div class="section-kicker">Second-Level Thinking</div>
+    </div>
+
+    <p class="lead-para">
+      Howard Marks 的第二層思考強調：要問「市場共識可能哪裡錯了」。以下針對禾伸堂四個熱門議題進行對照分析。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">議題一：Q1 EPS 2.86 是真實爆發還是會計浪潮？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">Q1 26 EPS 2.86 YoY +70% 創 16 季新高、稼動率 >100% + 法人估 FY26 EPS 8 元 → AI 結構性受惠已被驗證，禾伸堂正式進入成長股軌道。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) Q1 26 EPS 2.86 中含 <strong>金融資產評價利益 0.30-0.35 元</strong>（透過損益按公允價值衡量金融資產淨利益 +79,307 千元 vs Q1 25 -53,125 = +132M YoY 改善）；
+          (2) 剔除後乾淨 Q1 26 EPS 約 2.50-2.56、YoY +44-52%，<strong>本業仍是強勁，但「+70%」是稍微誇大的數字</strong>；
+          (3) <strong>更關鍵的營業利益 +50.8% YoY 是真實的</strong>，營業利益率擴張 +4.0pp 必然來自高毛利 AI 高壓 MLCC 出貨比重提升；
+          (4) Q2-Q4 26 能否維持季均 OI ~ 5.5-6.0 億將是關鍵。如果可，FY26 EPS 8-10 元穩；如果僅 Q1 是高峰，FY26 落在 7-8 元。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        <strong>本業 +50% 是真實的、+70% 是含金融操作的浪潮版</strong>。<strong>FY26 EPS 落點預估 7.8-9.0 元（vs 共識 8.09 元）</strong>。下半年若 AI 機櫃 GB300 量產順利、Q3-Q4 季 EPS 達 2.5+，全年可達 9.5+；若稼動率因競爭加劇而下降，全年可能落在 7.5 上下。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題二：第二個 4 年 30 億計畫的執行風險與 ROI</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">禾伸堂宣布 30 億擴產台日 AI 電源 MLCC、4.42 億購置桃園龍潭廠房 = 對未來 3-5 年 AI 需求能見度極高 + 拉開與競爭對手的技術差距。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 30 億 / 4 年 = 平均 7.5 億/年資本支出，<strong>相對禾伸堂年營運 CF 約 20-25 億，仍在可控範圍</strong>；
+          (2) 但 30 億 / 預期增量年營收 ?億 → 假設新增 30 億年產能 → 投資報酬 1-2 年 payback；
+          (3) 中系 MLCC 廠商（風華高科、宇陽、三環）也在大幅擴產，<strong>2026H2-2027 可能造成中低階市場過剩</strong>，雖然禾伸堂高壓利基受影響較少，但價格傳導壓力不能完全避免；
+          (4) <strong>日本擴產（EPM 子公司）面臨日圓升值、勞動成本高、產線整合的執行風險</strong>。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        擴產計畫是<strong>「正確戰略 + 合理規模 + 但執行風險中等」</strong>。新增產能預估 2027-2028 全面釋放，<strong>FY27 EPS 12.88 共識的關鍵就在這個擴產計畫</strong>能否如期完成。若如期完成、AI 需求維持，2027 可達；若延後或競爭加劇，2027 EPS 落在 10-11。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題三：跨足生技醫療是價值還是包袱？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">禾伸堂生技（4194）長期虧損、是集團 EPS 拖累，但禾麗陽生技分拆後重組已有起色，且本業 AI MLCC 強勁，市場已不太關注生技拖累。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) <strong>Q1 26 採權益法認列禾伸堂生技虧損 -24,257 千元、禾麗陽生技 -7,292 千元，合計 -31,549 千元 = EPS 拖累 ~0.19 元</strong>（年化約 0.76 元/年）；
+          (2) 禾生技 113 年（2024）整年 EPS -1.29、改善自 -2.12 但仍虧；禾麗陽分拆後接下醫材代理業務、有正向營運但規模小；
+          (3) MDT（瑞士）、AIHOL（美國）、Holy Stone Biotech（英國）等海外生技子公司同樣虧損；
+          (4) 集團持股比例 33.61%（友禾） + 4.33%（榮展） = 約 38% 持股，<strong>剩餘 62% 由外部股東持有，集團無法強迫退場</strong>。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        生技仍是<strong>「中度包袱」</strong>。每年拖累集團 EPS 0.5-0.8 元（不大但不可忽視）。<strong>本業 AI MLCC 強勁時市場容忍度高，若 AI 故事降溫，市場可能重新檢視這個拖累</strong>。生技 IPO 或出售是潛在 catalyst，但短期無時間表。
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">議題四：估值已乖離歷史區間，買進時點如何選擇？</div>
+    </div>
+
+    <div class="dual-think">
+      <div class="dual-think-card first">
+        <div class="dual-think-label">第一層 · 市場共識</div>
+        <div class="dual-think-body">PE 54.6× FY25 / 44.4× FY26 / 27.9× FY27 → 用 FY27 EPS 12.88 計算當前股價合理，且 PE 河流圖在紅色區間是「成長股的常態」，不必擔心。</div>
+      </div>
+      <div class="dual-think-card second">
+        <div class="dual-think-label">第二層 · 真實檢驗</div>
+        <div class="dual-think-body">
+          (1) 禾伸堂歷史 PE 區間 8-15×（2020-2023）、最近 FY24 平均約 12-15×；<strong>5/5-5/8 連 4 漲停後 PE 一下子拉升至 54.6×、過去 10 年最高</strong>；
+          (2) 股價從 5/4 收盤 ~220 漲到 5/8 的 330，再於 5/18 漲停至 359.5 = 自 5/4 起 +63% = 急漲；
+          (3) 過去高 PE 通常在大漲後伴隨 6-12 個月的整理或回測；
+          (4) 法人 FY27 EPS 12.88 是<strong>「樂觀情境的近似值」</strong>，包含 AI MLCC 完美執行 + 中系競爭被市場消化 + 生技不繼續惡化的所有假設。若僅其中一項偏離，FY27 EPS 可能落在 9-11 而非 12.88，當前股價的合理 PE 應該打折扣。
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">我的判斷</div>
+      <div class="callout-body">
+        <strong>長線基本面看好、但短期估值已乖離</strong>。建議：(1) 已持有者應在 359.5 元（5/18 漲停）附近獲利了結 40-50%、保留核心部位 50%；(2) 未持有者等大幅回測 270-290 元（PE 33-36× FY26 共識）再分批進場；(3) 若有任何負面事件（如 Q2 26 EPS 不繼續加速、AI 需求降溫信號），可能修正至 240 元以下，屆時是<strong>長期更佳買點</strong>。
+      </div>
+    </div>
+
+  </section>
+
+  <!-- SECTION IV: VALUATION & SCENARIOS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">IV.</div>
+      <div class="section-title">估值與情境分析</div>
+      <div class="section-kicker">Valuation · Scenarios</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.1 歷史估值區間 vs 現在</div>
+    </div>
+
+    <p class="body-text">
+      禾伸堂過去 10 年 PE 經歷三個階段：<strong>(1) 2018-2019 漲價潮，PE 在 10-18× 之間</strong>（被動元件大多頭）；<strong>(2) 2020-2024 景氣循環 + 庫存調整，PE 壓縮至 8-13×，期間以「高殖利率定存股」屬性為主</strong>；<strong>(3) 2025-2026 AI 高壓 MLCC 敘事，PE 從 12× 拉升至目前 54.6×（FY25 EPS 6.58、5/18 漲停 359.5）</strong>，過去 2 個月（5/5-5/8、5/18）尤其急遽。
+    </p>
+
+    <p class="body-text">
+      <strong>歷史比較</strong>：當前 PE 54.6× 是<strong>近 10 年最高</strong>，且高於同期國巨* 的 30.6× FY26 與華新科的 ~15×。即使參考共識 FY27 EPS 12.88 計算的 27.9× 仍接近全面型大廠國巨* 的 FY26 估值，<strong>市場給「禾伸堂的 AI 利基溢價」已接近國巨的全面布局溢價</strong>。
+    </p>
+
+    <div class="subsection">
+      <div class="subsection-title">4.2 三情境模型</div>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario bull">
+        <div class="scenario-title">多頭情境 · BULL</div>
+        <div class="scenario-prob">30<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 9.5 / FY27 EPS 13.0 / PE 28× / 目標 360-400</div>
+        <div class="scenario-desc">
+          AI 高壓 MLCC 持續超出預期、GB300/Vera Rubin 拉貨量大、稼動率維持 >100%；30 億擴產進度順利、2027 開始全面釋放；中系競爭未對高壓利基造成價格壓力；FY26 EPS 9.5、FY27 EPS 13.0；給予 FY27 PE 28×（合成長 + AI 溢價）= 目標 364-400。
+        </div>
+      </div>
+      <div class="scenario base">
+        <div class="scenario-title">基本情境 · BASE</div>
+        <div class="scenario-prob">45<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 8.0 / FY27 EPS 11.0 / PE 26× / 目標 280-320</div>
+        <div class="scenario-desc">
+          AI 高壓 MLCC 漸進貢獻、營業利益率穩定在 13-15%；Q2-Q4 EPS 不像 Q1 那麼強勁但季度合計 +25-30% YoY；FY26 EPS 8 元、FY27 EPS 11 元；給予 FY27 PE 26× = 目標 286-330 元；扣回生技拖累 0.7 元/年。
+        </div>
+      </div>
+      <div class="scenario bear">
+        <div class="scenario-title">空頭情境 · BEAR</div>
+        <div class="scenario-prob">25<span style="font-size:18px">%</span></div>
+        <div class="scenario-target">FY26 EPS 7.0 / FY27 EPS 8.5 / PE 22× / 目標 180-240</div>
+        <div class="scenario-desc">
+          AI 拉貨放緩（GB300 延後或客戶採用替代方案）；中系廠商擴產衝擊高壓 MLCC 價格 -10-15%；FY26 EPS 退至 7.0、FY27 EPS 8.5（仍高於 FY25 6.58 但成長放緩）；PE 修正至 22× 反映成長性減速 + 高基期；目標 187-220。
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">4.3 加權合理價計算</div>
+    </div>
+
+    <div class="chart-caption">表 7 · 三情境機率加權目標價（用 FY27 EPS 為主基準）</div>
+    <div class="chart-sub">Source: 自行情境建模 · 以情境中位點 PE 與 FY27 EPS 為計算基礎</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>情境</th><th class="right">機率</th><th class="right">FY27 EPS</th><th class="right">合理 PE</th><th class="right">目標價中位</th><th class="right">機率 × 目標</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">多頭</td><td class="right">30%</td><td class="right">$13.0</td><td class="right">28.0×</td><td class="right">$364</td><td class="right">$109</td></tr>
+        <tr class="highlight"><td class="label">基本</td><td class="right">45%</td><td class="right">$11.0</td><td class="right">26.0×</td><td class="right">$286</td><td class="right">$129</td></tr>
+        <tr><td class="label">空頭</td><td class="right">25%</td><td class="right">$8.5</td><td class="right">22.0×</td><td class="right">$187</td><td class="right">$47</td></tr>
+        <tr class="total"><td class="label">加權合理價</td><td class="right">100%</td><td class="right">$10.9</td><td class="right">~26×</td><td class="right">—</td><td class="right">$285</td></tr>
+      </tbody>
+    </table>
+
+    <p class="body-text">
+      <strong>用 FY27 EPS 為主基準的加權目標 = NT$ 285</strong>。當前股價 NT$ 359.5（5/18 漲停），<strong>溢價 26%</strong>。下行至空頭 187 元有 48% 跌幅、上行至多頭 364 元僅 1% 漲幅，<strong>風險報酬比約 1 : 0.1 嚴重不利做多</strong>。<strong>若用 FY26 EPS 為主基準，加權目標 ~ 240 元，距現價更遠</strong>，更應減碼、警惕回檔。
+    </p>
+
+    <div class="callout bear">
+      <div class="callout-label">壓力測試 · PE 修正風險</div>
+      <div class="callout-body">
+        若市場開始重新檢視 EPS 品質（剔除金融資產評價利益、扣除生技拖累），<strong>「乾淨 FY26 EPS」可能落在 7.0-7.5</strong>。在此基礎上，PE 35× = 245-265 元、PE 30× = 210-225 元。<strong>當前 359.5 元已超出最樂觀情境合理區間</strong>。歷史看，被動元件股在大漲後 6-12 個月內常有 25-35% 的回測，禾伸堂可能類似。
+      </div>
+    </div>
+
+    <!-- Price Chart -->
+    <div class="price-chart-container" style="margin-top: 30px;">
+      <div class="chart-caption">圖 1 · 目標價區間與當前位置（FY27 EPS 為基準，加權 285 元）</div>
+      <div class="chart-sub">三層目標區間視覺化 · 基於上表 FY27 EPS 與 PE 情境</div>
+      <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+        <rect width="760" height="380" fill="transparent"/>
+        <!-- 三個目標價區間 -->
+        <rect x="80" y="60" width="640" height="64" fill="#2d5a3f" opacity="0.10"/>
+        <rect x="80" y="156" width="640" height="64" fill="#8a6d2e" opacity="0.10"/>
+        <rect x="80" y="252" width="640" height="64" fill="#b8351a" opacity="0.10"/>
+
+        <line x1="80" y1="60" x2="720" y2="60" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="124" x2="720" y2="124" stroke="#2d5a3f" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="156" x2="720" y2="156" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="220" x2="720" y2="220" stroke="#8a6d2e" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="252" x2="720" y2="252" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+        <line x1="80" y1="316" x2="720" y2="316" stroke="#b8351a" stroke-width="0.8" opacity="0.5"/>
+
+        <!-- 區間標籤 -->
+        <text x="90" y="80" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#2d5a3f">Bull · 340~400 元</text>
+        <text x="220" y="80" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 30%</text>
+        <text x="90" y="176" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#8a6d2e">Base · 260~320 元</text>
+        <text x="220" y="176" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 45%</text>
+        <text x="90" y="272" font-family="Noto Serif TC" font-size="12" font-weight="700" fill="#b8351a">Bear · 180~240 元</text>
+        <text x="220" y="272" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 25%</text>
+
+        <!-- Y 軸刻度 -->
+        <g font-family="IBM Plex Mono" font-size="10" fill="#8a8f94">
+          <text x="72" y="63" text-anchor="end">400</text>
+          <text x="72" y="127" text-anchor="end">340</text>
+          <text x="72" y="159" text-anchor="end">320</text>
+          <text x="72" y="223" text-anchor="end">260</text>
+          <text x="72" y="255" text-anchor="end">240</text>
+          <text x="72" y="319" text-anchor="end">180</text>
+        </g>
+        <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+
+        <!-- 機率加權目標價 285 元 -->
+        <line x1="80" y1="200" x2="720" y2="200" stroke="#8a6d2e" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="725" y="203" font-family="IBM Plex Mono" font-size="11" font-weight="700" fill="#8a6d2e">285 weighted</text>
+
+        <!-- 當前股價 359.5 元（5/18 漲停） -->
+        <circle cx="720" cy="110" r="6" fill="#b8351a"/>
+        <circle cx="720" cy="110" r="11" fill="none" stroke="#b8351a" stroke-width="1.5" opacity="0.6"/>
+        <text x="540" y="105" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#b8351a">359.5 (current, 5/18)</text>
+        <line x1="505" y1="110" x2="710" y2="110" stroke="#b8351a" stroke-width="1" stroke-dasharray="3,3"/>
+
+        <!-- 標註：股價已高於加權合理價 -->
+        <line x1="640" y1="110" x2="640" y2="200" stroke="#b8351a" stroke-width="1" opacity="0.5"/>
+        <text x="648" y="158" font-family="IBM Plex Mono" font-size="10" fill="#b8351a" font-weight="700">+26% 高於加權</text>
+
+        <!-- X 軸 -->
+        <line x1="80" y1="340" x2="720" y2="340" stroke="#0f1419" stroke-width="1"/>
+        <text x="400" y="358" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">機率加權目標價計算結果 · Based on FY27 EPS · As of 2026.05.18</text>
+      </svg>
+    </div>
+
+  </section>
+
+  <!-- SECTION V: INVESTMENT CONCLUSION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">V.</div>
+      <div class="section-title">投資結論</div>
+      <div class="section-kicker">Investment Thesis</div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.1 核心多頭論點</div>
+    </div>
+
+    <div class="bulls">
+      <div class="bulls-title">三個最強的多頭點</div>
+      <ul class="bulls-list">
+        <li><strong>AI 高壓 MLCC 是真實「量價齊揚」的結構性受惠</strong>：整機櫃 MLCC 用量從 2,200 顆 → 30,000 顆（+14×）、單顆 ASP 為消費級 3-10×、稼動率 >100%、交期 16-20 周缺料中。禾伸堂已切入 NVIDIA Blackwell（GB200/300/Vera Rubin/Rubin Ultra）AI 電源供應鏈，<strong>是「真實 AI 受惠者」，不是「沾邊概念」</strong>。Q1 26 毛利率 +4.7pp、營業利益率 +4.0pp 同步擴張是直接證據。</li>
+        <li><strong>第二個 4 年 30 億擴產計畫 + 4.42 億龍潭廠房 = 能見度高的盈餘軌道</strong>：法說明確指出 2026-2029 將投入 30 億在台灣（龍潭、宜蘭）+ 日本擴充 AI 電源 MLCC 產線。<strong>30 億 / 4 年 = 平均年 7.5 億，相對年營運 CF 約 20-25 億是可控比例</strong>，且公司同時還持續償還長期借款（FY25 償還 9.5 億），顯示資金充裕。法人共識 FY27 EPS 12.88 主要建立在此擴產順利。</li>
+        <li><strong>財務體質強勁、淨現金 26.2 億、現金牛 + 成長股雙重屬性</strong>：30 年累計配息 131 元的歷史一致性 + 當前淨現金佔市值 5% + 自由現金流佔淨利 109% + 利息保障倍數 17× = <strong>「下檔有現金支撐、上檔有 AI 推動」的雙重保護</strong>。配息率預估 75-80% 維持。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.2 核心空頭風險</div>
+    </div>
+
+    <div class="risks">
+      <div class="risks-title">三個最該警惕的點</div>
+      <ul class="risks-list">
+        <li><strong>當前 PE 54.6× 已嚴重乖離歷史區間、急漲後易回測</strong>：過去 10 年 PE 區間 8-15×、現在 54.6× 是<strong>歷史最高</strong>；5/5-5/8 連 4 漲停 + 5/18 再漲停後與 20MA / 60MA 乖離率極高。即使 FY27 EPS 12.88 共識實現，當前 359.5 元的 FY27 PE 也達 27.9×。<strong>過往被動元件股在連續漲停後 6-12 個月內常有 25-35% 回測</strong>，禾伸堂可能類似。</li>
+        <li><strong>Q1 26 EPS 含金融資產評價利益 0.30 元 + 生技拖累每年 0.5-0.8 元</strong>：Q1 26 EPS 2.86 中約 0.30 元來自「透過損益按公允價值衡量金融資產之淨利益」（股票評價利益），不可重複；同時集團採用權益法認列禾伸堂生技 (4194) + 禾麗陽生技每季虧損約 0.19 元、年化 0.76 元。<strong>「乾淨」FY26 EPS 預估區間 7.0-7.8 元（vs 共識 8.09 元）</strong>，若市場開始嚴格檢視，估值會被重新評估。</li>
+        <li><strong>中系 MLCC 擴產 + GB300 採用方案不確定性</strong>：中國風華高科、宇陽、三環等 2024-2025 年也在大幅擴產 MLCC，<strong>2026H2-2027 中低階產能可能過剩</strong>，雖然禾伸堂主力是高壓利基、影響較小，但仍會有價格傳導壓力。另一個變數：<strong>輝達 GB300 量產不確定性</strong>（曾傳出超級電容被反設計），若 GB300 推遲或客戶採用替代方案，AI MLCC 拉貨節奏會延後。</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.3 觀察指標清單（每月 / 每季追蹤）</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">關鍵指標儀表板</div>
+      <div class="action-row">
+        <div class="action-key">月營收 YoY</div>
+        <div>2026 4月已 +21.12%、創 4 年新高。<strong>追蹤 5-8 月是否維持 ≥ 20% YoY</strong>；若回落至 10% 以下，AI 動能可能減速。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">季毛利率 / 營益率</div>
+        <div>Q1 26 GM 24.2% / OPM 13.4%。<strong>若 Q2-Q3 GM 維持 23-25%、OPM 在 13-15%</strong>，代表產品 Mix 升級已穩定；若回落至 21% 以下，警示。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">產品線：被動元件 vs 主動元件</div>
+        <div>被動元件 Q1 26 +18.5%、是 AI 受惠主力。<strong>追蹤被動元件營收 YoY 與比重變化</strong>；若被動元件比重從 47% 持續上升至 50%+，本業核心更穩。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">稼動率 / 交期</div>
+        <div>當前稼動率 >100%、交期 16-20 周。<strong>追蹤這兩個指標是否維持緊俏</strong>；若交期縮回 12 周以下或稼動率回落，意味需求降溫。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">業外其他利益及損失</div>
+        <div>Q1 26 +94,527（含金融資產 +79,307）。<strong>避免被「業外 spike」誤導季度 EPS 真實水準</strong>，每季拆解金融操作 vs 本業。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">擴產執行：龍潭廠 / 日本 EPM</div>
+        <div>4.42 億龍潭廠房購置 → 量產時程 / 日本 EPM 子公司擴產進度 / 30 億 4 年資本支出節奏。<strong>追蹤每季 capex 是否如期</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">禾伸堂生技 (4194) 損益</div>
+        <div>2024 EPS -1.29 (改善自 2023 的 -2.12)。<strong>追蹤 2025 / 2026 損益進度</strong>；若虧損持續擴大需重新評估集團整體 EPS。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">同業 EPS 對標</div>
+        <div>國巨 (2327) / 華新科 (2492) / 鈺邦 (6449) 的 Q2-Q3 EPS 與毛利率，是觀察整體 MLCC 景氣的代理變數。<strong>若同業同步加速，禾伸堂上行；若同業放緩，禾伸堂可能補跌</strong>。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.4 進場 / 出場條件</div>
+    </div>
+
+    <div class="action-matrix">
+      <div class="action-title">操作框架</div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--positive);">分批進場條件</div>
+        <div><strong>股價回測 270-290 元（基本情境中位 PE 33-36× FY26 共識）</strong>，且 Q2 26 月營收 YoY 維持 ≥ 15%、毛利率不滑落至 21%，可開始建倉。<strong>若進一步回測 220-250 元（接近空頭情境上緣）</strong>，則為更佳分批進場時機；240 元以下是「長期 BUY」位階。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--negative);">分批出場條件</div>
+        <div><strong>股價突破 380 元且 PE 來到 30× FY27 共識</strong>，已超出多頭情境上緣，建議減持 30-50%。若 Q2 26 EPS 不繼續加速（季 EPS &lt; 2.5），或 AI 拉貨明顯放緩，<strong>應加速減倉至核心持股 30%</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key" style="color:var(--neutral);">持有觀望條件</div>
+        <div><strong>股價在 290-360 元區間</strong>，等待 (1) Q2 26 季報（8 月公告）驗證毛利率/營益率持續性、(2) 30 億擴產執行進度、(3) AI MLCC 訂單能見度更明朗。<strong>當前 359.5 元（5/18 漲停）已嚴重高於合理區間，應減碼、絕不追高</strong>。</div>
+      </div>
+      <div class="action-row">
+        <div class="action-key">部位上限建議</div>
+        <div>禾伸堂股價波動已大（Q1 EPS 公佈後 4 天 +50%），<strong>建議 3-5% 為合理單持比例</strong>。比 2472 立隆電（2-3%）可略高，因為基本面驗證更強。</div>
+      </div>
+    </div>
+
+    <div class="subsection">
+      <div class="subsection-title">5.5 與同業（立隆電、國巨、華新科、鈺邦）的相對選擇邏輯</div>
+    </div>
+
+    <div class="chart-caption">表 8 · 禾伸堂 vs 同業相對比較</div>
+    <div class="chart-sub">Source: 各公司 Q1 2026 季報 + statementdog / cnyes / vocus 公開估值</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>項目</th><th class="right">禾伸堂 3026</th><th class="right">立隆電 2472</th><th class="right">國巨* 2327</th><th class="right">華新科 2492</th><th class="right">鈺邦 6449</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">FY25 EPS</td><td class="right">$6.58</td><td class="right">$8.73*</td><td class="right">N/A</td><td class="right">N/A</td><td class="right">$7.38</td></tr>
+        <tr><td class="label">Q1 26 EPS</td><td class="right pos">$2.86</td><td class="right">$1.60</td><td class="right pos">$3.90</td><td class="right">$1.69</td><td class="right">$2.11</td></tr>
+        <tr><td class="label">Q1 26 EPS YoY</td><td class="right pos">+70.2%</td><td class="right neg">-4.2%</td><td class="right pos">~+15%</td><td class="right">N/A</td><td class="right pos">~+20%</td></tr>
+        <tr><td class="label">當前 PE</td><td class="right neg">44.4× (FY26)</td><td class="right">27.2× (TTM)</td><td class="right">30.6× (FY26)</td><td class="right">~15×</td><td class="right">22.3× (FY26)</td></tr>
+        <tr><td class="label">主業</td><td class="right pos">高壓 MLCC + 通路</td><td class="right">鋁電容 + 鋁箔</td><td class="right pos">全面型 + KEMET</td><td class="right">中階 MLCC + 鉭電容</td><td class="right">固態電容</td></tr>
+        <tr><td class="label">AI 暴露度</td><td class="right pos">高（電源 MLCC 直接受惠）</td><td class="right">中（BBU Tier 2）</td><td class="right pos">高（KEMET + 高壓）</td><td class="right">中（AI MLCC 轉單）</td><td class="right pos">高（GB200 供應鏈）</td></tr>
+        <tr><td class="label">車用比重</td><td class="right">部分</td><td class="right pos">36%</td><td class="right pos">~40%</td><td class="right">~30%</td><td class="right">~25%</td></tr>
+        <tr><td class="label">財務體質</td><td class="right pos">淨現金 26 億</td><td class="right pos">負債比 24%</td><td class="right pos">優</td><td class="right">優</td><td class="right">中</td></tr>
+        <tr><td class="label">估值（自評）</td><td class="right neg">嚴重透支</td><td class="right neu">已部分透支</td><td class="right pos">合理</td><td class="right pos">合理</td><td class="right">略偏多</td></tr>
+        <tr><td class="label">投資吸引力</td><td class="right neg">減碼（嚴重透支）</td><td class="right neu">中性偏空</td><td class="right pos">偏多（首選）</td><td class="right pos">略偏多</td><td class="right pos">HOLD（等回檔）</td></tr>
+      </tbody>
+    </table>
+    <p class="chart-sub" style="margin-bottom:16px;">* 立隆電 FY25 EPS 含 1.29 一次性處分利益；乾淨 EPS 7.44</p>
+
+    <p class="body-text">
+      <strong>結論</strong>：在被動元件族群的 AI 故事中，<strong>禾伸堂與鈺邦是「直接受惠者」</strong>（已有實質訂單與認證），<strong>立隆電與凱美是「候選者」</strong>（送樣中、未驗證）。
+    </p>
+    <p class="body-text">
+      <strong>相對排序（從首選到末選）</strong>：(1) <strong>國巨*</strong> — 全面布局 + 高殖利 + 車用最深 + 含 KEMET 高階溢價，最穩；(2) <strong>鈺邦</strong> — NVLink 已驗證 + 估值相對合理 + 純固態電容，但現價已接近加權目標；(3) <strong>禾伸堂</strong> — AI 純玩家但漲停後嚴重透支，需等回檔（270-290 進場）；(4) <strong>華新科</strong> — 穩定的 AI 轉單 + 估值合理；(5) <strong>立隆電</strong> — BBU 候選 + 估值偏高 + EPS 含一次性，吸引力最低。
+    </p>
+
+  </section>
+
+  <!-- FINAL CALLOUT -->
+  <div class="final-callout">
+    <div class="final-callout-text">
+      禾伸堂是<strong>「定存股轉型 AI 成長股」的成功案例</strong>—— Q1 2026 EPS 2.86（YoY +70.2%）並非會計浪潮，<strong>乾淨營運 EPS 約 2.56 仍是 YoY +52%</strong>，本業 AI 高壓 MLCC 量價齊揚是真實的。第二個 4 年 30 億擴產計畫 + 4.42 億龍潭廠房 + 切入 NVIDIA Blackwell 平台 = <strong>未來 3-5 年盈餘成長能見度高</strong>。<strong>但問題在估值已嚴重乖離</strong>：5/5-5/8 連 4 漲停 + 5/18 再漲停後 PE 從 25× 拉升至 54.6×（FY25）/ 44.4×（FY26 共識）/ 27.9×（FY27 共識），<strong>歷史最高、過去 10 年僅見</strong>。機率加權合理價約 285 元、當前 359.5 元溢價 26%、下行至 187 元有 48% 跌幅、上行至 364 元僅 1% 漲幅，<strong>風險報酬比 1 : 0.1 嚴重不利做多</strong>。<strong>評等：REDUCE（漲停嚴重透支 · 等大幅回檔）</strong>，建議：(a) 持有者鎖利減持 40-50%、保留核心 50% 部位；(b) 未持有者等大幅回測 270-290 元（PE 33-36× FY26）再分批進場；(c) 若進一步回測 220-250 元，是「長期 BUY」位階。<strong>結構性看好，但當前價位戰術性減碼、等大幅回檔</strong>。
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>
+      <strong>主要資料來源 / Sources：</strong>
+    </p>
+    <p>
+      <strong>一手財報</strong>：禾伸堂 (3026) Q1 2026 合併財務報告 (AI1)，公開資訊觀測站 https://mops.twse.com.tw 2026/05/06 上傳；FY25 全年合併損益由權益變動表反推（FY25 年報 PDF 未提供，由 FY25 12M 累計與配息倒推）<br>
+      <strong>產業與市場新聞</strong>：禾伸堂法說會 2026/03/24 簡報；理財周刊 2026/05/08 報導；豐雲學堂法說整理；CMoney 投資網誌；鉅亨網（cnyes）；Yahoo 股市；玩股網（wantgoo）；財報狗（statementdog）；Win 投資（winvest）；旺得富理財網；TechNews 科技新報；UAnalyze；股市爆料同學會等公開報導<br>
+      <strong>分析師共識</strong>：旺得富理財網 2026/03/27 報導引用法人估算 FY26 EPS 8.09 元、FY27 EPS 12.88 元<br>
+      <strong>子公司資料</strong>：禾伸堂生技股份有限公司（4194.TW）官網 hshc.com.tw；禾麗陽生技（hybmc.com）；MoneyDJ 理財網生技概況<br>
+      <strong>同業財報</strong>：立隆電 (2472)、國巨* (2327)、華新科 (2492)、鈺邦 (6449)、凱美 (2375) 之 Q1 2026 季報摘要
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>分析師聲明 / Disclaimer：</strong>本報告 Q1 2026 一手財報數據皆來自禾伸堂公告。FY25 全年數據（EPS 6.58）為公開資料引用、自行核對與權益變動表反推一致。FY26/FY27 EPS（8.09 / 12.88）為法人共識引用，非分析師獨立估算。情境設定（多頭 30% / 基本 45% / 空頭 25%）與目標價計算為分析師個人意見。報告中區分「事實」（直接引自財報或公告）與「推論」（基於事實的分析判斷）。投資人應自行判斷並承擔風險。本報告不構成具體投資建議。
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>研究限制</strong>：FY25 年報 PDF 未上傳資料夾，相關 FY25 全年數據來自公開財報資料；若數字與最終正式年報有微幅出入，以公開資訊觀測站正式公告為準。
+    </p>
+    <p style="margin-top: 12px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted);">
+      © SECOND-LEVEL RESEARCH · 2026 · Doc: 3026-TW-DEEPDIVE-20260518-V1 · Confidential
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
