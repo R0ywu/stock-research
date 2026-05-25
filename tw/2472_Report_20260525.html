@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立隆電 (2472) 深度研究報告 V2.0 | 2026.05.25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 880px; margin: 0 auto; background: var(--bg-card); padding: 60px 70px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.v2-badge { display: inline-block; background: var(--accent); color: white; font-family: 'IBM Plex Mono',monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px; margin-left: 8px; vertical-align: middle; }
+.report-meta { display: grid; grid-template-columns: 1fr auto; gap: 40px; margin-bottom: 40px; align-items: end; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 22px; color: var(--ink-muted); font-weight: 500; margin-left: 12px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 18px; font-style: italic; color: var(--ink-secondary); margin-top: 12px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; padding: 0; margin-bottom: 36px; overflow: hidden; }
+.rating-cell { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.rating-value.accent { color: #e8a87c; }
+.rating-value.negative { color: #ff8a6e; }
+.rating-value.neutral { color: #e6c870; }
+.rating-value.positive { color: #92cca5; }
+.rating-value .unit { font-size: 12px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.revision-note { background: #fff4e6; border-left: 4px solid var(--accent); padding: 18px 24px; margin-bottom: 30px; font-size: 13px; line-height: 1.75; color: var(--ink); }
+.revision-note strong { color: var(--accent); }
+.exec-summary { background: var(--highlight-bg); padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid var(--accent); position: relative; }
+.exec-summary::before { content: "執行摘要"; position: absolute; top: -10px; left: 20px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.exec-summary p { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+.exec-summary .lede { font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+.thesis-card { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.thesis-card:last-child { border-right: none; }
+.thesis-num { font-family: 'Playfair Display',serif; font-size: 48px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 10px; }
+.thesis-title { font-family: 'Noto Serif TC',serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.thesis-desc { font-size: 12px; color: var(--ink-secondary); line-height: 1.6; }
+.section { margin-bottom: 44px; }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 32px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink-muted); text-transform: uppercase; }
+.subsection { margin-top: 28px; margin-bottom: 18px; }
+.subsection-title { font-family: 'Noto Serif TC',serif; font-size: 16px; font-weight: 700; color: var(--ink); padding-bottom: 6px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.lead-para { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 18px; font-weight: 500; }
+.body-text { font-size: 14px; line-height: 1.85; margin-bottom: 16px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 22px 0; }
+.stat-cell { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); }
+.stat-value.neg { color: var(--negative); }
+.stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 11px; color: var(--ink-secondary); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); }
+.stat-sub.neg { color: var(--negative); }
+.chart-caption { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 16px; margin-bottom: 4px; letter-spacing: 0.5px; }
+.chart-sub { font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted); margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+.data-table th { background: var(--ink); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 16px 22px; margin: 18px 0; position: relative; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.callout-body { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.callout.bear { background: #fdf2ee; border-left-color: var(--accent); }
+.callout.bear .callout-label { color: var(--accent); }
+.callout.bull { background: #f3f9f5; border-left-color: var(--positive); }
+.callout.bull .callout-label { color: var(--positive); }
+.pullquote { background: var(--pullquote-bg); color: white; padding: 28px 36px; margin: 24px 0; position: relative; }
+.pullquote::before { content: "\201C"; position: absolute; top: -10px; left: 24px; font-family: 'Playfair Display',serif; font-size: 100px; color: var(--accent); line-height: 1; }
+.pullquote-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.75; font-style: italic; padding-left: 28px; }
+.pullquote-author { font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 12px; padding-left: 28px; letter-spacing: 1px; }
+.dual-think { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.dual-think-card { padding: 18px 22px; border: 1px solid var(--rule); }
+.dual-think-card.first { background: #f9f7f2; }
+.dual-think-card.second { background: #f0ede4; border-left: 3px solid var(--accent); }
+.dual-think-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.first .dual-think-label { color: var(--ink-muted); }
+.second .dual-think-label { color: var(--accent); }
+.dual-think-body { font-size: 12.5px; line-height: 1.7; color: var(--ink); }
+.dual-think-body strong { color: var(--accent); }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 24px 0; border: 1px solid var(--rule); }
+.scenario { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 4px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 4px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 4px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.scenario-desc { font-size: 12px; line-height: 1.7; color: var(--ink-secondary); }
+.action-matrix { background: #faf6ef; padding: 18px 24px; margin: 20px 0; border: 1px solid var(--rule); }
+.action-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+.action-row { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 8px 0; font-size: 12.5px; line-height: 1.7; border-bottom: 1px solid rgba(216,212,205,0.5); }
+.action-row:last-child { border-bottom: none; }
+.action-key { font-weight: 600; color: var(--accent); }
+.risks { background: #fdf2ee; border-left: 4px solid var(--accent); padding: 18px 22px; margin: 20px 0; }
+.risks-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.5px; }
+.risks-list { list-style: none; padding: 0; }
+.risks-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.risks-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--accent); font-weight: 700; }
+.bulls { background: #f3f9f5; border-left: 4px solid var(--positive); padding: 18px 22px; margin: 20px 0; }
+.bulls-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--positive); margin-bottom: 10px; letter-spacing: 0.5px; }
+.bulls-list { list-style: none; padding: 0; }
+.bulls-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.bulls-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--positive); font-weight: 700; }
+.price-chart-container { margin: 24px 0; }
+.final-callout { background: var(--pullquote-bg); color: white; padding: 36px 40px; margin: 44px 0 20px; position: relative; }
+.final-callout::before { content: "FINAL TAKE"; position: absolute; top: -10px; left: 24px; background: var(--accent); color: white; padding: 4px 14px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.final-callout-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.85; }
+.final-callout-text strong { color: #e8a87c; }
+.footer { border-top: 2px solid var(--ink); padding-top: 24px; margin-top: 40px; font-size: 10.5px; color: var(--ink-secondary); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+.source-tag { display: inline-block; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); background: #f0ede4; padding: 1px 6px; border-radius: 2px; margin-left: 4px; }
+.blindspot-card { border: 1px solid var(--rule); margin: 16px 0; overflow: hidden; }
+.blindspot-header { background: var(--ink); color: white; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
+.blindspot-num { font-family: 'Playfair Display',serif; font-size: 28px; font-weight: 900; color: #e8a87c; line-height: 1; }
+.blindspot-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; }
+.blindspot-body { display: grid; grid-template-columns: 1fr 1fr; }
+.blindspot-wrong { background: #fdf2ee; padding: 16px 20px; border-right: 1px solid var(--rule); }
+.blindspot-right { background: #f3f9f5; padding: 16px 20px; }
+.blindspot-label { font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.blindspot-wrong .blindspot-label { color: var(--accent); }
+.blindspot-right .blindspot-label { color: var(--positive); }
+.blindspot-text { font-size: 12.5px; line-height: 1.7; }
+.three-lines { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--rule); margin: 20px 0; }
+.ai-line { padding: 20px 22px; border-right: 1px solid var(--rule); }
+.ai-line:last-child { border-right: none; }
+.ai-line.primary { border-top: 4px solid var(--positive); background: #f3f9f5; }
+.ai-line.secondary { border-top: 4px solid var(--neutral); background: #fdf9ef; }
+.ai-line.tertiary { border-top: 4px solid #8a8f94; background: #f8f7f5; }
+.ai-line-badge { font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.ai-line.primary .ai-line-badge { color: var(--positive); }
+.ai-line.secondary .ai-line-badge { color: var(--neutral); }
+.ai-line.tertiary .ai-line-badge { color: var(--ink-muted); }
+.ai-line-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.ai-line-product { font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); margin-bottom: 10px; }
+.ai-line-desc { font-size: 12px; line-height: 1.65; color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="report">
+
+<header class="header">
+  <div class="header-left">
+    <div class="firm">SECOND-LEVEL<br/>RESEARCH<span class="v2-badge">V2.0</span></div>
+    <div class="dept">Equity Research · Passive Components</div>
+  </div>
+  <div class="header-right">
+    <div class="doc-id">2472-TW · DEEP DIVE</div>
+    <div>2026.05.25</div>
+    <div>Deep-Dive · Issue 2.0 · 盲點修正版</div>
+  </div>
+</header>
+
+<div class="report-meta">
+  <div>
+    <div class="sector-tag">電子零組件 · 鋁電容 / Hybrid 電容 / AI GPU Board / 車用 · Panasonic SP-CAP 全球唯一非日授權廠</div>
+    <h1 class="company-title">立隆電<span class="ticker">2472.TW</span></h1>
+    <div class="report-subtitle">V1.0 三大盲點修正 · Hybrid 是 AI 主軸 · Panasonic 漲價是多頭催化劑 · NVIDIA Rubin 唯一非日供應商</div>
+  </div>
+</div>
+
+<div class="rating-panel">
+  <div class="rating-cell">
+    <div class="rating-label">Rating</div>
+    <div class="rating-value neutral">HOLD</div>
+    <div class="rating-sub">介入等待型 · 等回檔</div>
+  </div>
+  <div class="rating-cell">
+    <div class="rating-label">Current Price</div>
+    <div class="rating-value">267<span class="unit">TWD</span></div>
+    <div class="rating-sub">2026.05.25 · 較加權目標溢價 23.9%</div>
+  </div>
+  <div class="rating-cell">
+    <div class="rating-label">Fair Value Range</div>
+    <div class="rating-value">135–286<span class="unit">TWD</span></div>
+    <div class="rating-sub">機率加權 215.5 元</div>
+  </div>
+  <div class="rating-cell">
+    <div class="rating-label">Risk / Reward</div>
+    <div class="rating-value negative">1 : 0.15</div>
+    <div class="rating-sub">上行 19 元 / 下行 132 元</div>
+  </div>
+</div>
+
+<div class="price-chart-container" style="margin: 0 0 30px 0;">
+  <div class="chart-caption">圖 0 · 近 47 個交易日每日股價 × 三層 V2.0 情境目標價區間</div>
+  <div class="chart-sub">2026/03/04 – 2026/05/25 · 今日收 267 元 · 已超越加權目標 215.5 元 23.9% · V2.0 Bull 275 / Base 198 / Bear 135 · 資料來源：聚財網 + 鉅亨網歷史行情</div>
+  <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+    <rect width="800" height="380" fill="transparent"/>
+    <rect x="80" y="50.0" width="640" height="35.2" fill="#2d5a3f" opacity="0.10"/>
+    <rect x="80" y="148.4" width="640" height="35.1" fill="#8a6d2e" opacity="0.10"/>
+    <rect x="80" y="246.8" width="640" height="28.1" fill="#b8351a" opacity="0.10"/>
+    <line x1="80" y1="50.0" x2="720" y2="50.0" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+    <line x1="80" y1="85.2" x2="720" y2="85.2" stroke="#2d5a3f" stroke-width="0.6" opacity="0.4"/>
+    <line x1="80" y1="148.4" x2="720" y2="148.4" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+    <line x1="80" y1="183.5" x2="720" y2="183.5" stroke="#8a6d2e" stroke-width="0.6" opacity="0.4"/>
+    <line x1="80" y1="246.8" x2="720" y2="246.8" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+    <line x1="80" y1="274.9" x2="720" y2="274.9" stroke="#b8351a" stroke-width="0.6" opacity="0.4"/>
+    <text x="90" y="65.0" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#2d5a3f">Bull · 260-285 元</text>
+    <text x="240" y="65.0" font-family="IBM Plex Mono" font-size="10" fill="#2d5a3f">prob 35%</text>
+    <text x="90" y="163.4" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#8a6d2e">Base · 190-215 元</text>
+    <text x="240" y="163.4" font-family="IBM Plex Mono" font-size="10" fill="#8a6d2e">prob 50%</text>
+    <text x="90" y="261.8" font-family="Noto Serif TC" font-size="11" font-weight="700" fill="#b8351a">Bear · 125-145 元</text>
+    <text x="240" y="261.8" font-family="IBM Plex Mono" font-size="10" fill="#b8351a">prob 15%</text>
+    <text x="74" y="53.0" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">285</text>
+    <text x="74" y="88.2" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">260</text>
+    <text x="74" y="151.4" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">215</text>
+    <text x="74" y="175.3" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">198</text>
+    <text x="74" y="186.5" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">190</text>
+    <text x="74" y="249.8" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">145</text>
+    <text x="74" y="277.9" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">125</text>
+    <text x="40" y="190" font-family="IBM Plex Mono" font-size="10" fill="#8a8f94" transform="rotate(-90 40 190)">Price (TWD)</text>
+    <line x1="80" y1="147.7" x2="720" y2="147.7" stroke="#8a6d2e" stroke-width="1.2" stroke-dasharray="5,3"/>
+    <text x="725" y="150.7" font-family="IBM Plex Mono" font-size="10" font-weight="700" fill="#8a6d2e">215.5 加權</text>
+    <path d="M 80.0,296.7 L 93.9,291.0 L 107.8,288.9 L 121.7,303.7 L 135.7,299.5 L 149.6,296.7 L 163.5,298.8 L 177.4,293.8 L 191.3,279.8 L 205.2,272.1 L 219.1,272.1 L 233.0,267.9 L 247.0,266.6 L 260.9,271.5 L 274.8,275.6 L 288.7,269.3 L 302.6,270.0 L 316.5,265.7 L 330.4,262.2 L 344.3,270.5 L 358.3,260.8 L 372.2,262.9 L 386.1,190.6 L 400.0,183.5 L 413.9,189.2 L 427.8,206.0 L 441.7,205.3 L 455.7,210.4 L 469.6,201.8 L 483.5,198.3 L 497.4,199.7 L 511.3,189.2 L 525.2,182.8 L 539.1,185.7 L 553.0,164.6 L 567.0,136.5 L 580.9,131.6 L 594.8,134.4 L 608.7,119.6 L 622.6,122.4 L 636.5,142.8 L 650.4,120.3 L 664.3,102.1 L 678.3,92.2 L 692.2,85.2 L 706.1,82.4 L 720.0,75.4" fill="none" stroke="#0f1419" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+    <g fill="#0f1419" opacity="0.65">
+      <circle cx="80.0" cy="296.7" r="1.6"/><circle cx="93.9" cy="291.0" r="1.6"/><circle cx="107.8" cy="288.9" r="1.6"/>
+      <circle cx="121.7" cy="303.7" r="1.6"/><circle cx="135.7" cy="299.5" r="1.6"/><circle cx="149.6" cy="296.7" r="1.6"/>
+      <circle cx="163.5" cy="298.8" r="1.6"/><circle cx="177.4" cy="293.8" r="1.6"/><circle cx="191.3" cy="279.8" r="1.6"/>
+      <circle cx="205.2" cy="272.1" r="1.6"/><circle cx="219.1" cy="272.1" r="1.6"/><circle cx="233.0" cy="267.9" r="1.6"/>
+      <circle cx="247.0" cy="266.6" r="1.6"/><circle cx="260.9" cy="271.5" r="1.6"/><circle cx="274.8" cy="275.6" r="1.6"/>
+      <circle cx="288.7" cy="269.3" r="1.6"/><circle cx="302.6" cy="270.0" r="1.6"/><circle cx="316.5" cy="265.7" r="1.6"/>
+      <circle cx="330.4" cy="262.2" r="1.6"/><circle cx="344.3" cy="270.5" r="1.6"/><circle cx="358.3" cy="260.8" r="1.6"/>
+      <circle cx="372.2" cy="262.9" r="1.6"/><circle cx="386.1" cy="190.6" r="1.6"/><circle cx="400.0" cy="183.5" r="1.6"/>
+      <circle cx="413.9" cy="189.2" r="1.6"/><circle cx="427.8" cy="206.0" r="1.6"/><circle cx="441.7" cy="205.3" r="1.6"/>
+      <circle cx="455.7" cy="210.4" r="1.6"/><circle cx="469.6" cy="201.8" r="1.6"/><circle cx="483.5" cy="198.3" r="1.6"/>
+      <circle cx="497.4" cy="199.7" r="1.6"/><circle cx="511.3" cy="189.2" r="1.6"/><circle cx="525.2" cy="182.8" r="1.6"/>
+      <circle cx="539.1" cy="185.7" r="1.6"/><circle cx="553.0" cy="164.6" r="1.6"/><circle cx="567.0" cy="136.5" r="1.6"/>
+      <circle cx="580.9" cy="131.6" r="1.6"/><circle cx="594.8" cy="134.4" r="1.6"/><circle cx="608.7" cy="119.6" r="1.6"/>
+      <circle cx="622.6" cy="122.4" r="1.6"/><circle cx="636.5" cy="142.8" r="1.6"/><circle cx="650.4" cy="120.3" r="1.6"/>
+    </g>
+    <g fill="#2d5a3f" opacity="0.85">
+      <circle cx="664.3" cy="102.1" r="2.2"/><circle cx="678.3" cy="92.2" r="2.2"/>
+      <circle cx="692.2" cy="85.2" r="2.2"/><circle cx="706.1" cy="82.4" r="2.2"/>
+    </g>
+    <circle cx="720.0" cy="75.4" r="5" fill="#2d5a3f"/>
+    <circle cx="720.0" cy="75.4" r="10" fill="none" stroke="#2d5a3f" stroke-width="1.2" opacity="0.6"/>
+    <text x="614.0" y="79.4" text-anchor="end" font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="#2d5a3f">267.0</text>
+    <text x="614.0" y="93.4" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f">▲ 2026.05.25</text>
+    <line x1="80" y1="320" x2="720" y2="320" stroke="#0f1419" stroke-width="1"/>
+    <text x="80.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/04</text>
+    <text x="191.3" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/16</text>
+    <text x="302.6" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">03/26</text>
+    <text x="427.8" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">04/23</text>
+    <text x="539.1" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/06</text>
+    <text x="650.4" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4a5056">05/18</text>
+    <text x="720.0" y="336" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" font-weight="700" fill="#2d5a3f">05/25</text>
+    <text x="400.0" y="354" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">47 trading days · V2.0: Bull 275 / Base 198 / Bear 135 · 加權 215.5 元 · Source: stock.wearn.com/cdata?kind=2472 + cnyes.com 歷史行情</text>
+  </svg>
+</div>
+
+<div class="revision-note">
+  <strong>V2.0 三大盲點修正：</strong>
+  <strong>①</strong> BBU 超級電容不是 AI 主角——<strong>Hybrid（導電性高分子固液混合鋁電解電容）才是 GPU board 電源入口端的真正 AI 引擎</strong>，立隆電持有 Panasonic SP-CAP 授權，全球唯一非日本廠商；
+  <strong>②</strong> Panasonic 漲價不是威脅，是多頭催化劑——<strong>2026/07/01 起 SP-CAP 調漲 65%、Snap-in 調漲 20%，立隆電作為唯一授權非日廠，是直接受益者而非受害者</strong>；
+  <strong>③</strong> 「不是主流」的定位錯誤——<strong>立隆電是 NVIDIA Vera Rubin NVL72（H2 2026 出貨）GPU board 電源輸入端的唯一非日系鋁電容供應商</strong>。V1.0 評級 NEUTRAL、目標 196 元已失效，V2.0 升評為 HOLD（介入等待型）。
+</div>
+
+<div class="exec-summary">
+  <p class="lede">立隆電 V2.0 核心命題翻轉：<strong>Hybrid 電容是全球 AI GPU 板載電源的結構性稀缺品，Panasonic 漲價正在把立隆電推向價格領導地位，Rubin 量產確認非日唯一身份</strong>。但當前股價 267 元已透支到加權合理價 215.5 元上方 23.9%，風險報酬 1:0.15 不利即時追高。</p>
+  <p>V2.0 五個關鍵更新：第一，<strong>AI 三條戰線重新排序</strong>——Hybrid 電容（GPU board 電源入口）才是第一線，Snap-in（PSU/Power Rack）第二線，BBU 超級電容（UPS 備電）第三線；V1.0 把第三線當主軸是重大誤判。第二，<strong>Panasonic SP-CAP 授權壁壘確認</strong>——2026/03 立隆電取得全球唯一非日本 Hybrid 製造授權，Panasonic 自 2026/07/01 起對通路調漲 SP-CAP 65%，立隆電因此具備定價能力而非受擠壓。第三，<strong>NVIDIA Vera Rubin NVL72 已確認 H2 2026 出貨</strong>——CES 2026 公布，立隆電是 GPU board 電源輸入端唯一非日系鋁電容供應商。第四，<strong>估值重建</strong>——Bull 35%/EPS 11.0/PE 25×/目標 275 元；Base 50%/EPS 9.0/PE 22×/目標 198 元；Bear 15%/EPS 7.5/PE 18×/目標 135 元；加權 215.5 元。第五，<strong>Q1 2026 EPS 1.60 仍是乾淨基準</strong>，FY26 分析師共識 10.23-11.7 元，泰國廠 Q4 2026 量產，首批非 Hybrid 產線，車用認證仍在 2027 後。</p>
+</div>
+
+<div class="thesis-grid">
+  <div class="thesis-card">
+    <div class="thesis-num">01</div>
+    <div class="thesis-title">Hybrid 電容：全球唯一非日授權廠</div>
+    <div class="thesis-desc">Panasonic SP-CAP 授權確認（2026/03）；導電性高分子固液混合技術門檻極高、日本廠壟斷逾十年。立隆電是全球唯一非日本獲授權量產廠，NVIDIA Rubin NVL72 GPU board 電源入口端指定採用，結構壁壘非常規競爭可複製。</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-num">02</div>
+    <div class="thesis-title">Panasonic 漲價 65%：立隆電最大受益者</div>
+    <div class="thesis-desc">2026/07/01 起 SP-CAP 調漲 65%、Snap-in 調漲 20%。正確解讀：日方用漲價管控供應，立隆電作為授權廠擁有定價跟漲能力，且競爭者更難切入，形成「漲價即護城河」的稀缺格局。V1.0 把此視為威脅是盲點。</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-num">03</div>
+    <div class="thesis-title">Rubin H2 量產：非日唯一的時間窗口</div>
+    <div class="thesis-desc">NVIDIA Vera Rubin NVL72 於 CES 2026 公布，H2 2026 出貨。立隆電在 GPU board 電源輸入端是唯一非日系鋁電容供應商。日本廠的地緣限制 + 立隆電的授權地位，在 Rubin 量產初期形成難以撼動的供應格局。</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">I.</div>
+    <div class="section-title">公司基本面盤點</div>
+    <div class="section-kicker">Business · Financials · Thailand</div>
+  </div>
+  <p class="lead-para">立隆電（2472.TW）主業為鋁質電解電容器，子公司立敦科技（持股 29.13%）負責上游鋁化成箔。FY25 合併營收 112.93 億、公告 EPS 8.73 元（含一次性處分資產利益 1.29 元；剔除後乾淨 EPS 約 7.44 元）。Q1 2026 EPS 1.60 元為乾淨基準季；2026/1-4 月累計營收 41.39 億、YoY +10.7%。</p>
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">FY25 營收 YoY</div>
+      <div class="stat-value pos">+7.7<span style="font-size:14px">%</span></div>
+      <div class="stat-sub pos">104.87 → 112.93 億</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">FY25 毛利率</div>
+      <div class="stat-value pos">32.0<span style="font-size:14px">%</span></div>
+      <div class="stat-sub pos">FY24: 30.8% (+1.2pp)</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Q1 2026 EPS</div>
+      <div class="stat-value neu">$1.60</div>
+      <div class="stat-sub">乾淨季 · 無一次性</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">FY26 共識 EPS</div>
+      <div class="stat-value pos">$10.2~11.7</div>
+      <div class="stat-sub pos">分析師共識區間</div>
+    </div>
+  </div>
+  <p class="body-text"><strong>泰國春武里廠進度</strong>：2026/03 正式開幕，Q4 2026 量產啟動，初期為標準鋁電容產線，<strong>第二階段才申請車用 IATF 16949 / VDA 認證（需 18-24 個月，EPS 貢獻落在 2027H2 後）</strong>。Q1 2026 泰國子公司虧損 8,746 千元，屬正常爬坡期。月產能目標 6.39 億顆（FY25 約 6.08 億，+5.1%）。<span class="source-tag">SRC: 法說會 + 財報附註</span></p>
+  <div class="callout">
+    <div class="callout-label">應用結構轉變</div>
+    <div class="callout-body">2026 年應用比重推估：車用電子 36%、資訊/雲端（含 AI）26%、工業/綠能 18%、通訊 8%、消費 8%、其他 4%。對照 FY24 車用 33%、雲端 3%——<strong>AI/雲端兩年從 3% 跳至 26%，但真正的 AI Hybrid/BBU 增量約 6-8pp，其餘仍是傳統伺服器與資訊應用</strong>。客戶群：中國大陸 + 香港合計 75.7%，無單一客戶超過 10%。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">II.</div>
+    <div class="section-title">產業定位重寫：立隆電的真實 AI 角色</div>
+    <div class="section-kicker">Hybrid · SP-CAP · Panasonic Authorization</div>
+  </div>
+  <p class="lead-para">V1.0 最根本的錯誤：把立隆電定位為「AI BBU Tier 2 供應商」。正確框架是：<strong>立隆電是全球 AI GPU 板載電源的核心零件供應商，透過 Panasonic SP-CAP 授權取得獨一無二的非日製造資格</strong>，BBU 超級電容只是附帶故事。</p>
+
+  <div class="subsection">
+    <div class="subsection-title">2.1 Hybrid 電容的技術壁壘</div>
+  </div>
+  <p class="body-text">導電性高分子固液混合鋁電解電容（Hybrid Capacitor，SP-CAP 的商品名）結合了固態高分子的低 ESR 特性與液態電解液的高耐壓能力，是 AI GPU 板載電源的最佳解——可在毫秒級響應 GPU 的脈衝電流需求，同時承受高達 25V 的電壓。<strong>此技術由 Panasonic 主導開發，日本廠商壟斷逾十年</strong>，技術門檻涵蓋電解液配方、鋁箔化成技術、組裝良率控制，非一般電容廠可輕易複製。</p>
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">一般觀點</div>
+      <div class="dual-think-body">立隆電是鋁電容廠，台廠，Panasonic 是競爭者。Hybrid 電容是新品，立隆電在追趕日本廠。Panasonic 漲價會讓下游客戶轉向立隆電，但立隆電得提供折扣搶單，毛利率受壓。</div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層思考</div>
+      <div class="dual-think-body"><strong>立隆電不是在追趕 Panasonic，而是由 Panasonic 授權製造 SP-CAP。</strong>兩者是授權關係，不是競爭關係。Panasonic 對通路大幅漲價，是在用價格管控終端需求、鞏固授權廠地位。立隆電持有授權，可以合法用「次於 Panasonic 的溢價」搶市——漲價是保護傘，不是威脅。</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">2.2 Panasonic 2026/07/01 漲價：市場誤讀最深的事件</div>
+  </div>
+  <p class="body-text">Panasonic 宣布自 2026 年 7 月 1 日起調整被動元件通路價格：<strong>SP-CAP（Hybrid 固液混合）調漲 65%、標準 Snap-in 鋁電容調漲約 20%</strong>。市場第一反應是「日本競爭者漲價，下游客戶轉向立隆電，立隆電要降價搶單」——這是第一層思考，且是錯的。</p>
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">第一層 · 市場恐慌敘事</div>
+      <div class="dual-think-body">Panasonic 大漲，客戶轉單立隆電，立隆電降價搶市，毛利率受壓。原材料成本也在漲，整體 BOM cost 上升。</div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層 · 正確解構</div>
+      <div class="dual-think-body"><strong>Hybrid SP-CAP 是技術壁壘品，沒有替代品的前提下，客戶無法「轉單」，只有在立隆電與 Panasonic 之間選——而立隆電持有授權，是 Panasonic 系統內的。</strong>漲價後，立隆電的定價空間擴大，而非縮小。Snap-in 漲價 20%，立隆電作為市場大廠，跟漲空間同樣打開。</div>
+    </div>
+  </div>
+  <div class="callout bull">
+    <div class="callout-label">關鍵數字</div>
+    <div class="callout-body">FY26 Hybrid 電容業務預估貢獻立隆電營收 8-10%（約 9-11 億元）。以 65% 漲價後均價計算，若 50% 傳導至立隆電出廠價，毛利率可望從約 35% 提升至 40%+。<strong>單一產品線毛利率跳升對整體毛利的拉抬效果，市場尚未充分定價</strong>。</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">2.3 NVIDIA Vera Rubin NVL72：唯一非日供應商身份</div>
+  </div>
+  <p class="body-text">NVIDIA 於 CES 2026 正式公布 Vera Rubin 架構，NVL72 配置 72 顆 Rubin GPU，<strong>預計 H2 2026 開始出貨</strong>。每個 NVL72 機架需要大量鋁電容用於 GPU board 電源輸入端（PDN 電源分配網路），以穩定 GPU 的毫秒級電流尖峰。供應商格局：日系廠商佔主流，<strong>立隆電透過 SP-CAP 授權成為唯一通過認證的非日系鋁電容供應商</strong>。CSP 客戶有地緣分散採購需求，非日系選項只有立隆電，授權地位在 Rubin 供應鏈中具備難以撼動的結構性優勢。<span class="source-tag">SRC: NVIDIA CES 2026 + 供應鏈調研</span></p>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">II.5</div>
+    <div class="section-title">AI 三條戰線比較分析</div>
+    <div class="section-kicker">Hybrid · Snap-in · BBU · V1 vs V2 重新排序</div>
+  </div>
+  <p class="lead-para">立隆電在 AI 伺服器供應鏈中同時佈局三種截然不同的產品。V1.0 的核心錯誤是把第三線（BBU 超級電容）當成主軸來敘述，導致整個 AI 故事框架失真。</p>
+  <div class="three-lines">
+    <div class="ai-line primary">
+      <div class="ai-line-badge">▶ 第一線 · 主力</div>
+      <div class="ai-line-title">Hybrid 固液混合電容</div>
+      <div class="ai-line-product">SP-CAP / 導電性高分子固液混合</div>
+      <div class="ai-line-desc">
+        <strong>位置</strong>：GPU board 電源輸入端（PDN）<br>
+        <strong>功能</strong>：毫秒級穩壓、吸收 GPU 電流尖峰<br>
+        <strong>授權</strong>：Panasonic SP-CAP 全球唯一非日授權<br>
+        <strong>客戶</strong>：NVIDIA Rubin NVL72 指定<br>
+        <strong>壁壘</strong>：技術授權 + 認證週期長（2-3 年）<br>
+        <strong>FY26 貢獻</strong>：營收 8-10%，毛利率 35-40%+<br>
+        <strong>V1.0 錯誤</strong>：未識別此為主軸
+      </div>
+    </div>
+    <div class="ai-line secondary">
+      <div class="ai-line-badge">▷ 第二線 · 輔助</div>
+      <div class="ai-line-title">Snap-in 鋁電容</div>
+      <div class="ai-line-product">大型鋁電解電容 · PSU/Power Rack</div>
+      <div class="ai-line-desc">
+        <strong>位置</strong>：電源供應器（PSU）、Power Rack<br>
+        <strong>功能</strong>：低頻儲能、電壓平滑<br>
+        <strong>授權</strong>：不需要，立隆電本業強項<br>
+        <strong>客戶</strong>：台達電、Vertiv 等 PSU 廠<br>
+        <strong>壁壘</strong>：規格認證（400-800W+）<br>
+        <strong>FY26 貢獻</strong>：營收 15-20%，受 Panasonic +20% 漲價帶動<br>
+        <strong>V1.0 定位</strong>：正確，但低估漲價催化
+      </div>
+    </div>
+    <div class="ai-line tertiary">
+      <div class="ai-line-badge">▷ 第三線 · 附帶</div>
+      <div class="ai-line-title">BBU 超級電容</div>
+      <div class="ai-line-product">Supercapacitor · AI Cabinet UPS</div>
+      <div class="ai-line-desc">
+        <strong>位置</strong>：AI 機櫃 UPS 備電（BBU）<br>
+        <strong>功能</strong>：毫秒級電力備援，保護 DRAM 資料<br>
+        <strong>授權</strong>：不需要，立隆電自有技術<br>
+        <strong>客戶</strong>：AI 伺服器 BBU 模組廠<br>
+        <strong>壁壘</strong>：中等，競爭者可進入<br>
+        <strong>FY26 貢獻</strong>：營收 4-6%，Tier 2 地位<br>
+        <strong>V1.0 錯誤</strong>：被當成 AI 主軸，過度放大
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-caption">表 II.5 · 三條 AI 戰線比較矩陣</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>維度</th><th class="center">第一線：Hybrid</th><th class="center">第二線：Snap-in</th><th class="center">第三線：BBU 超級電容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="label">AI 伺服器位置</td><td class="center">GPU board 電源端</td><td class="center">PSU / Power Rack</td><td class="center">UPS 備電模組</td></tr>
+      <tr><td class="label">技術壁壘</td><td class="center pos">極高（授權壟斷）</td><td class="center neu">中等</td><td class="center neg">偏低</td></tr>
+      <tr><td class="label">Panasonic 漲價影響</td><td class="center pos">直接受益（+65%）</td><td class="center pos">間接受益（+20%）</td><td class="center">無直接關聯</td></tr>
+      <tr><td class="label">NVIDIA Rubin 連結</td><td class="center pos">唯一非日供應商</td><td class="center">PSU 通用規格</td><td class="center">機架層面採用</td></tr>
+      <tr class="highlight"><td class="label">FY26 預估營收佔比</td><td class="center pos">8-10%</td><td class="center">15-20%</td><td class="center">4-6%</td></tr>
+      <tr><td class="label">V1.0 定位正確性</td><td class="center neg">❌ 未識別為主軸</td><td class="center neu">△ 低估漲價</td><td class="center neg">❌ 誤設為主角</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">III.</div>
+    <div class="section-title">第二層思考：四個關鍵辯證</div>
+    <div class="section-kicker">Howard Marks Framework · V2.0 Revised</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">議題 1：「唯一非日授權廠」是護城河還是過渡優勢？</div>
+  </div>
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">第一層思考</div>
+      <div class="dual-think-body">立隆電有 Panasonic 授權，是稀缺的。AI 需求爆炸，Hybrid 電容量大量需求，立隆電 EPS 爆發可期。</div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層思考 · 風險校正</div>
+      <div class="dual-think-body"><strong>護城河是真實的，但時效性有限</strong>。Panasonic 授權協議通常有條款（生產量、技術更新、區域限制），立隆電的授權是否「永久」或「可再授權他廠」並未公開揭露。若技術代際轉換（如全固態 SP-CAP 新世代），授權是否自動延伸？三星、三菱等韓日廠正在研發自有 Hybrid，<strong>護城河的有效期可能是 3-5 年而非永久</strong>。</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">議題 2：Panasonic 漲價傳導率與立隆電受益時間點</div>
+  </div>
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">第一層思考</div>
+      <div class="dual-think-body">Panasonic 漲 65%，立隆電直接跟漲，毛利率瞬間爆升，FY26 EPS 大超預期。</div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層思考 · 傳導時滯</div>
+      <div class="dual-think-body"><strong>漲價傳導有兩個時滯：①客戶合約鎖價期（通常 Q+1 至 Q+2 才反映）；②立隆電自身的議價節奏</strong>。Panasonic 2026/07/01 漲價，Q3 2026 合約可能還受舊價約束，<strong>真正的毛利率擴張要看 Q4 2026 財報（2027/03 公布）</strong>。EPS 受益是確定的，但時點在 2026H2-2027H1。</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">議題 3：NVIDIA Rubin 出貨時程與立隆電的 BOM 認證</div>
+  </div>
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">第一層思考</div>
+      <div class="dual-think-body">NVIDIA H2 2026 出貨 Rubin NVL72，立隆電即開始貢獻 AI 大單，Q3 2026 開始爆發。</div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層思考 · 供應鏈時序</div>
+      <div class="dual-think-body"><strong>BOM 認證時序問題</strong>：Rubin NVL72「H2 2026 出貨」可能指首批 engineering sample。真正的量產貢獻（30-50 億台幣規模）要等 <strong>2027 全面量產</strong>。另，NVIDIA 有多源策略，立隆電可能在初期拿到 20-30% BOM share，不是全部。<strong>「唯一非日」不等於「獨家壟斷 100% 份額」</strong>。</div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">議題 4：FY26 EPS 10 元以上的可信度</div>
+  </div>
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">第一層思考</div>
+      <div class="dual-think-body">分析師共識 10.23-11.7 元，Hybrid + 漲價 + Rubin 三重催化，EPS 達標機率高。</div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層思考 · EPS 分解</div>
+      <div class="dual-think-body">Q1 2026 EPS 1.60 元是乾淨基準。<strong>要達到 FY26 EPS 10 元，Q2-Q4 平均需 EPS 2.80 元/季，較 Q1 的 1.60 需成長 75%</strong>。驅動力依賴 Panasonic 漲價傳導、Rubin 拉貨、Snap-in 跟漲同步發生。<strong>核心風險：若任何一項延遲，EPS 10 元可能要到 FY27 才實現</strong>。分析師共識偏樂觀，應對 Base case EPS 9 元給予更高機率權重。</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">IV.</div>
+    <div class="section-title">估值重建：三情境加權目標價</div>
+    <div class="section-kicker">Bull / Base / Bear · V2.0 Revised Scenarios</div>
+  </div>
+  <p class="lead-para">V1.0 估值以「AI BBU 為主軸」框架建構，Bull 目標僅 245 元。V2.0 修正：Hybrid 主軸確立後，Bull scenario EPS 與 PE 倍數均上修；但當前股價 267 元已進入 Bull 上緣，加權合理價 215.5 元支撐不了即時買點。</p>
+
+  <div class="scenarios">
+    <div class="scenario bull">
+      <div class="scenario-title">多頭情境</div>
+      <div class="scenario-prob">35%</div>
+      <div class="scenario-target">EPS 11.0 元 × PE 25× = 275 元</div>
+      <div class="scenario-desc">觸發條件：① Panasonic 漲價全額傳導（SP-CAP 65% 傳導至出廠價 40%+）；② NVIDIA Rubin NVL72 量產如期 H2 2026，立隆電 BOM share 達 25%+；③ FY26 實際 EPS 達 11 元。PE 25× 反映 AI 硬體稀缺性溢價（對比台系電容歷史 15-18×，授權壁壘溢價顯著）。</div>
+    </div>
+    <div class="scenario base">
+      <div class="scenario-title">基本情境</div>
+      <div class="scenario-prob">50%</div>
+      <div class="scenario-target">EPS 9.0 元 × PE 22× = 198 元</div>
+      <div class="scenario-desc">觸發條件：① 漲價傳導 50%，Q3-Q4 2026 反映；② Rubin 小批量出貨，大量化在 2027；③ 泰國廠爬坡正常但車用貢獻仍在 2027 後；④ FY26 EPS 落在 9 元（Q1 乾淨 1.60 × 4 季 + Hybrid/漲價增量）。PE 22× 反映成長股溢價但不含完整 AI 結構性重估。</div>
+    </div>
+    <div class="scenario bear">
+      <div class="scenario-title">空頭情境</div>
+      <div class="scenario-prob">15%</div>
+      <div class="scenario-target">EPS 7.5 元 × PE 18× = 135 元</div>
+      <div class="scenario-desc">觸發條件：① Panasonic 漲價傳導率低（下游客戶抵制，立隆電讓利保市占）；② Rubin 出貨延期至 2027；③ 中國地緣風險升溫，75%+ 中國客戶群受衝擊；④ 泰國廠爬坡慢、固定成本拖累。PE 18× 為電容類歷史均值，無 AI 溢價。</div>
+    </div>
+  </div>
+
+  <div class="chart-caption">表 IV · V2.0 加權估值計算</div>
+  <table class="data-table">
+    <thead>
+      <tr><th>情境</th><th class="right">機率</th><th class="right">EPS 估計</th><th class="right">本益比</th><th class="right">目標價</th><th class="right">加權貢獻</th></tr>
+    </thead>
+    <tbody>
+      <tr class="highlight"><td class="label pos">多頭（Bull）</td><td class="right pos">35%</td><td class="right">11.0 元</td><td class="right">25×</td><td class="right pos">275 元</td><td class="right pos">96.25 元</td></tr>
+      <tr><td class="label neu">基本（Base）</td><td class="right neu">50%</td><td class="right">9.0 元</td><td class="right">22×</td><td class="right neu">198 元</td><td class="right neu">99.00 元</td></tr>
+      <tr><td class="label neg">空頭（Bear）</td><td class="right neg">15%</td><td class="right">7.5 元</td><td class="right">18×</td><td class="right neg">135 元</td><td class="right neg">20.25 元</td></tr>
+      <tr class="total"><td class="label">加權合理價</td><td class="right">100%</td><td class="right">—</td><td class="right">—</td><td class="right">215.5 元</td><td class="right">215.5 元</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout bear">
+    <div class="callout-label">當前溢價警示</div>
+    <div class="callout-body">今日股價 <strong>267 元</strong>已完全定價 Bull scenario（275 元上緣），距加權合理價 215.5 元溢價 <strong>23.9%</strong>。此時買入：若 Bull 情境成真，上行僅 19 元（7.1%）；若走 Base（最可能，50%），下行 69 元（25.8%）；若走 Bear，下行 132 元（49.4%）。<strong>風險報酬比 1:0.15，從位置管理角度不宜追高</strong>。</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">V.</div>
+    <div class="section-title">投資結論：HOLD · 等待介入點</div>
+    <div class="section-kicker">Entry · Exit · Position Management</div>
+  </div>
+  <p class="lead-para">V2.0 評級 <strong>HOLD（介入等待型）</strong>——不是看空，而是認為基本面已出現真正的 AI 結構性升值，但當前股價已完整反映甚至透支 Bull scenario，需等回檔至合理介入區間再建立倉位。</p>
+
+  <div class="action-matrix">
+    <div class="action-title">操作矩陣：不同股價區間的行動建議</div>
+    <div class="action-row">
+      <div class="action-key">🔴 當前 267 元</div>
+      <div>處於 Bull 情境上緣。僅適合已持有者繼續持有，設停損於 240 元（Base 情境頂端附近）。新資金不宜追高。風險報酬比 1:0.15，極不利。</div>
+    </div>
+    <div class="action-row">
+      <div class="action-key">🟡 初步介入 195–215 元</div>
+      <div>加權合理價 215.5 元附近。此區間代表市場重新定價至 Base 情境中值，風險報酬改善至約 1:1.2，可開始建立首倉（50%）。需確認無重大利空（授權無虞、Rubin 進度正常）。</div>
+    </div>
+    <div class="action-row">
+      <div class="action-key">🟢 加碼區 170–185 元</div>
+      <div>接近 Base 情境底部，市場已部分定價 Bear scenario，PE 約 19-21× FY26E。風險報酬翻轉至 1:2+ 以上，可加至滿倉。需確認 Rubin 量產訊號與 Panasonic 漲價傳導數據無惡化。</div>
+    </div>
+    <div class="action-row">
+      <div class="action-key">⚪ 停損線 155 元以下</div>
+      <div>若跌破 Bear 情境中值，需重新評估是否有未知利空（授權終止、Rubin 設計變更、中國客戶重大流失）。此時應減倉至 20% 以下。</div>
+    </div>
+    <div class="action-row">
+      <div class="action-key">🏁 獲利了結 270–286 元</div>
+      <div>已進入 Bull 情境目標 275 元的有效區間。應設定移動停利（跌破 5 日均線即出）。若有催化劑（Rubin 超預期量產、漲價傳導好於預期），可持有至 286 元。</div>
+    </div>
+  </div>
+
+  <div class="bulls">
+    <div class="bulls-title">多頭催化劑（觸發上行重估的條件）</div>
+    <ul class="bulls-list">
+      <li><strong>Q3 2026 財報（2026/11 公布）</strong>：毛利率跳升超過 35%，確認 Panasonic 漲價傳導成功，EPS 達 2.8 元以上，市場重新定價 FY26 EPS 至 11 元。</li>
+      <li><strong>Rubin NVL72 量產新聞</strong>：CSP 客戶大規模採購公告，確認立隆電 BOM 入選，出貨量數據印證。</li>
+      <li><strong>Panasonic 再漲價或宣布限量</strong>：若 Panasonic 再度收縮通路供應，立隆電授權廠地位更加稀缺，PE 重估至 28-30×。</li>
+      <li><strong>泰國廠 Hybrid 認證提前</strong>：若泰國廠提前申請 Hybrid 產線，可增加全球供應能力，有利搶佔 Rubin 以外的 AI 市場。</li>
+    </ul>
+  </div>
+
+  <div class="risks">
+    <div class="risks-title">空頭風險（觸發下行修正的條件）</div>
+    <ul class="risks-list">
+      <li><strong>Panasonic 授權條款風險</strong>：若 Panasonic 宣布授權限制或不再續約，立隆電最大護城河消失，估值應回到傳統電容 PE 15-17×（目標約 135-160 元）。</li>
+      <li><strong>NVIDIA Rubin 設計變更或延期</strong>：下一代 GPU 若改採其他電源架構（如 GaN 整合式電源），Hybrid 電容用量大幅下降。</li>
+      <li><strong>中國地緣政治惡化</strong>：75%+ 客戶群在中國，若關稅升高或台海緊張，短期訂單急凍，FY26 EPS 可能滑至 7 元以下。</li>
+      <li><strong>漲價傳導失敗</strong>：若下游客戶強壓合約，漲價未能傳導，FY26 毛利率不升反降（原材料成本同步上漲）。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">VI.</div>
+    <div class="section-title">V1.0 盲點自省：我當初錯在哪裡</div>
+    <div class="section-kicker">Howard Marks Style · Second-Level Review</div>
+  </div>
+  <p class="lead-para">Howard Marks 說：「第二層思考要求你不只問『這個故事是什麼』，而是『這個故事的哪個部分被錯誤定價了』。」V1.0 報告三個系統性盲點，每一個都源於停在第一層思考。</p>
+
+  <div class="blindspot-card">
+    <div class="blindspot-header">
+      <div class="blindspot-num">BS·1</div>
+      <div class="blindspot-title">把 BBU 當 AI 主軸——錯把第三線當第一線</div>
+    </div>
+    <div class="blindspot-body">
+      <div class="blindspot-wrong">
+        <div class="blindspot-label">V1.0 錯誤敘述</div>
+        <div class="blindspot-text">V1.0 的 Thesis Card 02 寫道：「AI BBU 故事仍在前菜階段，超級電容 + Hybrid 電容預估 2026 貢獻 6% 營收。」整個 AI 章節圍繞 BBU 超級電容展開，把 Hybrid 放在括號裡一帶而過。原因是 BBU 的新聞能見度高（媒體大量報導「AI 伺服器需要備電超級電容」），研究者跟著媒體走，誤把市場焦點當分析重心。</div>
+      </div>
+      <div class="blindspot-right">
+        <div class="blindspot-label">V2.0 修正認知</div>
+        <div class="blindspot-text">Hybrid 電容才是 GPU board 電源端的直接受益者，且有 Panasonic 授權護城河。BBU 超級電容競爭者更多，立隆電只是 Tier 2。<strong>正確的三線排序是：Hybrid（主）→ Snap-in（副）→ BBU（輔）</strong>。媒體焦點≠分析重心，這是第一層思考的典型陷阱。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blindspot-card">
+    <div class="blindspot-header">
+      <div class="blindspot-num">BS·2</div>
+      <div class="blindspot-title">把 Panasonic 漲價當威脅——逆向解讀授權關係</div>
+    </div>
+    <div class="blindspot-body">
+      <div class="blindspot-wrong">
+        <div class="blindspot-label">V1.0 隱含邏輯</div>
+        <div class="blindspot-text">V1.0 沒有明確提到 Panasonic 漲價，但隱含框架是「日本廠商是競爭者」。第一層解讀是「原材料或技術成本上升，立隆電成本也可能上升」。兩個解讀都停在表層，都未看到授權關係的核心邏輯。V1.0 因此把立隆電的 AI 故事定性為「Tier 2」，給予偏保守的評估。</div>
+      </div>
+      <div class="blindspot-right">
+        <div class="blindspot-label">V2.0 修正認知</div>
+        <div class="blindspot-text">立隆電持有 Panasonic SP-CAP 授權，雙方不是競爭關係而是授權-被授權關係。Panasonic 漲價是在「抬高門檻保護整個授權生態系的利潤」。<strong>正確解讀：漲價 = 護城河加深 = 立隆電定價能力提升 = 毛利率擴張催化劑</strong>。這是完全反直覺的利多。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blindspot-card">
+    <div class="blindspot-header">
+      <div class="blindspot-num">BS·3</div>
+      <div class="blindspot-title">「不是主流」的定位——忽視唯一非日身份的稀缺性</div>
+    </div>
+    <div class="blindspot-body">
+      <div class="blindspot-wrong">
+        <div class="blindspot-label">V1.0 錯誤評估</div>
+        <div class="blindspot-text">V1.0 將立隆電定位為「Tier 2」供應商，認為日本廠商才是 AI 伺服器電容主流，立隆電只能拿到溢出訂單。報告引用「郭明錤指出輝達 GB300 可能不採用超級電容」作為不確定性，強化了「AI 故事還不是主流」的敘事。整體給出偏謹慎的 NEUTRAL 評級，目標 196 元。</div>
+      </div>
+      <div class="blindspot-right">
+        <div class="blindspot-label">V2.0 修正認知</div>
+        <div class="blindspot-text">「全球唯一非日本 Hybrid 電容授權廠」在非日系供應鏈中是 <strong>Tier 1 唯一選項</strong>。CSP 客戶有地緣分散需求，非日系選項只有立隆電，沒有競爭者。<strong>郭明錤說的是 BBU 超級電容（第三線），不是 Hybrid（第一線）——V1.0 把不同產品的風險混為一談，是分析層次錯誤。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pullquote">
+    <div class="pullquote-text">我在 V1.0 的根本錯誤，是跟著市場的注意力走——BBU 被媒體廣泛報導，所以我報導 BBU；Panasonic 是日本大廠，所以我把它當競爭者；立隆電是台廠，所以我給它 Tier 2 的定位。這三個判斷都是「用別人的框架看事情」，不是第二層思考。Howard Marks 說：「如果你的分析結論和市場共識一樣，你的分析不能創造超額報酬。」V1.0 的結論（NEUTRAL，目標 196 元）就是市場在 235 元時普遍的直覺，我的分析沒有比市場高一層。V2.0 的任務不是糾正數字，而是糾正框架。</div>
+    <div class="pullquote-author">— SECOND-LEVEL RESEARCH · V1.0 自省備忘錄 · 2026.05.25</div>
+  </div>
+</section>
+
+<div class="final-callout">
+  <div class="final-callout-text">
+    立隆電 V2.0 結論：<strong>這是一個真實的 AI 結構性升值故事，但不是一個現在追高的故事。</strong>Hybrid 電容的 Panasonic 授權壁壘、Rubin NVL72 唯一非日供應商地位、漲價催化傳導——三個條件真實存在，且被 V1.0 系統性低估。然而，股價 267 元已將 Bull 情境（275 元）幾乎完整定價，<strong>加權合理價 215.5 元在股價下方 19.3%</strong>。HOLD 評級的核心邏輯：持有者等待 Rubin 量產與漲價傳導的季報驗證；新資金等待回落至 195-215 元再介入。<strong>好公司與好股票是兩件事——前者需要識別，後者需要等待位置</strong>。現在做的事是辨識位置，不是衝鋒。
+  </div>
+</div>
+
+<div class="footer">
+  <strong>研究聲明：</strong>本報告由 SECOND-LEVEL RESEARCH 自行研究整理，所有觀點均屬研究意見，不構成投資建議。立隆電（2472.TW）係在台灣上市公司，本報告所有財務數據引用自公開資訊觀測站（MOPS）、法說會資料、財報附註。股價數據截至 2026/05/25。本報告為 V2.0 修正版，同步修正 V1.0（2026/05/18）三大分析盲點。過去績效不代表未來表現，投資人應自行評估風險。
+  <br><br>
+  <strong>資料來源：</strong>立隆電 FY25 合併財報（MOPS 2026/03/13）、Q1 2026 財報（MOPS 2026/05）、法說會簡報 · Panasonic 通路漲價公告（2026/07/01 生效）· NVIDIA CES 2026 Vera Rubin NVL72 公告 · 股價資料：聚財網 stock.wearn.com/cdata?kind=2472 + 鉅亨網歷史行情 · 產業報告：豐雲學堂法說整理、經濟日報、CMoney · 分析師共識：公開引述區間 10.23-11.7 元
+</div>
+
+</div>
+</body>
+</html>
