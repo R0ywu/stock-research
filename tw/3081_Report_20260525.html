@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>聯亞光電 (3081) 深度研究報告 | 2026.05.25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --ink: #0f1419;
+  --ink-secondary: #4a5056;
+  --ink-muted: #8a8f94;
+  --rule: #d8d4cd;
+  --rule-strong: #0f1419;
+  --accent: #b8351a;
+  --accent-dark: #8a2814;
+  --positive: #2d5a3f;
+  --negative: #b8351a;
+  --neutral: #8a6d2e;
+  --highlight-bg: #f4ede0;
+  --pullquote-bg: #0f1419;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 14px; padding: 40px 20px; }
+.report { max-width: 880px; margin: 0 auto; background: var(--bg-card); padding: 60px 70px; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 20px 60px rgba(0,0,0,0.06); position: relative; }
+.report::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%); }
+.header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 24px; border-bottom: 3px solid var(--ink); margin-bottom: 32px; }
+.header-left .firm { font-family: 'Playfair Display','Noto Serif TC',serif; font-size: 22px; font-weight: 900; letter-spacing: 1px; line-height: 1; }
+.header-left .dept { font-size: 10px; letter-spacing: 3px; color: var(--ink-secondary); margin-top: 6px; text-transform: uppercase; }
+.header-right { text-align: right; font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: var(--ink-secondary); }
+.header-right .doc-id { font-weight: 600; color: var(--ink); letter-spacing: 1px; }
+.v1-badge { display: inline-block; background: var(--accent); color: white; font-family: 'IBM Plex Mono',monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; padding: 3px 8px; margin-left: 8px; vertical-align: middle; }
+.report-meta { display: grid; grid-template-columns: 1fr auto; gap: 40px; margin-bottom: 40px; align-items: end; }
+.sector-tag { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+.company-title { font-family: 'Noto Serif TC',serif; font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
+.company-title .ticker { font-family: 'IBM Plex Mono',monospace; font-size: 22px; color: var(--ink-muted); font-weight: 500; margin-left: 12px; vertical-align: super; }
+.report-subtitle { font-family: 'Noto Serif TC',serif; font-size: 18px; font-style: italic; color: var(--ink-secondary); margin-top: 12px; font-weight: 400; }
+.rating-panel { display: grid; grid-template-columns: repeat(4,1fr); background: var(--ink); color: white; padding: 0; margin-bottom: 36px; overflow: hidden; }
+.rating-cell { padding: 20px 24px; border-right: 1px solid rgba(255,255,255,0.12); }
+.rating-cell:last-child { border-right: none; }
+.rating-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+.rating-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.rating-value.accent { color: #e8a87c; }
+.rating-value.negative { color: #ff8a6e; }
+.rating-value.neutral { color: #e6c870; }
+.rating-value.positive { color: #92cca5; }
+.rating-value .unit { font-size: 12px; font-family: 'IBM Plex Mono',monospace; font-weight: 400; color: rgba(255,255,255,0.6); margin-left: 4px; }
+.rating-sub { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.exec-summary { background: var(--highlight-bg); padding: 28px 32px; margin-bottom: 40px; border-left: 4px solid var(--accent); position: relative; }
+.exec-summary::before { content: "執行摘要"; position: absolute; top: -10px; left: 20px; background: var(--bg-card); padding: 0 10px; font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; color: var(--accent); }
+.exec-summary p { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); }
+.exec-summary .lede { font-weight: 600; font-size: 16px; margin-bottom: 10px; }
+.thesis-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); margin-bottom: 44px; }
+.thesis-card { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.thesis-card:last-child { border-right: none; }
+.thesis-num { font-family: 'Playfair Display',serif; font-size: 48px; font-weight: 900; color: var(--accent); line-height: 0.9; margin-bottom: 10px; }
+.thesis-title { font-family: 'Noto Serif TC',serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.thesis-desc { font-size: 12px; color: var(--ink-secondary); line-height: 1.6; }
+.section { margin-bottom: 44px; }
+.section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.section-num { font-family: 'Playfair Display',serif; font-size: 32px; font-weight: 900; color: var(--accent); line-height: 1; }
+.section-title { font-family: 'Noto Serif TC',serif; font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
+.section-kicker { margin-left: auto; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink-muted); text-transform: uppercase; }
+.subsection { margin-top: 28px; margin-bottom: 18px; }
+.subsection-title { font-family: 'Noto Serif TC',serif; font-size: 16px; font-weight: 700; color: var(--ink); padding-bottom: 6px; border-bottom: 1px solid var(--rule); margin-bottom: 12px; }
+.lead-para { font-family: 'Noto Serif TC',serif; font-size: 15px; line-height: 1.85; color: var(--ink); margin-bottom: 18px; font-weight: 500; }
+.body-text { font-size: 14px; line-height: 1.85; margin-bottom: 16px; color: var(--ink); }
+.body-text strong { color: var(--accent); font-weight: 600; }
+.stat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); margin: 22px 0; }
+.stat-cell { padding: 16px 18px; border-right: 1px solid var(--rule); }
+.stat-cell:last-child { border-right: none; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 6px; }
+.stat-value { font-family: 'Playfair Display',serif; font-size: 26px; font-weight: 900; line-height: 1; }
+.stat-value.pos { color: var(--positive); }
+.stat-value.neg { color: var(--negative); }
+.stat-value.neu { color: var(--neutral); }
+.stat-sub { font-size: 11px; color: var(--ink-secondary); margin-top: 6px; font-family: 'IBM Plex Mono',monospace; }
+.stat-sub.pos { color: var(--positive); }
+.stat-sub.neg { color: var(--negative); }
+.chart-caption { font-family: 'Noto Serif TC',serif; font-size: 12px; font-weight: 700; color: var(--ink); margin-top: 16px; margin-bottom: 4px; letter-spacing: 0.5px; }
+.chart-sub { font-family: 'IBM Plex Mono',monospace; font-size: 10px; color: var(--ink-muted); margin-bottom: 12px; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin-bottom: 16px; }
+.data-table th { background: var(--ink); color: white; padding: 10px 12px; text-align: left; font-weight: 600; font-size: 11.5px; letter-spacing: 0.5px; }
+.data-table th.right { text-align: right; }
+.data-table th.center { text-align: center; }
+.data-table td { padding: 9px 12px; border-bottom: 1px solid var(--rule); }
+.data-table td.right { text-align: right; font-family: 'IBM Plex Mono',monospace; }
+.data-table td.center { text-align: center; }
+.data-table td.label { font-weight: 600; }
+.data-table tr.highlight { background: var(--highlight-bg); }
+.data-table tr.total td { font-weight: 700; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: #faf6ef; }
+.data-table td.pos { color: var(--positive); font-weight: 600; }
+.data-table td.neg { color: var(--negative); font-weight: 600; }
+.data-table td.neu { color: var(--neutral); font-weight: 600; }
+.callout { background: #f8f5ee; border-left: 4px solid var(--neutral); padding: 16px 22px; margin: 18px 0; position: relative; }
+.callout-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; color: var(--neutral); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.callout-body { font-size: 13px; line-height: 1.75; color: var(--ink); }
+.callout-body strong { color: var(--accent); }
+.callout.bear { background: #fdf2ee; border-left-color: var(--accent); }
+.callout.bear .callout-label { color: var(--accent); }
+.callout.bull { background: #f3f9f5; border-left-color: var(--positive); }
+.callout.bull .callout-label { color: var(--positive); }
+.pullquote { background: var(--pullquote-bg); color: white; padding: 28px 36px; margin: 24px 0; position: relative; }
+.pullquote::before { content: "\201C"; position: absolute; top: -10px; left: 24px; font-family: 'Playfair Display',serif; font-size: 100px; color: var(--accent); line-height: 1; }
+.pullquote-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.75; font-style: italic; padding-left: 28px; }
+.pullquote-author { font-family: 'IBM Plex Mono',monospace; font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 12px; padding-left: 28px; letter-spacing: 1px; }
+.dual-think { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 18px 0; }
+.dual-think-card { padding: 18px 22px; border: 1px solid var(--rule); }
+.dual-think-card.first { background: #f9f7f2; }
+.dual-think-card.second { background: #f0ede4; border-left: 3px solid var(--accent); }
+.dual-think-label { font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px; }
+.first .dual-think-label { color: var(--ink-muted); }
+.second .dual-think-label { color: var(--accent); }
+.dual-think-body { font-size: 12.5px; line-height: 1.7; color: var(--ink); }
+.dual-think-body strong { color: var(--accent); }
+.scenarios { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; margin: 24px 0; border: 1px solid var(--rule); }
+.scenario { padding: 22px 24px; border-right: 1px solid var(--rule); }
+.scenario:last-child { border-right: none; }
+.scenario.bull { background: #f3f9f5; border-top: 4px solid var(--positive); }
+.scenario.base { background: #fdf9ef; border-top: 4px solid var(--neutral); }
+.scenario.bear { background: #fdf2ee; border-top: 4px solid var(--accent); }
+.scenario-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.scenario-prob { font-family: 'Playfair Display',serif; font-size: 36px; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.scenario.bull .scenario-prob { color: var(--positive); }
+.scenario.base .scenario-prob { color: var(--neutral); }
+.scenario.bear .scenario-prob { color: var(--accent); }
+.scenario-target { font-family: 'IBM Plex Mono',monospace; font-size: 13px; font-weight: 600; margin-bottom: 12px; }
+.scenario-desc { font-size: 12px; line-height: 1.7; color: var(--ink-secondary); }
+.blindspot-card { border: 1px solid var(--rule); margin: 16px 0; overflow: hidden; }
+.blindspot-header { background: var(--ink); color: white; padding: 12px 20px; display: flex; align-items: center; gap: 16px; }
+.blindspot-num { font-family: 'Playfair Display',serif; font-size: 28px; font-weight: 900; color: #e8a87c; line-height: 1; }
+.blindspot-title { font-family: 'Noto Serif TC',serif; font-size: 14px; font-weight: 700; }
+.blindspot-body { display: grid; grid-template-columns: 1fr 1fr; }
+.blindspot-wrong { background: #fdf2ee; padding: 16px 20px; border-right: 1px solid var(--rule); }
+.blindspot-right { background: #f3f9f5; padding: 16px 20px; }
+.blindspot-label { font-family: 'IBM Plex Mono',monospace; font-size: 9px; letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+.blindspot-wrong .blindspot-label { color: var(--accent); }
+.blindspot-right .blindspot-label { color: var(--positive); }
+.blindspot-text { font-size: 12.5px; line-height: 1.7; }
+.blindspot-text strong { color: var(--accent); }
+.risks { background: #fdf2ee; border-left: 4px solid var(--accent); padding: 18px 22px; margin: 20px 0; }
+.risks-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 10px; letter-spacing: 0.5px; }
+.risks-list { list-style: none; padding: 0; }
+.risks-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.risks-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--accent); font-weight: 700; }
+.bulls { background: #f3f9f5; border-left: 4px solid var(--positive); padding: 18px 22px; margin: 20px 0; }
+.bulls-title { font-family: 'Noto Serif TC',serif; font-size: 13px; font-weight: 700; color: var(--positive); margin-bottom: 10px; letter-spacing: 0.5px; }
+.bulls-list { list-style: none; padding: 0; }
+.bulls-list li { padding: 7px 0 7px 22px; position: relative; font-size: 12.5px; line-height: 1.7; }
+.bulls-list li::before { content: "▸"; position: absolute; left: 6px; color: var(--positive); font-weight: 700; }
+.price-chart-container { margin: 24px 0; }
+.final-callout { background: var(--pullquote-bg); color: white; padding: 36px 40px; margin: 44px 0 20px; position: relative; }
+.final-callout::before { content: "FINAL TAKE"; position: absolute; top: -10px; left: 24px; background: var(--accent); color: white; padding: 4px 14px; font-family: 'IBM Plex Mono',monospace; font-size: 10px; letter-spacing: 2px; font-weight: 700; }
+.final-callout-text { font-family: 'Noto Serif TC',serif; font-size: 16px; line-height: 1.85; }
+.final-callout-text strong { color: #e8a87c; }
+.footer { border-top: 2px solid var(--ink); padding-top: 24px; margin-top: 40px; font-size: 10.5px; color: var(--ink-secondary); line-height: 1.7; }
+.footer strong { color: var(--ink); }
+.source-tag { display: inline-block; font-family: 'IBM Plex Mono',monospace; font-size: 9.5px; color: var(--ink-muted); background: #f0ede4; padding: 1px 6px; border-radius: 2px; margin-left: 4px; }
+.watchlist { list-style: none; padding: 0; margin: 20px 0; }
+.watchlist li { display: grid; grid-template-columns: 36px 1fr auto; gap: 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 13px; line-height: 1.7; }
+.watchlist li:last-child { border-bottom: none; }
+.watch-num { font-family: 'Playfair Display',serif; font-size: 22px; font-weight: 900; color: var(--accent); line-height: 1; }
+.watch-trigger { font-family: 'IBM Plex Mono',monospace; font-size: 10.5px; color: var(--ink-muted); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div class="report">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="firm">SECOND-LEVEL<br/>RESEARCH<span class="v1-badge">V1.0</span></div>
+    <div class="dept">Equity Research · Optical Semiconductors · InP Epitaxy</div>
+  </div>
+  <div class="header-right">
+    <div class="doc-id">3081-OTC · DEEP DIVE</div>
+    <div>2026.05.25</div>
+    <div>Deep-Dive · Issue 1.0 · 折舊谷地與地緣集中分析</div>
+  </div>
+</header>
+
+<!-- REPORT META -->
+<div class="report-meta">
+  <div>
+    <div class="sector-tag">光電半導體 · InP 磊晶 / CW Laser / 矽光子 · AI 數據中心 CPO 核心供應商</div>
+    <h1 class="company-title">聯亞光電<span class="ticker">3081.OTC</span></h1>
+    <div class="report-subtitle">折舊谷地的暫時狂喜 · 中國 71% 的沉默地雷 · Coherent 6吋 InP 的時鐘倒數</div>
+  </div>
+</div>
+
+<!-- RATING PANEL -->
+<div class="rating-panel">
+  <div class="rating-cell">
+    <div class="rating-label">Rating</div>
+    <div class="rating-value negative">REDUCE</div>
+    <div class="rating-sub">現價高於加權目標 29.7%</div>
+  </div>
+  <div class="rating-cell">
+    <div class="rating-label">Current Price</div>
+    <div class="rating-value">2,950<span class="unit">TWD</span></div>
+    <div class="rating-sub">2026.05.25 · 對應 2026E P/E ~60x</div>
+  </div>
+  <div class="rating-cell">
+    <div class="rating-label">Fair Value Range</div>
+    <div class="rating-value">800–3,500<span class="unit">TWD</span></div>
+    <div class="rating-sub">機率加權 2,075 元</div>
+  </div>
+  <div class="rating-cell">
+    <div class="rating-label">Risk / Reward</div>
+    <div class="rating-value negative">1 : 3.9</div>
+    <div class="rating-sub">上行 550 元 / 下行 2,150 元</div>
+  </div>
+</div>
+
+<!-- STOCK CHART -->
+<div class="price-chart-container">
+  <div class="chart-caption">圖 0 · 近 59 個交易日股價 × 三層情境目標價區間</div>
+  <div class="chart-sub">2026/02/25 – 2026/05/25 · 今日收 2,950 元 · Bull 3,500 / Base 2,000 / Bear 800 · 加權目標 2,075 元 · 現價高出加權目標 29.7%</div>
+  <svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;background:#fdfcf9;">
+    <!-- Target price bands -->
+    <!-- Bull zone: NT$3,000–3,500, y=55 to 81.8 -->
+    <rect x="80" y="14.7" width="640" height="67.1" fill="#2d5a3f" opacity="0.09"/>
+    <!-- Base zone: NT$2,000–3,000, y=81.8 to 216.1 -->
+    <rect x="80" y="81.8" width="640" height="134.3" fill="#8a6d2e" opacity="0.07"/>
+    <!-- Bear zone: NT$800–2,000, y=216.1 to 377 (off chart bottom 310) -->
+    <rect x="80" y="216.1" width="640" height="93.9" fill="#b8351a" opacity="0.07"/>
+
+    <!-- Target lines -->
+    <line x1="80" y1="14.7" x2="720" y2="14.7" stroke="#2d5a3f" stroke-width="0.7" opacity="0.5"/>
+    <line x1="80" y1="81.8" x2="720" y2="81.8" stroke="#8a6d2e" stroke-width="0.7" opacity="0.5"/>
+    <line x1="80" y1="216.1" x2="720" y2="216.1" stroke="#b8351a" stroke-width="0.7" opacity="0.5"/>
+    <!-- Weighted target: NT$2,075, y=206.0 -->
+    <line x1="80" y1="206.0" x2="720" y2="206.0" stroke="#0f1419" stroke-width="1.2" stroke-dasharray="5,3" opacity="0.6"/>
+
+    <!-- Grid horizontals -->
+    <line x1="80" y1="310" x2="720" y2="310" stroke="#d8d4cd" stroke-width="0.7"/>
+    <line x1="80" y1="256.5" x2="720" y2="256.5" stroke="#d8d4cd" stroke-width="0.4" stroke-dasharray="2,4"/>
+    <line x1="80" y1="162.4" x2="720" y2="162.4" stroke="#d8d4cd" stroke-width="0.4" stroke-dasharray="2,4"/>
+    <line x1="80" y1="108.7" x2="720" y2="108.7" stroke="#d8d4cd" stroke-width="0.4" stroke-dasharray="2,4"/>
+    <line x1="80" y1="55.0" x2="720" y2="55.0" stroke="#d8d4cd" stroke-width="0.7"/>
+
+    <!-- Y-axis labels -->
+    <text x="74" y="314" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">1,300</text>
+    <text x="74" y="261" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">1,800</text>
+    <text x="74" y="220" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#b8351a" font-weight="600">2,000</text>
+    <text x="74" y="167" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">2,400</text>
+    <text x="74" y="113" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">2,800</text>
+    <text x="74" y="59" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">3,200</text>
+
+    <!-- Right-side target labels -->
+    <text x="724" y="18" font-family="IBM Plex Mono" font-size="8.5" fill="#2d5a3f">Bull 3,500</text>
+    <text x="724" y="85" font-family="IBM Plex Mono" font-size="8.5" fill="#8a6d2e">NT$3,000</text>
+    <text x="724" y="220" font-family="IBM Plex Mono" font-size="8.5" fill="#b8351a">Base 2,000</text>
+    <text x="724" y="210" font-family="IBM Plex Mono" font-size="7.5" fill="#0f1419">加權 2,075 ▲</text>
+
+    <!-- X-axis date labels -->
+    <text x="80"  y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">02/25</text>
+    <text x="191" y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">03/17</text>
+    <text x="333" y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a8f94">04/07</text>
+    <text x="455" y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#8a6d2e">04/22</text>
+    <text x="598" y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#2d5a3f">05/12</text>
+    <text x="720" y="330" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#0f1419">05/25</text>
+
+    <!-- Area gradient fill -->
+    <defs>
+      <linearGradient id="priceFill" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#b8351a" stop-opacity="0.15"/>
+        <stop offset="100%" stop-color="#b8351a" stop-opacity="0.02"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Area fill path -->
+    <path d="M 80.0,289.9 L 91.1,285.8 L 102.1,280.5 L 113.1,281.8 L 124.2,276.4
+             L 135.2,270.9 L 146.2,265.4 L 157.3,267.8 L 168.3,262.4 L 179.3,256.9
+             L 190.4,251.5 L 201.4,247.2 L 212.4,242.9 L 223.5,240.5 L 234.5,235.2
+             L 245.5,229.8 L 256.6,224.4 L 267.6,219.0 L 278.6,215.8 L 289.7,213.3
+             L 300.7,206.8 L 311.7,200.3 L 322.8,202.6 L 333.8,196.1 L 344.8,192.8
+             L 355.9,188.4 L 366.9,176.6 L 377.9,168.9 L 388.9,162.4 L 400.0,156.9
+             L 411.0,153.6 L 422.0,148.1 L 433.1,140.4 L 444.1,136.0
+             L 455.1,156.9 L 466.2,153.6 L 477.2,147.0 L 488.2,136.0
+             L 499.3,126.4 L 510.3,121.0 L 521.3,116.6 L 532.4,108.7 L 543.4,103.3
+             L 554.4,97.8 L 565.5,93.4 L 576.5,89.0 L 587.5,91.6 L 598.6,87.2
+             L 609.6,85.8 L 620.6,89.0 L 631.7,161.1 L 642.7,142.9
+             L 653.7,130.0 L 664.8,121.0 L 675.8,115.5 L 686.8,121.0
+             L 697.9,89.0 L 708.9,93.4 L 720.0,89.0
+             L 720.0,310 L 80.0,310 Z"
+      fill="url(#priceFill)"/>
+
+    <!-- Price line -->
+    <polyline fill="none" stroke="#b8351a" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"
+      points="80.0,289.9 91.1,285.8 102.1,280.5 113.1,281.8 124.2,276.4
+              135.2,270.9 146.2,265.4 157.3,267.8 168.3,262.4 179.3,256.9
+              190.4,251.5 201.4,247.2 212.4,242.9 223.5,240.5 234.5,235.2
+              245.5,229.8 256.6,224.4 267.6,219.0 278.6,215.8 289.7,213.3
+              300.7,206.8 311.7,200.3 322.8,202.6 333.8,196.1 344.8,192.8
+              355.9,188.4 366.9,176.6 377.9,168.9 388.9,162.4 400.0,156.9
+              411.0,153.6 422.0,148.1 433.1,140.4 444.1,136.0
+              455.1,156.9 466.2,153.6 477.2,147.0 488.2,136.0
+              499.3,126.4 510.3,121.0 521.3,116.6 532.4,108.7 543.4,103.3
+              554.4,97.8 565.5,93.4 576.5,89.0 587.5,91.6 598.6,87.2
+              609.6,85.8 620.6,89.0 631.7,161.1 642.7,142.9
+              653.7,130.0 664.8,121.0 675.8,115.5 686.8,121.0
+              697.9,89.0 708.9,93.4 720.0,89.0"/>
+
+    <!-- Event: 法說會 04/22 -->
+    <line x1="455" y1="156.9" x2="455" y2="322" stroke="#8a6d2e" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.7"/>
+    <text x="453" y="344" text-anchor="middle" font-family="Noto Sans TC" font-size="8" fill="#8a6d2e">法說會</text>
+
+    <!-- Event: Q1 財報 05/12 -->
+    <line x1="598" y1="87.2" x2="598" y2="322" stroke="#2d5a3f" stroke-width="0.8" stroke-dasharray="2,3" opacity="0.6"/>
+    <text x="598" y="344" text-anchor="middle" font-family="Noto Sans TC" font-size="8" fill="#2d5a3f">Q1財報</text>
+
+    <!-- Limit-down dot 05/15 -->
+    <circle cx="631.7" cy="161.1" r="5" fill="#b8351a" opacity="0.9"/>
+    <text x="626" y="152" text-anchor="end" font-family="IBM Plex Mono" font-size="8" fill="#b8351a">跌停 2,655</text>
+
+    <!-- Today dot -->
+    <circle cx="720.0" cy="89.0" r="5.5" fill="#0f1419"/>
+    <text x="720" y="80" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#0f1419" font-weight="600">2,950</text>
+
+    <!-- Axes -->
+    <line x1="80" y1="310" x2="720" y2="310" stroke="#0f1419" stroke-width="1"/>
+    <line x1="80" y1="14" x2="80" y2="310" stroke="#0f1419" stroke-width="1"/>
+  </svg>
+</div>
+
+<!-- EXEC SUMMARY -->
+<div class="exec-summary">
+  <p class="lede">聯亞光電站在 AI 光通爆發的最上游，但市場正在為一個暫時的完美狀態定價。</p>
+  <p>Q1 2026 毛利率 54.8% 是近年高點，但其中 <strong>~8.4pp 來自折舊谷地效應</strong>——舊 MOCVD 設備折舊已近尾聲，而 NT$13.15 億新設備預計 2027H1 交機，屆時每季折舊費用將增加 NT$4–6.6 億，毛利率面臨 3.4–5.6pp 結構性壓力。同時，<strong>中國客戶佔 2025 全年營收 71.4%</strong>，是當前市場討論最少的尾部風險，美中出口管制持續擴大的背景下，這個集中度從未被充分定價。現價 NT$2,950 對應 2026E P/E 約 60 倍，加權目標價 NT$2,075，風報比 1:3.9，維持 <strong>REDUCE</strong>。</p>
+</div>
+
+<!-- THESIS GRID -->
+<div class="thesis-grid">
+  <div class="thesis-card">
+    <div class="thesis-num">01</div>
+    <div class="thesis-title">折舊谷地終將結束</div>
+    <div class="thesis-desc">舊設備折舊殆盡 + 新設備未到，是 Q1 54.8% 毛利率的關鍵推手之一。2027H1 設備交機後，此效應消失，毛利率回歸 44–50% 區間。</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-num">02</div>
+    <div class="thesis-title">中國 71% 的沉默地雷</div>
+    <div class="thesis-desc">超過七成收入來自中國客戶，是所有分析報告中討論最少的集中風險。BIS 出口管制若擴及光電磊晶，衝擊立即且劇烈，無法在短期內彌補。</div>
+  </div>
+  <div class="thesis-card">
+    <div class="thesis-num">03</div>
+    <div class="thesis-title">Coherent 6吋威脅早於預期</div>
+    <div class="thesis-desc">市場假設替代者至少落後 2 年，但 Coherent 的 6 吋 InP 產線已通過認證，Q3 2026 即可量產，時間線比市場共識早 1–2 年。</div>
+  </div>
+</div>
+
+<!-- SECTION 1: 公司定位 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">公司定位與產業背景</div>
+    <div class="section-kicker">Industry Context</div>
+  </div>
+
+  <p class="lead-para">聯亞光電（1995 年創立）是台灣唯一主力聚焦 InP（磷化銦）磊晶的上櫃公司，核心產品為矽光子平台中的 CW Laser（連續波雷射）磊晶晶圓，供貨對象為全球雷射晶片廠商。</p>
+
+  <p class="body-text">AI 超級叢集的建設浪潮將光收發模組需求推向新高——800G 已成主流，1.6T 進入導入期。在 CPO（Co-Packaged Optics）架構中，每顆 AI ASIC 晶片旁需配置數十顆 CW Laser，聯亞所在的 InP 磊晶層是整個產業鏈中<strong>技術門檻最高、替代難度最大</strong>的環節之一。</p>
+
+  <div class="callout bull">
+    <div class="callout-label">為何 InP 磊晶難以被替代</div>
+    <div class="callout-body">InP 材料系統（InGaAsP / InGaAlAs）能在 1,310nm / 1,550nm C+L Band 實現矽基底無法達成的雷射增益。MOCVD 設備（Aixtron、Veeco）單台造價 $1–2M USD，製程良率積累需 5–10 年，對後進者構成顯著的技術與資本障礙。</div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-cell">
+      <div class="stat-label">2025 全年營收</div>
+      <div class="stat-value pos">$22億</div>
+      <div class="stat-sub pos">YoY +82.3%</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">2026 Q1 毛利率</div>
+      <div class="stat-value pos">54.8%</div>
+      <div class="stat-sub pos">QoQ +12.1pp</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">2026 Q1 EPS</div>
+      <div class="stat-value pos">3.44</div>
+      <div class="stat-sub pos">YoY +153%</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">中國佔比</div>
+      <div class="stat-value neg">71.4%</div>
+      <div class="stat-sub neg">地緣集中高風險</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: 財務分析 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">財務基本面</div>
+    <div class="section-kicker">Financials</div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">2.1 關鍵財務指標</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>指標</th>
+          <th class="right">2024 全年</th>
+          <th class="right">2025 全年</th>
+          <th class="right">YoY</th>
+          <th class="right">2026 Q1</th>
+          <th class="right">YoY</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">合併營收（千元）</td>
+          <td class="right">1,208,100</td>
+          <td class="right">2,202,822</td>
+          <td class="right pos">+82.3%</td>
+          <td class="right">904,389</td>
+          <td class="right pos">+99%</td>
+        </tr>
+        <tr>
+          <td class="label">毛利率</td>
+          <td class="right">~30%</td>
+          <td class="right">42.7%</td>
+          <td class="right pos">+12.7pp</td>
+          <td class="right">54.8%</td>
+          <td class="right pos">+24.6pp</td>
+        </tr>
+        <tr>
+          <td class="label">營業利益率</td>
+          <td class="right">~12%</td>
+          <td class="right">27.4%</td>
+          <td class="right pos">+15pp</td>
+          <td class="right">39.6%</td>
+          <td class="right pos">+27pp</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">EPS（元）</td>
+          <td class="right">2.15</td>
+          <td class="right">4.66</td>
+          <td class="right pos">+117%</td>
+          <td class="right">3.44</td>
+          <td class="right pos">+153%</td>
+        </tr>
+        <tr>
+          <td class="label">資本支出（千元）</td>
+          <td class="right">—</td>
+          <td class="right">~1,315,000</td>
+          <td class="right">—</td>
+          <td class="right">持續執行</td>
+          <td class="right">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">2.2 毛利率結構解構——費用性質分析法</div>
+    <p class="body-text">市場將 54.8% 毛利率視為新常態，但從<strong>費用性質分類法（Expense by Nature）</strong>拆解製造成本，可辨識出兩種性質截然不同的驅動力：</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>成本要素</th>
+          <th class="right">2025 全年（千元）</th>
+          <th class="right">2026 Q1（千元）</th>
+          <th class="right">絕對值 YoY</th>
+          <th>性質判斷</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">製造折舊</td>
+          <td class="right">130,847</td>
+          <td class="right">61,812</td>
+          <td class="right pos">↓ -10.5%</td>
+          <td class="neu">暫時性利多（谷地效應）</td>
+        </tr>
+        <tr>
+          <td class="label">製造人工</td>
+          <td class="right">~210,000</td>
+          <td class="right">124,396</td>
+          <td class="right">+18.5%</td>
+          <td>隨產能擴張同步上升</td>
+        </tr>
+        <tr>
+          <td class="label">原料 / 存貨耗用</td>
+          <td class="right">~626,000</td>
+          <td class="right">375,156</td>
+          <td class="right pos">佔比大幅下降</td>
+          <td class="pos">結構性改善（材料效率）</td>
+        </tr>
+        <tr>
+          <td class="label">存貨跌價損失</td>
+          <td class="right">—</td>
+          <td class="right">34,000</td>
+          <td class="right">—</td>
+          <td class="neg">一次性費用</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">折舊效應對毛利率貢獻（估算）</td>
+          <td colspan="2" class="center">+8.4pp（vs. 折舊正常水準）</td>
+          <td colspan="2" class="neg">2027H1 後消失</td>
+        </tr>
+        <tr class="highlight">
+          <td class="label">材料效率改善貢獻（估算）</td>
+          <td colspan="2" class="center">+9.9pp（vs. 2025 全年水準）</td>
+          <td colspan="2" class="pos">結構性保留</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="callout bear">
+      <div class="callout-label">⚠️ 折舊谷地（Depreciation Valley）量化</div>
+      <div class="callout-body">
+        Q1 2026 製造折舊僅 NT$6,181萬，佔當季營收 6.8%。然而聯亞已承諾購置 NT$13.15 億新 MOCVD 設備。按 5 年折舊期估算，新設備上線後<strong>每季折舊費用增加 NT$4,000–6,600萬</strong>，毛利率侵蝕約 <strong>-3.4 至 -5.6pp</strong>。即便材料效率改善的 9.9pp 完整保留，Q1 的 54.8% 毛利率在 2027H2 後最可能回落至 <strong>46–51%</strong> 區間。
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">2.3 地理營收結構（客戶集中度代理指標）</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>地區</th>
+          <th class="right">2025 佔比</th>
+          <th class="right">金額估算（千元）</th>
+          <th>風險評估</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td class="label">中國大陸</td>
+          <td class="right neg">71.4%</td>
+          <td class="right">1,572,815</td>
+          <td class="neg">⚠️ 地緣政治高度集中，出口管制尾部風險</td>
+        </tr>
+        <tr>
+          <td class="label">美國</td>
+          <td class="right pos">21.46%</td>
+          <td class="right">472,926</td>
+          <td class="pos">CSP 雲端巨頭，高成長但 Coherent 競爭</td>
+        </tr>
+        <tr>
+          <td class="label">台灣及其他</td>
+          <td class="right">7.14%</td>
+          <td class="right">157,241</td>
+          <td>低度成長</td>
+        </tr>
+        <tr class="total">
+          <td class="label">合計</td>
+          <td class="right">100%</td>
+          <td class="right">2,202,982</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SECTION 3: 競爭護城河 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">技術護城河與競爭態勢</div>
+    <div class="section-kicker">Competitive Moat</div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>比較維度</th>
+        <th>聯亞光電</th>
+        <th>Coherent（II-VI）</th>
+        <th>Lumentum</th>
+        <th>IQE（英國）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">業務模型</td>
+        <td>純磊晶供應商</td>
+        <td>垂直整合</td>
+        <td>垂直整合</td>
+        <td>純磊晶供應商</td>
+      </tr>
+      <tr>
+        <td class="label">InP 晶圓尺寸</td>
+        <td>4"（主力）</td>
+        <td>6"（Sherman + 瑞典）</td>
+        <td>4"–6"</td>
+        <td>4"–6"</td>
+      </tr>
+      <tr>
+        <td class="label">CW Laser 狀態</td>
+        <td class="pos">量產中</td>
+        <td class="neg">Q3 2026 量產</td>
+        <td>自用為主</td>
+        <td>研發階段</td>
+      </tr>
+      <tr>
+        <td class="label">主要客戶</td>
+        <td>中國 71%、美國 21%</td>
+        <td>全球（美歐為主）</td>
+        <td>全球</td>
+        <td>歐美</td>
+      </tr>
+      <tr class="highlight">
+        <td class="label">競爭威脅</td>
+        <td>—</td>
+        <td class="neg">⚠️ 直接競爭，2026H2 量產</td>
+        <td class="neu">間接，主要自用</td>
+        <td class="neu">技術差距 2–3 年</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout bear">
+    <div class="callout-label">⚠️ Coherent 威脅具體化</div>
+    <div class="callout-body">
+      Coherent 2026 年初完成 Sherman, TX 及瑞典廠 6 吋 InP 產線認證，400mW CW Laser 磊晶片已送客戶驗證，預計 Q3 2026 量產。<strong>6 吋 vs. 4 吋晶圓同面積切出晶粒數多 125%</strong>，成本優勢顯著。若美國 CSP 客戶轉向 Coherent，聯亞的 21% 美國收入首當其衝，且短期內幾乎無法補位。
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: 第一/二層思考 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">第一層 vs. 第二層思考</div>
+    <div class="section-kicker">Second-Level Thinking</div>
+  </div>
+
+  <div class="dual-think">
+    <div class="dual-think-card first">
+      <div class="dual-think-label">第一層：市場共識</div>
+      <div class="dual-think-body">
+        ・AI 數據中心光通 2026–2028 複合成長 >40%<br>
+        ・CPO 技術為 InP CW Laser 創造全新市場<br>
+        ・TSMC COUPE 量產後聯亞是最大受益者<br>
+        ・Q1 毛利率 54.8% 顯示進入高利潤常態<br>
+        ・聯亞稀缺性高，國際替代不足<br>
+        ・目標價普遍給到 NT$3,000–4,000
+      </div>
+    </div>
+    <div class="dual-think-card second">
+      <div class="dual-think-label">第二層：差異化提問</div>
+      <div class="dual-think-body">
+        ・54.8% 毛利率中多少是折舊谷地的<strong>暫時效應</strong>？<br>
+        ・<strong>中國 71% 收入</strong>的地緣政治風險何時被定價？<br>
+        ・Coherent 6 吋量產的威脅時間表<strong>早於預期</strong>？<br>
+        ・NT$13.15 億資本支出的折舊衝擊從哪一季開始？<br>
+        ・現價 60x P/E 對應的成長假設是否可持續？<br>
+        ・CPO 大規模採用是否被市場<strong>高估時間表</strong>？
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <div class="subsection-title">市場盲點深度分析</div>
+  </div>
+
+  <div class="blindspot-card">
+    <div class="blindspot-header">
+      <div class="blindspot-num">BS·1</div>
+      <div class="blindspot-title">把「折舊谷地」當作長期高毛利率的起點</div>
+    </div>
+    <div class="blindspot-body">
+      <div class="blindspot-wrong">
+        <div class="blindspot-label">市場隱含邏輯</div>
+        <div class="blindspot-text">市場把 Q1 2026 的 54.8% 毛利率當作聯亞「進化」後的新基準，給出 60x 以上的 P/E，並以此外推未來幾年的盈利。分析師報告標題充斥「利潤拐點確認」、「毛利率中樞上移至 50%+」等說法。這個邏輯的隱含假設是：毛利率的提升是結構性的，與設備折舊週期無關。</div>
+      </div>
+      <div class="blindspot-right">
+        <div class="blindspot-label">第二層修正認知</div>
+        <div class="blindspot-text">Q1 2026 製造折舊絕對值 YoY 下降 10.5%（即便營收翻倍），這是老設備折舊殆盡、新設備尚未入帳的「谷地效應」。NT$13.15 億新 MOCVD 設備 2027H1 交機後，<strong>每季製造折舊將增加 NT$4,000–6,600萬</strong>，直接侵蝕 3.4–5.6pp 毛利率。這不是長期基準，是折舊週期中難得一見的窗口期。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blindspot-card">
+    <div class="blindspot-header">
+      <div class="blindspot-num">BS·2</div>
+      <div class="blindspot-title">聚焦 AI 需求爆發，忽略中國 71% 的地緣集中風險</div>
+    </div>
+    <div class="blindspot-body">
+      <div class="blindspot-wrong">
+        <div class="blindspot-label">市場隱含邏輯</div>
+        <div class="blindspot-text">幾乎所有看多聯亞的報告都著重於「中國 AI 數據中心建設加速」，把中國佔比 71% 視為受益 AI 熱潮的利多指標，而非集中風險。市場的隱含假設是：只要需求強，地緣政治不會干擾供貨關係。這種樂觀情緒在 2023–2025 年的確有效，但隨著美國對華科技管制範圍持續擴大，邊際風險正在累積。</div>
+      </div>
+      <div class="blindspot-right">
+        <div class="blindspot-label">第二層修正認知</div>
+        <div class="blindspot-text">中國客戶 71.4%（約 NT$15.7 億）的集中度意味著，若出口管制擴及光電磊晶材料或 MOCVD 設備再出口，聯亞面臨的不是「部分衝擊」，而是<strong>收入斷崖式下滑</strong>。美國已將多家中國光通模組廠商列入 Entity List，磊晶材料納管只是時間問題。<strong>中國 71% 的高集中度是尾部風險，不是 AI 受益標誌。</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="blindspot-card">
+    <div class="blindspot-header">
+      <div class="blindspot-num">BS·3</div>
+      <div class="blindspot-title">Coherent 6 吋 InP「至少落後 2 年」的假設</div>
+    </div>
+    <div class="blindspot-body">
+      <div class="blindspot-wrong">
+        <div class="blindspot-label">市場隱含邏輯</div>
+        <div class="blindspot-text">市場認為聯亞具備 5–10 年的製程積累優勢，Coherent 要建立具競爭力的 6 吋 InP 磊晶產線至少需要 2–3 年，因此聯亞的護城河在中期內不受威脅。這個假設的依據是「InP 製程很難」，以及「Coherent 自用為主、不會外賣磊晶」的認知。</div>
+      </div>
+      <div class="blindspot-right">
+        <div class="blindspot-label">第二層修正認知</div>
+        <div class="blindspot-text">Coherent 2024 年收購 II-VI 後繼承了 Sherman, TX 的成熟 InP 製程，並非從零建立。2026 年初已完成 6 吋產線認證，400mW CW Laser 樣品送出，<strong>Q3 2026 量產時間表比市場共識早 1–2 年</strong>。Coherent 的 6 吋製程在每片晶圓成本上具有 ~125% 的晶粒數優勢，對聯亞的美國客戶構成直接競爭威脅。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pullquote">
+    <div class="pullquote-text">市場在對聯亞定價時，把三件各自獨立的暫時性優勢——折舊谷地、中國 AI 需求高峰、無直接競爭者——疊加在一起，形成一個「永久性高利潤平台」的敘事。Howard Marks 說：「最危險的事，不是壞消息，而是過於樂觀的假設被現實打破的那一刻。」聯亞是好公司，但在現價，你付的不是好公司的代價，而是完美情境的代價。</div>
+    <div class="pullquote-author">— SECOND-LEVEL RESEARCH · 聯亞光電深度評估 · 2026.05.25</div>
+  </div>
+</section>
+
+<!-- SECTION 5: 情境分析 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">情境分析與目標價</div>
+    <div class="section-kicker">Scenario Analysis</div>
+  </div>
+
+  <div class="scenarios">
+    <div class="scenario bull">
+      <div class="scenario-title">🚀 樂觀情境</div>
+      <div class="scenario-prob">25%</div>
+      <div class="scenario-target">目標價 NT$ 3,500 ｜ P/E 80x 2026E</div>
+      <div class="scenario-desc">
+        TSMC COUPE 2027 量產確認，CW Laser 需求爆發；Coherent 量產延遲至 2028；美國 CSP 大量採購，中國佔比順利壓縮至 55% 以下；2026E EPS 突破 NT$15；折舊衝擊被需求成長完全抵消。
+      </div>
+    </div>
+    <div class="scenario base">
+      <div class="scenario-title">📊 基準情境</div>
+      <div class="scenario-prob">50%</div>
+      <div class="scenario-target">目標價 NT$ 2,000 ｜ P/E 35x 2026E</div>
+      <div class="scenario-desc">
+        需求持續成長但低於樂觀預期；2027H1 折舊壓力使毛利率回落至 46–50%；Coherent 部分取代高端客戶；中國佔比降至 60%，部分被美國彌補；2026E EPS 約 NT$13–14，毛利率 48–52%。
+      </div>
+    </div>
+    <div class="scenario bear">
+      <div class="scenario-title">📉 悲觀情境</div>
+      <div class="scenario-prob">25%</div>
+      <div class="scenario-target">目標價 NT$ 800 ｜ P/E 15x 2026E</div>
+      <div class="scenario-desc">
+        美中出口管制擴大，中國客戶受衝擊；Coherent 提前量產取代美國客戶；AI Capex 週期轉折，訂單能見度惡化；新設備折舊 + 需求下滑雙重壓力；2026E EPS 降至 NT$8–10，毛利率 40–45%。
+      </div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>情境</th>
+        <th class="right">目標價</th>
+        <th class="right">機率</th>
+        <th class="right">加權貢獻</th>
+        <th class="right">較現價漲跌</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">🚀 樂觀</td>
+        <td class="right">NT$ 3,500</td>
+        <td class="right">25%</td>
+        <td class="right">NT$ 875</td>
+        <td class="right pos">+18.6%</td>
+      </tr>
+      <tr>
+        <td class="label">📊 基準</td>
+        <td class="right">NT$ 2,000</td>
+        <td class="right">50%</td>
+        <td class="right">NT$ 1,000</td>
+        <td class="right neg">-32.2%</td>
+      </tr>
+      <tr>
+        <td class="label">📉 悲觀</td>
+        <td class="right">NT$ 800</td>
+        <td class="right">25%</td>
+        <td class="right">NT$ 200</td>
+        <td class="right neg">-72.9%</td>
+      </tr>
+      <tr class="total">
+        <td class="label">加權目標價</td>
+        <td class="right">NT$ 2,075</td>
+        <td class="right">100%</td>
+        <td class="right">NT$ 2,075</td>
+        <td class="right neg">-29.7%</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 6: 多空論點 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">多空論點整理</div>
+    <div class="section-kicker">Bulls vs. Bears</div>
+  </div>
+
+  <div class="bulls">
+    <div class="bulls-title">多方論點</div>
+    <ul class="bulls-list">
+      <li>AI 數據中心光收發需求在 800G → 1.6T → CPO 三個世代持續爆發，聯亞是上游最稀缺的磊晶供應商</li>
+      <li>TSMC COUPE 一旦量產，每顆 AI ASIC 所需 CW Laser 數量從 4–8 顆跳升至 32–64 顆，TAM 擴大 8–16 倍</li>
+      <li>美國 CSP 供應鏈多元化需求強烈，非中國 InP 磊晶供應商幾乎只有聯亞，戰略稀缺性高</li>
+      <li>材料效率改善貢獻的 9.9pp 毛利率提升是結構性的，不受折舊週期影響，長期保留</li>
+      <li>法說會透露 2026H1 美國客戶佔比有望提升，地緣集中風險正在改善中</li>
+    </ul>
+  </div>
+
+  <div class="risks">
+    <div class="risks-title">空方論點</div>
+    <ul class="risks-list">
+      <li>Q1 毛利率 54.8% 的 8.4pp 來自折舊谷地效應，2027H1 設備交機後此效應消失，現價是在為暫時狀態定價</li>
+      <li>中國客戶佔 71.4% 收入，若出口管制擴及光電磊晶，即時衝擊逾 NT$15億，短期無法彌補</li>
+      <li>Coherent 6 吋 InP 產線 Q3 2026 量產，比市場預期早 1–2 年，美國客戶轉單風險從 2026H2 開始實質化</li>
+      <li>現價 NT$2,950 對應 2026E P/E 約 60x，加權目標 NT$2,075 已低於現價 29.7%，風報比 1:3.9</li>
+      <li>AI 超級叢集 Capex 週期已進入中後段，終端需求放緩將在 6–9 個月後傳導至磊晶訂單</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 7: 關鍵觀察點 -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div class="section-title">未來 6 個月關鍵觀察點</div>
+    <div class="section-kicker">Key Watchpoints</div>
+  </div>
+
+  <ul class="watchlist">
+    <li>
+      <div class="watch-num">01</div>
+      <div><strong>2026Q2 製造折舊費用</strong> — 季度製造折舊是否持續低於 NT$7,000萬（谷地延續），或開始反彈（設備提前交機）</div>
+      <div class="watch-trigger">觸發：&gt;NT$8,000萬 → 毛利率下行壓力啟動</div>
+    </li>
+    <li>
+      <div class="watch-num">02</div>
+      <div><strong>Coherent Q3 2026 客戶驗證結果</strong> — 是否有美國 CSP 正式將 CW Laser 訂單從聯亞轉向 Coherent，或確認延遲</div>
+      <div class="watch-trigger">觸發：Coherent 法說/8-K 揭露量產出貨確認</div>
+    </li>
+    <li>
+      <div class="watch-num">03</div>
+      <div><strong>美國 BIS 出口管制動態</strong> — InP 磊晶晶圓或 MOCVD 設備再出口管制範圍是否擴大，影響對中國客戶供貨合規性</div>
+      <div class="watch-trigger">觸發：新一批 Entity List 增加光電磊晶相關廠商</div>
+    </li>
+    <li>
+      <div class="watch-num">04</div>
+      <div><strong>美國客戶佔比（Q2/Q3 季報）</strong> — 若美國佔比從 21.46% 升至 30%+，地緣風險改善中；若中國佔比再擴大，逆向訊號</div>
+      <div class="watch-trigger">觸發：美國佔比 &gt;30% → 結構改善確認</div>
+    </li>
+    <li>
+      <div class="watch-num">05</div>
+      <div><strong>TSMC COUPE 客戶採用時間表</strong> — NVIDIA/AMD/Broadcom 是否公告 COUPE 設計定案時間，以及具體 CW Laser 規格需求</div>
+      <div class="watch-trigger">觸發：任一 AI ASIC 大廠確認 2027 COUPE 量產</div>
+    </li>
+    <li>
+      <div class="watch-num">06</div>
+      <div><strong>AI 超級叢集 Capex 節奏</strong> — 微軟/Google/Meta/Amazon 季度資本支出指引是否出現下修（聯亞訂單領先指標 6–9 個月）</div>
+      <div class="watch-trigger">觸發：任一大廠 Capex 指引 QoQ 下降 &gt;10%</div>
+    </li>
+    <li>
+      <div class="watch-num">07</div>
+      <div><strong>NT$13.15 億設備交機進度</strong> — 新購 MOCVD 設備的交機、安裝、認證時間表，直接決定折舊衝擊開始的確切季度</div>
+      <div class="watch-trigger">觸發：財報或法說揭露設備已驗收入帳</div>
+    </li>
+  </ul>
+</section>
+
+<!-- FINAL CALLOUT -->
+<div class="final-callout">
+  <div class="final-callout-text">
+    聯亞光電 V1.0 結論：<strong>這是真實的 AI 結構性受益故事，但不是一個現在追高的故事。</strong>InP 磊晶的技術壁壘真實存在，CPO 的長期需求邏輯扎實，材料效率改善的結構性紅利也在。然而，股價 2,950 元正在為三件暫時性優勢疊加的完美狀態定價——折舊谷地、中國 AI 高峰、無強力競爭者——而這三件事都在 2026H2 至 2027H1 間面臨轉折。<strong>加權合理價 2,075 元低於現價 29.7%</strong>。REDUCE 評級的核心邏輯：等待折舊谷地效應在財報中顯現、Coherent 量產時間表明朗化、中國佔比改善趨勢確立——三個條件成立後，再評估是否提升評級。<strong>好公司需要識別，好的買點需要等待。現在做的事是辨識風險，不是衝鋒。</strong>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>研究聲明：</strong>本報告由 SECOND-LEVEL RESEARCH 基於 Howard Marks 第二層思考框架自行研究整理，所有觀點均屬研究意見，不構成投資建議。聯亞光電（3081.OTC）係在台灣上市公司，本報告財務數據引用自公開資訊觀測站（MOPS）、2025 年度報告（民國 114 年）及 2026 年第一季財務報告。競爭分析資料引用自 Coherent Corp. 公開投資人簡報及 TSMC 技術研討會公開文件。股價數據截至 2026/05/25。過去績效不代表未來表現，投資人應自行評估風險。
+  <br><br>
+  <strong>資料來源：</strong>
+  聯亞光電 FY25 合併財報（MOPS 2025_3081_20260527F04）<span class="source-tag">年報</span>
+  · 聯亞光電 Q1 2026 財報（MOPS 202601_3081_AI2）<span class="source-tag">季報</span>
+  · 法說會資料（2026/04/22）<span class="source-tag">法說</span>
+  · Coherent Corp. Investor Presentation Q4 FY2026<span class="source-tag">競爭</span>
+  · TSMC 2025 Technology Symposium COUPE Whitepaper<span class="source-tag">技術</span>
+  · BIS Entity List（2026/05 版本）<span class="source-tag">法規</span>
+  · LightCounting Optical Transceiver Forecast 2026–2030<span class="source-tag">產業</span>
+</div>
+
+</div><!-- .report -->
+</body>
+</html>
