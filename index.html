@@ -116,6 +116,46 @@ h1 {
   font-size: 20px;
   font-weight: 700;
   color: var(--ink);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+.tag-buy {
+  background: rgba(31, 90, 44, 0.1);
+  color: #1f5a2c;
+  border: 1px solid rgba(31, 90, 44, 0.45);
+}
+
+.tag-hold {
+  background: rgba(44, 48, 52, 0.07);
+  color: #2c3034;
+  border: 1px solid rgba(44, 48, 52, 0.4);
+}
+
+.tag-reduce {
+  background: rgba(142, 41, 20, 0.1);
+  color: #8e2914;
+  border: 1px solid rgba(142, 41, 20, 0.45);
+}
+
+.tag-industry {
+  background: rgba(31, 68, 103, 0.1);
+  color: #1f4467;
+  border: 1px solid rgba(31, 68, 103, 0.45);
 }
 
 .report-desc {
@@ -149,8 +189,170 @@ footer a {
 
 .tabs {
   display: flex;
-  margin-bottom: 32px;
+  margin-bottom: 0;
   border-bottom: 1px solid var(--rule);
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 20px 0 24px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.search-box input {
+  width: 100%;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 10px 36px 10px 14px;
+  outline: none;
+  transition: border-color 0.15s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search-box input:focus {
+  border-color: var(--accent);
+}
+
+.search-box input::placeholder {
+  color: var(--ink-muted);
+}
+
+.search-box .clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 16px;
+  line-height: 1;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: none;
+}
+
+.search-box .clear-btn:hover {
+  color: var(--accent);
+}
+
+.search-box.has-value .clear-btn {
+  display: block;
+}
+
+.sort-btn {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 14px;
+  color: var(--ink-secondary);
+  background: var(--bg-card);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 10px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.sort-btn:hover {
+  border-color: var(--ink-secondary);
+  color: var(--ink);
+}
+
+.sort-btn .arrow {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 13px;
+  margin-left: 6px;
+  color: var(--accent);
+}
+
+.result-count {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.rating-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  padding: 0 0 24px;
+}
+
+.rating-filter-label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px;
+  color: var(--ink-muted);
+  margin-right: 4px;
+}
+
+.chip {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px;
+  padding: 5px 13px;
+  border-radius: 14px;
+  border: 1px solid var(--rule);
+  background: var(--bg-card);
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+
+.chip:hover {
+  border-color: var(--ink-secondary);
+  color: var(--ink);
+}
+
+.chip.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.chip.active[data-rating="buy"] {
+  background: #1f5a2c;
+  border-color: #1f5a2c;
+}
+
+.chip.active[data-rating="reduce"] {
+  background: #8e2914;
+  border-color: #8e2914;
+}
+
+.chip.active[data-rating="industry"] {
+  background: #1f4467;
+  border-color: #1f4467;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--ink-muted);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  display: none;
+}
+
+.empty-state.show {
+  display: block;
 }
 
 .tab {
@@ -193,6 +395,8 @@ footer a {
   display: block;
 }
 
+.report-item.hidden { display: none; }
+
 @media (max-width: 600px) {
   .container { padding: 48px 24px 80px; }
   .report-item a {
@@ -205,6 +409,12 @@ footer a {
   }
   .ticker { font-size: 22px; }
   .report-name { font-size: 17px; }
+  .controls { padding: 16px 0 20px; }
+  .result-count {
+    margin-left: 0;
+    flex-basis: 100%;
+    order: 3;
+  }
 }
 </style>
 </head>
@@ -217,118 +427,148 @@ footer a {
   </header>
 
   <section>
-    <nav class="tabs">
-      <button class="tab active" data-market="tw">台股</button>
-      <button class="tab" data-market="us">美股</button>
+    <nav class="tabs" role="tablist" aria-label="市場分頁">
+      <button type="button" class="tab active" id="tab-tw" role="tab" aria-selected="true" aria-controls="panel-tw" data-market="tw">台股</button>
+      <button type="button" class="tab" id="tab-us" role="tab" aria-selected="false" aria-controls="panel-us" data-market="us">美股</button>
     </nav>
 
-    <div class="tab-panel active" id="panel-tw">
+    <div class="controls">
+      <div class="search-box">
+        <input type="search" id="search-input" placeholder="搜尋代號或公司名（如 2472、立隆電、Yageo）" autocomplete="off">
+        <button type="button" class="clear-btn" id="clear-btn" aria-label="清除搜尋">×</button>
+      </div>
+      <button type="button" class="sort-btn" id="sort-btn" data-order="desc" aria-label="切換日期排序">日期<span class="arrow">↓</span></button>
+      <div class="result-count" id="result-count" aria-live="polite"></div>
+    </div>
+
+    <div class="rating-filters" id="rating-filters" role="group" aria-label="依評級篩選">
+      <span class="rating-filter-label" aria-hidden="true">評級：</span>
+      <button type="button" class="chip active" data-rating="all" aria-pressed="true">全部</button>
+      <button type="button" class="chip" data-rating="buy" aria-pressed="false">買進</button>
+      <button type="button" class="chip" data-rating="hold" aria-pressed="false">中立</button>
+      <button type="button" class="chip" data-rating="reduce" aria-pressed="false">減持</button>
+      <button type="button" class="chip" data-rating="industry" aria-pressed="false">產業觀點</button>
+    </div>
+
+    <div class="empty-state" id="empty-state">找不到符合條件的報告</div>
+
+    <div class="tab-panel active" id="panel-tw" role="tabpanel" aria-labelledby="tab-tw" tabindex="0">
       <ul class="report-list">
-        <li class="report-item">
+        <li class="report-item" data-date="20260525" data-keywords="2472 立隆電 Lelon Electronics" data-rating="hold">
+          <a href="tw/2472_Report_20260525.html">
+            <div class="ticker">2472</div>
+            <div class="report-meta">
+              <div class="report-name">立隆電<span class="tag tag-hold">中立</span></div>
+              <div class="report-desc">Lelon Electronics — 深度研究報告 V2.0</div>
+            </div>
+            <div class="report-date">2026.05.25</div>
+          </a>
+        </li>
+        <li class="report-item" data-date="20260518" data-keywords="2327 國巨 Yageo" data-rating="hold">
           <a href="tw/2327_Report_20260518.html">
             <div class="ticker">2327</div>
             <div class="report-meta">
-              <div class="report-name">國巨*</div>
+              <div class="report-name">國巨*<span class="tag tag-hold">中立</span></div>
               <div class="report-desc">Yageo — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.18</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260518" data-keywords="6449 鈺邦 APAQ Technology" data-rating="hold">
           <a href="tw/6449_Report_20260518.html">
             <div class="ticker">6449</div>
             <div class="report-meta">
-              <div class="report-name">鈺邦</div>
+              <div class="report-name">鈺邦<span class="tag tag-hold">中立</span></div>
               <div class="report-desc">APAQ Technology — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.18</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260518" data-keywords="3026 禾伸堂 Holy Stone Enterprise" data-rating="reduce">
           <a href="tw/3026_Report_20260518.html">
             <div class="ticker">3026</div>
             <div class="report-meta">
-              <div class="report-name">禾伸堂</div>
+              <div class="report-name">禾伸堂<span class="tag tag-reduce">減持</span></div>
               <div class="report-desc">Holy Stone Enterprise — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.18</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260518" data-keywords="2472 立隆電 Lelon Electronics" data-rating="hold">
           <a href="tw/2472_Report_20260518.html">
             <div class="ticker">2472</div>
             <div class="report-meta">
-              <div class="report-name">立隆電</div>
+              <div class="report-name">立隆電<span class="tag tag-hold">中立</span></div>
               <div class="report-desc">Lelon Electronics — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.18</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260515" data-keywords="2303 聯華電子 United Microelectronics UMC" data-rating="hold">
           <a href="tw/2303_Report_20260515.html">
             <div class="ticker">2303</div>
             <div class="report-meta">
-              <div class="report-name">聯華電子</div>
+              <div class="report-name">聯華電子<span class="tag tag-hold">中立</span></div>
               <div class="report-desc">United Microelectronics — 投資研究報告</div>
             </div>
             <div class="report-date">2026.05.15</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260515" data-keywords="2303 聯華電子 United Microelectronics UMC" data-rating="industry">
           <a href="tw/2303_Industry_20260515.html">
             <div class="ticker">2303</div>
             <div class="report-meta">
-              <div class="report-name">聯華電子</div>
+              <div class="report-name">聯華電子<span class="tag tag-industry">產業觀點</span></div>
               <div class="report-desc">United Microelectronics — 產業深度研究</div>
             </div>
             <div class="report-date">2026.05.15</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260515" data-keywords="4129 聯合骨科 United Orthopedic" data-rating="hold">
           <a href="tw/4129_Report_20260515.html">
             <div class="ticker">4129</div>
             <div class="report-meta">
-              <div class="report-name">聯合骨科</div>
+              <div class="report-name">聯合骨科<span class="tag tag-hold">中立</span></div>
               <div class="report-desc">United Orthopedic — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.15</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260514" data-keywords="3081 聯亞光電 LandMark Optoelectronics" data-rating="buy">
           <a href="tw/3081_Report_20260514.html">
             <div class="ticker">3081</div>
             <div class="report-meta">
-              <div class="report-name">聯亞光電</div>
+              <div class="report-name">聯亞光電<span class="tag tag-buy">買進</span></div>
               <div class="report-desc">LandMark Optoelectronics — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.14</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260509" data-keywords="3105 穩懋半導體 WIN Semiconductors" data-rating="hold">
           <a href="tw/3105_Report_20260509.html">
             <div class="ticker">3105</div>
             <div class="report-meta">
-              <div class="report-name">穩懋半導體</div>
+              <div class="report-name">穩懋半導體<span class="tag tag-hold">中立</span></div>
               <div class="report-desc">WIN Semiconductors — 投資研究報告</div>
             </div>
             <div class="report-date">2026.05.09</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260509" data-keywords="3105 穩懋半導體 WIN Semiconductors" data-rating="industry">
           <a href="tw/3105_Industry_20260509.html">
             <div class="ticker">3105</div>
             <div class="report-meta">
-              <div class="report-name">穩懋半導體</div>
+              <div class="report-name">穩懋半導體<span class="tag tag-industry">產業觀點</span></div>
               <div class="report-desc">WIN Semiconductors — 產業深度研究</div>
             </div>
             <div class="report-date">2026.05.09</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260423" data-keywords="2645 長榮航太 Evergreen Aviation Technologies" data-rating="buy">
           <a href="tw/2645_Report_20260423.html">
             <div class="ticker">2645</div>
             <div class="report-meta">
-              <div class="report-name">長榮航太</div>
+              <div class="report-name">長榮航太<span class="tag tag-buy">買進</span></div>
               <div class="report-desc">Evergreen Aviation Technologies — 深度研究報告</div>
             </div>
             <div class="report-date">2026.04.23</div>
@@ -337,23 +577,23 @@ footer a {
       </ul>
     </div>
 
-    <div class="tab-panel" id="panel-us">
+    <div class="tab-panel" id="panel-us" role="tabpanel" aria-labelledby="tab-us" tabindex="0">
       <ul class="report-list">
-        <li class="report-item">
+        <li class="report-item" data-date="20260509" data-keywords="UNCY Unicycive Therapeutics" data-rating="reduce">
           <a href="us/UNCY_Report_20260509.html">
             <div class="ticker">UNCY</div>
             <div class="report-meta">
-              <div class="report-name">Unicycive Therapeutics</div>
+              <div class="report-name">Unicycive Therapeutics<span class="tag tag-reduce">減持</span></div>
               <div class="report-desc">Unicycive Therapeutics — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.09</div>
           </a>
         </li>
-        <li class="report-item">
+        <li class="report-item" data-date="20260508" data-keywords="TEAM Atlassian Corporation" data-rating="buy">
           <a href="us/Atlassian_TEAM_Report_20260508.html">
             <div class="ticker">TEAM</div>
             <div class="report-meta">
-              <div class="report-name">Atlassian</div>
+              <div class="report-name">Atlassian<span class="tag tag-buy">買進</span></div>
               <div class="report-desc">Atlassian Corporation — 深度研究報告</div>
             </div>
             <div class="report-date">2026.05.08</div>
@@ -369,14 +609,112 @@ footer a {
   </footer>
 </div>
 <script>
-document.querySelectorAll('.tab').forEach(function(tab) {
-  tab.addEventListener('click', function() {
-    document.querySelector('.tab.active').classList.remove('active');
-    document.querySelector('.tab-panel.active').classList.remove('active');
-    tab.classList.add('active');
-    document.getElementById('panel-' + tab.dataset.market).classList.add('active');
+(function() {
+  const searchInput = document.getElementById('search-input');
+  const clearBtn = document.getElementById('clear-btn');
+  const sortBtn = document.getElementById('sort-btn');
+  const sortArrow = sortBtn.querySelector('.arrow');
+  const resultCount = document.getElementById('result-count');
+  const emptyState = document.getElementById('empty-state');
+  const searchBox = document.querySelector('.search-box');
+  const ratingChips = document.querySelectorAll('#rating-filters .chip');
+  const tabs = document.querySelectorAll('.tab');
+  let activeRating = 'all';
+
+  function getActivePanel() {
+    return document.querySelector('.tab-panel.active');
+  }
+
+  function normalize(str) {
+    return (str || '').toLowerCase().trim();
+  }
+
+  function tickerOf(item) {
+    const el = item.querySelector('.ticker');
+    return el ? el.textContent.trim() : '';
+  }
+
+  function applyFilter() {
+    const query = normalize(searchInput.value);
+    const panel = getActivePanel();
+    if (!panel) return;
+    const items = panel.querySelectorAll('.report-item');
+    let visible = 0;
+    items.forEach((item) => {
+      const keywords = normalize(item.dataset.keywords);
+      const rating = item.dataset.rating || '';
+      const keywordMatch = !query || keywords.indexOf(query) !== -1;
+      const ratingMatch = activeRating === 'all' || rating === activeRating;
+      const match = keywordMatch && ratingMatch;
+      item.classList.toggle('hidden', !match);
+      if (match) visible++;
+    });
+    resultCount.textContent = `${visible} / ${items.length} 篇`;
+    emptyState.classList.toggle('show', visible === 0);
+    searchBox.classList.toggle('has-value', searchInput.value.length > 0);
+  }
+
+  function applySort() {
+    const order = sortBtn.dataset.order;
+    const dir = order === 'desc' ? -1 : 1;
+    document.querySelectorAll('.report-list').forEach((list) => {
+      const items = Array.from(list.querySelectorAll('.report-item'));
+      items.sort((a, b) => {
+        const da = a.dataset.date || '';
+        const db = b.dataset.date || '';
+        if (da !== db) return da < db ? -dir : dir;
+        return tickerOf(a).localeCompare(tickerOf(b)) * dir;
+      });
+      const frag = document.createDocumentFragment();
+      items.forEach((item) => frag.appendChild(item));
+      list.appendChild(frag);
+    });
+  }
+
+  searchInput.addEventListener('input', applyFilter);
+
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.focus();
+    applyFilter();
   });
-});
+
+  sortBtn.addEventListener('click', () => {
+    const next = sortBtn.dataset.order === 'desc' ? 'asc' : 'desc';
+    sortBtn.dataset.order = next;
+    sortArrow.textContent = next === 'desc' ? '↓' : '↑';
+    sortBtn.setAttribute('aria-label', next === 'desc' ? '依日期由新到舊排序，點擊切換為由舊到新' : '依日期由舊到新排序，點擊切換為由新到舊');
+    applySort();
+  });
+
+  ratingChips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeRating = chip.dataset.rating;
+      ratingChips.forEach((c) => {
+        const isActive = c === chip;
+        c.classList.toggle('active', isActive);
+        c.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+      applyFilter();
+    });
+  });
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        const isActive = t === tab;
+        t.classList.toggle('active', isActive);
+        t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach((p) => {
+        p.classList.toggle('active', p.id === `panel-${tab.dataset.market}`);
+      });
+      applyFilter();
+    });
+  });
+
+  applyFilter();
+})();
 </script>
 </body>
 </html>
